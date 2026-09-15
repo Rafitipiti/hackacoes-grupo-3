@@ -39,7 +39,13 @@ Antes de borrar nada, se fija el comportamiento actual de los endpoints que el f
 
 - [ ] **Step 1: Reescribir `requirements.txt` en UTF-8**
 
-El archivo actual está en UTF-16 con BOM (`b'\xff\xfe'`), lo que rompe `pip install -r` en el builder de Linux de Render. Se reescribe en UTF-8 y se ajustan las dependencias: salen las de machine learning y OpenAI (el spec elimina `ml_model.py` y `llm.py`), entran las de parquet y pruebas.
+El archivo actual está en UTF-16 con BOM (`b'\xff\xfe'`), lo que rompe `pip install -r` en el builder de Linux de Render. Se reescribe en UTF-8 y se ajustan las dependencias: sale OpenAI, entran las de parquet y pruebas.
+
+> **Las dependencias de `scikit-learn` se quedan en esta tarea.** `main.py`
+> todavía importa `app.ml_model`, que las necesita, y sin ellas `app.main` ni
+> siquiera se puede importar — los tests de caracterización no correrían. Salen
+> en la Task 2, junto con el código que las usa. El orden importa: la red de
+> seguridad fija el comportamiento **antes** de borrar, no después.
 
 Contenido completo del nuevo `backend/requirements.txt`:
 
@@ -79,6 +85,12 @@ fastapi==0.141.1
 h11==0.16.0
 httpx==0.27.2
 idna==3.19
+# Temporal: las necesita app/ml_model.py, que la Task 2 elimina.
+# Al borrar ml_model.py, quitar estas cuatro lineas.
+joblib==1.6.0
+scikit-learn==1.9.0
+scipy==1.18.1
+threadpoolctl==3.6.0
 numpy==2.5.3
 pandas==3.0.5
 pyarrow==18.1.0
@@ -239,6 +251,7 @@ requirements.txt, que estaba en UTF-16 con BOM y rompia pip en Linux."
 - Modify: `backend/app/analysis.py` (dejar solo lo que usa `/radar`)
 - Modify: `backend/app/services/agent_service.py:3683-4269` (quitar el bloque `__main__`)
 - Modify: `backend/app/services/integrity_service.py:1211-1356` (quitar el bloque `__main__`)
+- Modify: `backend/requirements.txt` (quitar las dependencias de ML que la Task 1 dejó como temporales)
 
 **Interfaces:**
 - Consumes: fixture `cliente` de Task 1.
@@ -305,17 +318,37 @@ En `backend/app/services/agent_service.py`, borrar desde la línea 3683 (`if __n
 
 En `backend/app/services/integrity_service.py`, borrar desde la línea 1211 hasta el final. Son 146 líneas.
 
-- [ ] **Step 5: Correr los tests de caracterización**
+- [ ] **Step 5: Quitar de `requirements.txt` las dependencias de ML**
+
+Ya no queda código que las use: `ml_model.py` se borró en el Step 1. Eliminar el bloque que la Task 1 dejó marcado como temporal:
+
+```
+# Temporal: las necesita app/ml_model.py, que la Task 2 elimina.
+# Al borrar ml_model.py, quitar estas cuatro lineas.
+joblib==1.6.0
+scikit-learn==1.9.0
+scipy==1.18.1
+threadpoolctl==3.6.0
+```
+
+Reescribir el archivo con el mismo heredoc de bash del Step 1 de la Task 1, para no reintroducir el BOM.
+
+- [ ] **Step 6: Correr los tests de caracterización**
 
 Run: `pytest tests/test_caracterizacion.py`
 Expected: **PASS**, los 8. Si falla el import de `app.main`, quedó una referencia a algo eliminado.
 
-- [ ] **Step 6: Verificar el tamaño de la poda**
+Verificar además que la app ya no necesita scikit-learn:
+
+Run: `python -c "import app.main; print('importa sin sklearn')"`
+Expected: imprime el mensaje sin `ModuleNotFoundError`.
+
+- [ ] **Step 7: Verificar el tamaño de la poda**
 
 Run: `python -c "import pathlib; print(sum(len(p.read_text(encoding='utf-8').splitlines()) for p in pathlib.Path('app').rglob('*.py')))"`
 Expected: alrededor de 5.400 líneas, frente a las 8.686 originales.
 
-- [ ] **Step 7: Commit**
+- [ ] **Step 8: Commit**
 
 ```bash
 git add -A backend/
@@ -433,23 +466,38 @@ cp "complemento/00_WELCOME KIT HACKACOES/inventario_datasets_extendido.json" bac
 Run: `ls backend/data/raw/ && ls backend/data/raw/revisiones/`
 Expected: cuatro carpetas más `inventario_datasets_extendido.json`; en `revisiones/`, los tres JSON más su README.
 
-- [ ] **Step 4: Añadir `backend/data/raw/` al `.gitignore`**
+- [ ] **Step 4: Añadir al `.gitignore` los datos crudos y el kit**
+
+> **Crítico.** El welcome kit en `complemento/00_WELCOME KIT HACKACOES/` está
+> **sin trackear** y pesa **536 MB**. El Step 6 hace `git add -A`. Si el kit no
+> está ignorado antes de ese punto, se commitean medio giga al repo. Este paso
+> va **antes** que cualquier `git add`.
 
 Agregar al final de `.gitignore`:
 
 ```
-# --- Datos crudos del welcome kit (no se versionan, ~406 MB) ---
+# --- Datos crudos: no se versionan ---
+# El welcome kit (536 MB) es la fuente; data/raw/ es su copia de trabajo y
+# data/curated/ (si versionado) es lo que el backend consume.
 backend/data/raw/
+complemento/00_WELCOME KIT HACKACOES/
 ```
+
+Verificar que surtió efecto antes de seguir:
+
+Run: `git status --porcelain | grep -c "WELCOME KIT"`
+Expected: `0`.
 
 - [ ] **Step 5: Eliminar la copia duplicada y el peso muerto del kit**
 
+`backend/data/coes` **sí** está trackeado, así que sale del índice con `git rm --cached`. Las rutas del kit **no** lo están, así que se borran con `rm -rf` a secas — un `git rm` sobre ellas falla con *"did not match any files"*.
+
 ```bash
+# Trackeado: sale del indice y del disco.
 git rm -r --cached backend/data/coes
 rm -rf backend/data/coes
-git rm -r "complemento/00_WELCOME KIT HACKACOES/Agendas" \
-          "complemento/00_WELCOME KIT HACKACOES/Presentaciones Mentores COES" \
-          "complemento/00_WELCOME KIT HACKACOES/portal/datos" 2>/dev/null || true
+
+# Sin trackear: solo del disco.
 rm -rf "complemento/00_WELCOME KIT HACKACOES/Agendas" \
        "complemento/00_WELCOME KIT HACKACOES/Presentaciones Mentores COES" \
        "complemento/00_WELCOME KIT HACKACOES/portal/datos"
@@ -457,10 +505,19 @@ rm -rf "complemento/00_WELCOME KIT HACKACOES/Agendas" \
 
 > Los tests de caracterización van a fallar a partir de aquí, porque `loader.py` apunta a `backend/data/coes/`. Se reparan en la Task 9. Es esperado y está acotado a las tareas 5-8.
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 6: Commit, con verificación de que no se cuela nada pesado**
+
+Antes de commitear, comprobar qué se está por agregar:
 
 ```bash
 git add -A
+git diff --cached --stat | tail -1
+git diff --cached --name-only | grep -E "WELCOME KIT|data/raw" | head
+```
+
+Expected: el resumen muestra solo borrados y el cambio de `.gitignore`; el segundo comando no devuelve nada. Si aparece cualquier ruta del kit o de `data/raw`, **no commitear**: revisar el Step 4.
+
+```bash
 git commit -m "chore: mover el kit a data/raw y eliminar la copia duplicada
 
 backend/data/coes eran 140 MB byte-identicos al welcome kit, ademas sin
