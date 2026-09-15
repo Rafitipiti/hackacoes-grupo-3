@@ -5,6 +5,7 @@ convierten con `python -m scripts.preparar_datos`. El backend nunca lee
 JSON crudo: solo parquet.
 """
 
+from collections.abc import Mapping
 from functools import lru_cache
 from pathlib import Path
 
@@ -59,15 +60,36 @@ def cargar_tabla(nombre: str) -> pd.DataFrame:
     return pd.read_parquet(ruta)
 
 
-@lru_cache(maxsize=1)
-def cargar_datos_coes() -> dict[str, pd.DataFrame]:
-    """Carga la capa curada una sola vez por proceso.
+class CapaCurada(Mapping):
+    """Tablas de la capa curada, cargadas la primera vez que se piden.
 
-    AgentService llama a esta funcion en su __init__ y cada router la
-    llama al importarse. Sin el cache, los mismos datos se cargarian
-    cuatro veces y no cabrian en los 512 MB del free tier.
+    Las 24 tablas suman ~224 MB en memoria, pero un request tipico toca
+    cinco o seis. Cargarlas todas al arrancar dejaba 66 MB de margen en
+    el free tier de 512 MB de Render, insuficiente: /radar hace .copy()
+    de una tabla de 18 MB por request.
     """
-    return {
-        clave: cargar_tabla(nombre)
-        for clave, nombre in TABLAS.items()
-    }
+
+    def __init__(self, tablas):
+        self._tablas = tablas
+        self._cargadas = {}
+
+    def __getitem__(self, clave):
+        if clave not in self._cargadas:
+            self._cargadas[clave] = cargar_tabla(self._tablas[clave])
+        return self._cargadas[clave]
+
+    def __iter__(self):
+        return iter(self._tablas)
+
+    def __len__(self):
+        return len(self._tablas)
+
+
+@lru_cache(maxsize=1)
+def cargar_datos_coes():
+    """Devuelve la capa curada. Una sola instancia por proceso.
+
+    AgentService la construye en su __init__ y cada router la pide al
+    importarse; el cache evita cuatro copias en memoria.
+    """
+    return CapaCurada(TABLAS)
