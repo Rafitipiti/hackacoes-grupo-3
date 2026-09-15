@@ -232,6 +232,59 @@ def construir_soporte(clave: str) -> pd.DataFrame:
     return tabla
 
 
+def construir_fact_revisiones() -> pd.DataFrame:
+    """Detalle del historial R0-R4 por proceso, empresa, periodo y valorizacion.
+
+    Ojo: 'monto' es el monto restatado completo del mes, no el ajuste.
+    Sumar montos de varias revisiones del mismo periodo es doble
+    contabilidad. El ajuste es la diferencia contra la revision anterior.
+    """
+    revisiones = pd.DataFrame(
+        leer_json("revisiones/revisiones_por_valorizacion.json")
+    )
+    revisiones["monto"] = a_float(revisiones["monto"])
+
+    # emprruc es el RUC anonimizado del kit; no aporta y no debe viajar.
+    return revisiones.drop(columns=["emprruc"], errors="ignore")
+
+
+def construir_fact_revisiones_totales() -> pd.DataFrame:
+    """Rollup del historial por proceso, empresa, periodo y revision."""
+    totales = pd.DataFrame(leer_json("revisiones/revisiones_totales.json"))
+    totales["monto_total"] = a_float(totales["monto_total"])
+
+    return totales
+
+
+def construir_fact_calendario() -> pd.DataFrame:
+    """Aplana el calendario: una fila por (proceso, periodo, revision).
+
+    El JSON trae una lista anidada 'revisiones' por cada par
+    proceso-periodo; aqui se explota a filas.
+    """
+    crudo = leer_json("revisiones/calendario_publicaciones.json")
+
+    filas = []
+
+    for entrada in crudo:
+        for revision in entrada["revisiones"]:
+            filas.append(
+                {
+                    "proceso": entrada["proceso"],
+                    "pericodi": entrada["pericodi"],
+                    "perianiomes": entrada["perianiomes"],
+                    "revision": revision["revision"],
+                    "revision_nombre": revision["revision_nombre"],
+                    "publicacion_pericodi": revision["publicacion_pericodi"],
+                    "publicacion_perianiomes": revision[
+                        "publicacion_perianiomes"
+                    ],
+                }
+            )
+
+    return pd.DataFrame(filas)
+
+
 def escribir(tabla: pd.DataFrame, nombre: str) -> None:
     CURATED.mkdir(parents=True, exist_ok=True)
     destino = CURATED / f"{nombre}.parquet"
@@ -255,6 +308,11 @@ def main() -> None:
     print("Construyendo tablas de soporte...")
     for clave in TABLAS_SOPORTE:
         escribir(construir_soporte(clave), clave)
+
+    print("Construyendo revisiones...")
+    escribir(construir_fact_revisiones(), "fact_revisiones")
+    escribir(construir_fact_revisiones_totales(), "fact_revisiones_totales")
+    escribir(construir_fact_calendario(), "fact_calendario")
 
 
 if __name__ == "__main__":
