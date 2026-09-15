@@ -1076,7 +1076,15 @@ export function Aplicacion() {
 }
 ```
 
-- [ ] **Step 7: Apuntar `main.jsx` a la cáscara**
+- [ ] **Step 7: Apuntar `main.jsx` a la cáscara y eliminar `index.css`**
+
+`index.css` tiene seis líneas (`html { min-height: 100% }` y
+`body { min-height: 100vh }`) que `base.css` ya cubre. Al dejar de importarlo,
+queda huérfano:
+
+```bash
+git rm frontend/src/index.css
+```
 
 Reemplazar el contenido completo de `frontend/src/main.jsx`:
 
@@ -1127,6 +1135,7 @@ vacia en la primera impresion."
 - Create: `frontend/src/componentes/EstadoCarga.jsx`
 - Create: `frontend/src/componentes/MarcaSintetico.jsx`
 - Create: `frontend/src/componentes/componentes.css`
+- Modify: `frontend/src/app/Aplicacion.jsx` (importar `componentes.css`)
 
 **Interfaces:**
 - Consumes: `clasificarVariacion` de Task 2.
@@ -2109,7 +2118,56 @@ Localizar el bloque que empieza con la pregunta "¿Cómo quieres investigar?" y 
 
 No borres ese bloque: `LegacyApp` debe seguir funcionando por sí solo si alguien lo monta sin props.
 
-- [ ] **Step 5: Crear las dos secciones**
+- [ ] **Step 5: Acotar los selectores globales de `App.css`**
+
+> **Este paso va antes de importar `App.css`, y el orden importa.**
+
+`frontend/src/App.css` tiene **5.536 líneas** y cinco selectores **globales**
+que pelearían con el sistema de diseño en toda la aplicación, no solo dentro
+del componente legado:
+
+| Línea | Selector |
+|---|---|
+| 1 | `*` |
+| 5 | `body` |
+| 79 | `button` |
+| 89 | `button:hover` |
+| 174 | `table` |
+
+Acotarlos bajo una clase `.legacy`. Son cinco ediciones, no 5.536:
+
+```css
+/* antes */            /* despues */
+*          { … }       .legacy *          { … }
+body       { … }       .legacy            { … }
+button     { … }       .legacy button     { … }
+button:hover { … }     .legacy button:hover { … }
+table      { … }       .legacy table      { … }
+```
+
+Nota que `body` pasa a `.legacy` a secas, no a `.legacy body`: lo que antes
+aplicaba al documento entero ahora aplica al contenedor del componente.
+
+Después, envolver el árbol que `LegacyApp` devuelve. Localizar su `return (` de
+nivel superior y añadir el contenedor:
+
+```jsx
+return (
+    <div className="legacy">
+        {/* ...todo el arbol existente, sin cambios... */}
+    </div>
+);
+```
+
+Verificar que no quedó ningún selector global suelto:
+
+```bash
+grep -nE "^(\*|body|button|table|html|a|input|select)\s*[,{:]" frontend/src/App.css
+```
+
+Expected: sin resultados.
+
+- [ ] **Step 6: Crear las dos secciones**
 
 `frontend/src/secciones/MiEmpresa.jsx`:
 
@@ -2164,7 +2222,7 @@ export function Panorama() {
 
 > El `key` fuerza a React a remontar el componente cuando cambia la selección. `LegacyApp` guarda mucho estado interno derivado de la empresa y el período; remontar es más seguro y más simple que intentar sincronizar cada pieza.
 
-- [ ] **Step 6: Montar las secciones**
+- [ ] **Step 7: Montar las secciones**
 
 En `Aplicacion.jsx`:
 
@@ -2182,7 +2240,7 @@ import "../App.css";
 {seccion === "calidad" && <Marcador seccion={seccion} />}
 ```
 
-- [ ] **Step 7: Verificar en el navegador**
+- [ ] **Step 8: Verificar en el navegador**
 
 Run desde `frontend/`: `npm run build` y `npm run dev`.
 
@@ -2192,7 +2250,7 @@ Run desde `frontend/`: `npm run build` y `npm run dev`.
 4. Cambiar de período en la barra lateral recarga el análisis.
 5. Cambiar de empresa recarga el análisis de la nueva.
 
-- [ ] **Step 8: Commit**
+- [ ] **Step 9: Commit**
 
 ```bash
 git add -A frontend/src
