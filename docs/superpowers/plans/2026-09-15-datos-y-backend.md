@@ -39,7 +39,13 @@ Antes de borrar nada, se fija el comportamiento actual de los endpoints que el f
 
 - [ ] **Step 1: Reescribir `requirements.txt` en UTF-8**
 
-El archivo actual está en UTF-16 con BOM (`b'\xff\xfe'`), lo que rompe `pip install -r` en el builder de Linux de Render. Se reescribe en UTF-8 y se ajustan las dependencias: salen las de machine learning y OpenAI (el spec elimina `ml_model.py` y `llm.py`), entran las de parquet y pruebas.
+El archivo actual está en UTF-16 con BOM (`b'\xff\xfe'`), lo que rompe `pip install -r` en el builder de Linux de Render. Se reescribe en UTF-8 y se ajustan las dependencias: sale OpenAI, entran las de parquet y pruebas.
+
+> **Las dependencias de `scikit-learn` se quedan en esta tarea.** `main.py`
+> todavía importa `app.ml_model`, que las necesita, y sin ellas `app.main` ni
+> siquiera se puede importar — los tests de caracterización no correrían. Salen
+> en la Task 2, junto con el código que las usa. El orden importa: la red de
+> seguridad fija el comportamiento **antes** de borrar, no después.
 
 Contenido completo del nuevo `backend/requirements.txt`:
 
@@ -79,6 +85,12 @@ fastapi==0.141.1
 h11==0.16.0
 httpx==0.27.2
 idna==3.19
+# Temporal: las necesita app/ml_model.py, que la Task 2 elimina.
+# Al borrar ml_model.py, quitar estas cuatro lineas.
+joblib==1.6.0
+scikit-learn==1.9.0
+scipy==1.18.1
+threadpoolctl==3.6.0
 numpy==2.5.3
 pandas==3.0.5
 pyarrow==18.1.0
@@ -239,6 +251,7 @@ requirements.txt, que estaba en UTF-16 con BOM y rompia pip en Linux."
 - Modify: `backend/app/analysis.py` (dejar solo lo que usa `/radar`)
 - Modify: `backend/app/services/agent_service.py:3683-4269` (quitar el bloque `__main__`)
 - Modify: `backend/app/services/integrity_service.py:1211-1356` (quitar el bloque `__main__`)
+- Modify: `backend/requirements.txt` (quitar las dependencias de ML que la Task 1 dejó como temporales)
 
 **Interfaces:**
 - Consumes: fixture `cliente` de Task 1.
@@ -305,17 +318,51 @@ En `backend/app/services/agent_service.py`, borrar desde la línea 3683 (`if __n
 
 En `backend/app/services/integrity_service.py`, borrar desde la línea 1211 hasta el final. Son 146 líneas.
 
-- [ ] **Step 5: Correr los tests de caracterización**
+- [ ] **Step 5: Quitar de `requirements.txt` las dependencias de ML**
+
+Ya no queda código que las use: `ml_model.py` se borró en el Step 1. Eliminar el bloque que la Task 1 dejó marcado como temporal:
+
+```
+# Temporal: las necesita app/ml_model.py, que la Task 2 elimina.
+# Al borrar ml_model.py, quitar estas cuatro lineas.
+joblib==1.6.0
+scikit-learn==1.9.0
+scipy==1.18.1
+threadpoolctl==3.6.0
+```
+
+Reescribir el archivo con el mismo heredoc de bash del Step 1 de la Task 1, para no reintroducir el BOM.
+
+- [ ] **Step 6: Correr los tests de caracterización**
 
 Run: `pytest tests/test_caracterizacion.py`
 Expected: **PASS**, los 8. Si falla el import de `app.main`, quedó una referencia a algo eliminado.
 
-- [ ] **Step 6: Verificar el tamaño de la poda**
+Verificar además que la app ya no necesita scikit-learn:
+
+Run: `python -c "import app.main; print('importa sin sklearn')"`
+Expected: imprime el mensaje sin `ModuleNotFoundError`.
+
+- [ ] **Step 7: Verificar el tamaño de la poda**
 
 Run: `python -c "import pathlib; print(sum(len(p.read_text(encoding='utf-8').splitlines()) for p in pathlib.Path('app').rglob('*.py')))"`
-Expected: alrededor de 5.400 líneas, frente a las 8.686 originales.
+Expected: **6.454 líneas**, frente a las 8.661 originales medidas con esta misma fórmula.
 
-- [ ] **Step 7: Commit**
+El desglose que debe cuadrar exactamente:
+
+| Archivo | Líneas quitadas |
+|---|---|
+| `main.py` (7 endpoints + `/periodos` duplicado + imports) | −200 |
+| `analysis.py` (todo salvo los dos scores) | −828 |
+| `agent_service.py` (bloque `__main__`) | −591 |
+| `integrity_service.py` (bloque `__main__`) | −147 |
+| `ml_model.py` (archivo completo) | −84 |
+| `data_generator.py` (archivo completo) | −357 |
+| **Total** | **−2.207** |
+
+8.661 − 2.207 = **6.454**. Si el conteo da otra cosa, el desglose dice dónde buscar.
+
+- [ ] **Step 8: Commit**
 
 ```bash
 git add -A backend/
@@ -433,23 +480,38 @@ cp "complemento/00_WELCOME KIT HACKACOES/inventario_datasets_extendido.json" bac
 Run: `ls backend/data/raw/ && ls backend/data/raw/revisiones/`
 Expected: cuatro carpetas más `inventario_datasets_extendido.json`; en `revisiones/`, los tres JSON más su README.
 
-- [ ] **Step 4: Añadir `backend/data/raw/` al `.gitignore`**
+- [ ] **Step 4: Añadir al `.gitignore` los datos crudos y el kit**
+
+> **Crítico.** El welcome kit en `complemento/00_WELCOME KIT HACKACOES/` está
+> **sin trackear** y pesa **536 MB**. El Step 6 hace `git add -A`. Si el kit no
+> está ignorado antes de ese punto, se commitean medio giga al repo. Este paso
+> va **antes** que cualquier `git add`.
 
 Agregar al final de `.gitignore`:
 
 ```
-# --- Datos crudos del welcome kit (no se versionan, ~406 MB) ---
+# --- Datos crudos: no se versionan ---
+# El welcome kit (536 MB) es la fuente; data/raw/ es su copia de trabajo y
+# data/curated/ (si versionado) es lo que el backend consume.
 backend/data/raw/
+complemento/00_WELCOME KIT HACKACOES/
 ```
+
+Verificar que surtió efecto antes de seguir:
+
+Run: `git status --porcelain | grep -c "WELCOME KIT"`
+Expected: `0`.
 
 - [ ] **Step 5: Eliminar la copia duplicada y el peso muerto del kit**
 
+`backend/data/coes` **sí** está trackeado, así que sale del índice con `git rm --cached`. Las rutas del kit **no** lo están, así que se borran con `rm -rf` a secas — un `git rm` sobre ellas falla con *"did not match any files"*.
+
 ```bash
+# Trackeado: sale del indice y del disco.
 git rm -r --cached backend/data/coes
 rm -rf backend/data/coes
-git rm -r "complemento/00_WELCOME KIT HACKACOES/Agendas" \
-          "complemento/00_WELCOME KIT HACKACOES/Presentaciones Mentores COES" \
-          "complemento/00_WELCOME KIT HACKACOES/portal/datos" 2>/dev/null || true
+
+# Sin trackear: solo del disco.
 rm -rf "complemento/00_WELCOME KIT HACKACOES/Agendas" \
        "complemento/00_WELCOME KIT HACKACOES/Presentaciones Mentores COES" \
        "complemento/00_WELCOME KIT HACKACOES/portal/datos"
@@ -457,10 +519,19 @@ rm -rf "complemento/00_WELCOME KIT HACKACOES/Agendas" \
 
 > Los tests de caracterización van a fallar a partir de aquí, porque `loader.py` apunta a `backend/data/coes/`. Se reparan en la Task 9. Es esperado y está acotado a las tareas 5-8.
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 6: Commit, con verificación de que no se cuela nada pesado**
+
+Antes de commitear, comprobar qué se está por agregar:
 
 ```bash
 git add -A
+git diff --cached --stat | tail -1
+git diff --cached --name-only | grep -E "WELCOME KIT|data/raw" | head
+```
+
+Expected: el resumen muestra solo borrados y el cambio de `.gitignore`; el segundo comando no devuelve nada. Si aparece cualquier ruta del kit o de `data/raw`, **no commitear**: revisar el Step 4.
+
+```bash
 git commit -m "chore: mover el kit a data/raw y eliminar la copia duplicada
 
 backend/data/coes eran 140 MB byte-identicos al welcome kit, ademas sin
@@ -576,22 +647,24 @@ SEED = 20260915
 # El alias es un nombre de fantasia, no una re-identificacion. La regla 8.2
 # del kit prohibe re-identificar; la clave tecnica sigue siendo EMPRESA_00X
 # y el RUC real nunca entra al backend.
+# Con tildes: el alias es texto de cara al usuario, no un identificador.
+# La UI se lo muestra a directivos del COES, en espanol.
 PREFIJOS_ALIAS = [
     "Generadora",
     "Distribuidora",
     "Transmisora",
     "Comercializadora",
-    "Energia",
-    "Hidroelectrica",
-    "Termoelectrica",
-    "Eolica",
+    "Energía",
+    "Hidroeléctrica",
+    "Termoeléctrica",
+    "Eólica",
 ]
 
 SUFIJOS_ALIAS = [
-    "Andina", "del Norte", "del Sur", "Pacifico", "Amazonas",
-    "Central", "Altiplano", "Costa Verde", "Maranon", "Urubamba",
+    "Andina", "del Norte", "del Sur", "Pacífico", "Amazonas",
+    "Central", "Altiplano", "Costa Verde", "Marañón", "Urubamba",
     "Cordillera", "del Oriente", "Pampas", "Titicaca", "Vilcanota",
-    "Chira", "Santa", "Mantaro", "Rimac",
+    "Chira", "Santa", "Mantaro", "Rímac",
 ]
 
 
@@ -1564,18 +1637,59 @@ def test_los_datos_se_cargan_una_sola_vez():
 
 - [ ] **Step 6: Correr los tests del loader y los de caracterización**
 
-Run: `pytest tests/test_loader.py tests/test_caracterizacion.py`
-Expected: PASS. Los de caracterización vuelven a verde: el backend ya sirve desde parquet.
+Run: `pytest tests/test_loader.py tests/test_caracterizacion.py -q`
 
-- [ ] **Step 7: Medir el arranque**
+Expected: **`13 passed`**. Leer el número con cuidado.
+
+> **`8 skipped` NO es aprobar.** Entre la Task 4 y esta, `conftest.py` tolera
+> un `FileNotFoundError` al importar la app, porque `loader.py` apuntaba a una
+> carpeta borrada. Esta tarea es la que cierra ese hueco. Si tras reescribir
+> `loader.py` los 8 tests de caracterización siguen saltándose, significa que
+> la app todavía no encuentra sus datos — la tarea **no** está hecha.
+>
+> Verificarlo explícitamente:
+>
+> ```bash
+> pytest tests/test_caracterizacion.py -q 2>&1 | tail -1 | grep -q "8 passed" \
+>   && echo "OK: los 8 corren de verdad" \
+>   || echo "FALLA: siguen saltandose o fallando"
+> ```
+
+- [ ] **Step 7: Retirar la tolerancia de `conftest.py`**
+
+Ya no hay hueco que tolerar: la capa curada existe y `loader.py` la lee. Dejar el `try/except` sería permitir que un fallo real de import se disfrace de skip en las tareas siguientes.
+
+Reemplazar el contenido de `backend/tests/conftest.py` por la versión sin tolerancia:
+
+```python
+import pytest
+from fastapi.testclient import TestClient
+
+from app.main import app
+
+
+@pytest.fixture(scope="session")
+def cliente():
+    """Cliente HTTP contra la app, compartido por toda la sesión de pruebas.
+
+    Es scope=session porque levantar la app carga los datasets, que es caro.
+    """
+    with TestClient(app) as c:
+        yield c
+```
+
+Run: `pytest tests/test_caracterizacion.py -q`
+Expected: `8 passed`. Si ahora rompe la recolección, hay un fallo real de import que el `try/except` estaba ocultando — arreglarlo, no reponer el `except`.
+
+- [ ] **Step 8: Medir el arranque**
 
 Run: `python -c "import time; t=time.time(); from app.data.loader import cargar_datos_coes; cargar_datos_coes(); print(f'{time.time()-t:.1f} s')"`
 Expected: menos de 5 segundos.
 
-- [ ] **Step 8: Commit**
+- [ ] **Step 9: Commit**
 
 ```bash
-git add backend/app/data/loader.py backend/tests/test_loader.py
+git add backend/app/data/loader.py backend/tests/test_loader.py backend/tests/conftest.py
 git commit -m "refactor: el loader lee parquet en vez de JSON crudo
 
 Arranque de ~40 s a menos de 5, y el backend deja de necesitar los
@@ -1600,7 +1714,7 @@ El módulo diferenciador del spec: responde qué trae cada publicación mensual,
 - Produces:
   - `RevisionService(datos: dict[str, pd.DataFrame])`
   - `.calendario_de_publicacion(publicacion_pericodi: int) -> list[dict]`
-  - `.cascada(empresa_id: str, pericodi: int) -> list[dict]` — una entrada por revisión, con `monto_total`, `ajuste` y `ajuste_pct`
+  - `.cascada(empresa_id: str, pericodi: int) -> dict[str, list[dict]]` — **por proceso**, cada uno con sus pasos (`monto_total`, `ajuste`, `ajuste_pct`)
   - `.impacto_de_publicacion(publicacion_pericodi: int) -> dict`
   - Router con prefijo `/revisiones`
 
@@ -2001,6 +2115,16 @@ No tocar nada más del cuerpo. El test `test_radar_de_un_periodo_valido` de la T
 
 - [ ] **Step 3: Mover los `/agente/*` a `empresa.py`**
 
+> **Deduplicar al mover.** `main.py` trae `/agente/explicacion-lscio/{empresa_id}/{pericodi}` **definido dos veces** (defecto preexistente, detectado durante la Task 2 y fuera de su alcance). Al mover, conservar **una sola** definición. Verificar después con:
+>
+> ```bash
+> grep -c 'explicacion-lscio' app/routers/empresa.py
+> ```
+>
+> Expected: `1`.
+>
+> Aprovechar también para quitar las variables `pd_periodo_actual` y `pd_periodo_anterior`, que quedaron sin uso tras la Task 2.
+
 Copiar los 14 endpoints `/agente/*` de `main.py` a `backend/app/routers/empresa.py`, con este encabezado:
 
 ```python
@@ -2102,6 +2226,8 @@ caracterizacion lo verifican."
 - Create: `backend/render.yaml`
 - Modify: `backend/app/main.py` (CORS por variable de entorno)
 - Modify: `README.md` (instrucciones actualizadas)
+- Modify: `frontend/src/App.jsx:16` (URL del backend por variable de entorno)
+- Create: `frontend/.env.example`
 - Test: `backend/tests/test_despliegue.py`
 
 **Interfaces:**
@@ -2229,15 +2355,80 @@ python -m scripts.preparar_datos
 
 Actualizar además la sección "Sobre los datos": ya no describe `data_generator.py` ni el CSV, sino el welcome kit, el backcast 2025 (`origen: real | sintetico`) y el alias de empresa como nombre ficticio.
 
-- [ ] **Step 8: Correr toda la suite una última vez**
+- [ ] **Step 8: Hacer configurable la URL del backend en el frontend**
 
-Run: `pytest`
-Expected: PASS, todo.
+`frontend/src/App.jsx:16` tiene la URL **hardcodeada**:
 
-- [ ] **Step 9: Commit**
+```js
+const API_URL = "http://127.0.0.1:8000";
+```
+
+Desplegado, eso apunta al `localhost` de quien abre la página, no al backend. Reemplazar por:
+
+```js
+const API_URL = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000";
+```
+
+Es la única línea que cambia de `App.jsx`. El resto del archivo no se toca.
+
+Crear `frontend/.env.example`:
+
+```
+# URL del backend. En local no hace falta: el valor por defecto ya apunta ahi.
+# En produccion (Vercel) se configura como variable de entorno del proyecto.
+VITE_API_URL=http://127.0.0.1:8000
+```
+
+Añadir a `.gitignore` del repo raíz, si no está cubierto ya:
+
+```
+frontend/.env
+```
+
+- [ ] **Step 9: Verificar que el frontend compila y sigue funcionando**
+
+Run desde `frontend/`: `npm run build`
+Expected: build exitoso.
+
+Verificar que el fallback funciona sin variable de entorno definida:
+
+Run: `grep -n "VITE_API_URL" src/App.jsx`
+Expected: una sola línea, con el `??` y el valor por defecto.
+
+- [ ] **Step 10: Prueba de humo extremo a extremo**
+
+Este es el paso que confirma que hay algo **visual y funcional**, no solo una API que responde.
+
+En una terminal, desde `backend/`:
 
 ```bash
-git add backend/render.yaml backend/app/main.py backend/tests/test_despliegue.py README.md
+uvicorn app.main:app --port 8000
+```
+
+En otra, desde `frontend/`:
+
+```bash
+npm run dev
+```
+
+Abrir `http://localhost:5173` y comprobar, anotando lo que se ve:
+
+1. La página carga sin errores en la consola del navegador.
+2. El selector de períodos ofrece **20 meses** (antes eran 8). Es la señal visible de que la capa curada con el backcast 2025 está conectada.
+3. El selector de empresas lista empresas con su **alias** (`Generadora Andina`, no `EMPRESA_047`).
+4. Seleccionar una empresa y un período carga el flujo del agente sin error.
+
+Si algo de esto falla, reportarlo con el error literal de la consola del navegador y el de la terminal de uvicorn. NO lo arregles a ciegas.
+
+- [ ] **Step 11: Correr toda la suite una última vez**
+
+Run: `pytest`
+Expected: PASS, todo. Leer el número: no debe haber ningún `skipped`.
+
+- [ ] **Step 12: Commit**
+
+```bash
+git add backend/render.yaml backend/app/main.py backend/tests/test_despliegue.py README.md frontend/src/App.jsx frontend/.env.example .gitignore
 git commit -m "feat: preparar el despliegue del backend
 
 CORS configurable por CORS_ORIGINS, render.yaml con health check en

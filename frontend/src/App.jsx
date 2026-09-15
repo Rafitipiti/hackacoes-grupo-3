@@ -13,7 +13,7 @@ import {
     Cell
 } from "recharts";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 
 function construirWaterfall(analisis) {
@@ -229,6 +229,14 @@ function App() {
             );
 
         }
+    }
+
+    function aliasDeEmpresa(empresaId) {
+        return (
+            empresas.find(
+                (empresa) => empresa.empresa_id === empresaId
+            )?.alias ?? empresaId
+        );
     }
 
     async function cargarRadar() {
@@ -2140,7 +2148,7 @@ function App() {
                                                 key={empresa.empresa_id}
                                                 value={empresa.empresa_id}
                                             >
-                                                {empresa.empresa_id}
+                                                {empresa.alias ?? empresa.empresa_id}
                                             </option>
                                         ))}
                                     </select>
@@ -2451,7 +2459,7 @@ function App() {
                                                                 <div className="agent-cell">
 
                                                                     <strong>
-                                                                        {item.agente}
+                                                                        {aliasDeEmpresa(item.agente)}
                                                                     </strong>
 
                                                                     <span>
@@ -2665,8 +2673,10 @@ function App() {
                                         </span>
 
                                         <h2>
-                                            {agenteSeleccionado?.agente_id ||
-                                                analisis.empresa}
+                                            {aliasDeEmpresa(
+                                                agenteSeleccionado?.agente_id ||
+                                                    analisis.empresa
+                                            )}
                                         </h2>
 
                                         <p>
@@ -4003,7 +4013,7 @@ function App() {
                                             👤 MODO AGENTE · A1 RESULTADO Y VARIACIÓN
                                         </div>
 
-                                        <h2>{empresaAgente}</h2>
+                                        <h2>{aliasDeEmpresa(empresaAgente)}</h2>
 
                                         <p>
                                             {resumenAgente.periodo?.perinombre}
@@ -4390,7 +4400,7 @@ function App() {
                                         </span>
 
                                         <h2>
-                                            {resumenAgente.empresa}
+                                            {aliasDeEmpresa(resumenAgente.empresa)}
                                         </h2>
 
                                         <p>
@@ -4897,7 +4907,7 @@ function App() {
                                         </span>
 
                                         <h2>
-                                            {empresaAgente}
+                                            {aliasDeEmpresa(empresaAgente)}
                                         </h2>
 
                                         <p>
@@ -6209,7 +6219,7 @@ function App() {
                                         </span>
 
                                         <h2>
-                                            {resumenAgente?.empresa}
+                                            {aliasDeEmpresa(resumenAgente?.empresa)}
                                         </h2>
 
                                         <p>
@@ -6791,7 +6801,7 @@ function App() {
                                         </span>
 
                                         <h2>
-                                            {resumenAgente?.empresa}
+                                            {aliasDeEmpresa(resumenAgente?.empresa)}
                                         </h2>
 
                                         <p>
@@ -7068,7 +7078,7 @@ function App() {
                                         </span>
 
                                         <h2>
-                                            {resumenAgente?.empresa}
+                                            {aliasDeEmpresa(resumenAgente?.empresa)}
                                         </h2>
 
                                         <p>
@@ -7332,7 +7342,7 @@ function App() {
                                         </span>
 
                                         <h2>
-                                            {resumenAgente?.empresa}
+                                            {aliasDeEmpresa(resumenAgente?.empresa)}
                                         </h2>
 
                                         <p>

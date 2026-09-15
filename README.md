@@ -41,7 +41,7 @@ Reglas: nunca trabajar directo en `master`, siempre `git pull` antes de empezar,
 |---|---|
 | Frontend | React 19 + Vite 8 · Recharts (gráficos) · Axios (HTTP) · oxlint |
 | Backend | Python + FastAPI + Uvicorn · Pydantic |
-| Datos y análisis | pandas · numpy · scikit-learn |
+| Datos y análisis | pandas · numpy · pyarrow |
 
 Node.js se usa únicamente como herramienta de desarrollo del frontend (servidor de desarrollo de Vite y compilación). No hay backend en Node: la API es FastAPI y el frontend compila a archivos estáticos.
 
@@ -49,19 +49,22 @@ Node.js se usa únicamente como herramienta de desarrollo del frontend (servidor
 
 ```
 COES_2026/
-├── backend/          API FastAPI
+├── backend/                API FastAPI
 │   ├── app/
-│   │   ├── main.py            punto de entrada de la API
+│   │   ├── main.py            ensamblador de la app (CORS, routers)
 │   │   ├── analysis.py        análisis de liquidaciones
-│   │   ├── ml_model.py        modelo predictivo
-│   │   ├── data_generator.py  generador del dataset sintético
-│   │   ├── data/              carga de datos
-│   │   └── services/          trazabilidad, integridad, analista, agente
-│   └── data/coes/    datasets del proyecto (JSON)
-├── frontend/         aplicación React + Vite
-├── data/             dataset de liquidaciones simuladas (XLSX)
-├── presentacion/     PPT de la exposición
-└── COES.txt          notas de instalación del entorno
+│   │   ├── data/loader.py     carga perezosa de la capa curada
+│   │   ├── routers/           endpoints por dominio (catálogos, panorama, empresa, revisiones)
+│   │   └── services/          trazabilidad, integridad, agente
+│   ├── scripts/
+│   │   └── preparar_datos.py  ETL: welcome kit -> data/curated/
+│   ├── data/
+│   │   ├── raw/                copia de trabajo del welcome kit (no versionada)
+│   │   └── curated/             parquet consumidos por la API (sí versionada)
+│   └── tests/                pruebas de ETL, servicios y endpoints
+├── frontend/                aplicación React + Vite
+├── presentacion/            PPT de la exposición
+└── COES.txt                 notas de instalación del entorno
 ```
 
 ## Cómo levantarlo
@@ -85,10 +88,21 @@ Activar el entorno virtual:
 source venv/bin/activate
 ```
 
-Instalar y levantar:
+Instalar dependencias:
 
 ```bash
 pip install -r requirements.txt
+```
+
+Preparar la capa de datos curada (una sola vez, antes de levantar la API por primera vez o cuando cambie el welcome kit en `data/raw/`):
+
+```bash
+python -m scripts.preparar_datos
+```
+
+Levantar la API:
+
+```bash
 uvicorn app.main:app --reload
 ```
 
@@ -106,11 +120,27 @@ npm run dev
 
 La aplicación queda en `http://localhost:5173`.
 
+## Despliegue
+
+- **Backend en Render**: configurar la variable de entorno `CORS_ORIGINS` con la URL del frontend en Vercel (por ejemplo `https://coes-2026.vercel.app`). Si se omite, el navegador bloquea las respuestas por CORS y el backend no deja rastro del problema en sus propios logs — el error solo aparece en la consola del navegador.
+- **Frontend en Vercel**: Root Directory `frontend/`, y variable de entorno `VITE_API_URL` con la URL pública del backend en Render (por ejemplo `https://coes-liquidaciones-api.onrender.com`).
+
+## Pruebas
+
+```bash
+cd backend
+pytest
+```
+
+Los 23 tests de `test_etl_*.py` requieren el welcome kit en `backend/data/raw/` (no versionado). En un clon limpio, sin ese directorio, se saltan automáticamente en vez de fallar.
+
 ## Sobre los datos
 
-**Todos los datos de este repositorio son sintéticos.** Fueron generados con `backend/app/data_generator.py` (semilla fija) y están marcados como `COES - Dataset Sintético` en la columna `fuente`. Ninguna cifra corresponde a liquidaciones reales ni expone información económica de ninguna empresa del sector.
+La fuente de datos ya no es un generador sintético ni un CSV: es el **welcome kit de HackaCOES**, la copia de trabajo del cual vive en `backend/data/raw/` (no se versiona; ver `.gitignore`). El script `python -m scripts.preparar_datos` lo transforma en la capa curada de `backend/data/curated/` (parquet, sí versionada), que es lo único que el backend lee en tiempo de ejecución.
 
-Los RUC y razones sociales que aparecen en `data/simulado_liquidaciones_COES_2024-09_2026-08.xlsx` son información pública de SUNAT; los montos y la existencia misma de cada relación comercial son inventados.
+El welcome kit trae datos reales hasta cierto corte y, a partir de ahí, un **backcast 2025**: periodos generados sintéticamente para completar el histórico. Cada periodo indica su procedencia en el campo `origen`, con valor `real` o `sintetico` — así queda explícito qué cifras corresponden a liquidaciones reales del mercado y cuáles son una proyección hacia atrás.
+
+Las empresas se identifican internamente por su clave técnica (`EMPRESA_00X`), la única que participa en cálculos y relaciones. De cara al usuario se muestran con un **alias ficticio** (por ejemplo, `Generadora Andina`) generado de forma determinística a partir de esa clave: no es una re-identificación de la empresa real, solo una etiqueta legible para la demo.
 
 ## Equipo
 

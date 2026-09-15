@@ -106,38 +106,6 @@ class IntegrityService:
                     )
                 }
 
-            print(
-                "\n=== DEBUG LVTA ==="
-            )
-
-            print(
-                "Empresa:",
-                empresa_id
-            )
-
-            print(
-                "Periodo:",
-                pericodi_validar
-            )
-
-            print(
-                "Resultado LVTA:",
-                len(resultado)
-            )
-
-            print(
-                "Soporte Energia:",
-                len(soporte)
-            )
-
-            print(
-                "Empresas soporte:",
-                self.energia_transferencias[
-                    self.energia_transferencias["pericodi"]
-                    == pericodi_validar
-                ]["emprcodi"].unique()
-            )
-
             if soporte.empty:
                 return {
                     "encontrado": False,
@@ -297,11 +265,7 @@ class IntegrityService:
             },
 
             "soporte": {
-                "dataset": (
-                    "reportes_intermedios/"
-                    "energia_activa/"
-                    "transferencias_por_empresa.json"
-                ),
+                "dataset": "data/curated/energia_transferencias.parquet",
 
                 "monto": actual["soporte"],
 
@@ -581,11 +545,7 @@ class IntegrityService:
             },
 
             "soporte": {
-                "dataset": (
-                    "reportes_intermedios/"
-                    "potencia/"
-                    "desglose_por_valorizacion.json"
-                ),
+                "dataset": "data/curated/potencia_desglose.parquet",
                 "monto_original": monto_soporte,
                 "monto_ajustado": monto_soporte_ajustado,
                 "cantidad_registros": len(soporte)
@@ -1207,150 +1167,3 @@ class IntegrityService:
             "alertas": alertas
         }
 
-
-if __name__ == "__main__":
-
-    from app.data.loader import cargar_datos_coes
-
-    datos = cargar_datos_coes()
-
-    servicio = IntegrityService(
-        datos
-    )
-
-    resultado = servicio.validar_empresa_periodo(
-        "EMPRESA_001",
-        138
-    )
-
-    print("\n==============================================")
-    print("       VALIDACIÓN DE INTEGRIDAD COES")
-    print("==============================================")
-
-    print(
-        f"Empresa: {resultado['empresa']}"
-    )
-
-    print(
-        f"Periodo: {resultado['pericodi']}"
-    )
-
-    print(
-        f"Estado global: "
-        f"{resultado['resumen']['estado']}"
-    )
-
-    print(
-        f"Reglas ejecutadas: "
-        f"{resultado['resumen']['reglas_ejecutadas']}"
-    )
-
-    print(
-        f"Reglas OK: "
-        f"{resultado['resumen']['reglas_ok']}"
-    )
-
-    print(
-        f"Reglas REVISAR: "
-        f"{resultado['resumen']['reglas_revisar']}"
-    )
-
-    print("\n--- DETALLE DE REGLAS ---")
-
-    for regla in resultado["reglas"]:
-
-        print(
-            f"\n{regla.get('regla_id')}"
-        )
-
-        print(
-            f"Estado: "
-            f"{regla.get('validacion', {}).get('estado', 'NO APLICA')}"
-        )
-
-        print(
-            f"Nivel: "
-            f"{regla.get('validacion', {}).get('nivel', 'N/A')}"
-        )
-
-        print(
-            f"Diferencia: "
-            f"{regla.get('validacion', {}).get('diferencia', 'N/A')}"
-        )
-
-    resumen_usuario = servicio.generar_resumen_integridad(
-        "EMPRESA_001",
-        138
-    )
-
-    print("\n==============================================")
-    print("       RESUMEN PARA EL MODO AGENTE")
-    print("==============================================")
-
-    print(
-        f"Estado: "
-        f"{resumen_usuario['estado']['codigo']}"
-    )
-
-    print(
-        f"Nivel: "
-        f"{resumen_usuario['estado']['nivel']}"
-    )
-
-    print(
-        f"Título: "
-        f"{resumen_usuario['estado']['titulo']}"
-    )
-
-    print(
-        f"Mensaje: "
-        f"{resumen_usuario['estado']['mensaje']}"
-    )
-
-    print("\n--- MÉTRICAS ---")
-
-    print(
-        f"Reglas ejecutadas: "
-        f"{resumen_usuario['metricas']['reglas_ejecutadas']}"
-    )
-
-    print(
-        f"Reglas OK: "
-        f"{resumen_usuario['metricas']['reglas_ok']}"
-    )
-
-    print(
-        f"Reglas REVISAR: "
-        f"{resumen_usuario['metricas']['reglas_revisar']}"
-    )
-
-    print("\n--- ALERTAS ---")
-
-    for alerta in resumen_usuario["alertas"]:
-
-        print(
-            f"{alerta['regla_id']} | "
-            f"{alerta['nivel']} | "
-            f"Diferencia: "
-            f"{alerta['diferencia']}"
-        )
-
-    integrity_service = IntegrityService(
-        datos
-    )
-
-    print("\n===== VALIDACIÓN EMPRESA / PERIODO =====")
-
-    resultado = integrity_service.validar_empresa_periodo(
-        "EMPRESA_001",
-        138
-    )
-
-    print("\n===== ESTADO DE CIERRE =====")
-
-    resultado = integrity_service.generar_estado_cierre(
-        "EMPRESA_001",
-        138
-    )
-
-    print(resultado)
