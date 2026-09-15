@@ -459,6 +459,30 @@ describe("clasificarVariacion", () => {
     expect(clasificarVariacion(100, null).texto).toBe("s/d");
   });
 
+  it("el signo del delta va antes del simbolo de moneda", () => {
+    // Es el formato que usa soles() en todo el modulo: -S/ 50 k, no S/ -50 k.
+    const v = clasificarVariacion(-50000, -10);
+
+    expect(v.tipo).toBe("fuera-de-rango");
+    expect(v.texto).toContain("-S/");
+    expect(v.texto).not.toContain("S/ -");
+  });
+
+  it("el limite de 999% deja el borde del lado del porcentaje", () => {
+    expect(clasificarVariacion(1099, 100).tipo).toBe("normal");
+    expect(clasificarVariacion(1099.01, 100).tipo).toBe("fuera-de-rango");
+  });
+
+  it("dos periodos negativos comparan como cualquier otro par", () => {
+    // Una cuenta que paga menos que antes. El sistema reporta la direccion
+    // numerica y no opina sobre si eso es bueno: depende de si la empresa
+    // cobra o paga, y solo el usuario lo sabe.
+    const v = clasificarVariacion(-50, -100);
+
+    expect(v.tipo).toBe("normal");
+    expect(v.texto).toBe("+50.0%");
+  });
+
   it("clasifica la magnitud para disparar la atencion", () => {
     expect(clasificarVariacion(110, 100).magnitud).toBe("normal");
     expect(clasificarVariacion(130, 100).magnitud).toBe("revisar");
@@ -568,7 +592,7 @@ export function clasificarVariacion(actual, anterior) {
   if (Math.sign(actual) !== Math.sign(anterior) && actual !== 0) {
     return {
       tipo: "cambio-signo",
-      texto: `↔ ${soles(delta, 0).replace(/\.00$/, "")}`,
+      texto: `↔ ${soles(delta, 0)}`,
       delta,
       pct,
       magnitud: magnitudDe(pct),
@@ -576,9 +600,13 @@ export function clasificarVariacion(actual, anterior) {
   }
 
   if (Math.abs(pct) > LIMITE_PORCENTAJE) {
+    // El signo va antes del simbolo de moneda, igual que en soles().
+    // abreviar() solo formatea la magnitud.
+    const signo = delta < 0 ? "-" : "";
+
     return {
       tipo: "fuera-de-rango",
-      texto: `Δ S/ ${abreviar(delta)}`,
+      texto: `Δ ${signo}S/ ${abreviar(Math.abs(delta))}`,
       delta,
       pct,
       magnitud: "fuerte",
@@ -600,7 +628,7 @@ export function clasificarVariacion(actual, anterior) {
 - [ ] **Step 6: Correr los tests para verificar que pasan**
 
 Run desde `frontend/`: `npm test`
-Expected: PASS, los 12.
+Expected: PASS, los 15.
 
 - [ ] **Step 7: Commit**
 
@@ -1768,7 +1796,7 @@ export function descargar(nombreArchivo, contenido, tipoMime) {
 - [ ] **Step 4: Correr el test para verificar que pasa**
 
 Run desde `frontend/`: `npm test`
-Expected: PASS, los 16 (12 de Task 2 más 4 nuevos).
+Expected: PASS, los 19 (15 de Task 2 más 4 nuevos).
 
 - [ ] **Step 5: Escribir la sección**
 
@@ -2483,7 +2511,7 @@ npm run lint
 npm run build
 ```
 
-Expected: 16 tests en verde, lint sin errores, build exitoso.
+Expected: 19 tests en verde, lint sin errores, build exitoso.
 
 - [ ] **Step 2: Recorrido completo en el navegador**
 
@@ -2654,7 +2682,7 @@ npm run lint
 npm run build
 ```
 
-Expected: 16 tests en verde, lint sin errores, build exitoso.
+Expected: 19 tests en verde, lint sin errores, build exitoso.
 
 - [ ] **Step 10: Commit**
 
@@ -2674,7 +2702,7 @@ datos'."
 
 | Comando | Resultado esperado |
 |---|---|
-| `cd frontend && npm test` | 16 passed |
+| `cd frontend && npm test` | 19 passed |
 | `cd frontend && npm run lint` | sin errores |
 | `cd frontend && npm run build` | build exitoso |
 | Navegador | 5 secciones funcionando, 2 marcadas como próximas |
