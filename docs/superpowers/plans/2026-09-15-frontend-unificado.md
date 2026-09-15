@@ -86,11 +86,17 @@ Son los tokens de `complemento/dashboard_liquidaciones_coes.html`, copiados lite
   color-scheme: light;
 
   --bg:#F1F5FA; --surface:#ffffff; --surface-2:#EDF2F8; --surface-3:#DFE8F3;
-  --ink:#0F1A2E; --ink-2:#47546B; --ink-muted:#7B8798;
+  --ink:#0F1A2E; --ink-2:#47546B; --ink-muted:#6B7688;
   --grid:#E4EBF3; --axis:#C3CEDC; --border:rgba(0,36,130,.14);
   --accent:#005BA7;
   --s1:#005BA7; --s2:#D4622E; --s3:#6A3FA0; --s4:#D99A00;
   --warn:#fab219; --crit:#d03b3b; --good:#0ca30c;
+  /* --warn y --good sirven para rellenos y marcas, donde el minimo es 3:1.
+     Como color de TEXTO sobre fondo claro dan 1.83:1 y 3.35:1, insuficiente.
+     Estas variantes dan 5.28:1 y 6.44:1 sin salirse de la gama. El valor de
+     identidad no se toca: se le agrega un companero legible. */
+  --warn-texto:#96600A;
+  --good-texto:#0a6e1c;
   --sobre-accent:#ffffff;
   --seq1:#DCE8F7; --seq2:#BBD3EE; --seq3:#93B8E2; --seq4:#5F94D0;
   --seq5:#2E6DB8; --seq6:#114F97; --seq7:#002482;
@@ -118,6 +124,7 @@ Son los tokens de `complemento/dashboard_liquidaciones_coes.html`, copiados lite
     /* Los colores de estado se recalibran para fondo oscuro. Los tres
        valores ya pertenecen a la paleta oficial. */
     --warn:#F5C354; --crit:#E8736A; --good:#3BC46F;
+    --warn-texto:#F5C354; --good-texto:#3BC46F;
     --s1:#4193DA; --s2:#CC6330; --s3:#8F72D6; --s4:#B8871A;
     --seq1:#002482; --seq2:#114F97; --seq3:#2E6DB8; --seq4:#5F94D0;
     --seq5:#93B8E2; --seq6:#BBD3EE; --seq7:#DCE8F7;
@@ -137,6 +144,7 @@ Son los tokens de `complemento/dashboard_liquidaciones_coes.html`, copiados lite
   --accent:#4193DA;
   --sobre-accent:#0A0E19;
   --warn:#F5C354; --crit:#E8736A; --good:#3BC46F;
+  --warn-texto:#F5C354; --good-texto:#3BC46F;
   --s1:#4193DA; --s2:#CC6330; --s3:#8F72D6; --s4:#B8871A;
   --seq1:#002482; --seq2:#114F97; --seq3:#2E6DB8; --seq4:#5F94D0;
   --seq5:#93B8E2; --seq6:#BBD3EE; --seq7:#DCE8F7;
@@ -308,7 +316,8 @@ h3 { font-size: 14px; }
 > proyecto: `--ink` y `--ink-2` para texto, **incluidos los encabezados de
 > tabla y las etiquetas** — un encabezado de columna es el unico lugar donde
 > se dice que significa esa columna, asi que transmite informacion unica;
-> `--ink-muted` **solo** para notas y estados de apoyo; `--warn`,
+> `--ink-muted` **solo** para notas y estados de apoyo, y aun asi con
+> 4.59:1 medidos; `--warn`,
 > `--crit` y `--good` nunca solos — siempre con ícono o etiqueta de texto al
 > lado, que es lo que ya hace el componente `Variacion`.
 
@@ -1019,7 +1028,7 @@ export function Layout({ seccionActiva, alCambiarSeccion, tema, alCambiarTema, c
 .aviso-sintetico {
   margin: 0;
   font-size: 11px;
-  color: var(--warn);
+  color: var(--warn-texto);
   background: color-mix(in srgb, var(--warn) 12%, transparent);
   border-radius: 6px;
   padding: 5px 7px;
@@ -1288,7 +1297,7 @@ export function MarcaSintetico() {
   border-radius: 4px;
   padding: 1px 5px;
 }
-.variacion.mag-revisar { color: var(--warn); }
+.variacion.mag-revisar { color: var(--warn-texto); }
 .variacion.mag-revisar .sello { background: color-mix(in srgb, var(--warn) 18%, transparent); }
 .variacion.mag-fuerte { color: var(--crit); }
 .variacion.mag-fuerte .sello { background: color-mix(in srgb, var(--crit) 18%, transparent); }
@@ -1301,7 +1310,7 @@ export function MarcaSintetico() {
   font-size: 9px;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--warn);
+  color: var(--warn-texto);
   border: 1px dashed var(--warn);
   border-radius: 4px;
   padding: 1px 5px;
