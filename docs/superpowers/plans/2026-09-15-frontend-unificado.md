@@ -91,6 +91,7 @@ Son los tokens de `complemento/dashboard_liquidaciones_coes.html`, copiados lite
   --accent:#005BA7;
   --s1:#005BA7; --s2:#D4622E; --s3:#6A3FA0; --s4:#D99A00;
   --warn:#fab219; --crit:#d03b3b; --good:#0ca30c;
+  --sobre-accent:#ffffff;
   --seq1:#DCE8F7; --seq2:#BBD3EE; --seq3:#93B8E2; --seq4:#5F94D0;
   --seq5:#2E6DB8; --seq6:#114F97; --seq7:#002482;
   --shadow:0 1px 2px rgba(0,36,130,.06);
@@ -111,6 +112,12 @@ Son los tokens de `complemento/dashboard_liquidaciones_coes.html`, copiados lite
     --ink:#EEF3FA; --ink-2:#B4C0D2; --ink-muted:#7E8CA3;
     --grid:#232C42; --axis:#35405A; --border:rgba(255,255,255,.13);
     --accent:#4193DA;
+    /* Texto sobre el acento: en oscuro el acento aclara y el blanco cae a
+       3.3:1. Tinta oscura sobre el mismo acento da 6.3:1. */
+    --sobre-accent:#0A0E19;
+    /* Los colores de estado se recalibran para fondo oscuro. Los tres
+       valores ya pertenecen a la paleta oficial. */
+    --warn:#F5C354; --crit:#E8736A; --good:#3BC46F;
     --s1:#4193DA; --s2:#CC6330; --s3:#8F72D6; --s4:#B8871A;
     --seq1:#002482; --seq2:#114F97; --seq3:#2E6DB8; --seq4:#5F94D0;
     --seq5:#93B8E2; --seq6:#BBD3EE; --seq7:#DCE8F7;
@@ -128,12 +135,27 @@ Son los tokens de `complemento/dashboard_liquidaciones_coes.html`, copiados lite
   --ink:#EEF3FA; --ink-2:#B4C0D2; --ink-muted:#7E8CA3;
   --grid:#232C42; --axis:#35405A; --border:rgba(255,255,255,.13);
   --accent:#4193DA;
+  --sobre-accent:#0A0E19;
+  --warn:#F5C354; --crit:#E8736A; --good:#3BC46F;
   --s1:#4193DA; --s2:#CC6330; --s3:#8F72D6; --s4:#B8871A;
   --seq1:#002482; --seq2:#114F97; --seq3:#2E6DB8; --seq4:#5F94D0;
   --seq5:#93B8E2; --seq6:#BBD3EE; --seq7:#DCE8F7;
   --shadow:none;
   --grad:linear-gradient(90deg,#2E6DB8 0%,#4193DA 16%,#38B0E0 31%,#8F9BE0 48%,#C07BB4 64%,#E2564F 80%,#F08F3C 92%,#F5C354 100%);
   --ok:#3BC46F; --bad:#E8736A;
+}
+
+/* Alto contraste. Va al final y repite los selectores de cada modo para
+   empatar su especificidad: un :root suelto vale (0,1,0) y pierde contra
+   los bloques de modo oscuro, que valen (0,2,0). Sin esto el refuerzo
+   queda inerte justo para quien combina modo oscuro con alto contraste. */
+@media (prefers-contrast: more) {
+  :root,
+  :root:not([data-tema="claro"]),
+  :root[data-tema="oscuro"] {
+    --border: var(--ink-2);
+    --grid: var(--ink-muted);
+  }
 }
 ```
 
@@ -172,7 +194,7 @@ h3 { font-size: 14px; }
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--ink-2);
 }
 
 .tabla { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -181,7 +203,7 @@ h3 { font-size: 14px; }
   font-size: 11px;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--ink-2);
   font-weight: 600;
   padding: 8px 10px;
   border-bottom: 1px solid var(--border);
@@ -192,7 +214,7 @@ h3 { font-size: 14px; }
 
 .boton {
   background: var(--accent);
-  color: #fff;
+  color: var(--sobre-accent);
   border: 0;
   border-radius: 8px;
   padding: 9px 16px;
@@ -239,7 +261,7 @@ h3 { font-size: 14px; }
   top: 8px;
   z-index: 100;
   background: var(--accent);
-  color: #fff;
+  color: var(--sobre-accent);
   padding: 10px 16px;
   border-radius: 8px;
   font-weight: 600;
@@ -269,11 +291,6 @@ h3 { font-size: 14px; }
   }
 }
 
-/* En modo de alto contraste, los bordes sutiles desaparecen; se refuerzan. */
-@media (prefers-contrast: more) {
-  :root { --border: var(--ink-2); --grid: var(--ink-muted); }
-}
-
 /* El area tactil minima recomendada es 44px. En escritorio se permite
    menos, pero en pantallas tactiles no. */
 @media (pointer: coarse) {
@@ -288,8 +305,10 @@ h3 { font-size: 14px; }
 > **Sobre el contraste de los tokens.** La paleta viene de las presentaciones
 > oficiales de HackaCOES y está validada para daltonismo, pero no todos sus
 > colores alcanzan 4.5:1 sobre cualquier fondo. La regla práctica para este
-> proyecto: `--ink` y `--ink-2` para texto; `--ink-muted` **solo** para texto
-> secundario de 12px o más que no transmita información única; `--warn`,
+> proyecto: `--ink` y `--ink-2` para texto, **incluidos los encabezados de
+> tabla y las etiquetas** — un encabezado de columna es el unico lugar donde
+> se dice que significa esa columna, asi que transmite informacion unica;
+> `--ink-muted` **solo** para notas y estados de apoyo; `--warn`,
 > `--crit` y `--good` nunca solos — siempre con ícono o etiqueta de texto al
 > lado, que es lo que ya hace el componente `Variacion`.
 
@@ -1952,7 +1971,9 @@ export function ApisDescargas() {
 
 .metodo {
   background: var(--ok);
-  color: #fff;
+  /* Mismo problema que los botones: --ok invierte de verde oscuro a verde
+     claro entre modos, asi que el color del texto tiene que invertir con el. */
+  color: var(--sobre-accent);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .06em;
