@@ -285,6 +285,96 @@ def construir_fact_calendario() -> pd.DataFrame:
     return pd.DataFrame(filas)
 
 
+def _origen_dominante(serie: pd.Series) -> str:
+    """Un grupo es sintetico si cualquiera de sus filas lo es."""
+    return "sintetico" if (serie == "sintetico").any() else "real"
+
+
+def construir_agg_cmg_diario() -> pd.DataFrame:
+    """Costo marginal medio del sistema por periodo y dia."""
+    crudo = pd.DataFrame(
+        leer_json(
+            "reportes_intermedios/costos_marginales/"
+            "historico_diario_extendido.json"
+        )
+    )
+    crudo["promedio"] = a_float(crudo["promedio"])
+
+    agregado = (
+        crudo.groupby(["pericodi", "dia"], as_index=False)
+        .agg(
+            cmg_promedio=("promedio", "mean"),
+            barras=("barrcodi", "nunique"),
+            origen=("origen", _origen_dominante),
+        )
+        .sort_values(["pericodi", "dia"])
+        .reset_index(drop=True)
+    )
+
+    return agregado
+
+
+def construir_agg_perfil_intradia() -> pd.DataFrame:
+    """Perfil medio del dia: CMg por periodo y por intervalo de 15 minutos."""
+    crudo = pd.DataFrame(
+        leer_json(
+            "reportes_intermedios/costos_marginales/"
+            "curva_15min_muestra_extendido.json"
+        )
+    )
+    crudo["valor"] = a_float(crudo["valor"])
+
+    agregado = (
+        crudo.groupby(["pericodi", "intervalo"], as_index=False)
+        .agg(
+            cmg_promedio=("valor", "mean"),
+            hora_fin=("hora_fin", "first"),
+            origen=("origen", _origen_dominante),
+        )
+        .sort_values(["pericodi", "intervalo"])
+        .reset_index(drop=True)
+    )
+
+    return agregado
+
+
+def construir_agg_energia_diaria() -> pd.DataFrame:
+    """Energia entregada y retirada por periodo y dia, en una sola tabla."""
+    entregas_crudo = pd.DataFrame(
+        leer_json(
+            "reportes_intermedios/entregas_retiros/"
+            "entregas_historico_diario_extendido.json"
+        )
+    )
+    entregas_crudo["valor"] = a_float(entregas_crudo["valor"])
+
+    retiros_crudo = pd.DataFrame(
+        leer_json(
+            "reportes_intermedios/entregas_retiros/"
+            "retiros_historico_diario_extendido.json"
+        )
+    )
+    retiros_crudo["valor"] = a_float(retiros_crudo["valor"])
+
+    entregas = (
+        entregas_crudo.groupby(["pericodi", "dia"], as_index=False)
+        .agg(entregas=("valor", "sum"), origen=("origen", _origen_dominante))
+    )
+
+    retiros = (
+        retiros_crudo.groupby(["pericodi", "dia"], as_index=False)
+        .agg(retiros=("valor", "sum"))
+    )
+
+    energia = entregas.merge(retiros, on=["pericodi", "dia"], how="outer")
+    energia[["entregas", "retiros"]] = energia[
+        ["entregas", "retiros"]
+    ].fillna(0.0)
+    energia["origen"] = energia["origen"].fillna("sintetico")
+
+    return energia.sort_values(["pericodi", "dia"]).reset_index(drop=True)
+
+
 def escribir(tabla: pd.DataFrame, nombre: str) -> None:
     CURATED.mkdir(parents=True, exist_ok=True)
     destino = CURATED / f"{nombre}.parquet"
@@ -313,6 +403,11 @@ def main() -> None:
     escribir(construir_fact_revisiones(), "fact_revisiones")
     escribir(construir_fact_revisiones_totales(), "fact_revisiones_totales")
     escribir(construir_fact_calendario(), "fact_calendario")
+
+    print("Construyendo agregados...")
+    escribir(construir_agg_cmg_diario(), "agg_cmg_diario")
+    escribir(construir_agg_perfil_intradia(), "agg_perfil_intradia")
+    escribir(construir_agg_energia_diaria(), "agg_energia_diaria")
 
 
 if __name__ == "__main__":
