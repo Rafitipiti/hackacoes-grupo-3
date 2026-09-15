@@ -27,9 +27,9 @@ def calendario(publicacion_pericodi: int):
 
 @router.get("/cascada/{empresa_id}/{pericodi}")
 def cascada(empresa_id: str, pericodi: int):
-    pasos = _servicio.cascada(empresa_id, pericodi)
+    por_proceso = _servicio.cascada(empresa_id, pericodi)
 
-    if not pasos:
+    if not por_proceso:
         raise HTTPException(
             status_code=404,
             detail=(
@@ -41,7 +41,7 @@ def cascada(empresa_id: str, pericodi: int):
     return {
         "empresa_id": empresa_id,
         "pericodi": pericodi,
-        "pasos": pasos,
+        "procesos": por_proceso,
     }
 
 

@@ -33,66 +33,60 @@ class RevisionService:
 
         return entradas.to_dict(orient="records")
 
-    def cascada(self, empresa_id: str, pericodi: int) -> list[dict]:
-        """La cadena R0 -> R4 de un mes, con el ajuste de cada salto."""
+    def cascada(self, empresa_id: str, pericodi: int) -> dict[str, list[dict]]:
+        """La cadena R0..R4 de un mes, separada por proceso.
+
+        Cada proceso tiene su propia cadena de revisiones: un mes puede
+        llegar a R3 en Energia Activa y solo a R1 en Potencia. Consolidar
+        los montos entre procesos y luego comparar revisiones consecutivas
+        produce un ajuste que mide la desaparicion de un proceso, no un
+        recalculo. Por eso se separan.
+        """
         filas = self.totales[
             (self.totales["emprcodi"] == empresa_id)
             & (self.totales["pericodi"] == pericodi)
         ]
 
         if filas.empty:
-            return []
+            return {}
 
-        # Un mes puede tener varios procesos; se consolidan por revision.
-        consolidado = (
-            filas.groupby(
-                ["revision", "revision_nombre"], as_index=False
-            )
-            .agg(
-                monto_total=("monto_total", "sum"),
-                procesos=("proceso", "nunique"),
-                publicacion_pericodi=("publicacion_pericodi", "min"),
-                origen=("origen", "first"),
-            )
-            .sort_values("revision")
-            .reset_index(drop=True)
-        )
+        por_proceso = {}
 
-        pasos = []
-        monto_anterior = None
+        for proceso, grupo in filas.groupby("proceso"):
+            grupo = grupo.sort_values("revision")
 
-        for fila in consolidado.to_dict(orient="records"):
-            monto = float(fila["monto_total"])
+            pasos = []
+            monto_anterior = None
 
-            if monto_anterior is None:
-                ajuste = None
-                ajuste_pct = None
-            else:
-                ajuste = monto - monto_anterior
-                ajuste_pct = (
-                    ajuste / abs(monto_anterior)
-                    if monto_anterior != 0
-                    else None
-                )
+            for fila in grupo.to_dict(orient="records"):
+                monto = float(fila["monto_total"])
 
-            pasos.append(
-                {
+                if monto_anterior is None:
+                    ajuste = None
+                    ajuste_pct = None
+                else:
+                    ajuste = monto - monto_anterior
+                    ajuste_pct = (
+                        ajuste / abs(monto_anterior)
+                        if monto_anterior != 0
+                        else None
+                    )
+
+                pasos.append({
                     "revision": int(fila["revision"]),
                     "revision_nombre": fila["revision_nombre"],
                     "monto_total": monto,
                     "ajuste": ajuste,
                     "ajuste_pct": ajuste_pct,
-                    "procesos": int(fila["procesos"]),
-                    "publicacion_pericodi": int(
-                        fila["publicacion_pericodi"]
-                    ),
+                    "publicacion_pericodi": int(fila["publicacion_pericodi"]),
                     "origen": fila["origen"],
-                }
-            )
+                })
 
-            monto_anterior = monto
+                monto_anterior = monto
 
-        return pasos
+            por_proceso[proceso] = pasos
+
+        return por_proceso
 
     def impacto_de_publicacion(
         self, publicacion_pericodi: int
