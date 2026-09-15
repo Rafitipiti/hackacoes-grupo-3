@@ -9,11 +9,15 @@
   --grid:#E4EBF3; --axis:#C3CEDC; --border:rgba(0,36,130,.14);
   --accent:#005BA7;
   --s1:#005BA7; --s2:#D4622E; --s3:#6A3FA0; --s4:#D99A00;
-  --warn:#fab219; --crit:#d03b3b; --good:#0a6e1c;
+  --warn:#fab219; --crit:#d03b3b; --good:#0ca30c;
   /* --warn es correcto para rellenos y marcas, donde el minimo es 3:1.
      Como color de TEXTO sobre fondo claro da 1.83:1, asi que el texto de
      aviso usa esta variante ambar, que da 5.28:1 sin salirse de la gama. */
   --warn-texto:#96600A;
+  /* Mismo caso que --warn: el verde oficial da 3.35:1 como texto sobre
+     fondo claro. Sirve para rellenos y marcas, donde el minimo es 3:1;
+     para texto se usa esta variante, que da 6.44:1. */
+  --good-texto:#0a6e1c;
   --seq1:#DCE8F7; --seq2:#BBD3EE; --seq3:#93B8E2; --seq4:#5F94D0;
   --seq5:#2E6DB8; --seq6:#114F97; --seq7:#002482;
   --shadow:0 1px 2px rgba(0,36,130,.06);
@@ -38,6 +42,7 @@
     --s1:#4193DA; --s2:#CC6330; --s3:#8F72D6; --s4:#B8871A;
     --warn:#F5C354; --crit:#E8736A; --good:#3BC46F;
     --warn-texto:#F5C354;
+    --good-texto:#3BC46F;
     --seq1:#002482; --seq2:#114F97; --seq3:#2E6DB8; --seq4:#5F94D0;
     --seq5:#93B8E2; --seq6:#BBD3EE; --seq7:#DCE8F7;
     --shadow:none;
@@ -58,6 +63,7 @@
   --s1:#4193DA; --s2:#CC6330; --s3:#8F72D6; --s4:#B8871A;
   --warn:#F5C354; --crit:#E8736A; --good:#3BC46F;
   --warn-texto:#F5C354;
+  --good-texto:#3BC46F;
   --seq1:#002482; --seq2:#114F97; --seq3:#2E6DB8; --seq4:#5F94D0;
   --seq5:#93B8E2; --seq6:#BBD3EE; --seq7:#DCE8F7;
   --shadow:none;
