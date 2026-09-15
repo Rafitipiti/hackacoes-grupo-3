@@ -1714,7 +1714,7 @@ El módulo diferenciador del spec: responde qué trae cada publicación mensual,
 - Produces:
   - `RevisionService(datos: dict[str, pd.DataFrame])`
   - `.calendario_de_publicacion(publicacion_pericodi: int) -> list[dict]`
-  - `.cascada(empresa_id: str, pericodi: int) -> list[dict]` — una entrada por revisión, con `monto_total`, `ajuste` y `ajuste_pct`
+  - `.cascada(empresa_id: str, pericodi: int) -> dict[str, list[dict]]` — **por proceso**, cada uno con sus pasos (`monto_total`, `ajuste`, `ajuste_pct`)
   - `.impacto_de_publicacion(publicacion_pericodi: int) -> dict`
   - Router con prefijo `/revisiones`
 
