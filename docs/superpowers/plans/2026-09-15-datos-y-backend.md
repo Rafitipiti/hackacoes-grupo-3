@@ -647,22 +647,24 @@ SEED = 20260915
 # El alias es un nombre de fantasia, no una re-identificacion. La regla 8.2
 # del kit prohibe re-identificar; la clave tecnica sigue siendo EMPRESA_00X
 # y el RUC real nunca entra al backend.
+# Con tildes: el alias es texto de cara al usuario, no un identificador.
+# La UI se lo muestra a directivos del COES, en espanol.
 PREFIJOS_ALIAS = [
     "Generadora",
     "Distribuidora",
     "Transmisora",
     "Comercializadora",
-    "Energia",
-    "Hidroelectrica",
-    "Termoelectrica",
-    "Eolica",
+    "Energía",
+    "Hidroeléctrica",
+    "Termoeléctrica",
+    "Eólica",
 ]
 
 SUFIJOS_ALIAS = [
-    "Andina", "del Norte", "del Sur", "Pacifico", "Amazonas",
-    "Central", "Altiplano", "Costa Verde", "Maranon", "Urubamba",
+    "Andina", "del Norte", "del Sur", "Pacífico", "Amazonas",
+    "Central", "Altiplano", "Costa Verde", "Marañón", "Urubamba",
     "Cordillera", "del Oriente", "Pampas", "Titicaca", "Vilcanota",
-    "Chira", "Santa", "Mantaro", "Rimac",
+    "Chira", "Santa", "Mantaro", "Rímac",
 ]
 
 
@@ -1635,18 +1637,59 @@ def test_los_datos_se_cargan_una_sola_vez():
 
 - [ ] **Step 6: Correr los tests del loader y los de caracterización**
 
-Run: `pytest tests/test_loader.py tests/test_caracterizacion.py`
-Expected: PASS. Los de caracterización vuelven a verde: el backend ya sirve desde parquet.
+Run: `pytest tests/test_loader.py tests/test_caracterizacion.py -q`
 
-- [ ] **Step 7: Medir el arranque**
+Expected: **`13 passed`**. Leer el número con cuidado.
+
+> **`8 skipped` NO es aprobar.** Entre la Task 4 y esta, `conftest.py` tolera
+> un `FileNotFoundError` al importar la app, porque `loader.py` apuntaba a una
+> carpeta borrada. Esta tarea es la que cierra ese hueco. Si tras reescribir
+> `loader.py` los 8 tests de caracterización siguen saltándose, significa que
+> la app todavía no encuentra sus datos — la tarea **no** está hecha.
+>
+> Verificarlo explícitamente:
+>
+> ```bash
+> pytest tests/test_caracterizacion.py -q 2>&1 | tail -1 | grep -q "8 passed" \
+>   && echo "OK: los 8 corren de verdad" \
+>   || echo "FALLA: siguen saltandose o fallando"
+> ```
+
+- [ ] **Step 7: Retirar la tolerancia de `conftest.py`**
+
+Ya no hay hueco que tolerar: la capa curada existe y `loader.py` la lee. Dejar el `try/except` sería permitir que un fallo real de import se disfrace de skip en las tareas siguientes.
+
+Reemplazar el contenido de `backend/tests/conftest.py` por la versión sin tolerancia:
+
+```python
+import pytest
+from fastapi.testclient import TestClient
+
+from app.main import app
+
+
+@pytest.fixture(scope="session")
+def cliente():
+    """Cliente HTTP contra la app, compartido por toda la sesión de pruebas.
+
+    Es scope=session porque levantar la app carga los datasets, que es caro.
+    """
+    with TestClient(app) as c:
+        yield c
+```
+
+Run: `pytest tests/test_caracterizacion.py -q`
+Expected: `8 passed`. Si ahora rompe la recolección, hay un fallo real de import que el `try/except` estaba ocultando — arreglarlo, no reponer el `except`.
+
+- [ ] **Step 8: Medir el arranque**
 
 Run: `python -c "import time; t=time.time(); from app.data.loader import cargar_datos_coes; cargar_datos_coes(); print(f'{time.time()-t:.1f} s')"`
 Expected: menos de 5 segundos.
 
-- [ ] **Step 8: Commit**
+- [ ] **Step 9: Commit**
 
 ```bash
-git add backend/app/data/loader.py backend/tests/test_loader.py
+git add backend/app/data/loader.py backend/tests/test_loader.py backend/tests/conftest.py
 git commit -m "refactor: el loader lee parquet en vez de JSON crudo
 
 Arranque de ~40 s a menos de 5, y el backend deja de necesitar los
