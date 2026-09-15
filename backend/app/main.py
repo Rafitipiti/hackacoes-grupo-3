@@ -36,6 +36,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from app.routers import revisiones
+
+app.include_router(revisiones.router)
+
 # =========================================================
 # INICIO
 # =========================================================
