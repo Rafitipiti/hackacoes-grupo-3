@@ -346,7 +346,21 @@ Expected: imprime el mensaje sin `ModuleNotFoundError`.
 - [ ] **Step 7: Verificar el tamaño de la poda**
 
 Run: `python -c "import pathlib; print(sum(len(p.read_text(encoding='utf-8').splitlines()) for p in pathlib.Path('app').rglob('*.py')))"`
-Expected: alrededor de 5.400 líneas, frente a las 8.686 originales.
+Expected: **6.454 líneas**, frente a las 8.661 originales medidas con esta misma fórmula.
+
+El desglose que debe cuadrar exactamente:
+
+| Archivo | Líneas quitadas |
+|---|---|
+| `main.py` (7 endpoints + `/periodos` duplicado + imports) | −200 |
+| `analysis.py` (todo salvo los dos scores) | −828 |
+| `agent_service.py` (bloque `__main__`) | −591 |
+| `integrity_service.py` (bloque `__main__`) | −147 |
+| `ml_model.py` (archivo completo) | −84 |
+| `data_generator.py` (archivo completo) | −357 |
+| **Total** | **−2.207** |
+
+8.661 − 2.207 = **6.454**. Si el conteo da otra cosa, el desglose dice dónde buscar.
 
 - [ ] **Step 8: Commit**
 
@@ -2057,6 +2071,16 @@ datos_coes = cargar_datos_coes()
 No tocar nada más del cuerpo. El test `test_radar_de_un_periodo_valido` de la Task 1 verifica que el movimiento no cambió el comportamiento.
 
 - [ ] **Step 3: Mover los `/agente/*` a `empresa.py`**
+
+> **Deduplicar al mover.** `main.py` trae `/agente/explicacion-lscio/{empresa_id}/{pericodi}` **definido dos veces** (defecto preexistente, detectado durante la Task 2 y fuera de su alcance). Al mover, conservar **una sola** definición. Verificar después con:
+>
+> ```bash
+> grep -c 'explicacion-lscio' app/routers/empresa.py
+> ```
+>
+> Expected: `1`.
+>
+> Aprovechar también para quitar las variables `pd_periodo_actual` y `pd_periodo_anterior`, que quedaron sin uso tras la Task 2.
 
 Copiar los 14 endpoints `/agente/*` de `main.py` a `backend/app/routers/empresa.py`, con este encabezado:
 
