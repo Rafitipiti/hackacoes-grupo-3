@@ -198,18 +198,47 @@ Un porcentaje engaña en tres casos, y la UI los distingue:
 
 Las flechas ▲▼ indican **dirección**, no si algo es bueno o malo: en liquidaciones un aumento es favorable o desfavorable según si la empresa cobra o paga. El color se reserva para la **magnitud** (`Revisar` ≥25 %, `Fuerte` ≥50 %).
 
-### 7.2 Las 6 secciones
+### 7.2 Las 7 secciones
 
-| Prioridad | Sección | Contenido | Origen |
+El problema que resuelve esta reorganización: hoy el menú tiene **dos entradas**
+y todo lo demás está enterrado dentro del flujo A1→A7. El usuario entra por "Mi
+liquidación", elige empresa, y recién ahí descubre que hay siete pantallas
+encadenadas, sin forma de saltar entre ellas ni de saber que existen. El backend
+expone 23 endpoints; la UI deja ver una fracción.
+
+| Orden | Sección | Contenido | Backend |
 |---|---|---|---|
-| 🔴 | **Panorama** | Monto por proceso y mes, peso de cada proceso, mayores cobradoras y pagadoras, cruce bilateral | Dashboard: `resumen`, `liq` |
-| 🔴 | **Mi empresa** | Resumen ejecutivo por empresa + flujo causal A1→A7 (qué cambió y por qué) | `portal/` + `AgentService` |
-| 🔴 | **Ciclo y revisiones** ⭐ | Calendario de publicaciones, cascada R0→R4, cuánto llega de meses anteriores | `revisiones/` + dashboard `ciclo` + `maqueta_publicacion_mensual.html` |
-| 🟡 | **Procesos** | VTEA · VTP · SCIO · SST-SCT con selector, en vez de cuatro tabs clonados | Dashboard: `vtea`, `vtp`, `scio`, `sst` |
-| 🟡 | **Red y precios** | Mapa del SEIN, intradía 15 min, costo marginal por zona | Dashboard: `mapa`, `intradia` |
-| 🟡 | **Calidad y trazabilidad** | Integridad, alertas, glosario, hallazgo de no-reproducibilidad | `IntegrityService` + dashboard `alertas` + `inventario_datasets.json` |
+| 1 | **Cáscara, navegación y diseño** | Barra lateral, selectores globales de período y empresa, sistema de diseño | — |
+| 2 | **Ciclo y revisiones** ⭐ | Calendario de publicaciones, cascada R0→R4 por proceso, impacto de arrastre | ✅ `/revisiones/*` |
+| 3 | **APIs y descargas** | Catálogo de los 23 endpoints, probador en vivo, exportación por proceso/período/revisión | ✅ los existentes |
+| 4 | **Mi empresa** | Flujo causal A1→A7, reorganizado como pestañas navegables en vez de túnel | ✅ 15 × `/agente/*` |
+| 5 | **Panorama** | Radar de variaciones, monto por proceso y mes, mayores cobradoras y pagadoras | ✅ `/radar` |
+| 6 | **Procesos** | VTEA · VTP · SCIO · SST-SCT con selector | ❌ **falta endpoint** |
+| 7 | **Red y precios** | Mapa del SEIN, intradía 15 min, costo marginal | ❌ **falta endpoint** |
 
-El simulador y el cruce bilateral quedan embebidos en Panorama y Procesos. No se pierde contenido: se ordena.
+El orden es de prioridad, no de aparición en el menú. Responde a un criterio:
+**primero lo visible y lo que ya tiene backend.** Las secciones 6 y 7 requieren
+exponer tablas curadas que hoy ningún endpoint lee (`fact_desglose`,
+`fact_evolucion`, `agg_cmg_diario`, `agg_perfil_intradia`) — es el hallazgo de
+"ocho tablas curadas sin lector" de la revisión final. Entran si el plazo lo
+permite.
+
+**Selectores globales.** Período y empresa se eligen una vez en la barra lateral
+y todas las secciones responden a esa selección. Hoy hay que volver al inicio
+para cambiar de empresa, lo que convierte cualquier comparación en una odisea.
+
+**El selector de empresa es un buscador.** Son 131 empresas; un `<select>` plano
+es inusable. Entrada de texto con filtrado por substring, lista ordenada
+alfabéticamente por alias con comparación de locale español.
+
+**Sección de APIs.** Catálogo navegable de los endpoints con descripción y
+parámetros, un probador que ejecuta la llamada en vivo y muestra la respuesta, y
+un exportador que arma CSV o JSON filtrando por proceso, período y revisión
+sobre los endpoints existentes. Es lo que convierte la plataforma en algo que
+una empresa del sector puede consumir, no solo mirar.
+
+El simulador y el cruce bilateral quedan embebidos en Panorama y Procesos. No se
+pierde contenido: se ordena.
 
 ### 7.3 Estrategia de portado de gráficos
 
