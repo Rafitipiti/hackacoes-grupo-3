@@ -15,7 +15,6 @@ import pandas as pd
 class RevisionService:
 
     def __init__(self, datos: dict[str, pd.DataFrame]):
-        self.revisiones = datos["revisiones"]
         self.totales = datos["revisiones_totales"]
         self.calendario = datos["calendario"]
 

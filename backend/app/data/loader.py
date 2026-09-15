@@ -86,7 +86,7 @@ class CapaCurada(Mapping):
 
 
 @lru_cache(maxsize=1)
-def cargar_datos_coes():
+def cargar_datos_coes() -> Mapping[str, pd.DataFrame]:
     """Devuelve la capa curada. Una sola instancia por proceso.
 
     AgentService la construye en su __init__ y cada router la pide al
