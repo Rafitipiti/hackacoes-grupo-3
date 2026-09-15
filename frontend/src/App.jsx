@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
@@ -106,6 +106,7 @@ function App() {
     const [loadingExplicacionAgente, setLoadingExplicacionAgente] = useState(false);
 
     const [empresaAgente, setEmpresaAgente] = useState(null);
+    const [busquedaEmpresa, setBusquedaEmpresa] = useState("");
     const [pericodiAgente, setPericodiAgente] = useState(null);
 
     const [seccionAgente, setSeccionAgente] = useState("SELECCION");
@@ -126,6 +127,21 @@ function App() {
     const [periodos, setPeriodos] = useState([]);
 
     const [empresas, setEmpresas] = useState([]);
+
+    // Orden alfabético por alias (no por empresa_id) para el datalist de
+    // "Mi liquidación". Memoizado para no reordenar 131 elementos en cada
+    // tecla que el usuario escriba en el buscador.
+    const empresasOrdenadas = useMemo(
+        () =>
+            [...empresas].sort((a, b) =>
+                (a.alias ?? a.empresa_id).localeCompare(
+                    b.alias ?? b.empresa_id,
+                    "es",
+                    { sensitivity: "base" }
+                )
+            ),
+        [empresas]
+    );
 
     const agentesPorPagina = 10;
 
@@ -2132,26 +2148,34 @@ function App() {
                                         Empresa:
                                     </label>
 
-                                    <select
+                                    <input
                                         id="empresa-agente"
-                                        value={empresaAgente || ""}
-                                        onChange={(e) =>
-                                            setEmpresaAgente(e.target.value)
-                                        }
-                                    >
-                                        <option value="">
-                                            Selecciona una empresa
-                                        </option>
+                                        list="empresas-lista"
+                                        placeholder="Escribe para buscar..."
+                                        value={busquedaEmpresa}
+                                        onChange={(e) => {
+                                            const texto = e.target.value;
+                                            setBusquedaEmpresa(texto);
 
-                                        {empresas.map((empresa) => (
+                                            // El datalist devuelve el texto visible, no el id.
+                                            // Se resuelve contra la lista cargada; si no coincide con
+                                            // ninguna empresa, se limpia la seleccion.
+                                            const encontrada = empresas.find(
+                                                (empresa) =>
+                                                    (empresa.alias ?? empresa.empresa_id) === texto
+                                            );
+                                            setEmpresaAgente(encontrada ? encontrada.empresa_id : null);
+                                        }}
+                                    />
+
+                                    <datalist id="empresas-lista">
+                                        {empresasOrdenadas.map((empresa) => (
                                             <option
                                                 key={empresa.empresa_id}
-                                                value={empresa.empresa_id}
-                                            >
-                                                {empresa.alias ?? empresa.empresa_id}
-                                            </option>
+                                                value={empresa.alias ?? empresa.empresa_id}
+                                            />
                                         ))}
-                                    </select>
+                                    </datalist>
 
                                 </div>
 

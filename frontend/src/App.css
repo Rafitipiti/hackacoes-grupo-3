@@ -2284,6 +2284,37 @@ footer {
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
 }
 
+#empresa-agente {
+  min-width: 150px;
+
+  padding: 8px 11px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  background-color: white;
+  color: #111827;
+
+  font-size: 12px;
+  font-weight: 700;
+  font-family: inherit;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#empresa-agente:hover {
+  border-color: #9ca3af;
+}
+
+#empresa-agente:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
 
 
 /* =========================================================
