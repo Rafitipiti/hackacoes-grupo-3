@@ -1,312 +1,73 @@
+"""Carga la capa parquet curada.
+
+Los datos crudos del welcome kit viven en data/raw/ (fuera de git) y se
+convierten con `python -m scripts.preparar_datos`. El backend nunca lee
+JSON crudo: solo parquet.
+"""
+
+from functools import lru_cache
 from pathlib import Path
-import json
+
 import pandas as pd
 
-
-# ============================================================
-# RUTAS
-# ============================================================
-
 BASE_DIR = Path(__file__).resolve().parents[2]
+CURATED = BASE_DIR / "data" / "curated"
 
-COES_DATA_DIR = BASE_DIR / "data" / "coes"
+# clave en memoria -> nombre del parquet.
+#
+# Las claves del primer bloque las leen AgentService e IntegrityService por
+# nombre; renombrarlas obliga a reescribir ambos servicios.
+TABLAS = {
+    # contrato existente
+    "periodos": "dim_periodo",
+    "empresas": "dim_empresa",
+    "evolucion_liquidaciones": "fact_evolucion",
+    "energia_transferencias": "energia_transferencias",
+    "energia_saldos": "energia_saldos",
+    "lscio_transferencias": "lscio_transferencias",
+    "lscio_desglose": "lscio_desglose",
+    "lscio_saldos": "lscio_saldos",
+    "potencia_desglose": "potencia_desglose",
+    "potencia_saldos": "potencia_saldos",
+    "sstsct_desglose": "sstsct_desglose",
+    "costos_marginales_diario": "costos_marginales_diario",
+    "entregas": "entregas",
+    "retiros": "retiros",
+    "puntos_entrega": "puntos_entrega",
+    # nuevas de esta fase
+    "barras": "dim_barra",
+    "cruce_bilateral": "fact_bilateral",
+    "desglose": "fact_desglose",
+    "revisiones": "fact_revisiones",
+    "revisiones_totales": "fact_revisiones_totales",
+    "calendario": "fact_calendario",
+    "cmg_diario": "agg_cmg_diario",
+    "perfil_intradia": "agg_perfil_intradia",
+    "energia_diaria": "agg_energia_diaria",
+}
 
 
-# ============================================================
-# FUNCIONES GENERALES
-# ============================================================
+def cargar_tabla(nombre: str) -> pd.DataFrame:
+    ruta = CURATED / f"{nombre}.parquet"
 
-def cargar_json(ruta: Path):
-    """
-    Carga un archivo JSON y devuelve su contenido.
-    """
     if not ruta.exists():
-        raise FileNotFoundError(f"No se encontró el archivo: {ruta}")
-
-    with open(ruta, "r", encoding="utf-8") as archivo:
-        return json.load(archivo)
-
-
-def cargar_dataframe(ruta: Path) -> pd.DataFrame:
-    """
-    Carga un JSON compuesto por una lista de objetos
-    y lo convierte en DataFrame.
-    """
-    datos = cargar_json(ruta)
-
-    if not isinstance(datos, list):
-        raise ValueError(
-            f"Se esperaba una lista de registros en {ruta.name}"
+        raise FileNotFoundError(
+            f"Falta {ruta}. Genera la capa curada con: "
+            f"python -m scripts.preparar_datos"
         )
 
-    return pd.DataFrame(datos)
+    return pd.read_parquet(ruta)
 
 
-# ============================================================
-# CATÁLOGOS COMUNES
-# ============================================================
+@lru_cache(maxsize=1)
+def cargar_datos_coes() -> dict[str, pd.DataFrame]:
+    """Carga la capa curada una sola vez por proceso.
 
-def load_periodos():
-    ruta = COES_DATA_DIR / "_catalogos_comunes" / "periodos.json"
-    return cargar_dataframe(ruta)
-
-
-def load_empresas():
-    ruta = COES_DATA_DIR / "_catalogos_comunes" / "empresas.json"
-    return cargar_dataframe(ruta)
-
-
-def load_clientes():
-    ruta = COES_DATA_DIR / "_catalogos_comunes" / "clientes_retiros.json"
-    return cargar_dataframe(ruta)
-
-
-def load_barras():
-    ruta = COES_DATA_DIR / "_catalogos_comunes" / "barras.json"
-    return cargar_dataframe(ruta)
-
-
-# ============================================================
-# LIQUIDACIONES
-# ============================================================
-
-def load_evolucion_liquidaciones():
-    ruta = (
-        COES_DATA_DIR
-        / "liquidaciones"
-        / "evolucion_mensual.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-def load_cruce_bilateral():
-    ruta = (
-        COES_DATA_DIR
-        / "liquidaciones"
-        / "cruce_bilateral.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-# ============================================================
-# ENERGÍA ACTIVA
-# ============================================================
-
-def load_energia_transferencias():
-    ruta = (
-        COES_DATA_DIR
-        / "reportes_intermedios"
-        / "energia_activa"
-        / "transferencias_por_empresa.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-def load_energia_saldos():
-    ruta = (
-        COES_DATA_DIR
-        / "reportes_intermedios"
-        / "energia_activa"
-        / "saldos.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-# ============================================================
-# POTENCIA
-# ============================================================
-
-def load_potencia_desglose():
-    ruta = (
-        COES_DATA_DIR
-        / "reportes_intermedios"
-        / "potencia"
-        / "desglose_por_valorizacion.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-def load_potencia_saldos():
-    ruta = (
-        COES_DATA_DIR
-        / "reportes_intermedios"
-        / "potencia"
-        / "saldos.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-# ============================================================
-# LSCIO
-# ============================================================
-
-def load_lscio_transferencias():
-    ruta = (
-        COES_DATA_DIR
-        / "reportes_intermedios"
-        / "lscio"
-        / "transferencias_por_empresa.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-def load_lscio_desglose():
-    ruta = (
-        COES_DATA_DIR
-        / "reportes_intermedios"
-        / "lscio"
-        / "desglose_por_mecanismo.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-def load_lscio_saldos():
-    ruta = (
-        COES_DATA_DIR
-        / "reportes_intermedios"
-        / "lscio"
-        / "saldos.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-# ============================================================
-# SST-SCT
-# ============================================================
-
-def load_sstsct_desglose():
-    ruta = (
-        COES_DATA_DIR
-        / "reportes_intermedios"
-        / "sstsct"
-        / "desglose_por_valorizacion.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-# ============================================================
-# COSTOS MARGINALES
-# ============================================================
-
-def load_costos_marginales_diario():
-    ruta = (
-        COES_DATA_DIR
-        / "reportes_intermedios"
-        / "costos_marginales"
-        / "historico_diario.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-def load_costos_marginales_15min():
-    ruta = (
-        COES_DATA_DIR
-        / "reportes_intermedios"
-        / "costos_marginales"
-        / "curva_15min_muestra.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-# ============================================================
-# ENTREGAS Y RETIROS
-# ============================================================
-
-def load_puntos_entrega():
-    ruta = (
-        COES_DATA_DIR
-        / "reportes_intermedios"
-        / "entregas_retiros"
-        / "puntos_entrega.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-def load_entregas():
-    ruta = (
-        COES_DATA_DIR
-        / "reportes_intermedios"
-        / "entregas_retiros"
-        / "entregas_historico_diario.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-def load_retiros():
-    ruta = (
-        COES_DATA_DIR
-        / "reportes_intermedios"
-        / "entregas_retiros"
-        / "retiros_historico_diario.json"
-    )
-    return cargar_dataframe(ruta)
-
-
-# ============================================================
-# PRUEBA GENERAL DE CARGA
-# ============================================================
-
-def cargar_datos_coes():
+    AgentService llama a esta funcion en su __init__ y cada router la
+    llama al importarse. Sin el cache, los mismos datos se cargarian
+    cuatro veces y no cabrian en los 512 MB del free tier.
     """
-    Carga todos los datasets principales del paquete COES.
-
-    Devuelve un diccionario con todos los DataFrames.
-    """
-
     return {
-        "periodos": load_periodos(),
-        "empresas": load_empresas(),
-        "clientes": load_clientes(),
-        "barras": load_barras(),
-
-        "evolucion_liquidaciones": load_evolucion_liquidaciones(),
-        "cruce_bilateral": load_cruce_bilateral(),
-
-        "energia_transferencias": load_energia_transferencias(),
-        "energia_saldos": load_energia_saldos(),
-
-        "potencia_desglose": load_potencia_desglose(),
-        "potencia_saldos": load_potencia_saldos(),
-
-        "lscio_transferencias": load_lscio_transferencias(),
-        "lscio_desglose": load_lscio_desglose(),
-        "lscio_saldos": load_lscio_saldos(),
-
-        "sstsct_desglose": load_sstsct_desglose(),
-
-        "costos_marginales_diario": load_costos_marginales_diario(),
-        "costos_marginales_15min": load_costos_marginales_15min(),
-
-        "puntos_entrega": load_puntos_entrega(),
-        "entregas": load_entregas(),
-        "retiros": load_retiros(),
+        clave: cargar_tabla(nombre)
+        for clave, nombre in TABLAS.items()
     }
-
-
-# ============================================================
-# DIAGNÓSTICO
-# ============================================================
-
-def diagnostico_datos():
-    """
-    Carga los datasets y muestra cantidad de registros.
-    """
-
-    datos = cargar_datos_coes()
-
-    print("\n==============================================")
-    print("       DIAGNÓSTICO DE DATOS COES")
-    print("==============================================")
-
-    for nombre, df in datos.items():
-        print(f"✓ {nombre:<30} {len(df):>8,} registros")
-
-    print("==============================================")
-    print(f"Total de datasets cargados: {len(datos)}")
-    print("==============================================\n")
-
-    return datos
-
-
-if __name__ == "__main__":
-    diagnostico_datos()
