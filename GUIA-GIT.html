@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Git — HACKACOES Grupo 3</title>
+<style>
+  :root {
+    --azul: #1b4f9c;
+    --azul-claro: #e8f0fb;
+    --texto: #1f2933;
+    --gris: #667085;
+    --borde: #dfe3e8;
+    --fondo: #f5f7fa;
+    --verde: #1a7f4b;
+    --ambar: #a86500;
+    --rojo: #b42318;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 32px 20px 72px; }
+
+  header {
+    background: var(--azul);
+    color: #fff;
+    padding: 36px 20px;
+    margin: -32px -20px 32px;
+  }
+  header .inner { max-width: 860px; margin: 0 auto; }
+  header h1 { margin: 0 0 6px; font-size: 1.85rem; letter-spacing: -.02em; }
+  header p { margin: 0; opacity: .88; font-size: 1.02rem; }
+  header .repo {
+    display: inline-block; margin-top: 14px; padding: 6px 12px;
+    background: rgba(255,255,255,.15); border-radius: 6px;
+    font-family: ui-monospace, Consolas, "Courier New", monospace; font-size: .86rem;
+  }
+  header a { color: #fff; }
+
+  h2 {
+    font-size: 1.28rem; margin: 40px 0 6px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--borde);
+  }
+  h2 .badge {
+    display: inline-block; background: var(--azul-claro); color: var(--azul);
+    font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 20px; vertical-align: middle; margin-left: 10px;
+  }
+  .sub { color: var(--gris); margin: 0 0 20px; font-size: .95rem; }
+
+  .paso {
+    background: #fff; border: 1px solid var(--borde); border-radius: 10px;
+    padding: 18px 20px; margin-bottom: 14px;
+  }
+  .paso h3 {
+    margin: 0 0 8px; font-size: 1.04rem; display: flex; align-items: center; gap: 11px;
+  }
+  .num {
+    flex: 0 0 26px; height: 26px; border-radius: 50%;
+    background: var(--azul); color: #fff;
+    font-size: .84rem; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .paso p { margin: 8px 0 0; font-size: .95rem; }
+  .paso p:first-of-type { margin-top: 0; }
+
+  .cmd { position: relative; margin: 12px 0 4px; }
+  .cmd pre {
+    margin: 0; padding: 13px 58px 13px 15px;
+    background: #16212e; color: #e6edf3; border-radius: 7px;
+    font-family: ui-monospace, Consolas, "Courier New", monospace;
+    font-size: .875rem; line-height: 1.65;
+    overflow-x: auto; white-space: pre;
+  }
+  .cmd button {
+    position: absolute; top: 8px; right: 8px;
+    background: rgba(255,255,255,.12); color: #e6edf3;
+    border: 1px solid rgba(255,255,255,.2); border-radius: 5px;
+    padding: 4px 9px; font-size: .72rem; cursor: pointer;
+    font-family: inherit;
+  }
+  .cmd button:hover { background: rgba(255,255,255,.25); }
+  .cmd button.listo { background: var(--verde); border-color: var(--verde); }
+
+  code {
+    background: #eef1f5; padding: 1px 6px; border-radius: 4px;
+    font-family: ui-monospace, Consolas, "Courier New", monospace; font-size: .88em;
+  }
+
+  .nota {
+    border-left: 4px solid var(--azul); background: var(--azul-claro);
+    padding: 11px 15px; border-radius: 0 7px 7px 0; margin: 12px 0 0; font-size: .92rem;
+  }
+  .ojo {
+    border-left: 4px solid var(--ambar); background: #fdf6e7;
+    padding: 11px 15px; border-radius: 0 7px 7px 0; margin: 12px 0 0; font-size: .92rem;
+  }
+
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: .93rem; }
+  .tabla-wrap {
+    overflow-x: auto; border: 1px solid var(--borde);
+    border-radius: 10px; margin-top: 8px;
+  }
+  th {
+    background: #eef1f5; text-align: left; padding: 11px 15px;
+    font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: var(--gris);
+    border-bottom: 1px solid var(--borde);
+  }
+  td { padding: 11px 15px; border-bottom: 1px solid #eef1f5; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  td code { white-space: nowrap; }
+
+  ol.reglas { counter-reset: r; list-style: none; padding: 0; margin: 8px 0 0; }
+  ol.reglas li {
+    counter-increment: r; position: relative;
+    background: #fff; border: 1px solid var(--borde); border-radius: 10px;
+    padding: 14px 18px 14px 56px; margin-bottom: 10px; font-size: .95rem;
+  }
+  ol.reglas li::before {
+    content: counter(r); position: absolute; left: 17px; top: 14px;
+    width: 25px; height: 25px; border-radius: 50%;
+    background: var(--rojo); color: #fff;
+    font-size: .82rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .ciclo {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    background: #fff; border: 1px solid var(--borde); border-radius: 10px;
+    padding: 16px 18px; margin-bottom: 20px; font-size: .86rem;
+  }
+  .ciclo span {
+    background: var(--azul-claro); color: var(--azul);
+    padding: 5px 11px; border-radius: 6px; font-weight: 600; white-space: nowrap;
+  }
+  .ciclo .flecha { color: var(--gris); font-weight: 400; background: none; padding: 0; }
+
+  footer {
+    margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--borde);
+    color: var(--gris); font-size: .87rem;
+  }
+
+  @media (max-width: 560px) {
+    header h1 { font-size: 1.45rem; }
+    .cmd pre { font-size: .8rem; }
+  }
+  @media print {
+    body { background: #fff; }
+    header { background: #fff; color: var(--texto); border-bottom: 3px solid var(--azul); }
+    header .repo { background: #eef1f5; color: var(--texto); }
+    header a { color: var(--azul); }
+    .cmd button { display: none; }
+    .cmd pre { background: #f5f7fa; color: #16212e; border: 1px solid var(--borde); }
+    .paso, ol.reglas li, .tabla-wrap { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <h1>Guía de Git — HACKACOES Grupo 3</h1>
+    <p>Cómo clonar el proyecto, trabajar en tu rama y mergear a master. Escrita para quien nunca usó Git.</p>
+    <a class="repo" href="https://github.com/Rafitipiti/hackacoes-grupo-3" target="_blank" rel="noopener">github.com/Rafitipiti/hackacoes-grupo-3</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="ciclo">
+    <span>Actualizar master</span><span class="flecha">→</span>
+    <span>Crear rama</span><span class="flecha">→</span>
+    <span>Commitear</span><span class="flecha">→</span>
+    <span>Subir rama</span><span class="flecha">→</span>
+    <span>Pull request</span><span class="flecha">→</span>
+    <span>Merge</span>
+  </div>
+
+  <h2>Preparación <span class="badge">solo una vez</span></h2>
+  <p class="sub">Esto se hace la primera vez y nunca más.</p>
+
+  <div class="paso">
+    <h3><span class="num">1</span> Instalar Git</h3>
+    <p>Descárgalo de <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git-scm.com/downloads</a> e instálalo dejando todas las opciones por defecto.</p>
+  </div>
+
+  <div class="paso">
+    <h3><span class="num">2</span> Presentarte ante Git</h3>
+    <p>Abre <strong>PowerShell</strong> y dile a Git quién eres. Este nombre y correo aparecerán en cada commit que hagas.</p>
+    <div class="cmd">
+      <pre>git config --global user.name "Tu Nombre"
+git config --global user.email "tucorreo@ejemplo.com"</pre>
+      <button onclick="copiar(this)">Copiar</button>
+    </div>
+  </div>
+
+  <div class="paso">
+    <h3><span class="num">3</span> Traer el proyecto</h3>
+    <div class="cmd">
+      <pre>git clone https://github.com/Rafitipiti/hackacoes-grupo-3.git
+cd hackacoes-grupo-3</pre>
+      <button onclick="copiar(this)">Copiar</button>
+    </div>
+    <p><code>clone</code> descarga todo el proyecto y su historial completo.</p>
+  </div>
+
+  <h2>Tu día a día <span class="badge">cada vez que trabajes</span></h2>
+  <p class="sub">Estos cinco pasos se repiten en cada tarea que tomes.</p>
+
+  <div class="paso">
+    <h3><span class="num">1</span> Actualizar tu copia de master</h3>
+    <div class="cmd">
+      <pre>git checkout master
+git pull</pre>
+      <button onclick="copiar(this)">Copiar</button>
+    </div>
+    <div class="ojo"><strong>Hazlo siempre antes de empezar.</strong> Trabajar sobre una copia vieja es la causa número uno de conflictos.</div>
+  </div>
+
+  <div class="paso">
+    <h3><span class="num">2</span> Crear tu rama</h3>
+    <div class="cmd">
+      <pre>git checkout -b nombre-de-tu-tarea</pre>
+      <button onclick="copiar(this)">Copiar</button>
+    </div>
+    <p>Una rama es tu espacio de trabajo aislado: lo que hagas ahí no toca <code>master</code> hasta que tú lo decidas.</p>
+    <p>Usa nombres descriptivos: <code>filtro-por-empresa</code>, <code>grafico-evolucion</code>, <code>endpoint-trazabilidad</code>.</p>
+  </div>
+
+  <div class="paso">
+    <h3><span class="num">3</span> Guardar tu avance (commitear)</h3>
+    <p>Cada vez que termines algo que funcione:</p>
+    <div class="cmd">
+      <pre>git add .
+git commit -m "Agregar filtro por empresa en el listado"</pre>
+      <button onclick="copiar(this)">Copiar</button>
+    </div>
+    <p><code>git add .</code> marca todos tus cambios. <code>git commit</code> los guarda como un punto en la historia.</p>
+    <div class="nota">Commitea <strong>seguido y en pedazos chicos</strong>. Es mucho más fácil deshacer un cambio pequeño que uno gigante.</div>
+  </div>
+
+  <div class="paso">
+    <h3><span class="num">4</span> Subir tu rama</h3>
+    <div class="cmd">
+      <pre>git push -u origin nombre-de-tu-tarea</pre>
+      <button onclick="copiar(this)">Copiar</button>
+    </div>
+    <p>Solo la primera vez lleva <code>-u origin nombre-de-tu-tarea</code>. De ahí en adelante basta con <code>git push</code>.</p>
+  </div>
+
+  <div class="paso">
+    <h3><span class="num">5</span> Integrar a master</h3>
+    <p>Antes de integrar, trae lo último de master a tu rama para resolver los choques en tu espacio y no en el de todos:</p>
+    <div class="cmd">
+      <pre>git pull origin master</pre>
+      <button onclick="copiar(this)">Copiar</button>
+    </div>
+    <p>Si no hay conflictos, entra a GitHub: aparecerá el botón <strong>“Compare &amp; pull request”</strong>. Ábrelo, describe qué hiciste y usa <strong>“Merge pull request”</strong>.</p>
+    <div class="nota">Para el hackatón pueden mergear directo. Si quieren más control, que otro integrante revise el pull request antes de aprobarlo.</div>
+  </div>
+
+  <div class="paso">
+    <h3><span class="num">6</span> Volver a empezar</h3>
+    <div class="cmd">
+      <pre>git checkout master
+git pull
+git checkout -b siguiente-tarea</pre>
+      <button onclick="copiar(this)">Copiar</button>
+    </div>
+  </div>
+
+  <h2>Comandos de rescate</h2>
+  <p class="sub">Cuando algo se ve raro, empieza siempre por <code>git status</code>.</p>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr><th>Situación</th><th>Comando</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>¿En qué rama estoy? ¿Qué cambié?</td><td><code>git status</code></td></tr>
+        <tr><td>Ver el historial</td><td><code>git log --oneline</code></td></tr>
+        <tr><td>Descartar cambios de un archivo</td><td><code>git checkout -- archivo.py</code></td></tr>
+        <tr><td>Deshacer el último commit, conservando los cambios</td><td><code>git reset --soft HEAD~1</code></td></tr>
+        <tr><td>Ver todas las ramas que existen</td><td><code>git branch -a</code></td></tr>
+        <tr><td>Cambiarte a una rama que ya existe</td><td><code>git checkout nombre-rama</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Cuatro reglas para no pisarse</h2>
+  <ol class="reglas">
+    <li><strong>Nunca trabajen directo en master.</strong> Siempre una rama propia.</li>
+    <li><strong>git pull antes de empezar</strong>, siempre, sin excepción.</li>
+    <li><strong>Una rama por tarea.</strong> No acumulen tres funcionalidades distintas en la misma rama.</li>
+    <li><strong>Si aparece un conflicto, no lo resuelvan solos la primera vez.</strong> Git marca las zonas en choque con <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> y <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>; hay que elegir qué versión queda y borrar esas marcas. Háganlo entre dos la primera vez.</li>
+  </ol>
+
+  <h2>Lo que nunca se sube</h2>
+  <p class="sub">Ya está configurado en el archivo <code>.gitignore</code> del proyecto.</p>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr><th>No se sube</th><th>Sí se sube</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>venv/</code> — entorno virtual de Python</td><td><code>requirements.txt</code></td></tr>
+        <tr><td><code>node_modules/</code> — dependencias del frontend</td><td><code>package.json</code></td></tr>
+        <tr><td><code>__pycache__/</code> — archivos temporales de Python</td><td>—</td></tr>
+        <tr><td><code>.env</code> — variables de entorno y claves</td><td><code>.env.example</code> sin valores reales</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ojo">
+    <strong>Este repositorio es público.</strong> Ninguna clave de API va en el código. Si integran OpenAI en <code>llm.py</code>, la clave se lee con <code>os.getenv("OPENAI_API_KEY")</code> y se guarda en un <code>.env</code> local, que Git ya está ignorando.
+  </div>
+
+  <footer>
+    HACKACOES · Grupo 3 — Automatización del módulo de Liquidaciones.<br>
+    Esta guía vive en el repositorio como <code>GUIA-GIT.html</code>. Ábrela con doble clic en cualquier navegador.
+  </footer>
+
+</div>
+
+<script>
+  function copiar(btn) {
+    var texto = btn.parentElement.querySelector('pre').textContent;
+    var listo = function () {
+      var original = btn.textContent;
+      btn.textContent = 'Copiado';
+      btn.classList.add('listo');
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.classList.remove('listo');
+      }, 1500);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(texto).then(listo);
+    } else {
+      // Al abrir el archivo con doble clic (file://) el portapapeles moderno no está disponible
+      var ta = document.createElement('textarea');
+      ta.value = texto;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); listo(); } catch (e) { /* sin portapapeles: seleccionar a mano */ }
+      document.body.removeChild(ta);
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -19,6 +19,22 @@ Automatizar el módulo de Liquidaciones para **disponibilizar correctamente la i
 - Búsqueda y filtrado inmediatos, en lugar de rastreo manual entre archivos.
 - Análisis de integridad y detección de inconsistencias entre versiones.
 
+## Para el equipo: cómo trabajar con Git
+
+Si es tu primera vez con Git, abre **[`GUIA-GIT.html`](GUIA-GIT.html)** con doble clic. Tiene el paso a paso completo — clonar, crear tu rama, commitear y mergear a master — con botones para copiar cada comando.
+
+Resumen del ciclo:
+
+```bash
+git checkout master && git pull          # 1. actualizar
+git checkout -b nombre-de-tu-tarea       # 2. tu rama
+git add . && git commit -m "Qué hiciste" # 3. guardar
+git push -u origin nombre-de-tu-tarea    # 4. subir
+git pull origin master                   # 5. traer master antes del pull request
+```
+
+Reglas: nunca trabajar directo en `master`, siempre `git pull` antes de empezar, y una rama por tarea.
+
 ## Stack
 
 | Capa | Tecnología |
