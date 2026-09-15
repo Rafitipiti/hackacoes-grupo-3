@@ -87,12 +87,29 @@ class RevisionService:
 
         return por_proceso
 
-    def impacto_de_publicacion(
-        self, publicacion_pericodi: int
-    ) -> dict:
-        """Cuanto de una publicacion es del mes y cuanto viene arrastrado."""
-        filas = self.totales[
-            self.totales["publicacion_pericodi"] == publicacion_pericodi
+    def impacto_de_publicacion(self, publicacion_pericodi: int) -> dict:
+        """Cuanto de una publicacion es del mes y cuanto viene arrastrado.
+
+        'corriente' es el monto de las liquidaciones del propio mes (R0),
+        que no tienen revision anterior contra la cual ajustar.
+
+        'arrastre' es la suma de los AJUSTES de los recalculos de meses
+        anteriores, no de sus montos restatados. Sumar montos restatados
+        seria doble contabilidad: cada revision restata el mes completo,
+        asi que su monto ya incluye todo lo publicado antes.
+        """
+        # El ajuste necesita la revision anterior, que puede haber salido
+        # en otra publicacion. Por eso se calcula sobre la tabla completa
+        # y recien despues se filtra por publicacion.
+        todas = self.totales.sort_values("revision").copy()
+        todas["monto_anterior"] = (
+            todas.groupby(["proceso", "emprcodi", "pericodi"])["monto_total"]
+            .shift()
+        )
+        todas["ajuste"] = todas["monto_total"] - todas["monto_anterior"]
+
+        filas = todas[
+            todas["publicacion_pericodi"] == publicacion_pericodi
         ]
 
         if filas.empty:
@@ -109,6 +126,6 @@ class RevisionService:
         return {
             "publicacion_pericodi": publicacion_pericodi,
             "corriente": float(del_mes["monto_total"].sum()),
-            "arrastre": float(arrastradas["monto_total"].sum()),
+            "arrastre": float(arrastradas["ajuste"].sum()),
             "periodos_arrastrados": int(arrastradas["pericodi"].nunique()),
         }

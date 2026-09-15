@@ -1,6 +1,6 @@
 import pandas as pd
 
-from app.data.loader import cargar_datos_coes
+from app.data.loader import cargar_datos_coes, cargar_tabla_filtrada
 
 
 class AgentService:
@@ -183,9 +183,6 @@ class AgentService:
             df_empresa["monto"],
             errors="coerce"
         )
-
-        if df_empresa["monto"].isna().any():
-            print("ADVERTENCIA: existen montos no numéricos.")
 
         if df_empresa.empty:
             return {
@@ -718,11 +715,7 @@ class AgentService:
             "encontrado": True,
             "empresa": empresa_id,
             "pericodi": int(pericodi_actual),
-            "dataset_origen": (
-                "reportes_intermedios/"
-                "energia_activa/"
-                "transferencias_por_empresa.json"
-            ),
+            "dataset_origen": "data/curated/energia_transferencias.parquet",
             "cantidad_registros": len(registros),
             "registros": registros
         }
@@ -3405,9 +3398,6 @@ class AgentService:
 
         periodos = self.datos["periodos"]
         puntos = self.datos["puntos_entrega"]
-        entregas = self.datos["entregas"]
-        retiros = self.datos["retiros"]
-        costos = self.datos["costos_marginales_diario"]
 
         # --------------------------------------------------
         # PERIODOS
@@ -3435,6 +3425,16 @@ class AgentService:
 
         periodo_anterior = periodos_anteriores.iloc[-1]
         pericodi_anterior = int(periodo_anterior["pericodi"])
+
+        # Solo se necesitan el periodo consultado y el anterior: filtrar
+        # al leer evita materializar las tablas completas (retiros son
+        # 82 MB completos) en el free tier de 512 MB de Render.
+        pericodis_relevantes = [pericodi, pericodi_anterior]
+        entregas = cargar_tabla_filtrada("entregas", pericodis_relevantes)
+        retiros = cargar_tabla_filtrada("retiros", pericodis_relevantes)
+        costos = cargar_tabla_filtrada(
+            "costos_marginales_diario", pericodis_relevantes
+        )
 
         # --------------------------------------------------
         # PUNTOS DE ENTREGA DE LA EMPRESA

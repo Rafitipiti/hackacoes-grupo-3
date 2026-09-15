@@ -106,38 +106,6 @@ class IntegrityService:
                     )
                 }
 
-            print(
-                "\n=== DEBUG LVTA ==="
-            )
-
-            print(
-                "Empresa:",
-                empresa_id
-            )
-
-            print(
-                "Periodo:",
-                pericodi_validar
-            )
-
-            print(
-                "Resultado LVTA:",
-                len(resultado)
-            )
-
-            print(
-                "Soporte Energia:",
-                len(soporte)
-            )
-
-            print(
-                "Empresas soporte:",
-                self.energia_transferencias[
-                    self.energia_transferencias["pericodi"]
-                    == pericodi_validar
-                ]["emprcodi"].unique()
-            )
-
             if soporte.empty:
                 return {
                     "encontrado": False,
@@ -297,11 +265,7 @@ class IntegrityService:
             },
 
             "soporte": {
-                "dataset": (
-                    "reportes_intermedios/"
-                    "energia_activa/"
-                    "transferencias_por_empresa.json"
-                ),
+                "dataset": "data/curated/energia_transferencias.parquet",
 
                 "monto": actual["soporte"],
 
@@ -581,11 +545,7 @@ class IntegrityService:
             },
 
             "soporte": {
-                "dataset": (
-                    "reportes_intermedios/"
-                    "potencia/"
-                    "desglose_por_valorizacion.json"
-                ),
+                "dataset": "data/curated/potencia_desglose.parquet",
                 "monto_original": monto_soporte,
                 "monto_ajustado": monto_soporte_ajustado,
                 "cantidad_registros": len(soporte)

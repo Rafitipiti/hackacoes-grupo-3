@@ -96,6 +96,24 @@ def test_el_impacto_separa_el_mes_corriente_de_los_arrastres(servicio):
     assert impacto["periodos_arrastrados"] >= 0
 
 
+def test_el_arrastre_suma_ajustes_no_montos_restatados(servicio):
+    """Sumar montos restatados seria doble contabilidad.
+
+    Cada revision restata el mes completo, asi que su monto ya
+    incluye lo publicado antes. El arrastre es la suma de los
+    ajustes (diferencia contra la revision anterior).
+    """
+    impacto = servicio.impacto_de_publicacion(PUBLICACION_DEMO)
+
+    assert impacto["arrastre"] == pytest.approx(-4_515_658.58, abs=1.0)
+
+
+def test_el_corriente_es_el_monto_del_propio_mes(servicio):
+    impacto = servicio.impacto_de_publicacion(PUBLICACION_DEMO)
+
+    assert impacto["corriente"] == pytest.approx(9_001_571.80, abs=1.0)
+
+
 def test_endpoint_calendario(cliente):
     respuesta = cliente.get(f"/revisiones/calendario/{PUBLICACION_DEMO}")
 

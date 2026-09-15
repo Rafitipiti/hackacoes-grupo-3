@@ -41,7 +41,7 @@ Reglas: nunca trabajar directo en `master`, siempre `git pull` antes de empezar,
 |---|---|
 | Frontend | React 19 + Vite 8 · Recharts (gráficos) · Axios (HTTP) · oxlint |
 | Backend | Python + FastAPI + Uvicorn · Pydantic |
-| Datos y análisis | pandas · numpy · scikit-learn |
+| Datos y análisis | pandas · numpy · pyarrow |
 
 Node.js se usa únicamente como herramienta de desarrollo del frontend (servidor de desarrollo de Vite y compilación). No hay backend en Node: la API es FastAPI y el frontend compila a archivos estáticos.
 
@@ -55,7 +55,7 @@ COES_2026/
 │   │   ├── analysis.py        análisis de liquidaciones
 │   │   ├── data/loader.py     carga perezosa de la capa curada
 │   │   ├── routers/           endpoints por dominio (catálogos, panorama, empresa, revisiones)
-│   │   └── services/          trazabilidad, integridad, analista, agente
+│   │   └── services/          trazabilidad, integridad, agente
 │   ├── scripts/
 │   │   └── preparar_datos.py  ETL: welcome kit -> data/curated/
 │   ├── data/
@@ -119,6 +119,20 @@ npm run dev
 ```
 
 La aplicación queda en `http://localhost:5173`.
+
+## Despliegue
+
+- **Backend en Render**: configurar la variable de entorno `CORS_ORIGINS` con la URL del frontend en Vercel (por ejemplo `https://coes-2026.vercel.app`). Si se omite, el navegador bloquea las respuestas por CORS y el backend no deja rastro del problema en sus propios logs — el error solo aparece en la consola del navegador.
+- **Frontend en Vercel**: Root Directory `frontend/`, y variable de entorno `VITE_API_URL` con la URL pública del backend en Render (por ejemplo `https://coes-liquidaciones-api.onrender.com`).
+
+## Pruebas
+
+```bash
+cd backend
+pytest
+```
+
+Los 23 tests de `test_etl_*.py` requieren el welcome kit en `backend/data/raw/` (no versionado). En un clon limpio, sin ese directorio, se saltan automáticamente en vez de fallar.
 
 ## Sobre los datos
 

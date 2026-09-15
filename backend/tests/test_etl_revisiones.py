@@ -1,9 +1,19 @@
 import pandas as pd
+import pytest
 
 from scripts.preparar_datos import (
+    RAW,
     construir_fact_revisiones,
     construir_fact_revisiones_totales,
     construir_fact_calendario,
+)
+
+pytestmark = pytest.mark.skipif(
+    not RAW.exists(),
+    reason=(
+        "requiere el welcome kit en backend/data/raw/ "
+        "(no versionado, ver README)"
+    ),
 )
 
 PROCESOS = {"LVTA", "LVTP", "LSCIO", "SST-SCT"}

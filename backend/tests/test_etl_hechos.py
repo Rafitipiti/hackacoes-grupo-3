@@ -2,9 +2,18 @@ import pandas as pd
 import pytest
 
 from scripts.preparar_datos import (
+    RAW,
     construir_fact_evolucion,
     construir_fact_bilateral,
     construir_fact_desglose,
+)
+
+pytestmark = pytest.mark.skipif(
+    not RAW.exists(),
+    reason=(
+        "requiere el welcome kit en backend/data/raw/ "
+        "(no versionado, ver README)"
+    ),
 )
 
 

@@ -1,9 +1,19 @@
 import pandas as pd
+import pytest
 
 from scripts.preparar_datos import (
+    RAW,
     construir_agg_cmg_diario,
     construir_agg_perfil_intradia,
     construir_agg_energia_diaria,
+)
+
+pytestmark = pytest.mark.skipif(
+    not RAW.exists(),
+    reason=(
+        "requiere el welcome kit en backend/data/raw/ "
+        "(no versionado, ver README)"
+    ),
 )
 
 

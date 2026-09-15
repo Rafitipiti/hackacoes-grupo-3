@@ -60,6 +60,26 @@ def cargar_tabla(nombre: str) -> pd.DataFrame:
     return pd.read_parquet(ruta)
 
 
+def cargar_tabla_filtrada(nombre: str, pericodis: list[int]) -> pd.DataFrame:
+    """Lee solo las filas de los periodos pedidos.
+
+    pyarrow empuja el filtro al archivo, asi que las filas de otros
+    periodos nunca se materializan en memoria. Para las tablas
+    grandes (retiros son 82 MB completos) la diferencia es enorme.
+    """
+    ruta = CURATED / f"{nombre}.parquet"
+
+    if not ruta.exists():
+        raise FileNotFoundError(
+            f"Falta {ruta}. Genera la capa curada con: "
+            f"python -m scripts.preparar_datos"
+        )
+
+    return pd.read_parquet(
+        ruta, filters=[("pericodi", "in", pericodis)]
+    )
+
+
 class CapaCurada(Mapping):
     """Tablas de la capa curada, cargadas la primera vez que se piden.
 
