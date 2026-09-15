@@ -2226,6 +2226,8 @@ caracterizacion lo verifican."
 - Create: `backend/render.yaml`
 - Modify: `backend/app/main.py` (CORS por variable de entorno)
 - Modify: `README.md` (instrucciones actualizadas)
+- Modify: `frontend/src/App.jsx:16` (URL del backend por variable de entorno)
+- Create: `frontend/.env.example`
 - Test: `backend/tests/test_despliegue.py`
 
 **Interfaces:**
@@ -2353,15 +2355,80 @@ python -m scripts.preparar_datos
 
 Actualizar además la sección "Sobre los datos": ya no describe `data_generator.py` ni el CSV, sino el welcome kit, el backcast 2025 (`origen: real | sintetico`) y el alias de empresa como nombre ficticio.
 
-- [ ] **Step 8: Correr toda la suite una última vez**
+- [ ] **Step 8: Hacer configurable la URL del backend en el frontend**
 
-Run: `pytest`
-Expected: PASS, todo.
+`frontend/src/App.jsx:16` tiene la URL **hardcodeada**:
 
-- [ ] **Step 9: Commit**
+```js
+const API_URL = "http://127.0.0.1:8000";
+```
+
+Desplegado, eso apunta al `localhost` de quien abre la página, no al backend. Reemplazar por:
+
+```js
+const API_URL = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000";
+```
+
+Es la única línea que cambia de `App.jsx`. El resto del archivo no se toca.
+
+Crear `frontend/.env.example`:
+
+```
+# URL del backend. En local no hace falta: el valor por defecto ya apunta ahi.
+# En produccion (Vercel) se configura como variable de entorno del proyecto.
+VITE_API_URL=http://127.0.0.1:8000
+```
+
+Añadir a `.gitignore` del repo raíz, si no está cubierto ya:
+
+```
+frontend/.env
+```
+
+- [ ] **Step 9: Verificar que el frontend compila y sigue funcionando**
+
+Run desde `frontend/`: `npm run build`
+Expected: build exitoso.
+
+Verificar que el fallback funciona sin variable de entorno definida:
+
+Run: `grep -n "VITE_API_URL" src/App.jsx`
+Expected: una sola línea, con el `??` y el valor por defecto.
+
+- [ ] **Step 10: Prueba de humo extremo a extremo**
+
+Este es el paso que confirma que hay algo **visual y funcional**, no solo una API que responde.
+
+En una terminal, desde `backend/`:
 
 ```bash
-git add backend/render.yaml backend/app/main.py backend/tests/test_despliegue.py README.md
+uvicorn app.main:app --port 8000
+```
+
+En otra, desde `frontend/`:
+
+```bash
+npm run dev
+```
+
+Abrir `http://localhost:5173` y comprobar, anotando lo que se ve:
+
+1. La página carga sin errores en la consola del navegador.
+2. El selector de períodos ofrece **20 meses** (antes eran 8). Es la señal visible de que la capa curada con el backcast 2025 está conectada.
+3. El selector de empresas lista empresas con su **alias** (`Generadora Andina`, no `EMPRESA_047`).
+4. Seleccionar una empresa y un período carga el flujo del agente sin error.
+
+Si algo de esto falla, reportarlo con el error literal de la consola del navegador y el de la terminal de uvicorn. NO lo arregles a ciegas.
+
+- [ ] **Step 11: Correr toda la suite una última vez**
+
+Run: `pytest`
+Expected: PASS, todo. Leer el número: no debe haber ningún `skipped`.
+
+- [ ] **Step 12: Commit**
+
+```bash
+git add backend/render.yaml backend/app/main.py backend/tests/test_despliegue.py README.md frontend/src/App.jsx frontend/.env.example .gitignore
 git commit -m "feat: preparar el despliegue del backend
 
 CORS configurable por CORS_ORIGINS, render.yaml con health check en
