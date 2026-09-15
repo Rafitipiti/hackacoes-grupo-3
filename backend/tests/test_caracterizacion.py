@@ -37,6 +37,24 @@ def test_radar_de_un_periodo_valido(cliente):
     respuesta = cliente.get(f"/radar/{PERIODO_DEMO}")
     assert respuesta.status_code == 200
 
+    cuerpo = respuesta.json()
+    campos_requeridos = [
+        "fecha", "periodo", "estado", "version_vigente",
+        "total_agentes", "total_alertas", "agentes_analizados", "alertas"
+    ]
+    for campo in campos_requeridos:
+        assert campo in cuerpo, (
+            f"faltó campo '{campo}' en /radar/{PERIODO_DEMO}; "
+            f"claves presentes: {list(cuerpo.keys())}"
+        )
+
+    assert isinstance(cuerpo["agentes_analizados"], list), (
+        f"'agentes_analizados' debe ser lista, no {type(cuerpo['agentes_analizados']).__name__}"
+    )
+    assert isinstance(cuerpo["alertas"], list), (
+        f"'alertas' debe ser lista, no {type(cuerpo['alertas']).__name__}"
+    )
+
 
 def test_radar_de_un_periodo_inexistente_es_404(cliente):
     respuesta = cliente.get("/radar/99999")
@@ -49,6 +67,22 @@ def test_agente_resumen(cliente):
     )
     assert respuesta.status_code == 200
 
+    cuerpo = respuesta.json()
+    assert "impulsores" in cuerpo, (
+        f"faltó 'impulsores' en /agente/resumen; claves: {list(cuerpo.keys())}"
+    )
+
+    impulsores = cuerpo["impulsores"]
+    assert isinstance(impulsores, dict), (
+        f"'impulsores' debe ser dict, no {type(impulsores).__name__}"
+    )
+    assert "movimientos" in impulsores, (
+        f"faltó 'movimientos' en impulsores; claves: {list(impulsores.keys())}"
+    )
+    assert isinstance(impulsores["movimientos"], list), (
+        f"'movimientos' debe ser lista, no {type(impulsores['movimientos']).__name__}"
+    )
+
 
 def test_agente_explicacion(cliente):
     respuesta = cliente.get(
@@ -56,9 +90,25 @@ def test_agente_explicacion(cliente):
     )
     assert respuesta.status_code == 200
 
+    cuerpo = respuesta.json()
+    assert isinstance(cuerpo, dict), (
+        f"respuesta debe ser dict, no {type(cuerpo).__name__}"
+    )
+    assert len(cuerpo) > 0, (
+        f"respuesta no puede estar vacía"
+    )
+
 
 def test_agente_contexto(cliente):
     respuesta = cliente.get(
         f"/agente/contexto/{EMPRESA_DEMO}/{PERIODO_DEMO}"
     )
     assert respuesta.status_code == 200
+
+    cuerpo = respuesta.json()
+    assert isinstance(cuerpo, dict), (
+        f"respuesta debe ser dict, no {type(cuerpo).__name__}"
+    )
+    assert len(cuerpo) > 0, (
+        f"respuesta no puede estar vacía"
+    )
