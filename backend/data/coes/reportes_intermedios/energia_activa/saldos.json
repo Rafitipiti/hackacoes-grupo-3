@@ -1,0 +1,5702 @@
+[
+  {
+    "emprcodi": "EMPRESA_001",
+    "emprruc": "RUC_EMPRESA_001",
+    "saldo_total": "18858.5737628163",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_002",
+    "emprruc": "RUC_EMPRESA_002",
+    "saldo_total": "17809.1940140979",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_003",
+    "emprruc": "RUC_EMPRESA_003",
+    "saldo_total": "9073.7426840738",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_004",
+    "emprruc": "RUC_EMPRESA_004",
+    "saldo_total": "13834.1728709836",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_005",
+    "emprruc": "RUC_EMPRESA_005",
+    "saldo_total": "28613.6323987581",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_006",
+    "emprruc": "RUC_EMPRESA_006",
+    "saldo_total": "-4093.0712274799",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_007",
+    "emprruc": "RUC_EMPRESA_007",
+    "saldo_total": "-1426816.0317784214",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_008",
+    "emprruc": "RUC_EMPRESA_008",
+    "saldo_total": "9258.4108406860",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_009",
+    "emprruc": "RUC_EMPRESA_009",
+    "saldo_total": "6612.9471851149",
+    "cantidad_origenes": 1,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_010",
+    "emprruc": "RUC_EMPRESA_010",
+    "saldo_total": "11471.9923895798",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_011",
+    "emprruc": "RUC_EMPRESA_011",
+    "saldo_total": "-1150129.2673227200",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_012",
+    "emprruc": "RUC_EMPRESA_012",
+    "saldo_total": "10592.5056030695",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_013",
+    "emprruc": "RUC_EMPRESA_013",
+    "saldo_total": "336896.0066202591",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_014",
+    "emprruc": "RUC_EMPRESA_014",
+    "saldo_total": "-28.6848051295",
+    "cantidad_origenes": 1,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_015",
+    "emprruc": "RUC_EMPRESA_015",
+    "saldo_total": "183767.8799295808",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016",
+    "saldo_total": "67418.7637983374",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017",
+    "saldo_total": "38346.5569036152",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_018",
+    "emprruc": "RUC_EMPRESA_018",
+    "saldo_total": "-215707.1727696865",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019",
+    "saldo_total": "-13276.3339835473",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_020",
+    "emprruc": "RUC_EMPRESA_020",
+    "saldo_total": "4224.5035550661",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_021",
+    "emprruc": "RUC_EMPRESA_021",
+    "saldo_total": "-5974691.7366570962",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_022",
+    "emprruc": "RUC_EMPRESA_022",
+    "saldo_total": "7474.0693493017",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_072",
+    "emprruc": "RUC_EMPRESA_072",
+    "saldo_total": "22989.5894523529",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_023",
+    "emprruc": "RUC_EMPRESA_023",
+    "saldo_total": "10135.4767528633",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_024",
+    "emprruc": "RUC_EMPRESA_024",
+    "saldo_total": "224239.0946737219",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_025",
+    "emprruc": "RUC_EMPRESA_025",
+    "saldo_total": "138305.8683891617",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_026",
+    "emprruc": "RUC_EMPRESA_026",
+    "saldo_total": "5353.1744366035",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_027",
+    "emprruc": "RUC_EMPRESA_027",
+    "saldo_total": "6888.1736836374",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_028",
+    "emprruc": "RUC_EMPRESA_028",
+    "saldo_total": "-81562.3076922666",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_029",
+    "emprruc": "RUC_EMPRESA_029",
+    "saldo_total": "62976.2699695786",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_030",
+    "emprruc": "RUC_EMPRESA_030",
+    "saldo_total": "81138.8028659010",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031",
+    "saldo_total": "2059543.4156273085",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032",
+    "saldo_total": "733975.0240124009",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_033",
+    "emprruc": "RUC_EMPRESA_033",
+    "saldo_total": "9548.0275792489",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_034",
+    "emprruc": "RUC_EMPRESA_034",
+    "saldo_total": "27592.0916564270",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_035",
+    "emprruc": "RUC_EMPRESA_035",
+    "saldo_total": "72725.8387608235",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_036",
+    "emprruc": "RUC_EMPRESA_036",
+    "saldo_total": "-6164.5888635887",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_037",
+    "emprruc": "RUC_EMPRESA_037",
+    "saldo_total": "8685.8215382181",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_038",
+    "emprruc": "RUC_EMPRESA_038",
+    "saldo_total": "10554.4498092947",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_039",
+    "emprruc": "RUC_EMPRESA_039",
+    "saldo_total": "-104906.0917779979",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_040",
+    "emprruc": "RUC_EMPRESA_040",
+    "saldo_total": "-205335.7977842392",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_041",
+    "emprruc": "RUC_EMPRESA_041",
+    "saldo_total": "16077.3113724032",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_042",
+    "emprruc": "RUC_EMPRESA_042",
+    "saldo_total": "228151.3735036608",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_043",
+    "emprruc": "RUC_EMPRESA_043",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_044",
+    "emprruc": "RUC_EMPRESA_044",
+    "saldo_total": "191702.6455469329",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_045",
+    "emprruc": "RUC_EMPRESA_045",
+    "saldo_total": "3527.0620806833",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_046",
+    "emprruc": "RUC_EMPRESA_046",
+    "saldo_total": "75138.3340030375",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047",
+    "saldo_total": "2358961.2522292845",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_048",
+    "emprruc": "RUC_EMPRESA_048",
+    "saldo_total": "5.7337069228",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_049",
+    "emprruc": "RUC_EMPRESA_049",
+    "saldo_total": "66447.2643746917",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_050",
+    "emprruc": "RUC_EMPRESA_050",
+    "saldo_total": "2832.7433869063",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_051",
+    "emprruc": "RUC_EMPRESA_051",
+    "saldo_total": "151.9571473678",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_052",
+    "emprruc": "RUC_EMPRESA_052",
+    "saldo_total": "139363.1004841839",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_053",
+    "emprruc": "RUC_EMPRESA_053",
+    "saldo_total": "-103.7423832264",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_054",
+    "emprruc": "RUC_EMPRESA_054",
+    "saldo_total": "724741.9109292400",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055",
+    "saldo_total": "1969228.8882569774",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_056",
+    "emprruc": "RUC_EMPRESA_056",
+    "saldo_total": "-96.3155503651",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_057",
+    "emprruc": "RUC_EMPRESA_057",
+    "saldo_total": "27794.0763820487",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_058",
+    "emprruc": "RUC_EMPRESA_058",
+    "saldo_total": "84282.6254853722",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_059",
+    "emprruc": "RUC_EMPRESA_059",
+    "saldo_total": "3673.6351081628",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_060",
+    "emprruc": "RUC_EMPRESA_060",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_061",
+    "emprruc": "RUC_EMPRESA_061",
+    "saldo_total": "151.1968260737",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_062",
+    "emprruc": "RUC_EMPRESA_062",
+    "saldo_total": "-293806.7854478536",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_063",
+    "emprruc": "RUC_EMPRESA_063",
+    "saldo_total": "-953318.4175632126",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_064",
+    "emprruc": "RUC_EMPRESA_064",
+    "saldo_total": "55114.9661996964",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_065",
+    "emprruc": "RUC_EMPRESA_065",
+    "saldo_total": "28476.1193541349",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066",
+    "saldo_total": "484207.4803321695",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_067",
+    "emprruc": "RUC_EMPRESA_067",
+    "saldo_total": "-7884.7169175034",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068",
+    "saldo_total": "-409874.8773922001",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_069",
+    "emprruc": "RUC_EMPRESA_069",
+    "saldo_total": "108288.1249356499",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_070",
+    "emprruc": "RUC_EMPRESA_070",
+    "saldo_total": "7362.2507690221",
+    "cantidad_origenes": 1,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_071",
+    "emprruc": "RUC_EMPRESA_071",
+    "saldo_total": "33211.8163927751",
+    "cantidad_origenes": 3,
+    "pericodi": 132,
+    "perinombre": "2026.Enero",
+    "perianiomes": "202601",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_001",
+    "emprruc": "RUC_EMPRESA_001",
+    "saldo_total": "10933.5484353216",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_002",
+    "emprruc": "RUC_EMPRESA_002",
+    "saldo_total": "16189.3471944549",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_003",
+    "emprruc": "RUC_EMPRESA_003",
+    "saldo_total": "6543.6898548553",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_004",
+    "emprruc": "RUC_EMPRESA_004",
+    "saldo_total": "9999.4262182410",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_005",
+    "emprruc": "RUC_EMPRESA_005",
+    "saldo_total": "20158.3135172762",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_006",
+    "emprruc": "RUC_EMPRESA_006",
+    "saldo_total": "265.1381137627",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_007",
+    "emprruc": "RUC_EMPRESA_007",
+    "saldo_total": "-779773.1491850067",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_008",
+    "emprruc": "RUC_EMPRESA_008",
+    "saldo_total": "8292.1605770798",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_009",
+    "emprruc": "RUC_EMPRESA_009",
+    "saldo_total": "17360.0288389575",
+    "cantidad_origenes": 1,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_010",
+    "emprruc": "RUC_EMPRESA_010",
+    "saldo_total": "-27297.3392284988",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_011",
+    "emprruc": "RUC_EMPRESA_011",
+    "saldo_total": "-255860.4411161396",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_012",
+    "emprruc": "RUC_EMPRESA_012",
+    "saldo_total": "-17504.0118976206",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_013",
+    "emprruc": "RUC_EMPRESA_013",
+    "saldo_total": "1920454.2874256592",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_014",
+    "emprruc": "RUC_EMPRESA_014",
+    "saldo_total": "-1079326.9028056359",
+    "cantidad_origenes": 1,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_015",
+    "emprruc": "RUC_EMPRESA_015",
+    "saldo_total": "229212.3480503375",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016",
+    "saldo_total": "914446.3271926895",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017",
+    "saldo_total": "19394.8634636708",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_018",
+    "emprruc": "RUC_EMPRESA_018",
+    "saldo_total": "634882.8751740988",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019",
+    "saldo_total": "-326432.8101545272",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_020",
+    "emprruc": "RUC_EMPRESA_020",
+    "saldo_total": "2970.2124568683",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_021",
+    "emprruc": "RUC_EMPRESA_021",
+    "saldo_total": "35406.3304444770",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_022",
+    "emprruc": "RUC_EMPRESA_022",
+    "saldo_total": "5182.3123537583",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_023",
+    "emprruc": "RUC_EMPRESA_023",
+    "saldo_total": "19235.7319601169",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_024",
+    "emprruc": "RUC_EMPRESA_024",
+    "saldo_total": "-1384401.3375141241",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_025",
+    "emprruc": "RUC_EMPRESA_025",
+    "saldo_total": "97638.9903430462",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_026",
+    "emprruc": "RUC_EMPRESA_026",
+    "saldo_total": "3390.5032692286",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_027",
+    "emprruc": "RUC_EMPRESA_027",
+    "saldo_total": "4726.7640534642",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_028",
+    "emprruc": "RUC_EMPRESA_028",
+    "saldo_total": "-567658.9082374394",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_029",
+    "emprruc": "RUC_EMPRESA_029",
+    "saldo_total": "-2315254.4825985122",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_030",
+    "emprruc": "RUC_EMPRESA_030",
+    "saldo_total": "31845.7623904574",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031",
+    "saldo_total": "-305898.7735969594",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032",
+    "saldo_total": "71957.9220177249",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_033",
+    "emprruc": "RUC_EMPRESA_033",
+    "saldo_total": "6630.5800527648",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_034",
+    "emprruc": "RUC_EMPRESA_034",
+    "saldo_total": "17467.3638805433",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_035",
+    "emprruc": "RUC_EMPRESA_035",
+    "saldo_total": "44790.6043034911",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_036",
+    "emprruc": "RUC_EMPRESA_036",
+    "saldo_total": "-49738.5204134065",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_037",
+    "emprruc": "RUC_EMPRESA_037",
+    "saldo_total": "5935.2734402930",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_038",
+    "emprruc": "RUC_EMPRESA_038",
+    "saldo_total": "7243.9876332980",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_039",
+    "emprruc": "RUC_EMPRESA_039",
+    "saldo_total": "-7102.5910258570",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_040",
+    "emprruc": "RUC_EMPRESA_040",
+    "saldo_total": "-895697.8215428131",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_041",
+    "emprruc": "RUC_EMPRESA_041",
+    "saldo_total": "4131.5203408356",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_042",
+    "emprruc": "RUC_EMPRESA_042",
+    "saldo_total": "-16097.6891214556",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_043",
+    "emprruc": "RUC_EMPRESA_043",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_044",
+    "emprruc": "RUC_EMPRESA_044",
+    "saldo_total": "67377.0548791992",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_045",
+    "emprruc": "RUC_EMPRESA_045",
+    "saldo_total": "-20123.8381196682",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_046",
+    "emprruc": "RUC_EMPRESA_046",
+    "saldo_total": "102246.9154132667",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047",
+    "saldo_total": "586797.1666947124",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_048",
+    "emprruc": "RUC_EMPRESA_048",
+    "saldo_total": "3.6486690532",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_049",
+    "emprruc": "RUC_EMPRESA_049",
+    "saldo_total": "-45380.2657390856",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_050",
+    "emprruc": "RUC_EMPRESA_050",
+    "saldo_total": "1759.7883579895",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_051",
+    "emprruc": "RUC_EMPRESA_051",
+    "saldo_total": "92.7622181356",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_052",
+    "emprruc": "RUC_EMPRESA_052",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_053",
+    "emprruc": "RUC_EMPRESA_053",
+    "saldo_total": "103.1730320981",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_054",
+    "emprruc": "RUC_EMPRESA_054",
+    "saldo_total": "599501.2344235375",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055",
+    "saldo_total": "3378132.0411156309",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_056",
+    "emprruc": "RUC_EMPRESA_056",
+    "saldo_total": "138.0830135644",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_057",
+    "emprruc": "RUC_EMPRESA_057",
+    "saldo_total": "19235.0288511271",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_058",
+    "emprruc": "RUC_EMPRESA_058",
+    "saldo_total": "58161.6015931111",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_059",
+    "emprruc": "RUC_EMPRESA_059",
+    "saldo_total": "1858.0391031277",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_060",
+    "emprruc": "RUC_EMPRESA_060",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_061",
+    "emprruc": "RUC_EMPRESA_061",
+    "saldo_total": "93.0201064519",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_062",
+    "emprruc": "RUC_EMPRESA_062",
+    "saldo_total": "-219662.8563344943",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_063",
+    "emprruc": "RUC_EMPRESA_063",
+    "saldo_total": "-109909.4284368108",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 1,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_064",
+    "emprruc": "RUC_EMPRESA_064",
+    "saldo_total": "34725.7894385045",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_065",
+    "emprruc": "RUC_EMPRESA_065",
+    "saldo_total": "38304.6943319052",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066",
+    "saldo_total": "25662.9542045113",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_067",
+    "emprruc": "RUC_EMPRESA_067",
+    "saldo_total": "454.6669808165",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068",
+    "saldo_total": "-470643.9650150929",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_069",
+    "emprruc": "RUC_EMPRESA_069",
+    "saldo_total": "-181778.4574828451",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_070",
+    "emprruc": "RUC_EMPRESA_070",
+    "saldo_total": "-29030.1256356257",
+    "cantidad_origenes": 1,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_071",
+    "emprruc": "RUC_EMPRESA_071",
+    "saldo_total": "23239.8397780942",
+    "cantidad_origenes": 2,
+    "pericodi": 133,
+    "perinombre": "2026.Febrero",
+    "perianiomes": "202602",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_001",
+    "emprruc": "RUC_EMPRESA_001",
+    "saldo_total": "20040.5075307353",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_002",
+    "emprruc": "RUC_EMPRESA_002",
+    "saldo_total": "16694.7703291048",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_003",
+    "emprruc": "RUC_EMPRESA_003",
+    "saldo_total": "9351.9667448590",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_004",
+    "emprruc": "RUC_EMPRESA_004",
+    "saldo_total": "12679.9319770785",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_005",
+    "emprruc": "RUC_EMPRESA_005",
+    "saldo_total": "23805.5088463010",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_006",
+    "emprruc": "RUC_EMPRESA_006",
+    "saldo_total": "-739.8399252394",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_007",
+    "emprruc": "RUC_EMPRESA_007",
+    "saldo_total": "-496692.5563311166",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_008",
+    "emprruc": "RUC_EMPRESA_008",
+    "saldo_total": "11110.3200988217",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_009",
+    "emprruc": "RUC_EMPRESA_009",
+    "saldo_total": "25268.2848831179",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_010",
+    "emprruc": "RUC_EMPRESA_010",
+    "saldo_total": "10050.0754918251",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_011",
+    "emprruc": "RUC_EMPRESA_011",
+    "saldo_total": "-213486.6135883606",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_012",
+    "emprruc": "RUC_EMPRESA_012",
+    "saldo_total": "-33131.6301455963",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_013",
+    "emprruc": "RUC_EMPRESA_013",
+    "saldo_total": "-166172.1572103236",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_014",
+    "emprruc": "RUC_EMPRESA_014",
+    "saldo_total": "-1304009.2068312564",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_015",
+    "emprruc": "RUC_EMPRESA_015",
+    "saldo_total": "5632.1880964541",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016",
+    "saldo_total": "9922.0718707121",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017",
+    "saldo_total": "38602.0555871293",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_018",
+    "emprruc": "RUC_EMPRESA_018",
+    "saldo_total": "-758348.5347166083",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019",
+    "saldo_total": "-197709.9158342416",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_020",
+    "emprruc": "RUC_EMPRESA_020",
+    "saldo_total": "4150.7369607368",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_021",
+    "emprruc": "RUC_EMPRESA_021",
+    "saldo_total": "1122882.9698787577",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_022",
+    "emprruc": "RUC_EMPRESA_022",
+    "saldo_total": "7169.3774454897",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_023",
+    "emprruc": "RUC_EMPRESA_023",
+    "saldo_total": "17948.6158717744",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_024",
+    "emprruc": "RUC_EMPRESA_024",
+    "saldo_total": "675088.5838655613",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_025",
+    "emprruc": "RUC_EMPRESA_025",
+    "saldo_total": "136076.9153330855",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_026",
+    "emprruc": "RUC_EMPRESA_026",
+    "saldo_total": "4690.5426941308",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_027",
+    "emprruc": "RUC_EMPRESA_027",
+    "saldo_total": "6539.1590350478",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_028",
+    "emprruc": "RUC_EMPRESA_028",
+    "saldo_total": "-157430.5873445182",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_029",
+    "emprruc": "RUC_EMPRESA_029",
+    "saldo_total": "-25202.2071160504",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_030",
+    "emprruc": "RUC_EMPRESA_030",
+    "saldo_total": "66869.9422666809",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031",
+    "saldo_total": "-1332470.4082862926",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032",
+    "saldo_total": "-422171.9286363448",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_033",
+    "emprruc": "RUC_EMPRESA_033",
+    "saldo_total": "9172.9763690679",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_034",
+    "emprruc": "RUC_EMPRESA_034",
+    "saldo_total": "24164.9583483807",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_035",
+    "emprruc": "RUC_EMPRESA_035",
+    "saldo_total": "66670.7326587772",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_036",
+    "emprruc": "RUC_EMPRESA_036",
+    "saldo_total": "-19081.5343575252",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_037",
+    "emprruc": "RUC_EMPRESA_037",
+    "saldo_total": "8136.2197976124",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_038",
+    "emprruc": "RUC_EMPRESA_038",
+    "saldo_total": "9874.4638785759",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_039",
+    "emprruc": "RUC_EMPRESA_039",
+    "saldo_total": "3347.6012440954",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_040",
+    "emprruc": "RUC_EMPRESA_040",
+    "saldo_total": "-489958.7386184805",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_041",
+    "emprruc": "RUC_EMPRESA_041",
+    "saldo_total": "-17704.2606718197",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_042",
+    "emprruc": "RUC_EMPRESA_042",
+    "saldo_total": "194478.4306136932",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_043",
+    "emprruc": "RUC_EMPRESA_043",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_044",
+    "emprruc": "RUC_EMPRESA_044",
+    "saldo_total": "-69264.4796763075",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_045",
+    "emprruc": "RUC_EMPRESA_045",
+    "saldo_total": "-3526.0093953875",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_046",
+    "emprruc": "RUC_EMPRESA_046",
+    "saldo_total": "180.2632046546",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047",
+    "saldo_total": "1449639.9957568081",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_048",
+    "emprruc": "RUC_EMPRESA_048",
+    "saldo_total": "4.9109896018",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_049",
+    "emprruc": "RUC_EMPRESA_049",
+    "saldo_total": "35680.3520729787",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_050",
+    "emprruc": "RUC_EMPRESA_050",
+    "saldo_total": "2539.0169418047",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_051",
+    "emprruc": "RUC_EMPRESA_051",
+    "saldo_total": "120.4512514054",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_052",
+    "emprruc": "RUC_EMPRESA_052",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_053",
+    "emprruc": "RUC_EMPRESA_053",
+    "saldo_total": "274.2028300009",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_054",
+    "emprruc": "RUC_EMPRESA_054",
+    "saldo_total": "404901.4122121291",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055",
+    "saldo_total": "-289762.9403836154",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_056",
+    "emprruc": "RUC_EMPRESA_056",
+    "saldo_total": "338.8362385673",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_057",
+    "emprruc": "RUC_EMPRESA_057",
+    "saldo_total": "26530.9021311873",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_058",
+    "emprruc": "RUC_EMPRESA_058",
+    "saldo_total": "80282.9852948525",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_059",
+    "emprruc": "RUC_EMPRESA_059",
+    "saldo_total": "2626.0681876001",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_060",
+    "emprruc": "RUC_EMPRESA_060",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_061",
+    "emprruc": "RUC_EMPRESA_061",
+    "saldo_total": "120.3059723100",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_062",
+    "emprruc": "RUC_EMPRESA_062",
+    "saldo_total": "334172.3891321760",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_063",
+    "emprruc": "RUC_EMPRESA_063",
+    "saldo_total": "-102582.4708983008",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_064",
+    "emprruc": "RUC_EMPRESA_064",
+    "saldo_total": "53243.8481994555",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_065",
+    "emprruc": "RUC_EMPRESA_065",
+    "saldo_total": "52603.0866011517",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066",
+    "saldo_total": "87118.2742732965",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_067",
+    "emprruc": "RUC_EMPRESA_067",
+    "saldo_total": "-605.5128867716",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068",
+    "saldo_total": "775296.1793469488",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_069",
+    "emprruc": "RUC_EMPRESA_069",
+    "saldo_total": "284747.7544899216",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_070",
+    "emprruc": "RUC_EMPRESA_070",
+    "saldo_total": "6056.5347020359",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_071",
+    "emprruc": "RUC_EMPRESA_071",
+    "saldo_total": "-36846.1446921542",
+    "cantidad_origenes": 1,
+    "pericodi": 134,
+    "perinombre": "2026.Marzo",
+    "perianiomes": "202603",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_001",
+    "emprruc": "RUC_EMPRESA_001",
+    "saldo_total": "201038.9109733298",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_002",
+    "emprruc": "RUC_EMPRESA_002",
+    "saldo_total": "51653.1089859345",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_003",
+    "emprruc": "RUC_EMPRESA_003",
+    "saldo_total": "32684.9108385336",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_004",
+    "emprruc": "RUC_EMPRESA_004",
+    "saldo_total": "46700.4900669485",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_005",
+    "emprruc": "RUC_EMPRESA_005",
+    "saldo_total": "105163.0418985486",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_006",
+    "emprruc": "RUC_EMPRESA_006",
+    "saldo_total": "-25289.5030140894",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_007",
+    "emprruc": "RUC_EMPRESA_007",
+    "saldo_total": "-3908347.0093731876",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_008",
+    "emprruc": "RUC_EMPRESA_008",
+    "saldo_total": "11386.6395494282",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_009",
+    "emprruc": "RUC_EMPRESA_009",
+    "saldo_total": "85919.1255548520",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_010",
+    "emprruc": "RUC_EMPRESA_010",
+    "saldo_total": "23198.0065475920",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_011",
+    "emprruc": "RUC_EMPRESA_011",
+    "saldo_total": "-1013632.9909859154",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_012",
+    "emprruc": "RUC_EMPRESA_012",
+    "saldo_total": "66625.6601425497",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_013",
+    "emprruc": "RUC_EMPRESA_013",
+    "saldo_total": "-6516764.4166887835",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_014",
+    "emprruc": "RUC_EMPRESA_014",
+    "saldo_total": "4740.0945735265",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_015",
+    "emprruc": "RUC_EMPRESA_015",
+    "saldo_total": "110219.7079814015",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016",
+    "saldo_total": "433659.9304234444",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017",
+    "saldo_total": "10340.9715066522",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_018",
+    "emprruc": "RUC_EMPRESA_018",
+    "saldo_total": "-4245868.5813348374",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019",
+    "saldo_total": "496845.8735809870",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_020",
+    "emprruc": "RUC_EMPRESA_020",
+    "saldo_total": "18851.8351038711",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_021",
+    "emprruc": "RUC_EMPRESA_021",
+    "saldo_total": "2663556.0576548345",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_022",
+    "emprruc": "RUC_EMPRESA_022",
+    "saldo_total": "24329.4804693433",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_023",
+    "emprruc": "RUC_EMPRESA_023",
+    "saldo_total": "-71533.6183000023",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_024",
+    "emprruc": "RUC_EMPRESA_024",
+    "saldo_total": "2627060.3260489370",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_025",
+    "emprruc": "RUC_EMPRESA_025",
+    "saldo_total": "577373.5904068861",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_026",
+    "emprruc": "RUC_EMPRESA_026",
+    "saldo_total": "15917.4657116237",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_027",
+    "emprruc": "RUC_EMPRESA_027",
+    "saldo_total": "22190.8336559997",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_028",
+    "emprruc": "RUC_EMPRESA_028",
+    "saldo_total": "2243743.1038891117",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_029",
+    "emprruc": "RUC_EMPRESA_029",
+    "saldo_total": "521129.3228718282",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_030",
+    "emprruc": "RUC_EMPRESA_030",
+    "saldo_total": "-397665.4021754933",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031",
+    "saldo_total": "-2510605.3313880163",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032",
+    "saldo_total": "953569.2234894098",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_033",
+    "emprruc": "RUC_EMPRESA_033",
+    "saldo_total": "31128.7683803321",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_034",
+    "emprruc": "RUC_EMPRESA_034",
+    "saldo_total": "82004.4795985488",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_035",
+    "emprruc": "RUC_EMPRESA_035",
+    "saldo_total": "113820.1809124387",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_036",
+    "emprruc": "RUC_EMPRESA_036",
+    "saldo_total": "649203.6614660553",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_037",
+    "emprruc": "RUC_EMPRESA_037",
+    "saldo_total": "27368.9524631211",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_038",
+    "emprruc": "RUC_EMPRESA_038",
+    "saldo_total": "33240.5745264001",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_039",
+    "emprruc": "RUC_EMPRESA_039",
+    "saldo_total": "-887975.5502927612",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_040",
+    "emprruc": "RUC_EMPRESA_040",
+    "saldo_total": "420944.7151549305",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_041",
+    "emprruc": "RUC_EMPRESA_041",
+    "saldo_total": "52347.7738241111",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_042",
+    "emprruc": "RUC_EMPRESA_042",
+    "saldo_total": "2008025.8872248849",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_043",
+    "emprruc": "RUC_EMPRESA_043",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_044",
+    "emprruc": "RUC_EMPRESA_044",
+    "saldo_total": "141636.2147589797",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_045",
+    "emprruc": "RUC_EMPRESA_045",
+    "saldo_total": "102919.6231564727",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_046",
+    "emprruc": "RUC_EMPRESA_046",
+    "saldo_total": "561.1502215497",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047",
+    "saldo_total": "2600539.8929068481",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_048",
+    "emprruc": "RUC_EMPRESA_048",
+    "saldo_total": "16.2811551033",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_049",
+    "emprruc": "RUC_EMPRESA_049",
+    "saldo_total": "977910.5356676702",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_050",
+    "emprruc": "RUC_EMPRESA_050",
+    "saldo_total": "8616.2346210141",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_051",
+    "emprruc": "RUC_EMPRESA_051",
+    "saldo_total": "392.8091063253",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_052",
+    "emprruc": "RUC_EMPRESA_052",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_053",
+    "emprruc": "RUC_EMPRESA_053",
+    "saldo_total": "15173.6808556186",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_054",
+    "emprruc": "RUC_EMPRESA_054",
+    "saldo_total": "2548214.2970135610",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055",
+    "saldo_total": "-5194521.4625687882",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_056",
+    "emprruc": "RUC_EMPRESA_056",
+    "saldo_total": "21303.1314401179",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_057",
+    "emprruc": "RUC_EMPRESA_057",
+    "saldo_total": "71526.3195825874",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_058",
+    "emprruc": "RUC_EMPRESA_058",
+    "saldo_total": "-113003.9938233110",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_059",
+    "emprruc": "RUC_EMPRESA_059",
+    "saldo_total": "27985.0509633271",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_060",
+    "emprruc": "RUC_EMPRESA_060",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_061",
+    "emprruc": "RUC_EMPRESA_061",
+    "saldo_total": "-4072.2002455761",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_062",
+    "emprruc": "RUC_EMPRESA_062",
+    "saldo_total": "-98231.5055228530",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_063",
+    "emprruc": "RUC_EMPRESA_063",
+    "saldo_total": "-254852.0434388924",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_064",
+    "emprruc": "RUC_EMPRESA_064",
+    "saldo_total": "179726.8411544252",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_065",
+    "emprruc": "RUC_EMPRESA_065",
+    "saldo_total": "176518.3349607535",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066",
+    "saldo_total": "4638611.1350471726",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_067",
+    "emprruc": "RUC_EMPRESA_067",
+    "saldo_total": "-10811.4611023559",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068",
+    "saldo_total": "-1597791.1537534961",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_069",
+    "emprruc": "RUC_EMPRESA_069",
+    "saldo_total": "173518.1041143168",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_070",
+    "emprruc": "RUC_EMPRESA_070",
+    "saldo_total": "264436.1973797595",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_071",
+    "emprruc": "RUC_EMPRESA_071",
+    "saldo_total": "135377.6844263605",
+    "cantidad_origenes": 3,
+    "pericodi": 135,
+    "perinombre": "2026.Abril",
+    "perianiomes": "202604",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_001",
+    "emprruc": "RUC_EMPRESA_001",
+    "saldo_total": "766.6920942375",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_002",
+    "emprruc": "RUC_EMPRESA_002",
+    "saldo_total": "2292.5961351914",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_003",
+    "emprruc": "RUC_EMPRESA_003",
+    "saldo_total": "5093.4600357410",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_004",
+    "emprruc": "RUC_EMPRESA_004",
+    "saldo_total": "563.9077274499",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_005",
+    "emprruc": "RUC_EMPRESA_005",
+    "saldo_total": "-1206.5259087453",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_006",
+    "emprruc": "RUC_EMPRESA_006",
+    "saldo_total": "3701.5082485283",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_007",
+    "emprruc": "RUC_EMPRESA_007",
+    "saldo_total": "-22911.3061726946",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_008",
+    "emprruc": "RUC_EMPRESA_008",
+    "saldo_total": "5426.8120325021",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_009",
+    "emprruc": "RUC_EMPRESA_009",
+    "saldo_total": "4395.8365938418",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_010",
+    "emprruc": "RUC_EMPRESA_010",
+    "saldo_total": "1793.7810998940",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_011",
+    "emprruc": "RUC_EMPRESA_011",
+    "saldo_total": "863715.1890691674",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_012",
+    "emprruc": "RUC_EMPRESA_012",
+    "saldo_total": "33020.6796911123",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_013",
+    "emprruc": "RUC_EMPRESA_013",
+    "saldo_total": "-55503.7283380728",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_014",
+    "emprruc": "RUC_EMPRESA_014",
+    "saldo_total": "-419912.6021701508",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_015",
+    "emprruc": "RUC_EMPRESA_015",
+    "saldo_total": "-113862.7605680466",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016",
+    "saldo_total": "53181.8194695121",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017",
+    "saldo_total": "9633.3326507975",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_018",
+    "emprruc": "RUC_EMPRESA_018",
+    "saldo_total": "154206.8573828471",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019",
+    "saldo_total": "124801.5240113118",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_020",
+    "emprruc": "RUC_EMPRESA_020",
+    "saldo_total": "-1283.8383015533",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_021",
+    "emprruc": "RUC_EMPRESA_021",
+    "saldo_total": "-3029.6106525076",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_022",
+    "emprruc": "RUC_EMPRESA_022",
+    "saldo_total": "436.7482052846",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_023",
+    "emprruc": "RUC_EMPRESA_023",
+    "saldo_total": "-1895.1093187868",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_024",
+    "emprruc": "RUC_EMPRESA_024",
+    "saldo_total": "31752.7032751852",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_025",
+    "emprruc": "RUC_EMPRESA_025",
+    "saldo_total": "10347.9522058074",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_026",
+    "emprruc": "RUC_EMPRESA_026",
+    "saldo_total": "285.7406251320",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_027",
+    "emprruc": "RUC_EMPRESA_027",
+    "saldo_total": "398.3559849923",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_028",
+    "emprruc": "RUC_EMPRESA_028",
+    "saldo_total": "-467632.5474194445",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_029",
+    "emprruc": "RUC_EMPRESA_029",
+    "saldo_total": "-369708.4724789030",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_030",
+    "emprruc": "RUC_EMPRESA_030",
+    "saldo_total": "-27417.6656469984",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031",
+    "saldo_total": "1626856.3522722873",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032",
+    "saldo_total": "621209.9609925101",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_033",
+    "emprruc": "RUC_EMPRESA_033",
+    "saldo_total": "558.8034699864",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_034",
+    "emprruc": "RUC_EMPRESA_034",
+    "saldo_total": "1472.0920256799",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_035",
+    "emprruc": "RUC_EMPRESA_035",
+    "saldo_total": "14280.7234108714",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_036",
+    "emprruc": "RUC_EMPRESA_036",
+    "saldo_total": "-42126.1824552904",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_037",
+    "emprruc": "RUC_EMPRESA_037",
+    "saldo_total": "498.1726599159",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_038",
+    "emprruc": "RUC_EMPRESA_038",
+    "saldo_total": "606.4682033023",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_039",
+    "emprruc": "RUC_EMPRESA_039",
+    "saldo_total": "-1332.7341863318",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_040",
+    "emprruc": "RUC_EMPRESA_040",
+    "saldo_total": "-838297.1551293872",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_041",
+    "emprruc": "RUC_EMPRESA_041",
+    "saldo_total": "151252.2927043434",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_042",
+    "emprruc": "RUC_EMPRESA_042",
+    "saldo_total": "-319620.0590486234",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_043",
+    "emprruc": "RUC_EMPRESA_043",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_044",
+    "emprruc": "RUC_EMPRESA_044",
+    "saldo_total": "-391237.4804279147",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_045",
+    "emprruc": "RUC_EMPRESA_045",
+    "saldo_total": "-25600.4290313034",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_046",
+    "emprruc": "RUC_EMPRESA_046",
+    "saldo_total": "37.4408833066",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047",
+    "saldo_total": "261412.1453085212",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_048",
+    "emprruc": "RUC_EMPRESA_048",
+    "saldo_total": "0.2996307454",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_049",
+    "emprruc": "RUC_EMPRESA_049",
+    "saldo_total": "-10671.4522583018",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_050",
+    "emprruc": "RUC_EMPRESA_050",
+    "saldo_total": "154.6732766754",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_051",
+    "emprruc": "RUC_EMPRESA_051",
+    "saldo_total": "7.5271245105",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_052",
+    "emprruc": "RUC_EMPRESA_052",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_053",
+    "emprruc": "RUC_EMPRESA_053",
+    "saldo_total": "-4592.8075561794",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_054",
+    "emprruc": "RUC_EMPRESA_054",
+    "saldo_total": "-105130.0224430050",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055",
+    "saldo_total": "-1019303.3425156033",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_056",
+    "emprruc": "RUC_EMPRESA_056",
+    "saldo_total": "-6125.4051524164",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_057",
+    "emprruc": "RUC_EMPRESA_057",
+    "saldo_total": "1627.4446414736",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_058",
+    "emprruc": "RUC_EMPRESA_058",
+    "saldo_total": "4917.5725736769",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_059",
+    "emprruc": "RUC_EMPRESA_059",
+    "saldo_total": "-5986.7476810778",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_060",
+    "emprruc": "RUC_EMPRESA_060",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_061",
+    "emprruc": "RUC_EMPRESA_061",
+    "saldo_total": "7.5507093290",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_062",
+    "emprruc": "RUC_EMPRESA_062",
+    "saldo_total": "-117868.3861861476",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_063",
+    "emprruc": "RUC_EMPRESA_063",
+    "saldo_total": "-208314.7817976725",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_064",
+    "emprruc": "RUC_EMPRESA_064",
+    "saldo_total": "4355.1798874343",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_065",
+    "emprruc": "RUC_EMPRESA_065",
+    "saldo_total": "5167.5383607696",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066",
+    "saldo_total": "-215449.5036031491",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_067",
+    "emprruc": "RUC_EMPRESA_067",
+    "saldo_total": "-4585.5508980028",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068",
+    "saldo_total": "994242.4298685970",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_069",
+    "emprruc": "RUC_EMPRESA_069",
+    "saldo_total": "-142310.9650004488",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_070",
+    "emprruc": "RUC_EMPRESA_070",
+    "saldo_total": "-55015.7295517105",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_071",
+    "emprruc": "RUC_EMPRESA_071",
+    "saldo_total": "3452.7373559966",
+    "cantidad_origenes": 2,
+    "pericodi": 136,
+    "perinombre": "2026.Mayo",
+    "perianiomes": "202605",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_001",
+    "emprruc": "RUC_EMPRESA_001",
+    "saldo_total": "-464.9658741296",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_002",
+    "emprruc": "RUC_EMPRESA_002",
+    "saldo_total": "6537.1714375985",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_003",
+    "emprruc": "RUC_EMPRESA_003",
+    "saldo_total": "32551.1176341698",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_004",
+    "emprruc": "RUC_EMPRESA_004",
+    "saldo_total": "11257.1011944830",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_005",
+    "emprruc": "RUC_EMPRESA_005",
+    "saldo_total": "-2320.2928773059",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_006",
+    "emprruc": "RUC_EMPRESA_006",
+    "saldo_total": "-7610.2759807088",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_007",
+    "emprruc": "RUC_EMPRESA_007",
+    "saldo_total": "315783.7187767123",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_008",
+    "emprruc": "RUC_EMPRESA_008",
+    "saldo_total": "41563.0701842408",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_009",
+    "emprruc": "RUC_EMPRESA_009",
+    "saldo_total": "22865.0563837651",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_010",
+    "emprruc": "RUC_EMPRESA_010",
+    "saldo_total": "16168.3971508935",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_011",
+    "emprruc": "RUC_EMPRESA_011",
+    "saldo_total": "811053.0153719201",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_012",
+    "emprruc": "RUC_EMPRESA_012",
+    "saldo_total": "81.4835155032",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_013",
+    "emprruc": "RUC_EMPRESA_013",
+    "saldo_total": "1604840.4579037797",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_014",
+    "emprruc": "RUC_EMPRESA_014",
+    "saldo_total": "-1094367.6843644889",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_015",
+    "emprruc": "RUC_EMPRESA_015",
+    "saldo_total": "-98555.0062282072",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016",
+    "saldo_total": "-729513.6703191136",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017",
+    "saldo_total": "64351.7209828477",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_018",
+    "emprruc": "RUC_EMPRESA_018",
+    "saldo_total": "-439952.9407909150",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019",
+    "saldo_total": "83973.9394392184",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_020",
+    "emprruc": "RUC_EMPRESA_020",
+    "saldo_total": "-649.8249305973",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_021",
+    "emprruc": "RUC_EMPRESA_021",
+    "saldo_total": "3035255.2931237749",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_022",
+    "emprruc": "RUC_EMPRESA_022",
+    "saldo_total": "-224.1342947677",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_023",
+    "emprruc": "RUC_EMPRESA_023",
+    "saldo_total": "-20287.4870706336",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_024",
+    "emprruc": "RUC_EMPRESA_024",
+    "saldo_total": "352029.3416081233",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_025",
+    "emprruc": "RUC_EMPRESA_025",
+    "saldo_total": "13399.8076255755",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_026",
+    "emprruc": "RUC_EMPRESA_026",
+    "saldo_total": "-146.6387679034",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_027",
+    "emprruc": "RUC_EMPRESA_027",
+    "saldo_total": "-204.4319325672",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_028",
+    "emprruc": "RUC_EMPRESA_028",
+    "saldo_total": "-78462.8370371327",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_029",
+    "emprruc": "RUC_EMPRESA_029",
+    "saldo_total": "-97260.2544233249",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_030",
+    "emprruc": "RUC_EMPRESA_030",
+    "saldo_total": "-3729.7734947938",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031",
+    "saldo_total": "-2423302.5785757225",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032",
+    "saldo_total": "-779151.0413515434",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_033",
+    "emprruc": "RUC_EMPRESA_033",
+    "saldo_total": "-286.7719477875",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_034",
+    "emprruc": "RUC_EMPRESA_034",
+    "saldo_total": "-755.4618356130",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_035",
+    "emprruc": "RUC_EMPRESA_035",
+    "saldo_total": "108668.7727495307",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_036",
+    "emprruc": "RUC_EMPRESA_036",
+    "saldo_total": "670746.1495376459",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_037",
+    "emprruc": "RUC_EMPRESA_037",
+    "saldo_total": "-254.7719278828",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_038",
+    "emprruc": "RUC_EMPRESA_038",
+    "saldo_total": "-307.5185951924",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_039",
+    "emprruc": "RUC_EMPRESA_039",
+    "saldo_total": "-624.7165733342",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_040",
+    "emprruc": "RUC_EMPRESA_040",
+    "saldo_total": "224349.6264482883",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_041",
+    "emprruc": "RUC_EMPRESA_041",
+    "saldo_total": "-660.3437935977",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_042",
+    "emprruc": "RUC_EMPRESA_042",
+    "saldo_total": "-61965.9434845829",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_043",
+    "emprruc": "RUC_EMPRESA_043",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_044",
+    "emprruc": "RUC_EMPRESA_044",
+    "saldo_total": "-700951.9806435854",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_045",
+    "emprruc": "RUC_EMPRESA_045",
+    "saldo_total": "594.7021265137",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_046",
+    "emprruc": "RUC_EMPRESA_046",
+    "saldo_total": "-4.3046000717",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047",
+    "saldo_total": "-634718.1218555998",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_048",
+    "emprruc": "RUC_EMPRESA_048",
+    "saldo_total": "-0.1408851461",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_049",
+    "emprruc": "RUC_EMPRESA_049",
+    "saldo_total": "-9621.5679482320",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_050",
+    "emprruc": "RUC_EMPRESA_050",
+    "saldo_total": "-79.3766381225",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_051",
+    "emprruc": "RUC_EMPRESA_051",
+    "saldo_total": "-3.5521284946",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_052",
+    "emprruc": "RUC_EMPRESA_052",
+    "saldo_total": "-83799.3243765180",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_053",
+    "emprruc": "RUC_EMPRESA_053",
+    "saldo_total": "-1568.2700332403",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_054",
+    "emprruc": "RUC_EMPRESA_054",
+    "saldo_total": "142423.8873366904",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055",
+    "saldo_total": "1905675.0084194335",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_056",
+    "emprruc": "RUC_EMPRESA_056",
+    "saldo_total": "-2090.2696714822",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_057",
+    "emprruc": "RUC_EMPRESA_057",
+    "saldo_total": "-842.8251459382",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_058",
+    "emprruc": "RUC_EMPRESA_058",
+    "saldo_total": "-2535.8510884657",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_059",
+    "emprruc": "RUC_EMPRESA_059",
+    "saldo_total": "-2162.4059262249",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_060",
+    "emprruc": "RUC_EMPRESA_060",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_061",
+    "emprruc": "RUC_EMPRESA_061",
+    "saldo_total": "-3.5718835834",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_062",
+    "emprruc": "RUC_EMPRESA_062",
+    "saldo_total": "26758.9858129440",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_063",
+    "emprruc": "RUC_EMPRESA_063",
+    "saldo_total": "-578371.7161838738",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_064",
+    "emprruc": "RUC_EMPRESA_064",
+    "saldo_total": "21.8791956849",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_065",
+    "emprruc": "RUC_EMPRESA_065",
+    "saldo_total": "2499.5229664812",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066",
+    "saldo_total": "54106.3104393161",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_067",
+    "emprruc": "RUC_EMPRESA_067",
+    "saldo_total": "-1566.0556651234",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068",
+    "saldo_total": "-1834971.8035551125",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_069",
+    "emprruc": "RUC_EMPRESA_069",
+    "saldo_total": "178574.3984835357",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_070",
+    "emprruc": "RUC_EMPRESA_070",
+    "saldo_total": "-778.8766520314",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_071",
+    "emprruc": "RUC_EMPRESA_071",
+    "saldo_total": "-31000.5544961139",
+    "cantidad_origenes": 2,
+    "pericodi": 137,
+    "perinombre": "2026.Junio",
+    "perianiomes": "202606",
+    "periodo_preliminar": false
+  },
+  {
+    "emprcodi": "EMPRESA_001",
+    "emprruc": "RUC_EMPRESA_001",
+    "saldo_total": "13672.7614256027",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_002",
+    "emprruc": "RUC_EMPRESA_002",
+    "saldo_total": "13923.6535381746",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_003",
+    "emprruc": "RUC_EMPRESA_003",
+    "saldo_total": "-1180.3564034151",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_004",
+    "emprruc": "RUC_EMPRESA_004",
+    "saldo_total": "8942.0987758475",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_005",
+    "emprruc": "RUC_EMPRESA_005",
+    "saldo_total": "13481.3881120796",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_006",
+    "emprruc": "RUC_EMPRESA_006",
+    "saldo_total": "1563.8129195643",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_007",
+    "emprruc": "RUC_EMPRESA_007",
+    "saldo_total": "1078332.2055473051",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_008",
+    "emprruc": "RUC_EMPRESA_008",
+    "saldo_total": "8831.7359276867",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_009",
+    "emprruc": "RUC_EMPRESA_009",
+    "saldo_total": "14928.4254045135",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_010",
+    "emprruc": "RUC_EMPRESA_010",
+    "saldo_total": "2764.6275031445",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_011",
+    "emprruc": "RUC_EMPRESA_011",
+    "saldo_total": "-40929.9102513772",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_012",
+    "emprruc": "RUC_EMPRESA_012",
+    "saldo_total": "38893.9853915941",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_013",
+    "emprruc": "RUC_EMPRESA_013",
+    "saldo_total": "282899.6823920312",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_014",
+    "emprruc": "RUC_EMPRESA_014",
+    "saldo_total": "785906.5774887759",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_015",
+    "emprruc": "RUC_EMPRESA_015",
+    "saldo_total": "-1545506.5256801533",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016",
+    "saldo_total": "-377925.7906001980",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017",
+    "saldo_total": "6206.1462134614",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_018",
+    "emprruc": "RUC_EMPRESA_018",
+    "saldo_total": "-1063880.5689806968",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019",
+    "saldo_total": "71903.8704435854",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_020",
+    "emprruc": "RUC_EMPRESA_020",
+    "saldo_total": "1410.7276290889",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_021",
+    "emprruc": "RUC_EMPRESA_021",
+    "saldo_total": "506591.2236174228",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_022",
+    "emprruc": "RUC_EMPRESA_022",
+    "saldo_total": "4196.3396027891",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_023",
+    "emprruc": "RUC_EMPRESA_023",
+    "saldo_total": "-10533.1987892168",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_024",
+    "emprruc": "RUC_EMPRESA_024",
+    "saldo_total": "-89611.9376460208",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_025",
+    "emprruc": "RUC_EMPRESA_025",
+    "saldo_total": "79893.6508324373",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_026",
+    "emprruc": "RUC_EMPRESA_026",
+    "saldo_total": "823.6082783825",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_027",
+    "emprruc": "RUC_EMPRESA_027",
+    "saldo_total": "3827.4628304215",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_028",
+    "emprruc": "RUC_EMPRESA_028",
+    "saldo_total": "-280033.1791870025",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_029",
+    "emprruc": "RUC_EMPRESA_029",
+    "saldo_total": "-209030.2373198458",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_030",
+    "emprruc": "RUC_EMPRESA_030",
+    "saldo_total": "23120.9500972281",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031",
+    "saldo_total": "2314721.7134555376",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032",
+    "saldo_total": "-359324.7976489904",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_033",
+    "emprruc": "RUC_EMPRESA_033",
+    "saldo_total": "5369.0560108653",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_034",
+    "emprruc": "RUC_EMPRESA_034",
+    "saldo_total": "14144.0667567966",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_035",
+    "emprruc": "RUC_EMPRESA_035",
+    "saldo_total": "13071.0361901667",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_036",
+    "emprruc": "RUC_EMPRESA_036",
+    "saldo_total": "-19833.1104359767",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_037",
+    "emprruc": "RUC_EMPRESA_037",
+    "saldo_total": "4697.4268869587",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_038",
+    "emprruc": "RUC_EMPRESA_038",
+    "saldo_total": "5649.9401357200",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_039",
+    "emprruc": "RUC_EMPRESA_039",
+    "saldo_total": "820.6221613733",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_040",
+    "emprruc": "RUC_EMPRESA_040",
+    "saldo_total": "86402.7835631633",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_041",
+    "emprruc": "RUC_EMPRESA_041",
+    "saldo_total": "10862.7955371204",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_042",
+    "emprruc": "RUC_EMPRESA_042",
+    "saldo_total": "-43730.2575649592",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_043",
+    "emprruc": "RUC_EMPRESA_043",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_044",
+    "emprruc": "RUC_EMPRESA_044",
+    "saldo_total": "-615841.7920075694",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_045",
+    "emprruc": "RUC_EMPRESA_045",
+    "saldo_total": "-15035.8310313419",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_046",
+    "emprruc": "RUC_EMPRESA_046",
+    "saldo_total": "76.4562226599",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047",
+    "saldo_total": "-864364.4190843968",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_048",
+    "emprruc": "RUC_EMPRESA_048",
+    "saldo_total": "2.5584969639",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_049",
+    "emprruc": "RUC_EMPRESA_049",
+    "saldo_total": "8788.2773380430",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_050",
+    "emprruc": "RUC_EMPRESA_050",
+    "saldo_total": "1372.1211148821",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_051",
+    "emprruc": "RUC_EMPRESA_051",
+    "saldo_total": "66.4066853169",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_052",
+    "emprruc": "RUC_EMPRESA_052",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_053",
+    "emprruc": "RUC_EMPRESA_053",
+    "saldo_total": "-2969.1020344495",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_054",
+    "emprruc": "RUC_EMPRESA_054",
+    "saldo_total": "310657.2104760635",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055",
+    "saldo_total": "-1025555.9809726694",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_056",
+    "emprruc": "RUC_EMPRESA_056",
+    "saldo_total": "-3965.2836467941",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_057",
+    "emprruc": "RUC_EMPRESA_057",
+    "saldo_total": "15793.6781236863",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_058",
+    "emprruc": "RUC_EMPRESA_058",
+    "saldo_total": "47431.2679706752",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_059",
+    "emprruc": "RUC_EMPRESA_059",
+    "saldo_total": "-2551.9002068865",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_060",
+    "emprruc": "RUC_EMPRESA_060",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_061",
+    "emprruc": "RUC_EMPRESA_061",
+    "saldo_total": "66.4499092499",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_062",
+    "emprruc": "RUC_EMPRESA_062",
+    "saldo_total": "-468782.0696584369",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_063",
+    "emprruc": "RUC_EMPRESA_063",
+    "saldo_total": "-190310.6207570591",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_064",
+    "emprruc": "RUC_EMPRESA_064",
+    "saldo_total": "1.5350526801",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_065",
+    "emprruc": "RUC_EMPRESA_065",
+    "saldo_total": "30748.5037799774",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066",
+    "saldo_total": "522684.4166635877",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_067",
+    "emprruc": "RUC_EMPRESA_067",
+    "saldo_total": "-3538.6553381014",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068",
+    "saldo_total": "170078.1119577359",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_069",
+    "emprruc": "RUC_EMPRESA_069",
+    "saldo_total": "305150.7423842347",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_070",
+    "emprruc": "RUC_EMPRESA_070",
+    "saldo_total": "680234.8034506314",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_071",
+    "emprruc": "RUC_EMPRESA_071",
+    "saldo_total": "-276571.3891160186",
+    "cantidad_origenes": 2,
+    "pericodi": 138,
+    "perinombre": "2026.Julio",
+    "perianiomes": "202607",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_001",
+    "emprruc": "RUC_EMPRESA_001",
+    "saldo_total": "27573.4149424016",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_002",
+    "emprruc": "RUC_EMPRESA_002",
+    "saldo_total": "19308.0964733220",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_003",
+    "emprruc": "RUC_EMPRESA_003",
+    "saldo_total": "9690.7949956663",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_004",
+    "emprruc": "RUC_EMPRESA_004",
+    "saldo_total": "12545.1411618134",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_005",
+    "emprruc": "RUC_EMPRESA_005",
+    "saldo_total": "-309893.9799251904",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_006",
+    "emprruc": "RUC_EMPRESA_006",
+    "saldo_total": "-11101.8113719665",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_007",
+    "emprruc": "RUC_EMPRESA_007",
+    "saldo_total": "289722.3450210014",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_008",
+    "emprruc": "RUC_EMPRESA_008",
+    "saldo_total": "11123.0672319181",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_009",
+    "emprruc": "RUC_EMPRESA_009",
+    "saldo_total": "16851.0960306332",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_010",
+    "emprruc": "RUC_EMPRESA_010",
+    "saldo_total": "-515.6014646697",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_011",
+    "emprruc": "RUC_EMPRESA_011",
+    "saldo_total": "3703717.5151309266",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_012",
+    "emprruc": "RUC_EMPRESA_012",
+    "saldo_total": "114137.3500104764",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_013",
+    "emprruc": "RUC_EMPRESA_013",
+    "saldo_total": "-1634665.4297633684",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_014",
+    "emprruc": "RUC_EMPRESA_014",
+    "saldo_total": "-3332835.8257544084",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_015",
+    "emprruc": "RUC_EMPRESA_015",
+    "saldo_total": "-3901557.8079309686",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016",
+    "saldo_total": "832292.0651220890",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017",
+    "saldo_total": "-1275469.4862121487",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_018",
+    "emprruc": "RUC_EMPRESA_018",
+    "saldo_total": "700735.4914080849",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019",
+    "saldo_total": "-28502.1885559714",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_020",
+    "emprruc": "RUC_EMPRESA_020",
+    "saldo_total": "-5009.2572753642",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_021",
+    "emprruc": "RUC_EMPRESA_021",
+    "saldo_total": "1542568.6201358314",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_022",
+    "emprruc": "RUC_EMPRESA_022",
+    "saldo_total": "6427.6057475852",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_023",
+    "emprruc": "RUC_EMPRESA_023",
+    "saldo_total": "1096858.8858710346",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_024",
+    "emprruc": "RUC_EMPRESA_024",
+    "saldo_total": "-205197.5134484696",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_025",
+    "emprruc": "RUC_EMPRESA_025",
+    "saldo_total": "121783.9034518650",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_026",
+    "emprruc": "RUC_EMPRESA_026",
+    "saldo_total": "4205.2410081497",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_027",
+    "emprruc": "RUC_EMPRESA_027",
+    "saldo_total": "5862.5927015550",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_028",
+    "emprruc": "RUC_EMPRESA_028",
+    "saldo_total": "-3057739.8666019795",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_029",
+    "emprruc": "RUC_EMPRESA_029",
+    "saldo_total": "3526.0689401705",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_030",
+    "emprruc": "RUC_EMPRESA_030",
+    "saldo_total": "-113118.5766250221",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031",
+    "saldo_total": "7242777.3520660712",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032",
+    "saldo_total": "713981.0670334351",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_033",
+    "emprruc": "RUC_EMPRESA_033",
+    "saldo_total": "8223.8963125660",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_034",
+    "emprruc": "RUC_EMPRESA_034",
+    "saldo_total": "21664.7414417024",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_035",
+    "emprruc": "RUC_EMPRESA_035",
+    "saldo_total": "9720.2999051306",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_036",
+    "emprruc": "RUC_EMPRESA_036",
+    "saldo_total": "-376833.7552561379",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_037",
+    "emprruc": "RUC_EMPRESA_037",
+    "saldo_total": "7157.6581491191",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_038",
+    "emprruc": "RUC_EMPRESA_038",
+    "saldo_total": "8560.4852022513",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_039",
+    "emprruc": "RUC_EMPRESA_039",
+    "saldo_total": "-660102.9469384562",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_040",
+    "emprruc": "RUC_EMPRESA_040",
+    "saldo_total": "-76940.1480558170",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_041",
+    "emprruc": "RUC_EMPRESA_041",
+    "saldo_total": "-2109768.4744235261",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_042",
+    "emprruc": "RUC_EMPRESA_042",
+    "saldo_total": "-1514995.4766897270",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_043",
+    "emprruc": "RUC_EMPRESA_043",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_044",
+    "emprruc": "RUC_EMPRESA_044",
+    "saldo_total": "-171389.9208281720",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_045",
+    "emprruc": "RUC_EMPRESA_045",
+    "saldo_total": "-258972.3617301444",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_046",
+    "emprruc": "RUC_EMPRESA_046",
+    "saldo_total": "105.5151547009",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047",
+    "saldo_total": "3633506.0020367346",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_048",
+    "emprruc": "RUC_EMPRESA_048",
+    "saldo_total": "3.8072965366",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_049",
+    "emprruc": "RUC_EMPRESA_049",
+    "saldo_total": "748521.8641569279",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_050",
+    "emprruc": "RUC_EMPRESA_050",
+    "saldo_total": "2276.3276797054",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_051",
+    "emprruc": "RUC_EMPRESA_051",
+    "saldo_total": "1033.1173710603",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_052",
+    "emprruc": "RUC_EMPRESA_052",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_053",
+    "emprruc": "RUC_EMPRESA_053",
+    "saldo_total": "-25960.2442236468",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_054",
+    "emprruc": "RUC_EMPRESA_054",
+    "saldo_total": "221675.4525775431",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055",
+    "saldo_total": "9361939.6970474262",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_056",
+    "emprruc": "RUC_EMPRESA_056",
+    "saldo_total": "-34419.3883585925",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_057",
+    "emprruc": "RUC_EMPRESA_057",
+    "saldo_total": "24108.6169371830",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_058",
+    "emprruc": "RUC_EMPRESA_058",
+    "saldo_total": "72217.5964351842",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_059",
+    "emprruc": "RUC_EMPRESA_059",
+    "saldo_total": "-32566.6115268687",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_060",
+    "emprruc": "RUC_EMPRESA_060",
+    "saldo_total": "0.0000000000",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_061",
+    "emprruc": "RUC_EMPRESA_061",
+    "saldo_total": "2606.6541586323",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_062",
+    "emprruc": "RUC_EMPRESA_062",
+    "saldo_total": "213284.9526204071",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_063",
+    "emprruc": "RUC_EMPRESA_063",
+    "saldo_total": "254796.6278286016",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_064",
+    "emprruc": "RUC_EMPRESA_064",
+    "saldo_total": "22690.1133439018",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_065",
+    "emprruc": "RUC_EMPRESA_065",
+    "saldo_total": "47053.9251818340",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066",
+    "saldo_total": "-43226.6190749107",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_067",
+    "emprruc": "RUC_EMPRESA_067",
+    "saldo_total": "547040.8129290392",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068",
+    "saldo_total": "1812224.2833912645",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_069",
+    "emprruc": "RUC_EMPRESA_069",
+    "saldo_total": "1266195.3580383167",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_070",
+    "emprruc": "RUC_EMPRESA_070",
+    "saldo_total": "-304691.0798464151",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  },
+  {
+    "emprcodi": "EMPRESA_071",
+    "emprruc": "RUC_EMPRESA_071",
+    "saldo_total": "-99795.5830159648",
+    "cantidad_origenes": 1,
+    "pericodi": 139,
+    "perinombre": "2026.Agosto",
+    "perianiomes": "202608",
+    "periodo_preliminar": true
+  }
+]

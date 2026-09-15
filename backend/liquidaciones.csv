@@ -1,0 +1,501 @@
+﻿fecha,agente_id,agente,tipo_agente,concepto_id,concepto,categoria,monto,energia_mwh,potencia_mw,precio_mwh,fuente,documento_fuente
+2025-01-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,1933891.17,6125.48,173.76,117.95,COES - Dataset Sintético,LIQ-202501-AGE001-CON001
+2025-01-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,809891.92,35451.48,451.48,94.78,COES - Dataset Sintético,LIQ-202501-AGE001-CON002
+2025-01-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,277472.65,6340.87,148.39,165.91,COES - Dataset Sintético,LIQ-202501-AGE001-CON003
+2025-01-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,59518.92,13947.69,342.45,172.64,COES - Dataset Sintético,LIQ-202501-AGE001-CON004
+2025-01-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,48087.62,31516.96,414.24,81.1,COES - Dataset Sintético,LIQ-202501-AGE001-CON005
+2025-01-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,2144490.12,36416.27,203.11,106.43,COES - Dataset Sintético,LIQ-202501-AGE002-CON001
+2025-01-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,1046644.85,20146.75,91.74,96.44,COES - Dataset Sintético,LIQ-202501-AGE002-CON002
+2025-01-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,455842.85,32167.67,413.21,204.05,COES - Dataset Sintético,LIQ-202501-AGE002-CON003
+2025-01-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,153554.48,48790.21,220.34,173.85,COES - Dataset Sintético,LIQ-202501-AGE002-CON004
+2025-01-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,131290.18,32833.39,437.77,178.15,COES - Dataset Sintético,LIQ-202501-AGE002-CON005
+2025-01-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,1951481.97,7062.1,152.55,129.2,COES - Dataset Sintético,LIQ-202501-AGE003-CON001
+2025-01-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,347567.79,15475.59,95.45,127.26,COES - Dataset Sintético,LIQ-202501-AGE003-CON002
+2025-01-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,358559.82,21417.45,216.58,115.62,COES - Dataset Sintético,LIQ-202501-AGE003-CON003
+2025-01-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,93504.33,47149.46,341.62,183.55,COES - Dataset Sintético,LIQ-202501-AGE003-CON004
+2025-01-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,38604.31,37810.71,123.53,144.51,COES - Dataset Sintético,LIQ-202501-AGE003-CON005
+2025-01-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,2412404.48,33799.99,300.63,196.38,COES - Dataset Sintético,LIQ-202501-AGE004-CON001
+2025-01-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,844925.54,39920.0,153.07,85.46,COES - Dataset Sintético,LIQ-202501-AGE004-CON002
+2025-01-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,229735.06,17048.34,144.94,240.29,COES - Dataset Sintético,LIQ-202501-AGE004-CON003
+2025-01-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,215045.84,19160.5,344.95,147.26,COES - Dataset Sintético,LIQ-202501-AGE004-CON004
+2025-01-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,129083.36,25648.33,169.2,121.93,COES - Dataset Sintético,LIQ-202501-AGE004-CON005
+2025-01-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,1882887.1,16823.37,313.06,232.63,COES - Dataset Sintético,LIQ-202501-AGE005-CON001
+2025-01-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,573037.58,14869.43,498.89,166.62,COES - Dataset Sintético,LIQ-202501-AGE005-CON002
+2025-01-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,136824.18,7120.24,99.34,186.67,COES - Dataset Sintético,LIQ-202501-AGE005-CON003
+2025-01-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,193568.87,23997.2,78.59,144.88,COES - Dataset Sintético,LIQ-202501-AGE005-CON004
+2025-01-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,145426.63,28810.15,486.99,226.33,COES - Dataset Sintético,LIQ-202501-AGE005-CON005
+2025-02-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,824062.89,37432.48,356.77,171.28,COES - Dataset Sintético,LIQ-202502-AGE001-CON001
+2025-02-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,458763.74,33843.28,100.2,153.91,COES - Dataset Sintético,LIQ-202502-AGE001-CON002
+2025-02-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,286777.23,47921.72,444.13,124.78,COES - Dataset Sintético,LIQ-202502-AGE001-CON003
+2025-02-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,145608.91,13039.33,460.68,227.99,COES - Dataset Sintético,LIQ-202502-AGE001-CON004
+2025-02-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,57940.28,33752.73,324.04,105.98,COES - Dataset Sintético,LIQ-202502-AGE001-CON005
+2025-02-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,2033201.43,29272.06,400.38,170.16,COES - Dataset Sintético,LIQ-202502-AGE002-CON001
+2025-02-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,328221.58,19587.02,58.76,237.95,COES - Dataset Sintético,LIQ-202502-AGE002-CON002
+2025-02-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,451184.06,42424.95,188.38,89.85,COES - Dataset Sintético,LIQ-202502-AGE002-CON003
+2025-02-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,213670.84,47612.73,88.54,162.62,COES - Dataset Sintético,LIQ-202502-AGE002-CON004
+2025-02-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,30190.22,39227.1,394.63,101.83,COES - Dataset Sintético,LIQ-202502-AGE002-CON005
+2025-02-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,1509825.43,29741.16,169.28,228.31,COES - Dataset Sintético,LIQ-202502-AGE003-CON001
+2025-02-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,602422.75,14530.92,292.68,204.09,COES - Dataset Sintético,LIQ-202502-AGE003-CON002
+2025-02-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,162778.28,19027.23,497.82,190.48,COES - Dataset Sintético,LIQ-202502-AGE003-CON003
+2025-02-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,128480.77,28290.91,104.45,118.2,COES - Dataset Sintético,LIQ-202502-AGE003-CON004
+2025-02-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,64580.6,31473.89,153.55,117.44,COES - Dataset Sintético,LIQ-202502-AGE003-CON005
+2025-02-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,954683.12,33399.63,153.02,233.92,COES - Dataset Sintético,LIQ-202502-AGE004-CON001
+2025-02-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,909471.3,8188.58,157.1,193.73,COES - Dataset Sintético,LIQ-202502-AGE004-CON002
+2025-02-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,184620.96,10954.03,470.98,177.08,COES - Dataset Sintético,LIQ-202502-AGE004-CON003
+2025-02-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,142358.22,40307.87,413.37,112.37,COES - Dataset Sintético,LIQ-202502-AGE004-CON004
+2025-02-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,30190.94,24397.3,240.61,159.39,COES - Dataset Sintético,LIQ-202502-AGE004-CON005
+2025-02-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,1966025.39,35301.4,492.87,96.73,COES - Dataset Sintético,LIQ-202502-AGE005-CON001
+2025-02-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,568434.11,20268.62,437.75,122.27,COES - Dataset Sintético,LIQ-202502-AGE005-CON002
+2025-02-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,185390.66,25187.61,239.85,127.35,COES - Dataset Sintético,LIQ-202502-AGE005-CON003
+2025-02-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,101678.72,46546.95,249.41,226.43,COES - Dataset Sintético,LIQ-202502-AGE005-CON004
+2025-02-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,83472.65,7276.47,499.68,222.12,COES - Dataset Sintético,LIQ-202502-AGE005-CON005
+2025-03-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,2486950.07,46686.51,431.91,108.27,COES - Dataset Sintético,LIQ-202503-AGE001-CON001
+2025-03-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,627627.14,14618.63,230.47,89.97,COES - Dataset Sintético,LIQ-202503-AGE001-CON002
+2025-03-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,243073.93,49338.9,169.34,213.29,COES - Dataset Sintético,LIQ-202503-AGE001-CON003
+2025-03-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,145314.04,24035.34,480.79,249.22,COES - Dataset Sintético,LIQ-202503-AGE001-CON004
+2025-03-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,97005.36,37328.37,119.66,130.44,COES - Dataset Sintético,LIQ-202503-AGE001-CON005
+2025-03-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,2560739.01,31063.11,293.99,207.16,COES - Dataset Sintético,LIQ-202503-AGE002-CON001
+2025-03-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,325748.33,31287.99,276.28,224.96,COES - Dataset Sintético,LIQ-202503-AGE002-CON002
+2025-03-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,160453.43,48235.05,86.05,111.59,COES - Dataset Sintético,LIQ-202503-AGE002-CON003
+2025-03-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,171806.31,35384.56,155.84,100.38,COES - Dataset Sintético,LIQ-202503-AGE002-CON004
+2025-03-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,142358.25,16079.69,317.53,185.29,COES - Dataset Sintético,LIQ-202503-AGE002-CON005
+2025-03-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,1476440.44,31265.25,285.25,238.9,COES - Dataset Sintético,LIQ-202503-AGE003-CON001
+2025-03-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,438869.27,37228.63,157.41,147.28,COES - Dataset Sintético,LIQ-202503-AGE003-CON002
+2025-03-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,348282.13,18499.87,192.28,207.82,COES - Dataset Sintético,LIQ-202503-AGE003-CON003
+2025-03-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,60650.34,25622.85,499.3,249.34,COES - Dataset Sintético,LIQ-202503-AGE003-CON004
+2025-03-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,30723.34,14591.94,169.34,238.65,COES - Dataset Sintético,LIQ-202503-AGE003-CON005
+2025-03-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,2453265.07,44567.16,216.29,106.82,COES - Dataset Sintético,LIQ-202503-AGE004-CON001
+2025-03-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,880439.98,36659.3,325.25,247.83,COES - Dataset Sintético,LIQ-202503-AGE004-CON002
+2025-03-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,379733.93,5352.04,417.7,130.89,COES - Dataset Sintético,LIQ-202503-AGE004-CON003
+2025-03-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,185980.89,47251.85,110.43,99.62,COES - Dataset Sintético,LIQ-202503-AGE004-CON004
+2025-03-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,32820.73,29895.06,172.56,182.82,COES - Dataset Sintético,LIQ-202503-AGE004-CON005
+2025-03-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,2056440.6,14161.88,335.41,124.88,COES - Dataset Sintético,LIQ-202503-AGE005-CON001
+2025-03-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,691341.14,45740.14,430.75,95.69,COES - Dataset Sintético,LIQ-202503-AGE005-CON002
+2025-03-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,268947.68,17450.61,51.6,211.09,COES - Dataset Sintético,LIQ-202503-AGE005-CON003
+2025-03-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,191302.84,16787.99,383.55,173.79,COES - Dataset Sintético,LIQ-202503-AGE005-CON004
+2025-03-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,65696.75,5435.14,83.86,230.13,COES - Dataset Sintético,LIQ-202503-AGE005-CON005
+2025-04-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,2432704.67,29551.56,425.57,179.03,COES - Dataset Sintético,LIQ-202504-AGE001-CON001
+2025-04-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,405422.55,10735.05,188.72,232.83,COES - Dataset Sintético,LIQ-202504-AGE001-CON002
+2025-04-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,412192.96,43731.62,454.52,115.71,COES - Dataset Sintético,LIQ-202504-AGE001-CON003
+2025-04-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,100364.32,9625.71,401.05,230.3,COES - Dataset Sintético,LIQ-202504-AGE001-CON004
+2025-04-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,65591.42,32929.77,119.55,238.08,COES - Dataset Sintético,LIQ-202504-AGE001-CON005
+2025-04-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,2244898.79,48929.27,414.85,229.84,COES - Dataset Sintético,LIQ-202504-AGE002-CON001
+2025-04-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,323016.95,38145.4,199.48,238.24,COES - Dataset Sintético,LIQ-202504-AGE002-CON002
+2025-04-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,451995.9,43882.88,414.84,125.36,COES - Dataset Sintético,LIQ-202504-AGE002-CON003
+2025-04-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,202098.5,9864.3,442.48,225.96,COES - Dataset Sintético,LIQ-202504-AGE002-CON004
+2025-04-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,46938.95,41746.4,257.14,131.88,COES - Dataset Sintético,LIQ-202504-AGE002-CON005
+2025-04-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,2098096.1,15241.8,60.65,112.83,COES - Dataset Sintético,LIQ-202504-AGE003-CON001
+2025-04-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,554031.61,43895.88,485.1,127.45,COES - Dataset Sintético,LIQ-202504-AGE003-CON002
+2025-04-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,362454.21,22985.53,491.52,171.16,COES - Dataset Sintético,LIQ-202504-AGE003-CON003
+2025-04-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,231547.32,10190.38,486.68,110.36,COES - Dataset Sintético,LIQ-202504-AGE003-CON004
+2025-04-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,148853.97,16945.99,98.78,153.88,COES - Dataset Sintético,LIQ-202504-AGE003-CON005
+2025-04-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,2048421.36,19115.48,322.79,166.94,COES - Dataset Sintético,LIQ-202504-AGE004-CON001
+2025-04-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,597225.6,30946.46,164.63,200.49,COES - Dataset Sintético,LIQ-202504-AGE004-CON002
+2025-04-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,97142.5,46650.88,292.3,202.3,COES - Dataset Sintético,LIQ-202504-AGE004-CON003
+2025-04-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,195139.77,35178.28,213.9,91.9,COES - Dataset Sintético,LIQ-202504-AGE004-CON004
+2025-04-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,104265.85,19859.0,191.26,224.16,COES - Dataset Sintético,LIQ-202504-AGE004-CON005
+2025-04-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,1875505.1,18514.5,189.18,149.43,COES - Dataset Sintético,LIQ-202504-AGE005-CON001
+2025-04-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,590292.64,18304.48,107.28,151.48,COES - Dataset Sintético,LIQ-202504-AGE005-CON002
+2025-04-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,482360.48,35479.31,456.26,184.64,COES - Dataset Sintético,LIQ-202504-AGE005-CON003
+2025-04-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,110218.15,29657.17,50.18,128.78,COES - Dataset Sintético,LIQ-202504-AGE005-CON004
+2025-04-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,74995.37,31099.32,344.62,159.05,COES - Dataset Sintético,LIQ-202504-AGE005-CON005
+2025-05-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,1441862.13,14616.56,262.93,233.2,COES - Dataset Sintético,LIQ-202505-AGE001-CON001
+2025-05-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,839188.11,12636.11,88.16,167.63,COES - Dataset Sintético,LIQ-202505-AGE001-CON002
+2025-05-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,347124.41,20083.47,418.29,207.69,COES - Dataset Sintético,LIQ-202505-AGE001-CON003
+2025-05-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,177155.75,15108.83,139.61,84.15,COES - Dataset Sintético,LIQ-202505-AGE001-CON004
+2025-05-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,51411.56,26381.14,432.38,92.38,COES - Dataset Sintético,LIQ-202505-AGE001-CON005
+2025-05-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,1534945.45,33339.44,137.5,198.38,COES - Dataset Sintético,LIQ-202505-AGE002-CON001
+2025-05-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,706993.86,15979.3,345.23,80.94,COES - Dataset Sintético,LIQ-202505-AGE002-CON002
+2025-05-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,403880.71,39652.08,97.96,152.27,COES - Dataset Sintético,LIQ-202505-AGE002-CON003
+2025-05-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,86274.21,48108.47,283.08,88.54,COES - Dataset Sintético,LIQ-202505-AGE002-CON004
+2025-05-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,52200.74,43175.14,255.41,216.24,COES - Dataset Sintético,LIQ-202505-AGE002-CON005
+2025-05-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,1749252.34,49455.16,317.95,241.51,COES - Dataset Sintético,LIQ-202505-AGE003-CON001
+2025-05-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,922773.21,32569.35,373.67,165.81,COES - Dataset Sintético,LIQ-202505-AGE003-CON002
+2025-05-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,433529.33,29654.24,453.74,206.42,COES - Dataset Sintético,LIQ-202505-AGE003-CON003
+2025-05-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,162785.37,16663.62,161.26,188.4,COES - Dataset Sintético,LIQ-202505-AGE003-CON004
+2025-05-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,118405.89,28458.49,332.04,126.68,COES - Dataset Sintético,LIQ-202505-AGE003-CON005
+2025-05-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,945769.61,17857.77,172.27,134.35,COES - Dataset Sintético,LIQ-202505-AGE004-CON001
+2025-05-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,676929.64,11226.83,154.07,197.97,COES - Dataset Sintético,LIQ-202505-AGE004-CON002
+2025-05-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,360212.74,7890.3,233.42,172.24,COES - Dataset Sintético,LIQ-202505-AGE004-CON003
+2025-05-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,140763.47,14307.55,239.06,233.82,COES - Dataset Sintético,LIQ-202505-AGE004-CON004
+2025-05-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,99536.98,36298.53,435.53,210.15,COES - Dataset Sintético,LIQ-202505-AGE004-CON005
+2025-05-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,1503864.98,5265.32,208.29,208.09,COES - Dataset Sintético,LIQ-202505-AGE005-CON001
+2025-05-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,856608.73,47904.37,238.56,207.08,COES - Dataset Sintético,LIQ-202505-AGE005-CON002
+2025-05-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,340789.12,32146.37,149.24,117.3,COES - Dataset Sintético,LIQ-202505-AGE005-CON003
+2025-05-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,127552.8,6306.12,201.26,195.45,COES - Dataset Sintético,LIQ-202505-AGE005-CON004
+2025-05-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,74690.32,12427.01,260.33,101.7,COES - Dataset Sintético,LIQ-202505-AGE005-CON005
+2025-06-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,2061312.29,6213.49,227.31,175.95,COES - Dataset Sintético,LIQ-202506-AGE001-CON001
+2025-06-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,303173.79,33923.73,111.06,158.49,COES - Dataset Sintético,LIQ-202506-AGE001-CON002
+2025-06-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,116712.84,22059.67,145.25,135.56,COES - Dataset Sintético,LIQ-202506-AGE001-CON003
+2025-06-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,203253.65,22060.68,388.4,221.43,COES - Dataset Sintético,LIQ-202506-AGE001-CON004
+2025-06-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,51466.24,8685.78,58.72,171.7,COES - Dataset Sintético,LIQ-202506-AGE001-CON005
+2025-06-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,2306022.53,20748.22,342.56,212.81,COES - Dataset Sintético,LIQ-202506-AGE002-CON001
+2025-06-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,758820.72,38940.49,477.33,113.89,COES - Dataset Sintético,LIQ-202506-AGE002-CON002
+2025-06-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,102407.49,11857.21,106.8,193.81,COES - Dataset Sintético,LIQ-202506-AGE002-CON003
+2025-06-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,166648.81,14808.4,364.76,210.37,COES - Dataset Sintético,LIQ-202506-AGE002-CON004
+2025-06-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,39890.41,32326.14,386.57,99.47,COES - Dataset Sintético,LIQ-202506-AGE002-CON005
+2025-06-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,2362747.73,48412.43,98.64,84.37,COES - Dataset Sintético,LIQ-202506-AGE003-CON001
+2025-06-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,498069.32,35480.63,481.18,147.43,COES - Dataset Sintético,LIQ-202506-AGE003-CON002
+2025-06-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,379790.0,8419.84,360.78,186.63,COES - Dataset Sintético,LIQ-202506-AGE003-CON003
+2025-06-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,73243.04,39761.64,432.63,182.07,COES - Dataset Sintético,LIQ-202506-AGE003-CON004
+2025-06-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,33537.78,49273.0,402.19,139.02,COES - Dataset Sintético,LIQ-202506-AGE003-CON005
+2025-06-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,1545623.32,21675.69,277.68,138.01,COES - Dataset Sintético,LIQ-202506-AGE004-CON001
+2025-06-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,953178.16,42004.89,97.49,243.33,COES - Dataset Sintético,LIQ-202506-AGE004-CON002
+2025-06-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,325762.78,42291.83,368.29,154.03,COES - Dataset Sintético,LIQ-202506-AGE004-CON003
+2025-06-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,198575.48,48446.32,171.54,217.39,COES - Dataset Sintético,LIQ-202506-AGE004-CON004
+2025-06-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,91131.46,26757.39,246.01,204.27,COES - Dataset Sintético,LIQ-202506-AGE004-CON005
+2025-06-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,1305381.54,43327.09,423.83,94.73,COES - Dataset Sintético,LIQ-202506-AGE005-CON001
+2025-06-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,860418.87,15973.85,259.12,183.76,COES - Dataset Sintético,LIQ-202506-AGE005-CON002
+2025-06-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,234984.66,6291.5,432.93,110.91,COES - Dataset Sintético,LIQ-202506-AGE005-CON003
+2025-06-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,94835.97,40902.46,203.15,229.65,COES - Dataset Sintético,LIQ-202506-AGE005-CON004
+2025-06-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,112804.44,17432.09,54.57,241.17,COES - Dataset Sintético,LIQ-202506-AGE005-CON005
+2025-07-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,957384.61,37403.36,269.86,208.89,COES - Dataset Sintético,LIQ-202507-AGE001-CON001
+2025-07-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,796997.37,34065.63,270.87,214.8,COES - Dataset Sintético,LIQ-202507-AGE001-CON002
+2025-07-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,132555.65,14971.84,361.3,132.06,COES - Dataset Sintético,LIQ-202507-AGE001-CON003
+2025-07-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,168242.44,26296.72,288.91,152.34,COES - Dataset Sintético,LIQ-202507-AGE001-CON004
+2025-07-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,118685.66,19885.61,366.28,126.06,COES - Dataset Sintético,LIQ-202507-AGE001-CON005
+2025-07-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,1183546.99,10429.51,136.66,100.32,COES - Dataset Sintético,LIQ-202507-AGE002-CON001
+2025-07-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,738084.44,39298.53,133.32,116.79,COES - Dataset Sintético,LIQ-202507-AGE002-CON002
+2025-07-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,300637.18,37606.33,489.47,169.19,COES - Dataset Sintético,LIQ-202507-AGE002-CON003
+2025-07-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,100250.11,9523.67,137.35,118.67,COES - Dataset Sintético,LIQ-202507-AGE002-CON004
+2025-07-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,44749.74,5636.68,290.36,126.63,COES - Dataset Sintético,LIQ-202507-AGE002-CON005
+2025-07-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,2336595.79,29901.15,363.84,101.47,COES - Dataset Sintético,LIQ-202507-AGE003-CON001
+2025-07-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,943653.44,27089.54,442.72,177.59,COES - Dataset Sintético,LIQ-202507-AGE003-CON002
+2025-07-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,304428.58,24821.1,132.96,88.73,COES - Dataset Sintético,LIQ-202507-AGE003-CON003
+2025-07-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,228437.87,26497.81,419.95,148.12,COES - Dataset Sintético,LIQ-202507-AGE003-CON004
+2025-07-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,31057.96,33325.06,74.12,105.36,COES - Dataset Sintético,LIQ-202507-AGE003-CON005
+2025-07-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,1793086.56,18672.6,497.26,100.14,COES - Dataset Sintético,LIQ-202507-AGE004-CON001
+2025-07-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,869435.96,32284.29,405.83,118.37,COES - Dataset Sintético,LIQ-202507-AGE004-CON002
+2025-07-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,338337.22,25273.15,249.22,226.23,COES - Dataset Sintético,LIQ-202507-AGE004-CON003
+2025-07-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,244963.36,18742.11,329.46,183.64,COES - Dataset Sintético,LIQ-202507-AGE004-CON004
+2025-07-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,111831.97,47641.56,143.5,115.87,COES - Dataset Sintético,LIQ-202507-AGE004-CON005
+2025-07-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,1837213.13,12067.57,128.22,92.76,COES - Dataset Sintético,LIQ-202507-AGE005-CON001
+2025-07-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,289559.45,25272.67,317.22,129.51,COES - Dataset Sintético,LIQ-202507-AGE005-CON002
+2025-07-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,191848.04,36813.01,366.34,157.19,COES - Dataset Sintético,LIQ-202507-AGE005-CON003
+2025-07-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,190674.89,46576.0,404.52,186.26,COES - Dataset Sintético,LIQ-202507-AGE005-CON004
+2025-07-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,107419.62,47015.08,241.31,172.58,COES - Dataset Sintético,LIQ-202507-AGE005-CON005
+2025-08-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,1979601.93,45878.52,421.98,92.14,COES - Dataset Sintético,LIQ-202508-AGE001-CON001
+2025-08-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,416416.49,18842.53,387.03,176.77,COES - Dataset Sintético,LIQ-202508-AGE001-CON002
+2025-08-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,231102.01,10595.91,359.91,198.95,COES - Dataset Sintético,LIQ-202508-AGE001-CON003
+2025-08-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,235378.75,27521.25,272.21,93.68,COES - Dataset Sintético,LIQ-202508-AGE001-CON004
+2025-08-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,28606.85,24441.29,195.04,122.56,COES - Dataset Sintético,LIQ-202508-AGE001-CON005
+2025-08-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,985139.32,48286.0,426.18,177.78,COES - Dataset Sintético,LIQ-202508-AGE002-CON001
+2025-08-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,924168.95,49980.76,352.53,125.82,COES - Dataset Sintético,LIQ-202508-AGE002-CON002
+2025-08-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,109876.53,39032.1,261.73,190.76,COES - Dataset Sintético,LIQ-202508-AGE002-CON003
+2025-08-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,238840.54,13167.01,313.4,187.91,COES - Dataset Sintético,LIQ-202508-AGE002-CON004
+2025-08-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,82986.66,9105.91,206.58,136.66,COES - Dataset Sintético,LIQ-202508-AGE002-CON005
+2025-08-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,2008457.42,43597.99,198.41,197.92,COES - Dataset Sintético,LIQ-202508-AGE003-CON001
+2025-08-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,513624.86,47533.71,416.1,173.52,COES - Dataset Sintético,LIQ-202508-AGE003-CON002
+2025-08-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,280903.73,19153.27,195.47,244.93,COES - Dataset Sintético,LIQ-202508-AGE003-CON003
+2025-08-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,125295.5,28156.83,494.65,191.8,COES - Dataset Sintético,LIQ-202508-AGE003-CON004
+2025-08-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,83679.67,23596.14,134.41,141.5,COES - Dataset Sintético,LIQ-202508-AGE003-CON005
+2025-08-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,2039382.89,33143.39,392.0,114.6,COES - Dataset Sintético,LIQ-202508-AGE004-CON001
+2025-08-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,713762.02,46745.27,247.15,198.7,COES - Dataset Sintético,LIQ-202508-AGE004-CON002
+2025-08-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,150160.83,48791.61,323.99,120.68,COES - Dataset Sintético,LIQ-202508-AGE004-CON003
+2025-08-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,76588.31,29787.76,298.51,95.85,COES - Dataset Sintético,LIQ-202508-AGE004-CON004
+2025-08-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,150283.57,46081.84,257.65,99.97,COES - Dataset Sintético,LIQ-202508-AGE004-CON005
+2025-08-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,2257310.42,27426.9,372.47,166.51,COES - Dataset Sintético,LIQ-202508-AGE005-CON001
+2025-08-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,469681.16,42562.58,491.11,121.43,COES - Dataset Sintético,LIQ-202508-AGE005-CON002
+2025-08-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,322969.52,22261.37,464.84,166.4,COES - Dataset Sintético,LIQ-202508-AGE005-CON003
+2025-08-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,226522.62,43881.21,174.31,214.3,COES - Dataset Sintético,LIQ-202508-AGE005-CON004
+2025-08-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,69716.81,47041.18,278.48,219.49,COES - Dataset Sintético,LIQ-202508-AGE005-CON005
+2025-09-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,1303739.44,18435.01,314.12,249.81,COES - Dataset Sintético,LIQ-202509-AGE001-CON001
+2025-09-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,660770.41,11686.79,292.36,138.67,COES - Dataset Sintético,LIQ-202509-AGE001-CON002
+2025-09-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,338137.32,29454.35,254.91,134.7,COES - Dataset Sintético,LIQ-202509-AGE001-CON003
+2025-09-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,92353.0,36387.43,307.31,119.71,COES - Dataset Sintético,LIQ-202509-AGE001-CON004
+2025-09-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,112498.23,6964.13,385.12,199.89,COES - Dataset Sintético,LIQ-202509-AGE001-CON005
+2025-09-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,2077200.57,22373.54,348.66,219.53,COES - Dataset Sintético,LIQ-202509-AGE002-CON001
+2025-09-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,1011978.68,27289.79,66.66,165.39,COES - Dataset Sintético,LIQ-202509-AGE002-CON002
+2025-09-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,344705.63,44136.51,443.39,154.85,COES - Dataset Sintético,LIQ-202509-AGE002-CON003
+2025-09-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,159186.74,25561.76,375.1,149.7,COES - Dataset Sintético,LIQ-202509-AGE002-CON004
+2025-09-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,125371.83,11946.25,261.27,244.76,COES - Dataset Sintético,LIQ-202509-AGE002-CON005
+2025-09-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,1414818.64,36171.71,342.43,224.8,COES - Dataset Sintético,LIQ-202509-AGE003-CON001
+2025-09-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,947548.55,43670.4,221.0,133.83,COES - Dataset Sintético,LIQ-202509-AGE003-CON002
+2025-09-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,405970.13,39173.08,442.57,86.1,COES - Dataset Sintético,LIQ-202509-AGE003-CON003
+2025-09-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,65758.31,33402.25,464.42,249.56,COES - Dataset Sintético,LIQ-202509-AGE003-CON004
+2025-09-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,115234.05,24528.72,94.3,187.74,COES - Dataset Sintético,LIQ-202509-AGE003-CON005
+2025-09-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,2370035.63,24965.53,362.3,233.58,COES - Dataset Sintético,LIQ-202509-AGE004-CON001
+2025-09-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,319357.3,40826.46,182.02,143.72,COES - Dataset Sintético,LIQ-202509-AGE004-CON002
+2025-09-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,156354.35,28902.48,304.67,214.73,COES - Dataset Sintético,LIQ-202509-AGE004-CON003
+2025-09-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,81958.28,8553.58,441.88,185.35,COES - Dataset Sintético,LIQ-202509-AGE004-CON004
+2025-09-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,51517.91,46077.31,114.4,158.4,COES - Dataset Sintético,LIQ-202509-AGE004-CON005
+2025-09-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,1374316.84,16489.7,54.23,216.79,COES - Dataset Sintético,LIQ-202509-AGE005-CON001
+2025-09-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,843939.72,35492.49,121.09,155.09,COES - Dataset Sintético,LIQ-202509-AGE005-CON002
+2025-09-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,246400.51,31440.73,337.52,152.13,COES - Dataset Sintético,LIQ-202509-AGE005-CON003
+2025-09-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,91954.48,43038.68,139.65,145.4,COES - Dataset Sintético,LIQ-202509-AGE005-CON004
+2025-09-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,80862.85,15674.26,307.37,177.72,COES - Dataset Sintético,LIQ-202509-AGE005-CON005
+2025-10-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,2623018.87,18285.38,490.08,191.9,COES - Dataset Sintético,LIQ-202510-AGE001-CON001
+2025-10-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,493717.99,30466.81,358.61,206.59,COES - Dataset Sintético,LIQ-202510-AGE001-CON002
+2025-10-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,113171.83,32288.29,273.53,233.71,COES - Dataset Sintético,LIQ-202510-AGE001-CON003
+2025-10-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,103403.41,40948.71,323.18,139.89,COES - Dataset Sintético,LIQ-202510-AGE001-CON004
+2025-10-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,106252.11,32940.1,354.99,202.56,COES - Dataset Sintético,LIQ-202510-AGE001-CON005
+2025-10-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,1850471.2,42725.17,332.71,233.58,COES - Dataset Sintético,LIQ-202510-AGE002-CON001
+2025-10-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,760582.01,18901.98,248.37,178.53,COES - Dataset Sintético,LIQ-202510-AGE002-CON002
+2025-10-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,393839.27,9056.0,182.8,207.07,COES - Dataset Sintético,LIQ-202510-AGE002-CON003
+2025-10-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,82354.54,10947.19,292.73,245.15,COES - Dataset Sintético,LIQ-202510-AGE002-CON004
+2025-10-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,98552.52,46106.91,423.71,123.68,COES - Dataset Sintético,LIQ-202510-AGE002-CON005
+2025-10-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,2271766.3,26683.15,412.92,206.92,COES - Dataset Sintético,LIQ-202510-AGE003-CON001
+2025-10-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,482715.4,10182.64,483.3,103.93,COES - Dataset Sintético,LIQ-202510-AGE003-CON002
+2025-10-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,491136.52,43706.33,375.9,246.59,COES - Dataset Sintético,LIQ-202510-AGE003-CON003
+2025-10-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,235398.22,41206.44,214.6,214.42,COES - Dataset Sintético,LIQ-202510-AGE003-CON004
+2025-10-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,22738.98,29145.75,254.65,194.38,COES - Dataset Sintético,LIQ-202510-AGE003-CON005
+2025-10-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,1865986.78,31305.2,420.09,239.85,COES - Dataset Sintético,LIQ-202510-AGE004-CON001
+2025-10-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,373686.13,15521.99,61.26,230.32,COES - Dataset Sintético,LIQ-202510-AGE004-CON002
+2025-10-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,332757.96,46186.52,149.62,90.75,COES - Dataset Sintético,LIQ-202510-AGE004-CON003
+2025-10-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,224068.03,45922.44,185.99,149.41,COES - Dataset Sintético,LIQ-202510-AGE004-CON004
+2025-10-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,35880.19,47581.77,186.96,163.75,COES - Dataset Sintético,LIQ-202510-AGE004-CON005
+2025-10-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,949082.93,44926.67,111.05,157.12,COES - Dataset Sintético,LIQ-202510-AGE005-CON001
+2025-10-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,751070.62,38441.31,475.69,151.25,COES - Dataset Sintético,LIQ-202510-AGE005-CON002
+2025-10-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,383942.04,11953.53,236.7,96.83,COES - Dataset Sintético,LIQ-202510-AGE005-CON003
+2025-10-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,160922.24,23365.21,478.18,85.56,COES - Dataset Sintético,LIQ-202510-AGE005-CON004
+2025-10-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,69549.25,24952.24,477.75,225.43,COES - Dataset Sintético,LIQ-202510-AGE005-CON005
+2025-11-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,907819.16,35855.61,295.01,246.23,COES - Dataset Sintético,LIQ-202511-AGE001-CON001
+2025-11-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,576362.08,22916.28,135.41,100.77,COES - Dataset Sintético,LIQ-202511-AGE001-CON002
+2025-11-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,485817.23,25462.28,348.25,189.09,COES - Dataset Sintético,LIQ-202511-AGE001-CON003
+2025-11-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,178175.68,5961.09,404.06,121.41,COES - Dataset Sintético,LIQ-202511-AGE001-CON004
+2025-11-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,33607.12,30406.01,80.87,210.08,COES - Dataset Sintético,LIQ-202511-AGE001-CON005
+2025-11-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,1124271.59,14717.81,441.36,135.86,COES - Dataset Sintético,LIQ-202511-AGE002-CON001
+2025-11-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,428834.42,45523.9,51.28,225.93,COES - Dataset Sintético,LIQ-202511-AGE002-CON002
+2025-11-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,152289.02,10849.65,162.79,109.66,COES - Dataset Sintético,LIQ-202511-AGE002-CON003
+2025-11-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,186254.98,6160.11,56.69,214.3,COES - Dataset Sintético,LIQ-202511-AGE002-CON004
+2025-11-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,52903.76,19569.72,128.41,88.91,COES - Dataset Sintético,LIQ-202511-AGE002-CON005
+2025-11-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,1965404.19,28673.85,385.55,160.96,COES - Dataset Sintético,LIQ-202511-AGE003-CON001
+2025-11-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,842098.14,28095.71,99.07,165.65,COES - Dataset Sintético,LIQ-202511-AGE003-CON002
+2025-11-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,400673.02,6951.43,402.45,227.39,COES - Dataset Sintético,LIQ-202511-AGE003-CON003
+2025-11-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,146387.59,25611.91,483.81,90.34,COES - Dataset Sintético,LIQ-202511-AGE003-CON004
+2025-11-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,81228.74,23072.78,358.74,163.35,COES - Dataset Sintético,LIQ-202511-AGE003-CON005
+2025-11-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,2200095.78,8307.08,86.36,183.41,COES - Dataset Sintético,LIQ-202511-AGE004-CON001
+2025-11-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,374216.45,17375.72,334.88,173.22,COES - Dataset Sintético,LIQ-202511-AGE004-CON002
+2025-11-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,213622.25,49758.25,288.75,157.13,COES - Dataset Sintético,LIQ-202511-AGE004-CON003
+2025-11-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,167321.1,9463.03,365.8,224.97,COES - Dataset Sintético,LIQ-202511-AGE004-CON004
+2025-11-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,105303.06,39603.32,374.38,116.55,COES - Dataset Sintético,LIQ-202511-AGE004-CON005
+2025-11-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,1680613.48,15282.21,202.52,157.09,COES - Dataset Sintético,LIQ-202511-AGE005-CON001
+2025-11-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,548749.19,9278.86,242.04,193.07,COES - Dataset Sintético,LIQ-202511-AGE005-CON002
+2025-11-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,264243.7,11868.75,465.34,91.41,COES - Dataset Sintético,LIQ-202511-AGE005-CON003
+2025-11-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,216465.08,9195.35,93.45,205.6,COES - Dataset Sintético,LIQ-202511-AGE005-CON004
+2025-11-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,119369.57,30036.68,313.91,175.47,COES - Dataset Sintético,LIQ-202511-AGE005-CON005
+2025-12-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,1391830.4,10500.41,209.12,193.11,COES - Dataset Sintético,LIQ-202512-AGE001-CON001
+2025-12-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,833412.17,44064.15,374.48,244.63,COES - Dataset Sintético,LIQ-202512-AGE001-CON002
+2025-12-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,329955.43,20824.08,310.06,116.17,COES - Dataset Sintético,LIQ-202512-AGE001-CON003
+2025-12-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,181980.18,15091.02,98.7,223.71,COES - Dataset Sintético,LIQ-202512-AGE001-CON004
+2025-12-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,66477.05,39317.25,308.35,217.23,COES - Dataset Sintético,LIQ-202512-AGE001-CON005
+2025-12-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,2249459.35,48854.6,418.29,184.31,COES - Dataset Sintético,LIQ-202512-AGE002-CON001
+2025-12-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,774715.65,6181.42,468.09,221.01,COES - Dataset Sintético,LIQ-202512-AGE002-CON002
+2025-12-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,223392.71,13118.72,366.21,132.53,COES - Dataset Sintético,LIQ-202512-AGE002-CON003
+2025-12-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,110663.99,5274.76,441.44,176.27,COES - Dataset Sintético,LIQ-202512-AGE002-CON004
+2025-12-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,79791.76,11384.36,334.93,85.21,COES - Dataset Sintético,LIQ-202512-AGE002-CON005
+2025-12-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,1866506.05,14680.98,238.92,137.95,COES - Dataset Sintético,LIQ-202512-AGE003-CON001
+2025-12-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,554794.49,37471.82,399.58,176.49,COES - Dataset Sintético,LIQ-202512-AGE003-CON002
+2025-12-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,137924.04,7367.4,120.83,185.03,COES - Dataset Sintético,LIQ-202512-AGE003-CON003
+2025-12-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,187390.02,17244.63,347.87,162.56,COES - Dataset Sintético,LIQ-202512-AGE003-CON004
+2025-12-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,75053.85,17292.51,389.72,99.35,COES - Dataset Sintético,LIQ-202512-AGE003-CON005
+2025-12-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,1514922.95,17746.09,355.32,162.73,COES - Dataset Sintético,LIQ-202512-AGE004-CON001
+2025-12-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,748086.38,7043.78,227.87,181.89,COES - Dataset Sintético,LIQ-202512-AGE004-CON002
+2025-12-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,100037.4,18563.87,145.06,103.33,COES - Dataset Sintético,LIQ-202512-AGE004-CON003
+2025-12-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,105398.81,19765.51,53.48,206.99,COES - Dataset Sintético,LIQ-202512-AGE004-CON004
+2025-12-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,43605.06,22109.34,366.65,165.04,COES - Dataset Sintético,LIQ-202512-AGE004-CON005
+2025-12-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,2139903.43,41279.01,82.43,226.5,COES - Dataset Sintético,LIQ-202512-AGE005-CON001
+2025-12-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,344437.51,5843.37,464.52,226.56,COES - Dataset Sintético,LIQ-202512-AGE005-CON002
+2025-12-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,335378.77,30802.99,369.27,151.01,COES - Dataset Sintético,LIQ-202512-AGE005-CON003
+2025-12-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,76003.03,5938.55,196.15,216.22,COES - Dataset Sintético,LIQ-202512-AGE005-CON004
+2025-12-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,103515.64,42441.17,463.9,94.98,COES - Dataset Sintético,LIQ-202512-AGE005-CON005
+2026-01-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,2142957.38,15949.24,314.99,169.07,COES - Dataset Sintético,LIQ-202601-AGE001-CON001
+2026-01-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,560874.44,18962.36,202.78,136.62,COES - Dataset Sintético,LIQ-202601-AGE001-CON002
+2026-01-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,173502.44,27971.75,101.31,166.69,COES - Dataset Sintético,LIQ-202601-AGE001-CON003
+2026-01-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,238239.95,20721.89,377.32,219.22,COES - Dataset Sintético,LIQ-202601-AGE001-CON004
+2026-01-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,125823.18,15632.1,115.9,113.54,COES - Dataset Sintético,LIQ-202601-AGE001-CON005
+2026-01-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,1834778.99,39209.69,344.98,110.11,COES - Dataset Sintético,LIQ-202601-AGE002-CON001
+2026-01-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,894719.07,27235.27,389.5,209.18,COES - Dataset Sintético,LIQ-202601-AGE002-CON002
+2026-01-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,271293.06,46586.94,304.02,188.0,COES - Dataset Sintético,LIQ-202601-AGE002-CON003
+2026-01-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,179688.84,43891.11,332.25,105.66,COES - Dataset Sintético,LIQ-202601-AGE002-CON004
+2026-01-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,28585.28,24899.36,186.27,126.69,COES - Dataset Sintético,LIQ-202601-AGE002-CON005
+2026-01-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,885746.01,27830.16,189.68,156.83,COES - Dataset Sintético,LIQ-202601-AGE003-CON001
+2026-01-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,358492.52,42426.35,84.53,226.92,COES - Dataset Sintético,LIQ-202601-AGE003-CON002
+2026-01-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,460363.89,32675.38,278.18,158.66,COES - Dataset Sintético,LIQ-202601-AGE003-CON003
+2026-01-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,167406.47,40631.8,453.14,156.45,COES - Dataset Sintético,LIQ-202601-AGE003-CON004
+2026-01-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,133453.33,34332.69,194.69,160.86,COES - Dataset Sintético,LIQ-202601-AGE003-CON005
+2026-01-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,1057573.32,7784.32,96.58,232.85,COES - Dataset Sintético,LIQ-202601-AGE004-CON001
+2026-01-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,558833.03,37144.2,277.05,109.34,COES - Dataset Sintético,LIQ-202601-AGE004-CON002
+2026-01-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,196008.82,24699.12,247.74,168.87,COES - Dataset Sintético,LIQ-202601-AGE004-CON003
+2026-01-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,83074.26,21778.34,177.3,149.49,COES - Dataset Sintético,LIQ-202601-AGE004-CON004
+2026-01-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,63571.35,31904.86,405.15,190.04,COES - Dataset Sintético,LIQ-202601-AGE004-CON005
+2026-01-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,916473.41,9252.77,355.27,128.3,COES - Dataset Sintético,LIQ-202601-AGE005-CON001
+2026-01-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,830616.64,34545.38,457.85,228.46,COES - Dataset Sintético,LIQ-202601-AGE005-CON002
+2026-01-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,223798.44,31223.28,113.64,139.47,COES - Dataset Sintético,LIQ-202601-AGE005-CON003
+2026-01-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,269018.23,36431.6,226.38,181.16,COES - Dataset Sintético,LIQ-202601-AGE005-CON004
+2026-01-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,134800.57,18931.18,219.51,214.58,COES - Dataset Sintético,LIQ-202601-AGE005-CON005
+2026-02-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,2049921.01,35155.24,423.03,205.59,COES - Dataset Sintético,LIQ-202602-AGE001-CON001
+2026-02-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,824944.28,28687.7,340.71,151.98,COES - Dataset Sintético,LIQ-202602-AGE001-CON002
+2026-02-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,254418.47,21316.9,131.12,116.41,COES - Dataset Sintético,LIQ-202602-AGE001-CON003
+2026-02-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,247008.54,26882.19,151.94,103.39,COES - Dataset Sintético,LIQ-202602-AGE001-CON004
+2026-02-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,30974.97,42999.28,95.51,211.05,COES - Dataset Sintético,LIQ-202602-AGE001-CON005
+2026-02-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,2218344.49,44765.7,66.99,137.25,COES - Dataset Sintético,LIQ-202602-AGE002-CON001
+2026-02-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,798891.46,10897.21,219.52,107.58,COES - Dataset Sintético,LIQ-202602-AGE002-CON002
+2026-02-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,434177.44,39699.4,414.07,108.14,COES - Dataset Sintético,LIQ-202602-AGE002-CON003
+2026-02-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,132878.02,23488.64,354.36,120.38,COES - Dataset Sintético,LIQ-202602-AGE002-CON004
+2026-02-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,81536.41,17821.76,386.84,156.32,COES - Dataset Sintético,LIQ-202602-AGE002-CON005
+2026-02-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,1695261.59,18926.06,413.88,159.73,COES - Dataset Sintético,LIQ-202602-AGE003-CON001
+2026-02-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,848068.49,21552.84,476.21,247.35,COES - Dataset Sintético,LIQ-202602-AGE003-CON002
+2026-02-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,280097.51,17679.73,221.84,169.67,COES - Dataset Sintético,LIQ-202602-AGE003-CON003
+2026-02-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,248275.98,41760.11,410.57,103.53,COES - Dataset Sintético,LIQ-202602-AGE003-CON004
+2026-02-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,51020.63,33853.06,443.35,174.27,COES - Dataset Sintético,LIQ-202602-AGE003-CON005
+2026-02-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,934343.86,43065.15,433.02,128.46,COES - Dataset Sintético,LIQ-202602-AGE004-CON001
+2026-02-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,844345.75,17275.61,457.39,105.05,COES - Dataset Sintético,LIQ-202602-AGE004-CON002
+2026-02-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,278357.18,47588.6,149.92,156.69,COES - Dataset Sintético,LIQ-202602-AGE004-CON003
+2026-02-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,116877.46,6200.16,73.97,165.34,COES - Dataset Sintético,LIQ-202602-AGE004-CON004
+2026-02-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,49458.22,49753.64,218.71,84.79,COES - Dataset Sintético,LIQ-202602-AGE004-CON005
+2026-02-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,2410045.87,42762.93,342.48,214.53,COES - Dataset Sintético,LIQ-202602-AGE005-CON001
+2026-02-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,367624.49,17909.57,423.39,198.33,COES - Dataset Sintético,LIQ-202602-AGE005-CON002
+2026-02-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,144572.84,36749.13,251.87,80.89,COES - Dataset Sintético,LIQ-202602-AGE005-CON003
+2026-02-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,63479.85,16516.58,425.73,173.3,COES - Dataset Sintético,LIQ-202602-AGE005-CON004
+2026-02-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,113318.1,28749.72,100.03,128.98,COES - Dataset Sintético,LIQ-202602-AGE005-CON005
+2026-03-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,1332351.9,7148.73,238.92,214.96,COES - Dataset Sintético,LIQ-202603-AGE001-CON001
+2026-03-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,665714.06,9988.61,457.32,181.45,COES - Dataset Sintético,LIQ-202603-AGE001-CON002
+2026-03-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,111144.36,28191.91,158.87,104.41,COES - Dataset Sintético,LIQ-202603-AGE001-CON003
+2026-03-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,134761.41,32666.43,158.25,150.82,COES - Dataset Sintético,LIQ-202603-AGE001-CON004
+2026-03-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,106267.13,8852.63,488.59,91.51,COES - Dataset Sintético,LIQ-202603-AGE001-CON005
+2026-03-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,1609371.73,27829.75,494.75,174.21,COES - Dataset Sintético,LIQ-202603-AGE002-CON001
+2026-03-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,572786.92,26156.08,336.05,246.78,COES - Dataset Sintético,LIQ-202603-AGE002-CON002
+2026-03-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,198552.44,5730.9,404.83,138.62,COES - Dataset Sintético,LIQ-202603-AGE002-CON003
+2026-03-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,199760.34,33271.56,397.18,204.98,COES - Dataset Sintético,LIQ-202603-AGE002-CON004
+2026-03-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,60612.24,6995.11,295.71,218.3,COES - Dataset Sintético,LIQ-202603-AGE002-CON005
+2026-03-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,1126154.59,40061.42,259.08,198.22,COES - Dataset Sintético,LIQ-202603-AGE003-CON001
+2026-03-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,799096.19,41517.4,78.4,211.95,COES - Dataset Sintético,LIQ-202603-AGE003-CON002
+2026-03-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,281532.48,18204.92,69.71,113.91,COES - Dataset Sintético,LIQ-202603-AGE003-CON003
+2026-03-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,59553.81,47001.69,281.92,248.15,COES - Dataset Sintético,LIQ-202603-AGE003-CON004
+2026-03-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,93720.14,16399.12,388.98,112.49,COES - Dataset Sintético,LIQ-202603-AGE003-CON005
+2026-03-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,1378633.13,40137.87,439.61,136.43,COES - Dataset Sintético,LIQ-202603-AGE004-CON001
+2026-03-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,391470.18,21560.86,450.27,206.36,COES - Dataset Sintético,LIQ-202603-AGE004-CON002
+2026-03-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,458143.27,22399.01,488.18,164.35,COES - Dataset Sintético,LIQ-202603-AGE004-CON003
+2026-03-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,150234.83,46593.97,283.67,216.2,COES - Dataset Sintético,LIQ-202603-AGE004-CON004
+2026-03-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,110094.3,8551.72,321.1,219.8,COES - Dataset Sintético,LIQ-202603-AGE004-CON005
+2026-03-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,1729423.3,19454.51,86.03,192.36,COES - Dataset Sintético,LIQ-202603-AGE005-CON001
+2026-03-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,527359.28,32117.97,241.75,197.26,COES - Dataset Sintético,LIQ-202603-AGE005-CON002
+2026-03-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,258077.41,6905.98,441.52,139.94,COES - Dataset Sintético,LIQ-202603-AGE005-CON003
+2026-03-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,261603.26,17354.99,491.01,241.14,COES - Dataset Sintético,LIQ-202603-AGE005-CON004
+2026-03-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,32958.79,33688.06,213.49,216.19,COES - Dataset Sintético,LIQ-202603-AGE005-CON005
+2026-04-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,1879989.88,47875.52,114.25,183.29,COES - Dataset Sintético,LIQ-202604-AGE001-CON001
+2026-04-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,883857.6,6565.95,80.26,212.35,COES - Dataset Sintético,LIQ-202604-AGE001-CON002
+2026-04-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,248791.37,22228.45,305.26,182.87,COES - Dataset Sintético,LIQ-202604-AGE001-CON003
+2026-04-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,206157.04,47697.06,217.41,209.72,COES - Dataset Sintético,LIQ-202604-AGE001-CON004
+2026-04-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,90786.18,28825.69,229.12,190.43,COES - Dataset Sintético,LIQ-202604-AGE001-CON005
+2026-04-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,1172934.57,10105.19,381.05,164.84,COES - Dataset Sintético,LIQ-202604-AGE002-CON001
+2026-04-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,553781.77,30275.27,167.8,124.25,COES - Dataset Sintético,LIQ-202604-AGE002-CON002
+2026-04-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,248933.02,49836.43,178.51,235.8,COES - Dataset Sintético,LIQ-202604-AGE002-CON003
+2026-04-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,144343.14,10518.68,433.77,156.85,COES - Dataset Sintético,LIQ-202604-AGE002-CON004
+2026-04-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,131634.73,25030.0,89.51,195.93,COES - Dataset Sintético,LIQ-202604-AGE002-CON005
+2026-04-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,2254210.52,19381.45,206.34,91.04,COES - Dataset Sintético,LIQ-202604-AGE003-CON001
+2026-04-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,691131.45,45109.93,433.11,201.01,COES - Dataset Sintético,LIQ-202604-AGE003-CON002
+2026-04-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,515107.02,33696.5,407.16,166.49,COES - Dataset Sintético,LIQ-202604-AGE003-CON003
+2026-04-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,77802.01,14044.12,112.49,214.36,COES - Dataset Sintético,LIQ-202604-AGE003-CON004
+2026-04-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,22741.46,29930.96,216.01,216.62,COES - Dataset Sintético,LIQ-202604-AGE003-CON005
+2026-04-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,1659736.55,32537.68,88.8,132.58,COES - Dataset Sintético,LIQ-202604-AGE004-CON001
+2026-04-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,1024305.52,37349.13,286.56,210.76,COES - Dataset Sintético,LIQ-202604-AGE004-CON002
+2026-04-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,400994.59,8318.78,487.57,189.2,COES - Dataset Sintético,LIQ-202604-AGE004-CON003
+2026-04-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,152814.64,35604.9,205.03,229.25,COES - Dataset Sintético,LIQ-202604-AGE004-CON004
+2026-04-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,128595.4,33790.73,131.88,244.26,COES - Dataset Sintético,LIQ-202604-AGE004-CON005
+2026-04-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,1499431.27,45982.05,74.94,101.11,COES - Dataset Sintético,LIQ-202604-AGE005-CON001
+2026-04-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,372239.05,12409.57,195.2,200.59,COES - Dataset Sintético,LIQ-202604-AGE005-CON002
+2026-04-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,254548.02,47340.68,452.72,223.81,COES - Dataset Sintético,LIQ-202604-AGE005-CON003
+2026-04-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,99547.67,33577.57,297.88,101.28,COES - Dataset Sintético,LIQ-202604-AGE005-CON004
+2026-04-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,63041.48,29006.51,276.16,108.67,COES - Dataset Sintético,LIQ-202604-AGE005-CON005
+2026-05-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,2209342.21,11938.74,346.43,202.51,COES - Dataset Sintético,LIQ-202605-AGE001-CON001
+2026-05-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,701911.93,42913.85,303.63,220.29,COES - Dataset Sintético,LIQ-202605-AGE001-CON002
+2026-05-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,111378.59,7045.78,338.65,178.05,COES - Dataset Sintético,LIQ-202605-AGE001-CON003
+2026-05-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,180649.35,39513.16,237.46,188.63,COES - Dataset Sintético,LIQ-202605-AGE001-CON004
+2026-05-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,82837.91,33222.38,180.35,242.63,COES - Dataset Sintético,LIQ-202605-AGE001-CON005
+2026-05-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,1671488.37,41210.97,358.25,130.56,COES - Dataset Sintético,LIQ-202605-AGE002-CON001
+2026-05-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,332340.05,7696.09,247.82,162.32,COES - Dataset Sintético,LIQ-202605-AGE002-CON002
+2026-05-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,180316.33,32299.71,190.66,202.12,COES - Dataset Sintético,LIQ-202605-AGE002-CON003
+2026-05-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,198023.9,43734.98,488.92,102.23,COES - Dataset Sintético,LIQ-202605-AGE002-CON004
+2026-05-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,69923.7,30274.3,193.6,159.3,COES - Dataset Sintético,LIQ-202605-AGE002-CON005
+2026-05-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,1299345.07,16156.35,93.57,129.34,COES - Dataset Sintético,LIQ-202605-AGE003-CON001
+2026-05-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,536914.16,32691.98,161.72,227.1,COES - Dataset Sintético,LIQ-202605-AGE003-CON002
+2026-05-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,151309.34,19734.61,309.96,133.16,COES - Dataset Sintético,LIQ-202605-AGE003-CON003
+2026-05-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,215568.69,27421.95,281.63,164.79,COES - Dataset Sintético,LIQ-202605-AGE003-CON004
+2026-05-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,61109.04,6042.93,475.35,165.93,COES - Dataset Sintético,LIQ-202605-AGE003-CON005
+2026-05-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,2351925.9,14681.5,208.8,88.59,COES - Dataset Sintético,LIQ-202605-AGE004-CON001
+2026-05-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,696561.19,44705.28,344.42,160.0,COES - Dataset Sintético,LIQ-202605-AGE004-CON002
+2026-05-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,316496.3,43122.76,243.92,230.02,COES - Dataset Sintético,LIQ-202605-AGE004-CON003
+2026-05-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,207029.34,39373.55,214.67,148.1,COES - Dataset Sintético,LIQ-202605-AGE004-CON004
+2026-05-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,94454.41,13759.49,298.95,92.5,COES - Dataset Sintético,LIQ-202605-AGE004-CON005
+2026-05-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,1827991.52,39398.19,175.87,248.15,COES - Dataset Sintético,LIQ-202605-AGE005-CON001
+2026-05-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,844410.76,10346.5,488.79,146.96,COES - Dataset Sintético,LIQ-202605-AGE005-CON002
+2026-05-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,412756.05,20258.84,472.53,208.34,COES - Dataset Sintético,LIQ-202605-AGE005-CON003
+2026-05-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,94174.49,27910.51,275.04,87.7,COES - Dataset Sintético,LIQ-202605-AGE005-CON004
+2026-05-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,39034.96,19986.83,263.18,157.69,COES - Dataset Sintético,LIQ-202605-AGE005-CON005
+2026-06-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,1955916.67,28197.76,197.58,184.22,COES - Dataset Sintético,LIQ-202606-AGE001-CON001
+2026-06-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,393789.51,49577.71,382.69,130.87,COES - Dataset Sintético,LIQ-202606-AGE001-CON002
+2026-06-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,242595.03,42273.02,289.55,200.49,COES - Dataset Sintético,LIQ-202606-AGE001-CON003
+2026-06-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,115777.23,41708.7,215.76,194.55,COES - Dataset Sintético,LIQ-202606-AGE001-CON004
+2026-06-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,134426.0,31266.6,408.54,203.31,COES - Dataset Sintético,LIQ-202606-AGE001-CON005
+2026-06-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,1853142.52,6199.12,263.57,244.4,COES - Dataset Sintético,LIQ-202606-AGE002-CON001
+2026-06-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,761566.01,39927.29,309.94,202.64,COES - Dataset Sintético,LIQ-202606-AGE002-CON002
+2026-06-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,328918.17,12673.04,333.06,185.36,COES - Dataset Sintético,LIQ-202606-AGE002-CON003
+2026-06-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,226063.01,11649.91,356.33,85.37,COES - Dataset Sintético,LIQ-202606-AGE002-CON004
+2026-06-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,154028.56,9945.3,58.52,133.33,COES - Dataset Sintético,LIQ-202606-AGE002-CON005
+2026-06-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,1061350.65,36072.51,234.67,211.75,COES - Dataset Sintético,LIQ-202606-AGE003-CON001
+2026-06-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,1021265.01,44276.8,381.13,90.59,COES - Dataset Sintético,LIQ-202606-AGE003-CON002
+2026-06-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,144521.13,14330.38,196.27,192.58,COES - Dataset Sintético,LIQ-202606-AGE003-CON003
+2026-06-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,141886.09,19118.87,127.93,235.06,COES - Dataset Sintético,LIQ-202606-AGE003-CON004
+2026-06-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,64323.36,20942.91,397.4,202.56,COES - Dataset Sintético,LIQ-202606-AGE003-CON005
+2026-06-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,1929989.28,36199.1,324.53,112.68,COES - Dataset Sintético,LIQ-202606-AGE004-CON001
+2026-06-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,471790.88,30113.9,151.19,245.39,COES - Dataset Sintético,LIQ-202606-AGE004-CON002
+2026-06-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,196402.6,18005.19,143.28,199.85,COES - Dataset Sintético,LIQ-202606-AGE004-CON003
+2026-06-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,112902.8,20696.14,470.17,215.22,COES - Dataset Sintético,LIQ-202606-AGE004-CON004
+2026-06-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,51926.35,10484.33,354.48,144.55,COES - Dataset Sintético,LIQ-202606-AGE004-CON005
+2026-06-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,2548852.68,41826.99,479.57,216.78,COES - Dataset Sintético,LIQ-202606-AGE005-CON001
+2026-06-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,512542.61,17943.37,371.36,138.88,COES - Dataset Sintético,LIQ-202606-AGE005-CON002
+2026-06-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,263935.44,16539.98,265.59,114.35,COES - Dataset Sintético,LIQ-202606-AGE005-CON003
+2026-06-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,153663.34,46986.08,363.28,103.34,COES - Dataset Sintético,LIQ-202606-AGE005-CON004
+2026-06-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,94739.93,31407.37,159.11,193.87,COES - Dataset Sintético,LIQ-202606-AGE005-CON005
+2026-07-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,1697434.13,33707.51,73.62,150.26,COES - Dataset Sintético,LIQ-202607-AGE001-CON001
+2026-07-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,840459.04,9524.52,396.84,80.88,COES - Dataset Sintético,LIQ-202607-AGE001-CON002
+2026-07-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,304362.46,46809.49,233.11,238.96,COES - Dataset Sintético,LIQ-202607-AGE001-CON003
+2026-07-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,231367.58,26485.18,139.76,243.87,COES - Dataset Sintético,LIQ-202607-AGE001-CON004
+2026-07-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,60114.58,34065.41,458.57,95.21,COES - Dataset Sintético,LIQ-202607-AGE001-CON005
+2026-07-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,1705618.53,29081.85,375.4,239.23,COES - Dataset Sintético,LIQ-202607-AGE002-CON001
+2026-07-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,934234.34,12877.91,447.01,109.88,COES - Dataset Sintético,LIQ-202607-AGE002-CON002
+2026-07-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,443636.82,49872.73,228.65,164.22,COES - Dataset Sintético,LIQ-202607-AGE002-CON003
+2026-07-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,230752.1,48295.91,466.72,229.05,COES - Dataset Sintético,LIQ-202607-AGE002-CON004
+2026-07-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,19934.7,30558.28,98.29,247.11,COES - Dataset Sintético,LIQ-202607-AGE002-CON005
+2026-07-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,1409866.08,49509.48,294.49,163.97,COES - Dataset Sintético,LIQ-202607-AGE003-CON001
+2026-07-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,958679.7,43297.69,260.61,112.78,COES - Dataset Sintético,LIQ-202607-AGE003-CON002
+2026-07-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,139983.64,12312.24,256.51,123.74,COES - Dataset Sintético,LIQ-202607-AGE003-CON003
+2026-07-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,88173.19,38147.81,405.85,176.52,COES - Dataset Sintético,LIQ-202607-AGE003-CON004
+2026-07-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,117781.51,12897.27,435.27,232.5,COES - Dataset Sintético,LIQ-202607-AGE003-CON005
+2026-07-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,2181511.05,28187.63,89.03,193.77,COES - Dataset Sintético,LIQ-202607-AGE004-CON001
+2026-07-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,442531.37,11327.53,195.62,122.17,COES - Dataset Sintético,LIQ-202607-AGE004-CON002
+2026-07-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,212052.59,15598.46,389.19,242.19,COES - Dataset Sintético,LIQ-202607-AGE004-CON003
+2026-07-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,107461.09,37529.71,55.15,191.13,COES - Dataset Sintético,LIQ-202607-AGE004-CON004
+2026-07-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,106891.19,7795.59,103.2,132.16,COES - Dataset Sintético,LIQ-202607-AGE004-CON005
+2026-07-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,1468727.78,27613.42,452.8,199.6,COES - Dataset Sintético,LIQ-202607-AGE005-CON001
+2026-07-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,458101.11,10283.71,462.26,130.16,COES - Dataset Sintético,LIQ-202607-AGE005-CON002
+2026-07-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,319648.72,14860.79,110.11,106.04,COES - Dataset Sintético,LIQ-202607-AGE005-CON003
+2026-07-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,213184.75,32258.25,237.13,173.37,COES - Dataset Sintético,LIQ-202607-AGE005-CON004
+2026-07-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,87886.85,29188.3,348.84,117.13,COES - Dataset Sintético,LIQ-202607-AGE005-CON005
+2026-08-01,AGE001,Generadora Andina,Generador,CON001,Energía,Energía,2500000.0,38963.28,442.91,93.92,COES - Dataset Sintético,LIQ-202608-AGE001-CON001
+2026-08-01,AGE001,Generadora Andina,Generador,CON002,Potencia,Potencia,630387.09,36669.48,85.15,175.91,COES - Dataset Sintético,LIQ-202608-AGE001-CON002
+2026-08-01,AGE001,Generadora Andina,Generador,CON003,Peajes,Transmisión,126643.91,29644.22,277.47,177.36,COES - Dataset Sintético,LIQ-202608-AGE001-CON003
+2026-08-01,AGE001,Generadora Andina,Generador,CON004,Servicios Complementarios,Servicios,92281.45,19765.29,284.15,99.76,COES - Dataset Sintético,LIQ-202608-AGE001-CON004
+2026-08-01,AGE001,Generadora Andina,Generador,CON005,Otros Conceptos,Otros,49316.52,31241.65,90.92,166.76,COES - Dataset Sintético,LIQ-202608-AGE001-CON005
+2026-08-01,AGE002,Energía del Pacífico,Generador,CON001,Energía,Energía,2160866.93,25404.45,280.96,157.66,COES - Dataset Sintético,LIQ-202608-AGE002-CON001
+2026-08-01,AGE002,Energía del Pacífico,Generador,CON002,Potencia,Potencia,1100000.0,25807.02,413.11,202.96,COES - Dataset Sintético,LIQ-202608-AGE002-CON002
+2026-08-01,AGE002,Energía del Pacífico,Generador,CON003,Peajes,Transmisión,237625.85,41740.4,385.61,178.31,COES - Dataset Sintético,LIQ-202608-AGE002-CON003
+2026-08-01,AGE002,Energía del Pacífico,Generador,CON004,Servicios Complementarios,Servicios,59658.77,20503.8,78.69,249.0,COES - Dataset Sintético,LIQ-202608-AGE002-CON004
+2026-08-01,AGE002,Energía del Pacífico,Generador,CON005,Otros Conceptos,Otros,136144.74,8105.86,470.2,85.39,COES - Dataset Sintético,LIQ-202608-AGE002-CON005
+2026-08-01,AGE003,Comercializadora Nacional,Comercializador,CON001,Energía,Energía,1388755.08,39603.74,394.62,246.32,COES - Dataset Sintético,LIQ-202608-AGE003-CON001
+2026-08-01,AGE003,Comercializadora Nacional,Comercializador,CON002,Potencia,Potencia,727801.66,23916.29,496.79,145.02,COES - Dataset Sintético,LIQ-202608-AGE003-CON002
+2026-08-01,AGE003,Comercializadora Nacional,Comercializador,CON003,Peajes,Transmisión,423629.65,45804.53,219.04,196.06,COES - Dataset Sintético,LIQ-202608-AGE003-CON003
+2026-08-01,AGE003,Comercializadora Nacional,Comercializador,CON004,Servicios Complementarios,Servicios,197741.74,29268.51,344.09,139.12,COES - Dataset Sintético,LIQ-202608-AGE003-CON004
+2026-08-01,AGE003,Comercializadora Nacional,Comercializador,CON005,Otros Conceptos,Otros,45105.98,29176.63,287.98,203.74,COES - Dataset Sintético,LIQ-202608-AGE003-CON005
+2026-08-01,AGE004,Empresa Eléctrica Norte,Generador,CON001,Energía,Energía,1178103.55,5156.3,60.23,130.72,COES - Dataset Sintético,LIQ-202608-AGE004-CON001
+2026-08-01,AGE004,Empresa Eléctrica Norte,Generador,CON002,Potencia,Potencia,828535.04,29500.04,289.37,219.97,COES - Dataset Sintético,LIQ-202608-AGE004-CON002
+2026-08-01,AGE004,Empresa Eléctrica Norte,Generador,CON003,Peajes,Transmisión,50000.0,20577.19,174.04,239.36,COES - Dataset Sintético,LIQ-202608-AGE004-CON003
+2026-08-01,AGE004,Empresa Eléctrica Norte,Generador,CON004,Servicios Complementarios,Servicios,186607.06,10078.01,414.27,151.27,COES - Dataset Sintético,LIQ-202608-AGE004-CON004
+2026-08-01,AGE004,Empresa Eléctrica Norte,Generador,CON005,Otros Conceptos,Otros,128694.24,44769.05,57.04,115.03,COES - Dataset Sintético,LIQ-202608-AGE004-CON005
+2026-08-01,AGE005,Distribuidora Centro,Distribuidor,CON001,Energía,Energía,997702.63,6510.93,319.0,199.56,COES - Dataset Sintético,LIQ-202608-AGE005-CON001
+2026-08-01,AGE005,Distribuidora Centro,Distribuidor,CON002,Potencia,Potencia,316747.61,38324.35,231.02,119.84,COES - Dataset Sintético,LIQ-202608-AGE005-CON002
+2026-08-01,AGE005,Distribuidora Centro,Distribuidor,CON003,Peajes,Transmisión,185128.9,43867.86,75.4,165.66,COES - Dataset Sintético,LIQ-202608-AGE005-CON003
+2026-08-01,AGE005,Distribuidora Centro,Distribuidor,CON004,Servicios Complementarios,Servicios,103130.8,41710.38,379.18,134.21,COES - Dataset Sintético,LIQ-202608-AGE005-CON004
+2026-08-01,AGE005,Distribuidora Centro,Distribuidor,CON005,Otros Conceptos,Otros,90972.3,35263.94,194.3,131.3,COES - Dataset Sintético,LIQ-202608-AGE005-CON005

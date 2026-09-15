@@ -1,0 +1,4142 @@
+[
+  {
+    "barrcodi": 512,
+    "barrnombre": "3 HERMANAS 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 765,
+    "barrnombre": "8 DE AGOSTO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 230,
+    "barrnombre": "ABANCAY 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 231,
+    "barrnombre": "ABANCAY 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 558,
+    "barrnombre": "AGROLMOS 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 800,
+    "barrnombre": "AGROLMOS 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 618,
+    "barrnombre": "AGUA LIMA 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 232,
+    "barrnombre": "AGUAYTIA 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 135,
+    "barrnombre": "AGUAYTIA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 172,
+    "barrnombre": "AGUAYTIA 22.9",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 36,
+    "barrnombre": "AGUAYTIA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 233,
+    "barrnombre": "AIPSA 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 159,
+    "barrnombre": "ALAMBRON 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 858,
+    "barrnombre": "ALIPIO ROSALES 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 620,
+    "barrnombre": "ALPAMINA 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 585,
+    "barrnombre": "ALTO LA LUNA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 759,
+    "barrnombre": "ALTO LA LUNA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 520,
+    "barrnombre": "ALTO PRADERAS 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 635,
+    "barrnombre": "AMARILIS 138",
+    "barrtension": "1"
+  },
+  {
+    "barrcodi": 866,
+    "barrnombre": "AMERICA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 560,
+    "barrnombre": "ANANEA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 145,
+    "barrnombre": "ANDAHUASI 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 234,
+    "barrnombre": "ANDAHUASI 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 92,
+    "barrnombre": "ANDAYCHAGUA 4.16",
+    "barrtension": "4.16"
+  },
+  {
+    "barrcodi": 215,
+    "barrnombre": "ANDAYCHAGUA 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 235,
+    "barrnombre": "ANDAYELC 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 177,
+    "barrnombre": "ANTAGASHA 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 129,
+    "barrnombre": "ANTAUTA 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 236,
+    "barrnombre": "ANTUQUITO 2.4",
+    "barrtension": "2.4"
+  },
+  {
+    "barrcodi": 42,
+    "barrnombre": "ANTUQUITO 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 497,
+    "barrnombre": "ARCATA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 237,
+    "barrnombre": "ARCATA 33",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 498,
+    "barrnombre": "ARCATA 33A",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 499,
+    "barrnombre": "ARCATA 33B",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 238,
+    "barrnombre": "ARCATA 66",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 239,
+    "barrnombre": "ARENAL 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 496,
+    "barrnombre": "ARES 0.46",
+    "barrtension": "0.46"
+  },
+  {
+    "barrcodi": 240,
+    "barrnombre": "ARES 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 630,
+    "barrnombre": "ARES 22",
+    "barrtension": "22"
+  },
+  {
+    "barrcodi": 495,
+    "barrnombre": "ARES 4.16",
+    "barrtension": "4.16"
+  },
+  {
+    "barrcodi": 494,
+    "barrnombre": "ARES 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 227,
+    "barrnombre": "ARICOTA 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 150,
+    "barrnombre": "ARICOTA1",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 242,
+    "barrnombre": "ARICOTA1 10.5",
+    "barrtension": "10.5"
+  },
+  {
+    "barrcodi": 241,
+    "barrnombre": "ARICOTA1 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 244,
+    "barrnombre": "ARICOTA2 10.5",
+    "barrtension": "10.5"
+  },
+  {
+    "barrcodi": 151,
+    "barrnombre": "ARICOTA2 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 518,
+    "barrnombre": "ASIA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 487,
+    "barrnombre": "AUCAYACU 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 166,
+    "barrnombre": "AUCAYACU 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 27,
+    "barrnombre": "AUSTRIA DUVAZ 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 127,
+    "barrnombre": "AYAVIRI 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 62,
+    "barrnombre": "AYAVIRI 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 126,
+    "barrnombre": "AYAVIRI 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 561,
+    "barrnombre": "AZANGARO 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 63,
+    "barrnombre": "AZANGARO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 128,
+    "barrnombre": "AZANGARO 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 245,
+    "barrnombre": "AZANGARO 220",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 246,
+    "barrnombre": "AZANGARO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 98,
+    "barrnombre": "AZULCOCHA 69",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 813,
+    "barrnombre": "BAGUA GRANDE 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 646,
+    "barrnombre": "BALNEARIOS 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 571,
+    "barrnombre": "BALNEARIOS 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 247,
+    "barrnombre": "BALNEARIOS 220",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 142,
+    "barrnombre": "BALNEARIOS 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 647,
+    "barrnombre": "BARRANCO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 763,
+    "barrnombre": "BARSI 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 530,
+    "barrnombre": "BELAUNDE 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 666,
+    "barrnombre": "BELAUNDE 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 845,
+    "barrnombre": "BELLA UNION 60",
+    "barrtension": "6"
+  },
+  {
+    "barrcodi": 248,
+    "barrnombre": "BELLALCO 2.4",
+    "barrtension": "2.4"
+  },
+  {
+    "barrcodi": 250,
+    "barrnombre": "BELLAVISTA 10",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 534,
+    "barrnombre": "BELLAVISTA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 249,
+    "barrnombre": "BELLAVISTA 2.4",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 40,
+    "barrnombre": "BELLAVISTA 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 251,
+    "barrnombre": "BELLAVISTA 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 752,
+    "barrnombre": "BIOENERGIA 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 252,
+    "barrnombre": "BOTIFLACA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 253,
+    "barrnombre": "BUENA VISTA 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 546,
+    "barrnombre": "BUJAMA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 772,
+    "barrnombre": "BUJAMA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 553,
+    "barrnombre": "CACHIMAYO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 210,
+    "barrnombre": "CACHIMAYO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 554,
+    "barrnombre": "CACHIMAYO 23",
+    "barrtension": "23"
+  },
+  {
+    "barrcodi": 562,
+    "barrnombre": "CACHIMAYO 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 555,
+    "barrnombre": "CACHIMAYO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 750,
+    "barrnombre": "CACLIC 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 665,
+    "barrnombre": "CACLIC 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 254,
+    "barrnombre": "CAHUA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 255,
+    "barrnombre": "CAHUA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 836,
+    "barrnombre": "CAJAMARCA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 186,
+    "barrnombre": "CAJAMARCA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 256,
+    "barrnombre": "CAJAMARCA NORTE 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 18,
+    "barrnombre": "CAJAMARQUILLA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 144,
+    "barrnombre": "CALLAHUANCA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 258,
+    "barrnombre": "CALLAHUANCA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 488,
+    "barrnombre": "CALLAHUANCA EDEGEL 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 57,
+    "barrnombre": "CALLALLI 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 259,
+    "barrnombre": "CALLALLI 24",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 260,
+    "barrnombre": "CALLALLI 66",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 850,
+    "barrnombre": "CAMPAMENTO VILLA AZUL 4.16",
+    "barrtension": "4.16"
+  },
+  {
+    "barrcodi": 655,
+    "barrnombre": "CAMPANA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 482,
+    "barrnombre": "CAMPO ARMIÑO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 489,
+    "barrnombre": "CANCHAYLLO 69",
+    "barrtension": "69"
+  },
+  {
+    "barrcodi": 781,
+    "barrnombre": "CANTERA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 75,
+    "barrnombre": "CANTERA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 261,
+    "barrnombre": "CANTERA 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 770,
+    "barrnombre": "CANTO GRANDE 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 196,
+    "barrnombre": "CARABAYLLO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 197,
+    "barrnombre": "CARABAYLLO 500",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 262,
+    "barrnombre": "CARAPONGO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 263,
+    "barrnombre": "CARAZ 66",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 740,
+    "barrnombre": "CARHUAC 6.6",
+    "barrtension": "6.6"
+  },
+  {
+    "barrcodi": 739,
+    "barrnombre": "CARHUAC 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 21,
+    "barrnombre": "CARHUAMAYO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 264,
+    "barrnombre": "CARHUAMAYO 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 74,
+    "barrnombre": "CARHUAMAYO NUEVA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 265,
+    "barrnombre": "CARHUAQUERO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 811,
+    "barrnombre": "CARHUAQUERO 10_S",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 266,
+    "barrnombre": "CARHUAQUERO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 5,
+    "barrnombre": "CARHUAQUERO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 22,
+    "barrnombre": "CARIPA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 588,
+    "barrnombre": "CARLOS FRANCISCO 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 267,
+    "barrnombre": "CARPAPATA 44",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 268,
+    "barrnombre": "CARPAPATA 72",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 768,
+    "barrnombre": "CASA DE FUERZA 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 589,
+    "barrnombre": "CASA GRANDE 2 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 80,
+    "barrnombre": "CASA PIEDRA 12",
+    "barrtension": "12"
+  },
+  {
+    "barrcodi": 269,
+    "barrnombre": "CASAPALCA 2.4",
+    "barrtension": "2.4"
+  },
+  {
+    "barrcodi": 270,
+    "barrnombre": "CASAPALCA 4.16",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 46,
+    "barrnombre": "CASAPALCA 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 47,
+    "barrnombre": "CASAPALCA NORTE 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 271,
+    "barrnombre": "CATKATO 4.16",
+    "barrtension": "4.16"
+  },
+  {
+    "barrcodi": 569,
+    "barrnombre": "CAUDALOSA 22",
+    "barrtension": "22"
+  },
+  {
+    "barrcodi": 272,
+    "barrnombre": "CAUDIVILLA 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 744,
+    "barrnombre": "CAYALTI 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 273,
+    "barrnombre": "CAYLLOMA 15",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 274,
+    "barrnombre": "CAYLLOMA 66",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 622,
+    "barrnombre": "CENTRAL 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 645,
+    "barrnombre": "CENTRAL 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 185,
+    "barrnombre": "CERRO CORONA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 709,
+    "barrnombre": "CERRO DEL AGUILA 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 516,
+    "barrnombre": "CERRO DEL AGUILA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 52,
+    "barrnombre": "CERRO VERDE 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 652,
+    "barrnombre": "CH CHANCAY 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 156,
+    "barrnombre": "CH OROYA 2.3",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 393,
+    "barrnombre": "CH OROYA 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 397,
+    "barrnombre": "CH PACHACHACA 2.4",
+    "barrtension": "2.4"
+  },
+  {
+    "barrcodi": 766,
+    "barrnombre": "CHAGLLA 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 517,
+    "barrnombre": "CHAGLLA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 846,
+    "barrnombre": "CHALA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 684,
+    "barrnombre": "CHANCAY 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 826,
+    "barrnombre": "CHANCAY 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 683,
+    "barrnombre": "CHANCAY 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 687,
+    "barrnombre": "CHANCHAMAYO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 825,
+    "barrnombre": "CHAPARRAL 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 827,
+    "barrnombre": "CHAPARRAL 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 503,
+    "barrnombre": "CHARCANI I 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 278,
+    "barrnombre": "CHARCANI I 5.25",
+    "barrtension": "5.25"
+  },
+  {
+    "barrcodi": 276,
+    "barrnombre": "CHARCANI IV 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 277,
+    "barrnombre": "CHARCANI IV 5.25",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 137,
+    "barrnombre": "CHARCANI V 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 279,
+    "barrnombre": "CHARCANI V 13.8_old",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 280,
+    "barrnombre": "CHARCANI VI 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 281,
+    "barrnombre": "CHARCANI VI 5.25",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 681,
+    "barrnombre": "CHAVARRIA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 13,
+    "barrnombre": "CHAVARRIA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 282,
+    "barrnombre": "CHAVARRIA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 746,
+    "barrnombre": "CHEVES 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 501,
+    "barrnombre": "CHEVES 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 732,
+    "barrnombre": "CHICLAYO 0.38",
+    "barrtension": "0.38"
+  },
+  {
+    "barrcodi": 283,
+    "barrnombre": "CHICLAYO 10",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 3,
+    "barrnombre": "CHICLAYO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 117,
+    "barrnombre": "CHICLAYO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 284,
+    "barrnombre": "CHICLAYO NORTE 10.5",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 285,
+    "barrnombre": "CHICLAYO NORTE 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 814,
+    "barrnombre": "CHICLAYO OESTE 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 623,
+    "barrnombre": "CHILCA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 610,
+    "barrnombre": "CHILCA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 198,
+    "barrnombre": "CHILCA 500",
+    "barrtension": "500"
+  },
+  {
+    "barrcodi": 286,
+    "barrnombre": "CHILCA 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 220,
+    "barrnombre": "CHILCA CTM 220",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 524,
+    "barrnombre": "CHILCA DOS 13.8",
+    "barrtension": "13"
+  },
+  {
+    "barrcodi": 287,
+    "barrnombre": "CHILCA I 16",
+    "barrtension": "16"
+  },
+  {
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 290,
+    "barrnombre": "CHILINA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 97,
+    "barrnombre": "CHILINA 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 293,
+    "barrnombre": "CHILINA TV 5.25",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 289,
+    "barrnombre": "CHILINAD 10.5",
+    "barrtension": "10.5"
+  },
+  {
+    "barrcodi": 291,
+    "barrnombre": "CHILINATG 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 292,
+    "barrnombre": "CHILINATV 10.5",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 294,
+    "barrnombre": "CHILLON 220",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 295,
+    "barrnombre": "CHILLON 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 851,
+    "barrnombre": "CHILOTA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 296,
+    "barrnombre": "CHIMAY 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 297,
+    "barrnombre": "CHIMAY 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 110,
+    "barrnombre": "CHIMBOTE 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 216,
+    "barrnombre": "CHIMBOTE 500",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 113,
+    "barrnombre": "CHIMBOTE1 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 7,
+    "barrnombre": "CHIMBOTE1 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 710,
+    "barrnombre": "CHIMBOTE2 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 114,
+    "barrnombre": "CHIMBOTE2 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 815,
+    "barrnombre": "CHINCHA NUEVA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 819,
+    "barrnombre": "CHINCHA NUEVA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 760,
+    "barrnombre": "CHIRA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 818,
+    "barrnombre": "CHIRIBAMBA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 583,
+    "barrnombre": "CHORRILLOS 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 584,
+    "barrnombre": "CHORRILLOS 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 298,
+    "barrnombre": "CHOSICA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 299,
+    "barrnombre": "CHOSICA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 300,
+    "barrnombre": "CHUMPE 12",
+    "barrtension": "12"
+  },
+  {
+    "barrcodi": 301,
+    "barrnombre": "CHUMPE 2.4",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 302,
+    "barrnombre": "CHUMPE 69",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 303,
+    "barrnombre": "CINCO MANANTIALES",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 102,
+    "barrnombre": "COBRIZA I 69",
+    "barrtension": "69"
+  },
+  {
+    "barrcodi": 101,
+    "barrnombre": "COBRIZA II 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 100,
+    "barrnombre": "COBRIZA II 69",
+    "barrtension": "69"
+  },
+  {
+    "barrcodi": 863,
+    "barrnombre": "COLAN 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 675,
+    "barrnombre": "COLCABAMBA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 679,
+    "barrnombre": "COLCABAMBA 500",
+    "barrtension": "500"
+  },
+  {
+    "barrcodi": 182,
+    "barrnombre": "COMBAPATA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 551,
+    "barrnombre": "COMBAPATA 24",
+    "barrtension": "24"
+  },
+  {
+    "barrcodi": 550,
+    "barrnombre": "COMBAPATA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 95,
+    "barrnombre": "CONCENTRADORA 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 304,
+    "barrnombre": "CONCEPCION 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 306,
+    "barrnombre": "CONDORCOCHA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 167,
+    "barrnombre": "CONDORCOCHA 44",
+    "barrtension": "44"
+  },
+  {
+    "barrcodi": 305,
+    "barrnombre": "CONDORCOCHA 72",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 682,
+    "barrnombre": "CONO NORTE 10 ",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 795,
+    "barrnombre": "CONO NORTE 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 195,
+    "barrnombre": "CONOCOCHA 220",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 525,
+    "barrnombre": "CONSTANCIA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 590,
+    "barrnombre": "CONSTANTE 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 641,
+    "barrnombre": "CONVERTIDOR 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 591,
+    "barrnombre": "CORACORA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 747,
+    "barrnombre": "CORACORA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 228,
+    "barrnombre": "COTARUSE 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 493,
+    "barrnombre": "COTARUSE 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 175,
+    "barrnombre": "CPATO 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 857,
+    "barrnombre": "CS COENERGY 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 275,
+    "barrnombre": "CT CHIMBOTE 13.8",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 502,
+    "barrnombre": "CT ETEN 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 147,
+    "barrnombre": "CT ILO 138",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 73,
+    "barrnombre": "CT ILO2 17",
+    "barrtension": "17"
+  },
+  {
+    "barrcodi": 340,
+    "barrnombre": "CT INDEPENDENCIA 10.5",
+    "barrtension": "10.5"
+  },
+  {
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 308,
+    "barrnombre": "CT PISCO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 532,
+    "barrnombre": "CT PLANTA PUCALLPA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 654,
+    "barrnombre": "CUPISNIQUE 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 309,
+    "barrnombre": "CURIP 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 310,
+    "barrnombre": "CUTERVO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 85,
+    "barrnombre": "DESIERTO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 311,
+    "barrnombre": "DOLORESPATA 10.5",
+    "barrtension": "10.5"
+  },
+  {
+    "barrcodi": 60,
+    "barrnombre": "DOLORESPATA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 711,
+    "barrnombre": "DOLORESPATA 4.16",
+    "barrtension": "4.16"
+  },
+  {
+    "barrcodi": 771,
+    "barrnombre": "DUNA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 804,
+    "barrnombre": "DUNA HUAMBOS 34.5",
+    "barrtension": "34.5"
+  },
+  {
+    "barrcodi": 718,
+    "barrnombre": "EL ANGEL 1-33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 721,
+    "barrnombre": "EL ANGEL 1-6.6",
+    "barrtension": "6.6"
+  },
+  {
+    "barrcodi": 724,
+    "barrnombre": "EL ANGEL 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 716,
+    "barrnombre": "EL ANGEL 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 719,
+    "barrnombre": "EL ANGEL 2-33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 722,
+    "barrnombre": "EL ANGEL 2-6.6",
+    "barrtension": "6.6"
+  },
+  {
+    "barrcodi": 720,
+    "barrnombre": "EL ANGEL 3-33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 723,
+    "barrnombre": "EL ANGEL 3-6.6",
+    "barrtension": "6.6"
+  },
+  {
+    "barrcodi": 717,
+    "barrnombre": "EL ANGEL 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 764,
+    "barrnombre": "EL CARMEN 23",
+    "barrtension": "23"
+  },
+  {
+    "barrcodi": 838,
+    "barrnombre": "ELECTROSUR 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 312,
+    "barrnombre": "EMERG_NORTE",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 807,
+    "barrnombre": "ERSUR 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 313,
+    "barrnombre": "ESPINA COLOR",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 511,
+    "barrnombre": "ETEN 18",
+    "barrtension": "18"
+  },
+  {
+    "barrcodi": 78,
+    "barrnombre": "EXCELSIOR 2.4",
+    "barrtension": "2.4"
+  },
+  {
+    "barrcodi": 314,
+    "barrnombre": "EXCELSIOR 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 79,
+    "barrnombre": "EXPD 2.4",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 577,
+    "barrnombre": "FELAM 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 315,
+    "barrnombre": "FENIX 18",
+    "barrtension": "18"
+  },
+  {
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "barrtension": "500"
+  },
+  {
+    "barrcodi": 697,
+    "barrnombre": "FLAMENCO 20",
+    "barrtension": "20"
+  },
+  {
+    "barrcodi": 696,
+    "barrnombre": "FLAMENCO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 854,
+    "barrnombre": "FUNSUR 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 317,
+    "barrnombre": "Francoise 220",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 318,
+    "barrnombre": "GALLITO CIEGO 10.5",
+    "barrtension": "10.5"
+  },
+  {
+    "barrcodi": 211,
+    "barrnombre": "GALLITO CIEGO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 593,
+    "barrnombre": "GALVEZ 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 799,
+    "barrnombre": "GE1 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 831,
+    "barrnombre": "GE1-13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 823,
+    "barrnombre": "GE2 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 319,
+    "barrnombre": "GOYLLAR",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 116,
+    "barrnombre": "GUADALUPE 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 4,
+    "barrnombre": "GUADALUPE 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 115,
+    "barrnombre": "GUADALUPE 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 726,
+    "barrnombre": "HER 1 0.4",
+    "barrtension": "0.4"
+  },
+  {
+    "barrcodi": 570,
+    "barrnombre": "HUACHIPA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 559,
+    "barrnombre": "HUACHIPA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 140,
+    "barrnombre": "HUACHIPA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 10,
+    "barrnombre": "HUACHO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 320,
+    "barrnombre": "HUACHO 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 736,
+    "barrnombre": "HUACHO REP 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 563,
+    "barrnombre": "HUALLANCA 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 8,
+    "barrnombre": "HUALLANCA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 111,
+    "barrnombre": "HUALLANCA 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 627,
+    "barrnombre": "HUALLANCA NUEVA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 644,
+    "barrnombre": "HUALLANCA NUEVA 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 626,
+    "barrnombre": "HUALLANCA NUEVA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 824,
+    "barrnombre": "HUALLIN 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 832,
+    "barrnombre": "HUALLIN6",
+    "barrtension": "6"
+  },
+  {
+    "barrcodi": 321,
+    "barrnombre": "HUAMPANI 10",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 322,
+    "barrnombre": "HUAMPANI 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 506,
+    "barrnombre": "HUANCAVE 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 104,
+    "barrnombre": "HUANCAVE 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 25,
+    "barrnombre": "HUANCAVELICA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 606,
+    "barrnombre": "HUANCAYOCCASA 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 84,
+    "barrnombre": "HUANCHOR 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 323,
+    "barrnombre": "HUANCHOR 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 169,
+    "barrnombre": "HUANUCO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 30,
+    "barrnombre": "HUANUCO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 168,
+    "barrnombre": "HUANUCO 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 218,
+    "barrnombre": "HUANZA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 853,
+    "barrnombre": "HUARANGO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 324,
+    "barrnombre": "HUARAZ OESTE 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 325,
+    "barrnombre": "HUARAZ OESTE 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 643,
+    "barrnombre": "HUARICASHASH 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 604,
+    "barrnombre": "HUARMEY 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 181,
+    "barrnombre": "HUARON 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 327,
+    "barrnombre": "HUASAHUASI I 44",
+    "barrtension": "44"
+  },
+  {
+    "barrcodi": 328,
+    "barrnombre": "HUASAHUASI I 6",
+    "barrtension": "6"
+  },
+  {
+    "barrcodi": 326,
+    "barrnombre": "HUASAHUASI II 44",
+    "barrtension": "44"
+  },
+  {
+    "barrcodi": 490,
+    "barrnombre": "HUASAHUASI II 6",
+    "barrtension": "6"
+  },
+  {
+    "barrcodi": 329,
+    "barrnombre": "HUAYCOL 0.48",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 330,
+    "barrnombre": "HUAYCOLORO 22",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 331,
+    "barrnombre": "HUAYLLACHO 15",
+    "barrtension": "15"
+  },
+  {
+    "barrcodi": 332,
+    "barrnombre": "HUAYLLACHO 3.",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 567,
+    "barrnombre": "HUAYTIRE 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 170,
+    "barrnombre": "HUAYUCACH 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 103,
+    "barrnombre": "HUAYUCACH 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 24,
+    "barrnombre": "HUAYUCACHI 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 193,
+    "barrnombre": "HUICRA 2.4",
+    "barrtension": "2.4"
+  },
+  {
+    "barrcodi": 179,
+    "barrnombre": "HUICRA 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 333,
+    "barrnombre": "HUINCO 12.5",
+    "barrtension": "12.5"
+  },
+  {
+    "barrcodi": 334,
+    "barrnombre": "HUINCO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 105,
+    "barrnombre": "HUNCAVE 10",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 121,
+    "barrnombre": "ICA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 37,
+    "barrnombre": "ICA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 120,
+    "barrnombre": "ICA 60",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 505,
+    "barrnombre": "ILLIMO 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 335,
+    "barrnombre": "ILO 13.8 CAT",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 664,
+    "barrnombre": "ILO 3 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 484,
+    "barrnombre": "ILO ELP 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 336,
+    "barrnombre": "ILO1 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 219,
+    "barrnombre": "ILO2 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 636,
+    "barrnombre": "ILO3 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 536,
+    "barrnombre": "ILO4 18",
+    "barrtension": "18"
+  },
+  {
+    "barrcodi": 338,
+    "barrnombre": "ILOTG1",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 339,
+    "barrnombre": "ILOTG2",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 69,
+    "barrnombre": "ILOTV12",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 70,
+    "barrnombre": "ILOTV2",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 71,
+    "barrnombre": "ILOTV3",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 72,
+    "barrnombre": "ILOTV4",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 119,
+    "barrnombre": "INDEPENDENCIA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 26,
+    "barrnombre": "INDEPENDENCIA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 161,
+    "barrnombre": "INDEPENDENCIA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 762,
+    "barrnombre": "INDUSTRIAL 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 680,
+    "barrnombre": "INDUSTRIALES 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 225,
+    "barrnombre": "INDUSTRIALES 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 341,
+    "barrnombre": "INDUSTRIALES 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 342,
+    "barrnombre": "INFANTAS 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 579,
+    "barrnombre": "INGENIEROS 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 580,
+    "barrnombre": "INGENIEROS 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 751,
+    "barrnombre": "INGENIEROS 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 698,
+    "barrnombre": "INTIPAMPA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 699,
+    "barrnombre": "INTIPAMPA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 810,
+    "barrnombre": "JAEN 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 607,
+    "barrnombre": "JAHUAY 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 844,
+    "barrnombre": "JAHUAY 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 638,
+    "barrnombre": "JESUS 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 343,
+    "barrnombre": "JESUS 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 787,
+    "barrnombre": "JICAMARCA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 533,
+    "barrnombre": "JUANJUI 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 125,
+    "barrnombre": "JULIACA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 68,
+    "barrnombre": "JULIACA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 214,
+    "barrnombre": "JULIACA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 344,
+    "barrnombre": "JULIACA 220",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 213,
+    "barrnombre": "JULIACA 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 345,
+    "barrnombre": "KALLPA 16.5",
+    "barrtension": "16.5"
+  },
+  {
+    "barrcodi": 346,
+    "barrnombre": "KALLPA 220",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 566,
+    "barrnombre": "KIMAN AYLLU 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 206,
+    "barrnombre": "KIMAN AYLLU 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 207,
+    "barrnombre": "KIMANAYLLU 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 347,
+    "barrnombre": "LA ARENA 22.9",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 822,
+    "barrnombre": "LA BREA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 176,
+    "barrnombre": "LA FUNDICION 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 184,
+    "barrnombre": "LA NIÑA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 190,
+    "barrnombre": "LA PAJUELA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 351,
+    "barrnombre": "LA PAJUELA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 348,
+    "barrnombre": "LA RAMADA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 694,
+    "barrnombre": "LA VIRGEN 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 692,
+    "barrnombre": "LA VIRGEN 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 693,
+    "barrnombre": "LA VIRGEN 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 350,
+    "barrnombre": "LANIÑA 500",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 352,
+    "barrnombre": "LAS FLORES 16.5",
+    "barrtension": "16.5"
+  },
+  {
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 648,
+    "barrnombre": "LAS PRADERAS 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 574,
+    "barrnombre": "LAS PRADERAS 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 424,
+    "barrnombre": "LAS PRADERAS 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 349,
+    "barrnombre": "LA_JOYA_ 10",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 656,
+    "barrnombre": "LA_JOYA_ 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 581,
+    "barrnombre": "LIMATAMBO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 582,
+    "barrnombre": "LIMATAMBO 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 537,
+    "barrnombre": "LIXIVIACION 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 354,
+    "barrnombre": "LLACUABAMBA",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 748,
+    "barrnombre": "LLIPATA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 852,
+    "barrnombre": "LOMAS 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 224,
+    "barrnombre": "LOMERA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 547,
+    "barrnombre": "LOMERA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 55,
+    "barrnombre": "LOS HEROES 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 163,
+    "barrnombre": "LOS HEROES 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 780,
+    "barrnombre": "LOS SAUCES 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 738,
+    "barrnombre": "LURIN 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 672,
+    "barrnombre": "LURIN 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 355,
+    "barrnombre": "LURIN 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 356,
+    "barrnombre": "MACCHUPIC 220",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 357,
+    "barrnombre": "MACHUPIC 13.8",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 556,
+    "barrnombre": "MACHUPICCHU 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 209,
+    "barrnombre": "MACHUPICCHU 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 557,
+    "barrnombre": "MACHUPICCHU 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 90,
+    "barrnombre": "MAHR TUNEL 2.4",
+    "barrtension": "2.4"
+  },
+  {
+    "barrcodi": 802,
+    "barrnombre": "MAJES 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 631,
+    "barrnombre": "MALABRIGO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 632,
+    "barrnombre": "MALABRIGO 34.5",
+    "barrtension": "34.5"
+  },
+  {
+    "barrcodi": 212,
+    "barrnombre": "MALPASO 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 358,
+    "barrnombre": "MALPASO 6.9",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 786,
+    "barrnombre": "MALVINAS 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 860,
+    "barrnombre": "MALVINAS 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 713,
+    "barrnombre": "MANCHAY 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 841,
+    "barrnombre": "MANCHAY 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 539,
+    "barrnombre": "MANCORA 10.5",
+    "barrtension": "10.5"
+  },
+  {
+    "barrcodi": 540,
+    "barrnombre": "MANCORA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 777,
+    "barrnombre": "MANTA 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 360,
+    "barrnombre": "MANTARO 13.8",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 23,
+    "barrnombre": "MANTARO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 611,
+    "barrnombre": "MANTARO 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 361,
+    "barrnombre": "MANTARO 500",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 359,
+    "barrnombre": "MANTARO G1 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 362,
+    "barrnombre": "MAPLE 13.8",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 624,
+    "barrnombre": "MARANGA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 642,
+    "barrnombre": "MARAÑON 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 38,
+    "barrnombre": "MARCONA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 122,
+    "barrnombre": "MARCONA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 616,
+    "barrnombre": "MATARANI 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 363,
+    "barrnombre": "MATUCANA 12.5",
+    "barrtension": "12.5"
+  },
+  {
+    "barrcodi": 364,
+    "barrnombre": "MATUCANA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 158,
+    "barrnombre": "MAYUPAMPA 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 365,
+    "barrnombre": "MAZUCO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 769,
+    "barrnombre": "MEDIO MUNDO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 15,
+    "barrnombre": "MEPSA 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 865,
+    "barrnombre": "MIGUEL GRAU 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 366,
+    "barrnombre": "MILLSITE 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 33,
+    "barrnombre": "MILPO 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 843,
+    "barrnombre": "MINA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 96,
+    "barrnombre": "MINA CARAHUACRA 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 608,
+    "barrnombre": "MINA SHOUGAN 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 367,
+    "barrnombre": "MIRADOR 220",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 368,
+    "barrnombre": "MIRADOR 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 859,
+    "barrnombre": "MIRONES 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 369,
+    "barrnombre": "MISAPUQUIO 0.",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 370,
+    "barrnombre": "MISAPUQUIO 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 371,
+    "barrnombre": "MOLLENDE 13.8",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 372,
+    "barrnombre": "MOLLENDO 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 64,
+    "barrnombre": "MOLLENDO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 373,
+    "barrnombre": "MOLLENDOE 138",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 685,
+    "barrnombre": "MOLLEPATA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 686,
+    "barrnombre": "MOLLEPATA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 223,
+    "barrnombre": "MONTALVO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 374,
+    "barrnombre": "MONTALVO 500",
+    "barrtension": "500"
+  },
+  {
+    "barrcodi": 594,
+    "barrnombre": "MONTERRICO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 595,
+    "barrnombre": "MONTERRICO 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 146,
+    "barrnombre": "MOQUEGUA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 53,
+    "barrnombre": "MOQUEGUA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 375,
+    "barrnombre": "MOR 2.4",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 609,
+    "barrnombre": "MOROCOCHA 2.4",
+    "barrtension": "2.4"
+  },
+  {
+    "barrcodi": 44,
+    "barrnombre": "MOROCOCHA 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 376,
+    "barrnombre": "MOROCOCHT 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 613,
+    "barrnombre": "MOTIL 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 377,
+    "barrnombre": "MOTUPE 10",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 378,
+    "barrnombre": "MOTUPE 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 667,
+    "barrnombre": "MOYOBAMBA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 379,
+    "barrnombre": "MOYOPAMPA 10",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 143,
+    "barrnombre": "MOYOPAMPA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 380,
+    "barrnombre": "MTUNEL 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 538,
+    "barrnombre": "Malacas 13.2",
+    "barrtension": "13.2"
+  },
+  {
+    "barrcodi": 381,
+    "barrnombre": "NARANJAL 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 749,
+    "barrnombre": "NAZCA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 816,
+    "barrnombre": "NAZCA NUEVA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 820,
+    "barrnombre": "NAZCA NUEVA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 382,
+    "barrnombre": "NCTUMBES 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 670,
+    "barrnombre": "NEPEÑA 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 600,
+    "barrnombre": "NEYRA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 792,
+    "barrnombre": "NEYRA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 695,
+    "barrnombre": "NINATAMBO 44",
+    "barrtension": "44"
+  },
+  {
+    "barrcodi": 383,
+    "barrnombre": "NUEVA IMPERIAL 20",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 384,
+    "barrnombre": "OCOÑA 500",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 385,
+    "barrnombre": "OLLEROS 16.5",
+    "barrtension": "16.5"
+  },
+  {
+    "barrcodi": 386,
+    "barrnombre": "OLLEROS 500",
+    "barrtension": "500"
+  },
+  {
+    "barrcodi": 387,
+    "barrnombre": "ONOCORA 138",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 388,
+    "barrnombre": "ONOCORA 220",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 617,
+    "barrnombre": "OQUENDO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 389,
+    "barrnombre": "OQUENDO 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 391,
+    "barrnombre": "OROYA 138",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 392,
+    "barrnombre": "OROYA 69",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 35,
+    "barrnombre": "OROYA NUEVA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 20,
+    "barrnombre": "OROYA NUEVA 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 394,
+    "barrnombre": "OXIDOS CERRO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 395,
+    "barrnombre": "PACHACAMAC 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 396,
+    "barrnombre": "PACHACAYO 69",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 19,
+    "barrnombre": "PACHACHACA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 45,
+    "barrnombre": "PACHACHACA 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 821,
+    "barrnombre": "PAITA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 398,
+    "barrnombre": "PAITA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 828,
+    "barrnombre": "PAMPA PAÑALA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 399,
+    "barrnombre": "PAMPILLA 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 775,
+    "barrnombre": "PANAMERICANA SOLAR 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 785,
+    "barrnombre": "PANDO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 801,
+    "barrnombre": "PANGOA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 847,
+    "barrnombre": "PAQUILLUSI 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 598,
+    "barrnombre": "PARACAS 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 758,
+    "barrnombre": "PARACAS 22",
+    "barrtension": "22"
+  },
+  {
+    "barrcodi": 400,
+    "barrnombre": "PARAGSH1 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 178,
+    "barrnombre": "PARAGSHA 12",
+    "barrtension": "12"
+  },
+  {
+    "barrcodi": 49,
+    "barrnombre": "PARAGSHA 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 31,
+    "barrnombre": "PARAGSHA2 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 87,
+    "barrnombre": "PARAGSHA2 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 192,
+    "barrnombre": "PARAMONGA EXISTENTE 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 183,
+    "barrnombre": "PARAMONGA EXISTENTE 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 504,
+    "barrnombre": "PARAMONGA NUEVA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 9,
+    "barrnombre": "PARAMONGA NUEVA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 194,
+    "barrnombre": "PARAMONGA NUEVA 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 401,
+    "barrnombre": "PARAMONUE 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 403,
+    "barrnombre": "PARIAC 13.2",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 402,
+    "barrnombre": "PARIAC 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 404,
+    "barrnombre": "PARIÑAS 220",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 625,
+    "barrnombre": "PARQUE INDUSTRIAL 10 (SEAL)",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 423,
+    "barrnombre": "PARQUE INDUSTRIAL 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 735,
+    "barrnombre": "PATAPO 0.4",
+    "barrtension": "0.4"
+  },
+  {
+    "barrcodi": 727,
+    "barrnombre": "PATAPO 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 226,
+    "barrnombre": "PBLANCA 138",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 753,
+    "barrnombre": "PEDREGAL 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 657,
+    "barrnombre": "PEDREGAL 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 784,
+    "barrnombre": "PERSHING 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 406,
+    "barrnombre": "PIAS 6.3",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 407,
+    "barrnombre": "PIAS II 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 515,
+    "barrnombre": "PIEDRA BLANCA 34.5",
+    "barrtension": "34.5"
+  },
+  {
+    "barrcodi": 408,
+    "barrnombre": "PINDUSTRI 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 597,
+    "barrnombre": "PISCO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 409,
+    "barrnombre": "PISCO 13.8",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 410,
+    "barrnombre": "PIURA 4.8",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 153,
+    "barrnombre": "PIURA CENTRO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 405,
+    "barrnombre": "PIURA CENTRO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 564,
+    "barrnombre": "PIURA OESTE 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 2,
+    "barrnombre": "PIURA OESTE 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 77,
+    "barrnombre": "PIURA OESTE 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 411,
+    "barrnombre": "PIURAEME 13.8",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 649,
+    "barrnombre": "PIZARRAS 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 412,
+    "barrnombre": "PIZARRAS 6.6",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 789,
+    "barrnombre": "PLANICIE 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 199,
+    "barrnombre": "PLANICIE 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 855,
+    "barrnombre": "PLANTA CASA GRANDE 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 715,
+    "barrnombre": "PLANTA SAN JACINTO 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 531,
+    "barrnombre": "PLANTA VICTORIA 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 413,
+    "barrnombre": "PLANTAETANOL 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 416,
+    "barrnombre": "PLATANAL 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 414,
+    "barrnombre": "PLATANAL 13.8 G1",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 415,
+    "barrnombre": "PLATANAL 13.8 G2",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 417,
+    "barrnombre": "PLATANAL 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 714,
+    "barrnombre": "PLAZA TOQUEPALA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 662,
+    "barrnombre": "POECHOS 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 86,
+    "barrnombre": "POMACOCHA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 419,
+    "barrnombre": "POMACOCHA 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 730,
+    "barrnombre": "POMALCA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 189,
+    "barrnombre": "PORCON 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 420,
+    "barrnombre": "POROMA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 221,
+    "barrnombre": "POROMA 500",
+    "barrtension": "500"
+  },
+  {
+    "barrcodi": 602,
+    "barrnombre": "PORONGOCHE 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 805,
+    "barrnombre": "PORTILLO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 586,
+    "barrnombre": "PORVENIR 10.7",
+    "barrtension": "10.7"
+  },
+  {
+    "barrcodi": 421,
+    "barrnombre": "PORVENIR 138",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 653,
+    "barrnombre": "POTRERO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 794,
+    "barrnombre": "PROGRESO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 527,
+    "barrnombre": "PUCALLPA 0.5",
+    "barrtension": "0.5"
+  },
+  {
+    "barrcodi": 188,
+    "barrnombre": "PUCALLPA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 526,
+    "barrnombre": "PUCALLPA 22",
+    "barrtension": "22"
+  },
+  {
+    "barrcodi": 134,
+    "barrnombre": "PUCALLPA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 754,
+    "barrnombre": "PUEBLO NUEVO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 576,
+    "barrnombre": "PUENTE 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 737,
+    "barrnombre": "PUENTE 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 425,
+    "barrnombre": "PUENTE 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 422,
+    "barrnombre": "PUENTE PIEDRA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 522,
+    "barrnombre": "PUERTO BRAVO 18",
+    "barrtension": "18"
+  },
+  {
+    "barrcodi": 514,
+    "barrnombre": "PUERTO BRAVO 500",
+    "barrtension": "500"
+  },
+  {
+    "barrcodi": 529,
+    "barrnombre": "PUERTO MALDONADO 0.5",
+    "barrtension": "0.5"
+  },
+  {
+    "barrcodi": 528,
+    "barrnombre": "PUERTO MALDONADO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 418,
+    "barrnombre": "PUERTO MALDONADO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 596,
+    "barrnombre": "PUERTO RICO 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 707,
+    "barrnombre": "PUMIRI 10.5",
+    "barrtension": "10.5"
+  },
+  {
+    "barrcodi": 706,
+    "barrnombre": "PUMIRI 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 705,
+    "barrnombre": "PUMIRI 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 191,
+    "barrnombre": "PUNO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 124,
+    "barrnombre": "PUNO 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 59,
+    "barrnombre": "PUNO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 123,
+    "barrnombre": "PUNO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 797,
+    "barrnombre": "PUNTA LOMITAS I",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 798,
+    "barrnombre": "PUNTA LOMITAS II",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 691,
+    "barrnombre": "PUNTAYACU 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 773,
+    "barrnombre": "PURMACANA 20",
+    "barrtension": "20"
+  },
+  {
+    "barrcodi": 651,
+    "barrnombre": "PURMACANA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 541,
+    "barrnombre": "PUSH BACK 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 157,
+    "barrnombre": "PZINC 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 542,
+    "barrnombre": "QUEBRADA HONDA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 131,
+    "barrnombre": "QUENCORO 10.5",
+    "barrtension": "10.5"
+  },
+  {
+    "barrcodi": 61,
+    "barrnombre": "QUENCORO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 132,
+    "barrnombre": "QUENCORO 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 508,
+    "barrnombre": "QUITARACSA 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 509,
+    "barrnombre": "QUITARACSA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 796,
+    "barrnombre": "REAL PLAZA 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 510,
+    "barrnombre": "RECKA 18",
+    "barrtension": "18"
+  },
+  {
+    "barrcodi": 507,
+    "barrnombre": "RECKA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 592,
+    "barrnombre": "REFINERIA SPCC 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 65,
+    "barrnombre": "REPARTICION 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 829,
+    "barrnombre": "REQUE 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 634,
+    "barrnombre": "REQUE220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 640,
+    "barrnombre": "REQUE220 B",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 628,
+    "barrnombre": "RESTITUCION 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 426,
+    "barrnombre": "RESTITUCIÓN 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 427,
+    "barrnombre": "RF_ILO",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 572,
+    "barrnombre": "RIO SECO 20",
+    "barrtension": "20"
+  },
+  {
+    "barrcodi": 565,
+    "barrnombre": "RIO SECO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 701,
+    "barrnombre": "RIOJA 20",
+    "barrtension": "20"
+  },
+  {
+    "barrcodi": 861,
+    "barrnombre": "RIOJA 23",
+    "barrtension": "23"
+  },
+  {
+    "barrcodi": 700,
+    "barrnombre": "RIOJA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 428,
+    "barrnombre": "RON 13.8",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 650,
+    "barrnombre": "RONCADOR 20",
+    "barrtension": "20"
+  },
+  {
+    "barrcodi": 41,
+    "barrnombre": "ROSAURA 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 671,
+    "barrnombre": "RUBI 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 429,
+    "barrnombre": "RUNATULLO3 10",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 430,
+    "barrnombre": "RUNATULLO3 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 519,
+    "barrnombre": "S.E. ILO4 500",
+    "barrtension": "500"
+  },
+  {
+    "barrcodi": 573,
+    "barrnombre": "SALAMANCA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 141,
+    "barrnombre": "SALAMANCA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 34,
+    "barrnombre": "SAM 13.8",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 439,
+    "barrnombre": "SAN ANTONIO 10",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 432,
+    "barrnombre": "SAN ANTONIO 15",
+    "barrtension": "15"
+  },
+  {
+    "barrcodi": 431,
+    "barrnombre": "SAN ANTONIO 3",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 93,
+    "barrnombre": "SAN ANTONIO 4.16",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 94,
+    "barrnombre": "SAN ANTONIO 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 712,
+    "barrnombre": "SAN BARTOLO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 803,
+    "barrnombre": "SAN BARTOLO 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 443,
+    "barrnombre": "SAN BARTOLO 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 658,
+    "barrnombre": "SAN CAMILO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 91,
+    "barrnombre": "SAN CRISTOBAL 2.4",
+    "barrtension": "2.4"
+  },
+  {
+    "barrcodi": 88,
+    "barrnombre": "SAN CRISTOBAL 4.16",
+    "barrtension": "4.16"
+  },
+  {
+    "barrcodi": 444,
+    "barrnombre": "SAN CRISTOBAL 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 174,
+    "barrnombre": "SAN GABAN 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 485,
+    "barrnombre": "SAN GABAN 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 435,
+    "barrnombre": "SAN IGNACIO 15",
+    "barrtension": "15"
+  },
+  {
+    "barrcodi": 436,
+    "barrnombre": "SAN IGNACIO 3.",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 633,
+    "barrnombre": "SAN ISIDRO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 599,
+    "barrnombre": "SAN ISIDRO 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 513,
+    "barrnombre": "SAN JOSE 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 521,
+    "barrnombre": "SAN JOSE 500",
+    "barrtension": "500"
+  },
+  {
+    "barrcodi": 81,
+    "barrnombre": "SAN JUAN 11",
+    "barrtension": "11"
+  },
+  {
+    "barrcodi": 82,
+    "barrnombre": "SAN JUAN 2.4",
+    "barrtension": "2.4"
+  },
+  {
+    "barrcodi": 16,
+    "barrnombre": "SAN JUAN 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 447,
+    "barrnombre": "SAN JUAN 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 437,
+    "barrnombre": "SAN JUAN 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 543,
+    "barrnombre": "SAN JUANINTO 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 842,
+    "barrnombre": "SAN MARTIN 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 448,
+    "barrnombre": "SAN MATEO 2.4",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 39,
+    "barrnombre": "SAN MATEO 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 745,
+    "barrnombre": "SAN MIGUEL 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 840,
+    "barrnombre": "SAN MIGUEL 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 433,
+    "barrnombre": "SAN NICOLAS 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 434,
+    "barrnombre": "SAN NICOLAS 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 637,
+    "barrnombre": "SAN RAFAEL 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 704,
+    "barrnombre": "SAN ROMAN 10.5",
+    "barrtension": "10.5"
+  },
+  {
+    "barrcodi": 702,
+    "barrnombre": "SAN ROMAN 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 703,
+    "barrnombre": "SAN ROMAN 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 440,
+    "barrnombre": "SAN VICENTE 10",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 659,
+    "barrnombre": "SAN VICENTE 20",
+    "barrtension": "20"
+  },
+  {
+    "barrcodi": 441,
+    "barrnombre": "SAN VICENTE 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 689,
+    "barrnombre": "SANTA ANA 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 848,
+    "barrnombre": "SANTA ANA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 690,
+    "barrnombre": "SANTA ANA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 688,
+    "barrnombre": "SANTA ANA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 761,
+    "barrnombre": "SANTA ANITA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 621,
+    "barrnombre": "SANTA CLARA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 575,
+    "barrnombre": "SANTA CLARA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 445,
+    "barrnombre": "SANTA CRUZ 2.3",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 660,
+    "barrnombre": "SANTA CRUZI 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 661,
+    "barrnombre": "SANTA CRUZII 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 438,
+    "barrnombre": "SANTA ISABEL 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 615,
+    "barrnombre": "SANTA MARINA 20",
+    "barrtension": "20"
+  },
+  {
+    "barrcodi": 793,
+    "barrnombre": "SANTA ROSA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 162,
+    "barrnombre": "SANTA ROSA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 778,
+    "barrnombre": "SANTA ROSA I 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 779,
+    "barrnombre": "SANTA ROSA II 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 674,
+    "barrnombre": "SANTA ROSA NUEVA EDP 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 673,
+    "barrnombre": "SANTA ROSA NUEVA LDS 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 500,
+    "barrnombre": "SANTA TERESA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 809,
+    "barrnombre": "SANTIAGO DE CAO 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 856,
+    "barrnombre": "SANTIAGO DE CAO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 549,
+    "barrnombre": "SANTUARIO 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 56,
+    "barrnombre": "SANTUARIO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 149,
+    "barrnombre": "SARITA 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 442,
+    "barrnombre": "SARITA 66",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 614,
+    "barrnombre": "SATIPO 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 812,
+    "barrnombre": "SATIPO 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 492,
+    "barrnombre": "SELENE 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 155,
+    "barrnombre": "SHELBY 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 180,
+    "barrnombre": "SHELBYCHU 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 446,
+    "barrnombre": "SIHUAS 138",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 830,
+    "barrnombre": "SJMARCONA33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 51,
+    "barrnombre": "SOCABAYA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 50,
+    "barrnombre": "SOCABAYA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 136,
+    "barrnombre": "SOCABAYA 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 449,
+    "barrnombre": "SOCABAYA 500",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 450,
+    "barrnombre": "SROSATG7",
+    "barrtension": "16.5"
+  },
+  {
+    "barrcodi": 451,
+    "barrnombre": "SROSATG8",
+    "barrtension": "16.5"
+  },
+  {
+    "barrcodi": 452,
+    "barrnombre": "SROSAUTI",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 755,
+    "barrnombre": "STA MARGARITA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 453,
+    "barrnombre": "SULLANA 10",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 454,
+    "barrnombre": "SULLANA 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 849,
+    "barrnombre": "SUNNY 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 669,
+    "barrnombre": "SUPE 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 668,
+    "barrnombre": "SUPE 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 544,
+    "barrnombre": "San Mateo 4.16",
+    "barrtension": "4.16"
+  },
+  {
+    "barrcodi": 545,
+    "barrnombre": "San Rafael 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 806,
+    "barrnombre": "TABALOSOS 13.2",
+    "barrtension": "13.2"
+  },
+  {
+    "barrcodi": 612,
+    "barrnombre": "TABLACHACA 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 455,
+    "barrnombre": "TABLAZO 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 456,
+    "barrnombre": "TABLAZO 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 757,
+    "barrnombre": "TACAMA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 767,
+    "barrnombre": "TACNA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 457,
+    "barrnombre": "TACNA 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 774,
+    "barrnombre": "TACNA SOLAR 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 67,
+    "barrnombre": "TALARA 13.2",
+    "barrtension": "13.2"
+  },
+  {
+    "barrcodi": 66,
+    "barrnombre": "TALARA 13.8",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 1,
+    "barrnombre": "TALARA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 708,
+    "barrnombre": "TAMBO DE MORA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 535,
+    "barrnombre": "TARAPOTO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 619,
+    "barrnombre": "TARAPOTO 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 458,
+    "barrnombre": "TARMA 44",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 459,
+    "barrnombre": "TAYABAMBA 138",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 460,
+    "barrnombre": "TG5 16.5",
+    "barrtension": "16.5"
+  },
+  {
+    "barrcodi": 43,
+    "barrnombre": "TICLIO 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 808,
+    "barrnombre": "TIERRAS NUEVAS 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 864,
+    "barrnombre": "TIERRAS NUEVAS 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 171,
+    "barrnombre": "TINGO MARIA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 28,
+    "barrnombre": "TINGO MARIA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 835,
+    "barrnombre": "TINGO MARIA 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 29,
+    "barrnombre": "TINGO MARIA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 552,
+    "barrnombre": "TINTAYA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 58,
+    "barrnombre": "TINTAYA EXISTENTE 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 229,
+    "barrnombre": "TINTAYA NUEVA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 208,
+    "barrnombre": "TOCACHE 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 173,
+    "barrnombre": "TOCACHE 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 783,
+    "barrnombre": "TOMAS VALLE 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 465,
+    "barrnombre": "TOMAS VALLE 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 148,
+    "barrnombre": "TOMASIRI 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 54,
+    "barrnombre": "TOQUEPALA 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 462,
+    "barrnombre": "TR-NUEVAIMP",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 107,
+    "barrnombre": "TRUJILLO 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 6,
+    "barrnombre": "TRUJILLO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 463,
+    "barrnombre": "TRUJILLO 500",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 164,
+    "barrnombre": "TRUJILLO NORTE 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 837,
+    "barrnombre": "TRUJILLO SUR 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 464,
+    "barrnombre": "TRUJILLO SUR 138",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 734,
+    "barrnombre": "TUMAN 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 731,
+    "barrnombre": "TUMAN 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 733,
+    "barrnombre": "TUMAN 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 486,
+    "barrnombre": "TUMBES 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 839,
+    "barrnombre": "TUPURI 2.4",
+    "barrtension": "2.4"
+  },
+  {
+    "barrcodi": 788,
+    "barrnombre": "TUPURI 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 461,
+    "barrnombre": "TintayaN 138",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 106,
+    "barrnombre": "UACAYA 138",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 833,
+    "barrnombre": "VALLE DEL CHIRA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 834,
+    "barrnombre": "VALLE DEL CHIRA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 603,
+    "barrnombre": "VEGUETA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 467,
+    "barrnombre": "VENTANILLA 16",
+    "barrtension": "16"
+  },
+  {
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 468,
+    "barrnombre": "VENTANILLA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 790,
+    "barrnombre": "VERTIENTES 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 791,
+    "barrnombre": "VERTIENTES 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 578,
+    "barrnombre": "VILLA EL SALVADOR 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 601,
+    "barrnombre": "VILLA MARIA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 469,
+    "barrnombre": "VILLA SALVADOR 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 756,
+    "barrnombre": "VILLACURI 22.9",
+    "barrtension": "22.9"
+  },
+  {
+    "barrcodi": 568,
+    "barrnombre": "VILLACURI 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 862,
+    "barrnombre": "VINAÑI 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 466,
+    "barrnombre": "VISTA ALEGRE 50",
+    "barrtension": "50"
+  },
+  {
+    "barrcodi": 32,
+    "barrnombre": "VIZCARRA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 470,
+    "barrnombre": "YANACANCH 220",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 471,
+    "barrnombre": "YANANGO 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 472,
+    "barrnombre": "YANANGO 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 776,
+    "barrnombre": "YANAPAMPA 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 676,
+    "barrnombre": "YARABAMBA 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 678,
+    "barrnombre": "YARABAMBA 500",
+    "barrtension": "500"
+  },
+  {
+    "barrcodi": 187,
+    "barrnombre": "YARINA 10",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 473,
+    "barrnombre": "YARINA 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 782,
+    "barrnombre": "YARUCAYA 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 663,
+    "barrnombre": "YARUCAYA 66",
+    "barrtension": "66"
+  },
+  {
+    "barrcodi": 48,
+    "barrnombre": "YAULI 50",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 99,
+    "barrnombre": "YAUPI 13.8",
+    "barrtension": "13.8"
+  },
+  {
+    "barrcodi": 476,
+    "barrnombre": "YAUPI 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 477,
+    "barrnombre": "YUNCAN 13.8",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 478,
+    "barrnombre": "YUNCAN 138",
+    "barrtension": "138"
+  },
+  {
+    "barrcodi": 11,
+    "barrnombre": "ZAPALLAL 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 479,
+    "barrnombre": "ZAPALLAL 60",
+    "barrtension": null
+  },
+  {
+    "barrcodi": 587,
+    "barrnombre": "ZARATE 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 743,
+    "barrnombre": "ZAÑA 6.9",
+    "barrtension": "6.9"
+  },
+  {
+    "barrcodi": 742,
+    "barrnombre": "ZAÑA 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 76,
+    "barrnombre": "ZORRITOS 220",
+    "barrtension": "220"
+  },
+  {
+    "barrcodi": 491,
+    "barrnombre": "ZORRITOS 33",
+    "barrtension": "33"
+  },
+  {
+    "barrcodi": 165,
+    "barrnombre": "ZORRITOS 60",
+    "barrtension": "60"
+  },
+  {
+    "barrcodi": 605,
+    "barrnombre": "ÑAÑA 10",
+    "barrtension": "10"
+  },
+  {
+    "barrcodi": 139,
+    "barrnombre": "ÑAÑA 60",
+    "barrtension": "60"
+  }
+]

@@ -1,0 +1,2986 @@
+[
+  {
+    "codentcodi": 375,
+    "codentcodigo": "EG00001ACH",
+    "barrcodi": 824,
+    "barrnombre": "HUALLIN 60",
+    "emprcodi": "EMPRESA_006",
+    "emprruc": "RUC_EMPRESA_006"
+  },
+  {
+    "codentcodi": 422,
+    "codentcodigo": "EG00001AGO",
+    "barrcodi": 800,
+    "barrnombre": "AGROLMOS 60",
+    "emprcodi": "EMPRESA_004",
+    "emprruc": "RUC_EMPRESA_004"
+  },
+  {
+    "codentcodi": 103,
+    "codentcodigo": "EG00001AGR",
+    "barrcodi": 413,
+    "barrnombre": "PLANTAETANOL 60",
+    "emprcodi": "EMPRESA_002",
+    "emprruc": "RUC_EMPRESA_002"
+  },
+  {
+    "codentcodi": 102,
+    "codentcodigo": "EG00001AIP",
+    "barrcodi": 183,
+    "barrnombre": "PARAMONGA EXISTENTE 138",
+    "emprcodi": "EMPRESA_001",
+    "emprruc": "RUC_EMPRESA_001"
+  },
+  {
+    "codentcodi": 236,
+    "codentcodigo": "EG00001ANP",
+    "barrcodi": 488,
+    "barrnombre": "CALLAHUANCA EDEGEL 220",
+    "emprcodi": "EMPRESA_005",
+    "emprruc": "RUC_EMPRESA_005"
+  },
+  {
+    "codentcodi": 242,
+    "codentcodigo": "EG00001ASJ",
+    "barrcodi": 715,
+    "barrnombre": "PLANTA SAN JACINTO 13.8",
+    "emprcodi": "EMPRESA_003",
+    "emprruc": "RUC_EMPRESA_003"
+  },
+  {
+    "codentcodi": 247,
+    "codentcodigo": "EG00001BCH",
+    "barrcodi": 752,
+    "barrnombre": "BIOENERGIA 13.8",
+    "emprcodi": "EMPRESA_008",
+    "emprruc": "RUC_EMPRESA_008"
+  },
+  {
+    "codentcodi": 160,
+    "codentcodigo": "EG00001CDA",
+    "barrcodi": 516,
+    "barrnombre": "CERRO DEL AGUILA 220",
+    "emprcodi": "EMPRESA_104",
+    "emprruc": "RUC_EMPRESA_104"
+  },
+  {
+    "codentcodi": 427,
+    "codentcodigo": "EG00001CGR",
+    "barrcodi": 855,
+    "barrnombre": "PLANTA CASA GRANDE 13.8",
+    "emprcodi": "EMPRESA_009",
+    "emprruc": "RUC_EMPRESA_009"
+  },
+  {
+    "codentcodi": 205,
+    "codentcodigo": "EG00001CLR",
+    "barrcodi": 642,
+    "barrnombre": "MARAÑON 60",
+    "emprcodi": "EMPRESA_012",
+    "emprruc": "RUC_EMPRESA_012"
+  },
+  {
+    "codentcodi": 428,
+    "codentcodigo": "EG00001COE",
+    "barrcodi": 857,
+    "barrnombre": "CS COENERGY 22.9",
+    "emprcodi": "EMPRESA_014",
+    "emprruc": "RUC_EMPRESA_014"
+  },
+  {
+    "codentcodi": 376,
+    "codentcodigo": "EG00001COR",
+    "barrcodi": 825,
+    "barrnombre": "CHAPARRAL 138",
+    "emprcodi": "EMPRESA_036",
+    "emprruc": "RUC_EMPRESA_036"
+  },
+  {
+    "codentcodi": 304,
+    "codentcodigo": "EG00001CSO",
+    "barrcodi": 782,
+    "barrnombre": "YARUCAYA 13.8",
+    "emprcodi": "EMPRESA_015",
+    "emprruc": "RUC_EMPRESA_015"
+  },
+  {
+    "codentcodi": 302,
+    "codentcodigo": "EG00001CSR",
+    "barrcodi": 778,
+    "barrnombre": "SANTA ROSA I 22.9",
+    "emprcodi": "EMPRESA_091",
+    "emprruc": "RUC_EMPRESA_091"
+  },
+  {
+    "codentcodi": 186,
+    "codentcodigo": "EG00001EAA",
+    "barrcodi": 186,
+    "barrnombre": "CAJAMARCA 220",
+    "emprcodi": "EMPRESA_026",
+    "emprruc": "RUC_EMPRESA_026"
+  },
+  {
+    "codentcodi": 96,
+    "codentcodigo": "EG00001EGJ",
+    "barrcodi": 24,
+    "barrnombre": "HUAYUCACHI 220",
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017"
+  },
+  {
+    "codentcodi": 199,
+    "codentcodigo": "EG00001EGP",
+    "barrcodi": 223,
+    "barrnombre": "MONTALVO 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 241,
+    "codentcodigo": "EG00001ELZ",
+    "barrcodi": 3,
+    "barrnombre": "CHICLAYO 220",
+    "emprcodi": "EMPRESA_108",
+    "emprruc": "RUC_EMPRESA_108"
+  },
+  {
+    "codentcodi": 56,
+    "codentcodigo": "EG00001ENE",
+    "barrcodi": 1,
+    "barrnombre": "TALARA 220",
+    "emprcodi": "EMPRESA_030",
+    "emprruc": "RUC_EMPRESA_030"
+  },
+  {
+    "codentcodi": 133,
+    "codentcodigo": "EG00001ENL",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_109",
+    "emprruc": "RUC_EMPRESA_109"
+  },
+  {
+    "codentcodi": 164,
+    "codentcodigo": "EG00001ERB",
+    "barrcodi": 11,
+    "barrnombre": "ZAPALLAL 220",
+    "emprcodi": "EMPRESA_065",
+    "emprruc": "RUC_EMPRESA_065"
+  },
+  {
+    "codentcodi": 371,
+    "codentcodigo": "EG00001ERS",
+    "barrcodi": 807,
+    "barrnombre": "ERSUR 220",
+    "emprcodi": "EMPRESA_029",
+    "emprruc": "RUC_EMPRESA_029"
+  },
+  {
+    "codentcodi": 101,
+    "codentcodigo": "EG00001ETN",
+    "barrcodi": 502,
+    "barrnombre": "CT ETEN 220",
+    "emprcodi": "EMPRESA_060",
+    "emprruc": "RUC_EMPRESA_060"
+  },
+  {
+    "codentcodi": 258,
+    "codentcodigo": "EG00001GAN",
+    "barrcodi": 28,
+    "barrnombre": "TINGO MARIA 138",
+    "emprcodi": "EMPRESA_033",
+    "emprruc": "RUC_EMPRESA_033"
+  },
+  {
+    "codentcodi": 49,
+    "codentcodigo": "EG00001GEP",
+    "barrcodi": 65,
+    "barrnombre": "REPARTICION 138",
+    "emprcodi": "EMPRESA_034",
+    "emprruc": "RUC_EMPRESA_034"
+  },
+  {
+    "codentcodi": 50,
+    "codentcodigo": "EG00001GMJ",
+    "barrcodi": 65,
+    "barrnombre": "REPARTICION 138",
+    "emprcodi": "EMPRESA_051",
+    "emprruc": "RUC_EMPRESA_051"
+  },
+  {
+    "codentcodi": 374,
+    "codentcodigo": "EG00001GMO",
+    "barrcodi": 799,
+    "barrnombre": "GE1 33",
+    "emprcodi": "EMPRESA_035",
+    "emprruc": "RUC_EMPRESA_035"
+  },
+  {
+    "codentcodi": 51,
+    "codentcodigo": "EG00001GRP",
+    "barrcodi": 65,
+    "barrnombre": "REPARTICION 138",
+    "emprcodi": "EMPRESA_061",
+    "emprruc": "RUC_EMPRESA_061"
+  },
+  {
+    "codentcodi": 10,
+    "codentcodigo": "EG00001HDC",
+    "barrcodi": 75,
+    "barrnombre": "CANTERA 220",
+    "emprcodi": "EMPRESA_039",
+    "emprruc": "RUC_EMPRESA_039"
+  },
+  {
+    "codentcodi": 187,
+    "codentcodigo": "EG00001HDM",
+    "barrcodi": 642,
+    "barrnombre": "MARAÑON 60",
+    "emprcodi": "EMPRESA_116",
+    "emprruc": "RUC_EMPRESA_116"
+  },
+  {
+    "codentcodi": 408,
+    "codentcodigo": "EG00001HGP",
+    "barrcodi": 847,
+    "barrnombre": "PAQUILLUSI 220",
+    "emprcodi": "EMPRESA_042",
+    "emprruc": "RUC_EMPRESA_042"
+  },
+  {
+    "codentcodi": 112,
+    "codentcodigo": "EG00001HHU",
+    "barrcodi": 323,
+    "barrnombre": "HUANCHOR 50",
+    "emprcodi": "EMPRESA_040",
+    "emprruc": "RUC_EMPRESA_040"
+  },
+  {
+    "codentcodi": 188,
+    "codentcodigo": "EG00001HPG",
+    "barrcodi": 10,
+    "barrnombre": "HUACHO 220",
+    "emprcodi": "EMPRESA_041",
+    "emprruc": "RUC_EMPRESA_041"
+  },
+  {
+    "codentcodi": 232,
+    "codentcodigo": "EG00001HPT",
+    "barrcodi": 3,
+    "barrnombre": "CHICLAYO 220",
+    "emprcodi": "EMPRESA_092",
+    "emprruc": "RUC_EMPRESA_092"
+  },
+  {
+    "codentcodi": 42,
+    "codentcodigo": "EG00001HSR",
+    "barrcodi": 9,
+    "barrnombre": "PARAMONGA NUEVA 220",
+    "emprcodi": "EMPRESA_007",
+    "emprruc": "RUC_EMPRESA_007"
+  },
+  {
+    "codentcodi": 440,
+    "codentcodigo": "EG00001INJ",
+    "barrcodi": 866,
+    "barrnombre": "AMERICA 220",
+    "emprcodi": "EMPRESA_129",
+    "emprruc": "RUC_EMPRESA_129"
+  },
+  {
+    "codentcodi": 166,
+    "codentcodigo": "EG00001IYE",
+    "barrcodi": 528,
+    "barrnombre": "PUERTO MALDONADO 10",
+    "emprcodi": "EMPRESA_043",
+    "emprruc": "RUC_EMPRESA_043"
+  },
+  {
+    "codentcodi": 407,
+    "codentcodigo": "EG00001JOY",
+    "barrcodi": 842,
+    "barrnombre": "SAN MARTIN 220",
+    "emprcodi": "EMPRESA_046",
+    "emprruc": "RUC_EMPRESA_046"
+  },
+  {
+    "codentcodi": 191,
+    "codentcodigo": "EG00001KLL",
+    "barrcodi": 516,
+    "barrnombre": "CERRO DEL AGUILA 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 373,
+    "codentcodigo": "EG00001KND",
+    "barrcodi": 811,
+    "barrnombre": "CARHUAQUERO 10_S",
+    "emprcodi": "EMPRESA_048",
+    "emprruc": "RUC_EMPRESA_048"
+  },
+  {
+    "codentcodi": 97,
+    "codentcodigo": "EG00001LDS",
+    "barrcodi": 500,
+    "barrnombre": "SANTA TERESA 220",
+    "emprcodi": "EMPRESA_095",
+    "emprruc": "RUC_EMPRESA_095"
+  },
+  {
+    "codentcodi": 43,
+    "codentcodigo": "EG00001MAJ",
+    "barrcodi": 9,
+    "barrnombre": "PARAMONGA NUEVA 220",
+    "emprcodi": "EMPRESA_050",
+    "emprruc": "RUC_EMPRESA_050"
+  },
+  {
+    "codentcodi": 134,
+    "codentcodigo": "EG00001MCV",
+    "barrcodi": 507,
+    "barrnombre": "RECKA 220",
+    "emprcodi": "EMPRESA_052",
+    "emprruc": "RUC_EMPRESA_052"
+  },
+  {
+    "codentcodi": 61,
+    "codentcodigo": "EG00001MQS",
+    "barrcodi": 484,
+    "barrnombre": "ILO ELP 138",
+    "emprcodi": "EMPRESA_053",
+    "emprruc": "RUC_EMPRESA_053"
+  },
+  {
+    "codentcodi": 152,
+    "codentcodigo": "EG00001ODE",
+    "barrcodi": 517,
+    "barrnombre": "CHAGLLA 220",
+    "emprcodi": "EMPRESA_024",
+    "emprruc": "RUC_EMPRESA_024"
+  },
+  {
+    "codentcodi": 290,
+    "codentcodigo": "EG00001PAI",
+    "barrcodi": 266,
+    "barrnombre": "CARHUAQUERO 138",
+    "emprcodi": "EMPRESA_037",
+    "emprruc": "RUC_EMPRESA_037"
+  },
+  {
+    "codentcodi": 36,
+    "codentcodigo": "EG00001PEM",
+    "barrcodi": 38,
+    "barrnombre": "MARCONA 220",
+    "emprcodi": "EMPRESA_057",
+    "emprruc": "RUC_EMPRESA_057"
+  },
+  {
+    "codentcodi": 283,
+    "codentcodigo": "EG00001PER",
+    "barrcodi": 8,
+    "barrnombre": "HUALLANCA 138",
+    "emprcodi": "EMPRESA_010",
+    "emprruc": "RUC_EMPRESA_010"
+  },
+  {
+    "codentcodi": 62,
+    "codentcodigo": "EG00001PNS",
+    "barrcodi": 484,
+    "barrnombre": "ILO ELP 138",
+    "emprcodi": "EMPRESA_056",
+    "emprruc": "RUC_EMPRESA_056"
+  },
+  {
+    "codentcodi": 137,
+    "codentcodigo": "EG00001PTH",
+    "barrcodi": 38,
+    "barrnombre": "MARCONA 220",
+    "emprcodi": "EMPRESA_058",
+    "emprruc": "RUC_EMPRESA_058"
+  },
+  {
+    "codentcodi": 54,
+    "codentcodigo": "EG00001PTM",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_059",
+    "emprruc": "RUC_EMPRESA_059"
+  },
+  {
+    "codentcodi": 11,
+    "codentcodigo": "EG00001RDB",
+    "barrcodi": 5,
+    "barrnombre": "CARHUAQUERO 220",
+    "emprcodi": "EMPRESA_027",
+    "emprruc": "RUC_EMPRESA_027"
+  },
+  {
+    "codentcodi": 150,
+    "codentcodigo": "EG00001SAM",
+    "barrcodi": 514,
+    "barrnombre": "PUERTO BRAVO 500",
+    "emprcodi": "EMPRESA_062",
+    "emprruc": "RUC_EMPRESA_062"
+  },
+  {
+    "codentcodi": 379,
+    "codentcodigo": "EG00001SHQ",
+    "barrcodi": 402,
+    "barrnombre": "PARIAC 66",
+    "emprcodi": "EMPRESA_045",
+    "emprruc": "RUC_EMPRESA_045"
+  },
+  {
+    "codentcodi": 46,
+    "codentcodigo": "EG00001SIN",
+    "barrcodi": 2,
+    "barrnombre": "PIURA OESTE 220",
+    "emprcodi": "EMPRESA_065",
+    "emprruc": "RUC_EMPRESA_065"
+  },
+  {
+    "codentcodi": 138,
+    "codentcodigo": "EG00001SKP",
+    "barrcodi": 255,
+    "barrnombre": "CAHUA 138",
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066"
+  },
+  {
+    "codentcodi": 204,
+    "codentcodigo": "EG00001STA",
+    "barrcodi": 167,
+    "barrnombre": "CONDORCOCHA 44",
+    "emprcodi": "EMPRESA_023",
+    "emprruc": "RUC_EMPRESA_023"
+  },
+  {
+    "codentcodi": 425,
+    "codentcodigo": "EG00001TAG",
+    "barrcodi": 393,
+    "barrnombre": "CH OROYA 50",
+    "emprcodi": "EMPRESA_070",
+    "emprruc": "RUC_EMPRESA_070"
+  },
+  {
+    "codentcodi": 291,
+    "codentcodigo": "EG00001TAR",
+    "barrcodi": 5,
+    "barrnombre": "CARHUAQUERO 220",
+    "emprcodi": "EMPRESA_038",
+    "emprruc": "RUC_EMPRESA_038"
+  },
+  {
+    "codentcodi": 421,
+    "codentcodigo": "EG00001VAR",
+    "barrcodi": 848,
+    "barrnombre": "SANTA ANA 138",
+    "emprcodi": "EMPRESA_071",
+    "emprruc": "RUC_EMPRESA_071"
+  },
+  {
+    "codentcodi": 299,
+    "codentcodigo": "EG00001VIR",
+    "barrcodi": 692,
+    "barrnombre": "LA VIRGEN 138",
+    "emprcodi": "EMPRESA_049",
+    "emprruc": "RUC_EMPRESA_049"
+  },
+  {
+    "codentcodi": 189,
+    "codentcodigo": "EG00002CDA",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_104",
+    "emprruc": "RUC_EMPRESA_104"
+  },
+  {
+    "codentcodi": 303,
+    "codentcodigo": "EG00002CSR",
+    "barrcodi": 779,
+    "barrnombre": "SANTA ROSA II 22.9",
+    "emprcodi": "EMPRESA_091",
+    "emprruc": "RUC_EMPRESA_091"
+  },
+  {
+    "codentcodi": 95,
+    "codentcodigo": "EG00002EGJ",
+    "barrcodi": 24,
+    "barrnombre": "HUAYUCACHI 220",
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017"
+  },
+  {
+    "codentcodi": 202,
+    "codentcodigo": "EG00002EGP",
+    "barrcodi": 420,
+    "barrnombre": "POROMA 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 301,
+    "codentcodigo": "EG00002ELZ",
+    "barrcodi": 742,
+    "barrnombre": "ZAÑA 60",
+    "emprcodi": "EMPRESA_108",
+    "emprruc": "RUC_EMPRESA_108"
+  },
+  {
+    "codentcodi": 110,
+    "codentcodigo": "EG00002ENE",
+    "barrcodi": 4,
+    "barrnombre": "GUADALUPE 220",
+    "emprcodi": "EMPRESA_030",
+    "emprruc": "RUC_EMPRESA_030"
+  },
+  {
+    "codentcodi": 244,
+    "codentcodigo": "EG00002ERB",
+    "barrcodi": 11,
+    "barrnombre": "ZAPALLAL 220",
+    "emprcodi": "EMPRESA_065",
+    "emprruc": "RUC_EMPRESA_065"
+  },
+  {
+    "codentcodi": 259,
+    "codentcodigo": "EG00002GAN",
+    "barrcodi": 28,
+    "barrnombre": "TINGO MARIA 138",
+    "emprcodi": "EMPRESA_033",
+    "emprruc": "RUC_EMPRESA_033"
+  },
+  {
+    "codentcodi": 300,
+    "codentcodigo": "EG00002HSR",
+    "barrcodi": 773,
+    "barrnombre": "PURMACANA 20",
+    "emprcodi": "EMPRESA_007",
+    "emprruc": "RUC_EMPRESA_007"
+  },
+  {
+    "codentcodi": 167,
+    "codentcodigo": "EG00002IYE",
+    "barrcodi": 134,
+    "barrnombre": "PUCALLPA 60",
+    "emprcodi": "EMPRESA_043",
+    "emprruc": "RUC_EMPRESA_043"
+  },
+  {
+    "codentcodi": 192,
+    "codentcodigo": "EG00002KLL",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 151,
+    "codentcodigo": "EG00002ODE",
+    "barrcodi": 515,
+    "barrnombre": "PIEDRA BLANCA 34.5",
+    "emprcodi": "EMPRESA_024",
+    "emprruc": "RUC_EMPRESA_024"
+  },
+  {
+    "codentcodi": 378,
+    "codentcodigo": "EG00002PAI",
+    "barrcodi": 804,
+    "barrnombre": "DUNA HUAMBOS 34.5",
+    "emprcodi": "EMPRESA_037",
+    "emprruc": "RUC_EMPRESA_037"
+  },
+  {
+    "codentcodi": 162,
+    "codentcodigo": "EG00002SAM",
+    "barrcodi": 521,
+    "barrnombre": "SAN JOSE 500",
+    "emprcodi": "EMPRESA_062",
+    "emprruc": "RUC_EMPRESA_062"
+  },
+  {
+    "codentcodi": 82,
+    "codentcodigo": "EG00002SCR",
+    "barrcodi": 8,
+    "barrnombre": "HUALLANCA 138",
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017"
+  },
+  {
+    "codentcodi": 55,
+    "codentcodigo": "EG00002SDE",
+    "barrcodi": 456,
+    "barrnombre": "TABLAZO 60",
+    "emprcodi": "EMPRESA_124",
+    "emprruc": "RUC_EMPRESA_124"
+  },
+  {
+    "codentcodi": 114,
+    "codentcodigo": "EG00002SDF",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 437,
+    "codentcodigo": "EG00002SHQ",
+    "barrcodi": 370,
+    "barrnombre": "MISAPUQUIO 33",
+    "emprcodi": "EMPRESA_045",
+    "emprruc": "RUC_EMPRESA_045"
+  },
+  {
+    "codentcodi": 165,
+    "codentcodigo": "EG00002SIN",
+    "barrcodi": 11,
+    "barrnombre": "ZAPALLAL 220",
+    "emprcodi": "EMPRESA_065",
+    "emprruc": "RUC_EMPRESA_065"
+  },
+  {
+    "codentcodi": 139,
+    "codentcodigo": "EG00002SKP",
+    "barrcodi": 501,
+    "barrnombre": "CHEVES 220",
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066"
+  },
+  {
+    "codentcodi": 426,
+    "codentcodigo": "EG00002TAG",
+    "barrcodi": 45,
+    "barrnombre": "PACHACHACA 50",
+    "emprcodi": "EMPRESA_070",
+    "emprruc": "RUC_EMPRESA_070"
+  },
+  {
+    "codentcodi": 377,
+    "codentcodigo": "EG00002TAR",
+    "barrcodi": 804,
+    "barrnombre": "DUNA HUAMBOS 34.5",
+    "emprcodi": "EMPRESA_038",
+    "emprruc": "RUC_EMPRESA_038"
+  },
+  {
+    "codentcodi": 6,
+    "codentcodigo": "EG00002TER",
+    "barrcodi": 36,
+    "barrnombre": "AGUAYTIA 220",
+    "emprcodi": "EMPRESA_069",
+    "emprruc": "RUC_EMPRESA_069"
+  },
+  {
+    "codentcodi": 34,
+    "codentcodigo": "EG00002TSS",
+    "barrcodi": 163,
+    "barrnombre": "LOS HEROES 66",
+    "emprcodi": "EMPRESA_067",
+    "emprruc": "RUC_EMPRESA_067"
+  },
+  {
+    "codentcodi": 116,
+    "codentcodigo": "EG00002YAN",
+    "barrcodi": 504,
+    "barrnombre": "PARAMONGA NUEVA 138",
+    "emprcodi": "EMPRESA_020",
+    "emprruc": "RUC_EMPRESA_020"
+  },
+  {
+    "codentcodi": 190,
+    "codentcodigo": "EG00003CDA",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_104",
+    "emprruc": "RUC_EMPRESA_104"
+  },
+  {
+    "codentcodi": 310,
+    "codentcodigo": "EG00003EGP",
+    "barrcodi": 671,
+    "barrnombre": "RUBI 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 229,
+    "codentcodigo": "EG00003GEP",
+    "barrcodi": 485,
+    "barrnombre": "SAN GABAN 138",
+    "emprcodi": "EMPRESA_034",
+    "emprruc": "RUC_EMPRESA_034"
+  },
+  {
+    "codentcodi": 193,
+    "codentcodigo": "EG00003KLL",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 200,
+    "codentcodigo": "EG00003PTM",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_059",
+    "emprruc": "RUC_EMPRESA_059"
+  },
+  {
+    "codentcodi": 83,
+    "codentcodigo": "EG00003SCR",
+    "barrcodi": 8,
+    "barrnombre": "HUALLANCA 138",
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017"
+  },
+  {
+    "codentcodi": 438,
+    "codentcodigo": "EG00003SHQ",
+    "barrcodi": 432,
+    "barrnombre": "SAN ANTONIO 15",
+    "emprcodi": "EMPRESA_045",
+    "emprruc": "RUC_EMPRESA_045"
+  },
+  {
+    "codentcodi": 140,
+    "codentcodigo": "EG00003SKP",
+    "barrcodi": 211,
+    "barrnombre": "GALLITO CIEGO 60",
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066"
+  },
+  {
+    "codentcodi": 206,
+    "codentcodigo": "EG00004AYE",
+    "barrcodi": 8,
+    "barrnombre": "HUALLANCA 138",
+    "emprcodi": "EMPRESA_103",
+    "emprruc": "RUC_EMPRESA_103"
+  },
+  {
+    "codentcodi": 230,
+    "codentcodigo": "EG00004GEP",
+    "barrcodi": 485,
+    "barrnombre": "SAN GABAN 138",
+    "emprcodi": "EMPRESA_034",
+    "emprruc": "RUC_EMPRESA_034"
+  },
+  {
+    "codentcodi": 198,
+    "codentcodigo": "EG00004KLL",
+    "barrcodi": 516,
+    "barrnombre": "CERRO DEL AGUILA 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 228,
+    "codentcodigo": "EG00004PTM",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_059",
+    "emprruc": "RUC_EMPRESA_059"
+  },
+  {
+    "codentcodi": 84,
+    "codentcodigo": "EG00004SCR",
+    "barrcodi": 22,
+    "barrnombre": "CARIPA 138",
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017"
+  },
+  {
+    "codentcodi": 439,
+    "codentcodigo": "EG00004SHQ",
+    "barrcodi": 435,
+    "barrnombre": "SAN IGNACIO 15",
+    "emprcodi": "EMPRESA_045",
+    "emprruc": "RUC_EMPRESA_045"
+  },
+  {
+    "codentcodi": 231,
+    "codentcodigo": "EG00005GEP",
+    "barrcodi": 485,
+    "barrnombre": "SAN GABAN 138",
+    "emprcodi": "EMPRESA_034",
+    "emprruc": "RUC_EMPRESA_034"
+  },
+  {
+    "codentcodi": 423,
+    "codentcodigo": "EG00005KLL",
+    "barrcodi": 849,
+    "barrnombre": "SUNNY 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 288,
+    "codentcodigo": "EG00005PTM",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_059",
+    "emprruc": "RUC_EMPRESA_059"
+  },
+  {
+    "codentcodi": 53,
+    "codentcodigo": "EG00005SHO",
+    "barrcodi": 433,
+    "barrnombre": "SAN NICOLAS 13.8",
+    "emprcodi": "EMPRESA_064",
+    "emprruc": "RUC_EMPRESA_064"
+  },
+  {
+    "codentcodi": 429,
+    "codentcodigo": "EG00006KLL",
+    "barrcodi": 849,
+    "barrnombre": "SUNNY 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 85,
+    "codentcodigo": "EG00006SCR",
+    "barrcodi": 22,
+    "barrnombre": "CARIPA 138",
+    "emprcodi": "EMPRESA_017",
+    "emprruc": "RUC_EMPRESA_017"
+  },
+  {
+    "codentcodi": 141,
+    "codentcodigo": "EG00006SKP",
+    "barrcodi": 331,
+    "barrnombre": "HUAYLLACHO 15",
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066"
+  },
+  {
+    "codentcodi": 74,
+    "codentcodigo": "EG00007EGH",
+    "barrcodi": 218,
+    "barrnombre": "HUANZA 220",
+    "emprcodi": "EMPRESA_025",
+    "emprruc": "RUC_EMPRESA_025"
+  },
+  {
+    "codentcodi": 142,
+    "codentcodigo": "EG00007SKP",
+    "barrcodi": 212,
+    "barrnombre": "MALPASO 50",
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066"
+  },
+  {
+    "codentcodi": 99,
+    "codentcodigo": "EG00008EGS",
+    "barrcodi": 241,
+    "barrnombre": "ARICOTA1 66",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 143,
+    "codentcodigo": "EG00008SKP",
+    "barrcodi": 370,
+    "barrnombre": "MISAPUQUIO 33",
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066"
+  },
+  {
+    "codentcodi": 100,
+    "codentcodigo": "EG00009EGS",
+    "barrcodi": 151,
+    "barrnombre": "ARICOTA2 138",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 144,
+    "codentcodigo": "EG00009SKP",
+    "barrcodi": 393,
+    "barrnombre": "CH OROYA 50",
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066"
+  },
+  {
+    "codentcodi": 67,
+    "codentcodigo": "EG00010EGN",
+    "barrcodi": 5,
+    "barrnombre": "CARHUAQUERO 220",
+    "emprcodi": "EMPRESA_107",
+    "emprruc": "RUC_EMPRESA_107"
+  },
+  {
+    "codentcodi": 163,
+    "codentcodigo": "EG00010ENG",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 203,
+    "codentcodigo": "EG00010INL",
+    "barrcodi": 500,
+    "barrnombre": "SANTA TERESA 220",
+    "emprcodi": "EMPRESA_044",
+    "emprruc": "RUC_EMPRESA_044"
+  },
+  {
+    "codentcodi": 194,
+    "codentcodigo": "EG00010OEP",
+    "barrcodi": 5,
+    "barrnombre": "CARHUAQUERO 220",
+    "emprcodi": "EMPRESA_054",
+    "emprruc": "RUC_EMPRESA_054"
+  },
+  {
+    "codentcodi": 181,
+    "codentcodigo": "EG00010ORA",
+    "barrcodi": 5,
+    "barrnombre": "CARHUAQUERO 220",
+    "emprcodi": "EMPRESA_119",
+    "emprruc": "RUC_EMPRESA_119"
+  },
+  {
+    "codentcodi": 107,
+    "codentcodigo": "EG00011EGA",
+    "barrcodi": 503,
+    "barrnombre": "CHARCANI I 33",
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016"
+  },
+  {
+    "codentcodi": 68,
+    "codentcodigo": "EG00011EGN",
+    "barrcodi": 5,
+    "barrnombre": "CARHUAQUERO 220",
+    "emprcodi": "EMPRESA_107",
+    "emprruc": "RUC_EMPRESA_107"
+  },
+  {
+    "codentcodi": 195,
+    "codentcodigo": "EG00011OEP",
+    "barrcodi": 5,
+    "barrnombre": "CARHUAQUERO 220",
+    "emprcodi": "EMPRESA_054",
+    "emprruc": "RUC_EMPRESA_054"
+  },
+  {
+    "codentcodi": 182,
+    "codentcodigo": "EG00011ORA",
+    "barrcodi": 5,
+    "barrnombre": "CARHUAQUERO 220",
+    "emprcodi": "EMPRESA_119",
+    "emprruc": "RUC_EMPRESA_119"
+  },
+  {
+    "codentcodi": 145,
+    "codentcodigo": "EG00011SKP",
+    "barrcodi": 45,
+    "barrnombre": "PACHACHACA 50",
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066"
+  },
+  {
+    "codentcodi": 16,
+    "codentcodigo": "EG00012EGA",
+    "barrcodi": 276,
+    "barrnombre": "CHARCANI IV 33",
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016"
+  },
+  {
+    "codentcodi": 12,
+    "codentcodigo": "EG00012EGN",
+    "barrcodi": 5,
+    "barrnombre": "CARHUAQUERO 220",
+    "emprcodi": "EMPRESA_107",
+    "emprruc": "RUC_EMPRESA_107"
+  },
+  {
+    "codentcodi": 196,
+    "codentcodigo": "EG00012OEP",
+    "barrcodi": 5,
+    "barrnombre": "CARHUAQUERO 220",
+    "emprcodi": "EMPRESA_054",
+    "emprruc": "RUC_EMPRESA_054"
+  },
+  {
+    "codentcodi": 183,
+    "codentcodigo": "EG00012ORA",
+    "barrcodi": 5,
+    "barrnombre": "CARHUAQUERO 220",
+    "emprcodi": "EMPRESA_119",
+    "emprruc": "RUC_EMPRESA_119"
+  },
+  {
+    "codentcodi": 146,
+    "codentcodigo": "EG00012SKP",
+    "barrcodi": 402,
+    "barrnombre": "PARIAC 66",
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066"
+  },
+  {
+    "codentcodi": 20,
+    "codentcodigo": "EG00013EGS",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 147,
+    "codentcodigo": "EG00013SKP",
+    "barrcodi": 432,
+    "barrnombre": "SAN ANTONIO 15",
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066"
+  },
+  {
+    "codentcodi": 105,
+    "codentcodigo": "EG00014CHI",
+    "barrcodi": 297,
+    "barrnombre": "CHIMAY 220",
+    "emprcodi": "EMPRESA_013",
+    "emprruc": "RUC_EMPRESA_013"
+  },
+  {
+    "codentcodi": 148,
+    "codentcodigo": "EG00014SKP",
+    "barrcodi": 435,
+    "barrnombre": "SAN IGNACIO 15",
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066"
+  },
+  {
+    "codentcodi": 72,
+    "codentcodigo": "EG00015FPP",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 60,
+    "codentcodigo": "EG00015KAL",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_117",
+    "emprruc": "RUC_EMPRESA_117"
+  },
+  {
+    "codentcodi": 149,
+    "codentcodigo": "EG00015SKP",
+    "barrcodi": 476,
+    "barrnombre": "YAUPI 138",
+    "emprcodi": "EMPRESA_066",
+    "emprruc": "RUC_EMPRESA_066"
+  },
+  {
+    "codentcodi": 17,
+    "codentcodigo": "EG00017EGA",
+    "barrcodi": 280,
+    "barrnombre": "CHARCANI VI 33",
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016"
+  },
+  {
+    "codentcodi": 172,
+    "codentcodigo": "EG00017EPE",
+    "barrcodi": 258,
+    "barrnombre": "CALLAHUANCA 60",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 161,
+    "codentcodigo": "EG00020ENG",
+    "barrcodi": 76,
+    "barrnombre": "ZORRITOS 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 71,
+    "codentcodigo": "EG00023EGA",
+    "barrcodi": 97,
+    "barrnombre": "CHILINA 33",
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016"
+  },
+  {
+    "codentcodi": 93,
+    "codentcodigo": "EG00023SGB",
+    "barrcodi": 485,
+    "barrnombre": "SAN GABAN 138",
+    "emprcodi": "EMPRESA_063",
+    "emprruc": "RUC_EMPRESA_063"
+  },
+  {
+    "codentcodi": 39,
+    "codentcodigo": "EG00023TCH",
+    "barrcodi": 386,
+    "barrnombre": "OLLEROS 500",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 159,
+    "codentcodigo": "EG00024SGB",
+    "barrcodi": 125,
+    "barrnombre": "JULIACA 10",
+    "emprcodi": "EMPRESA_063",
+    "emprruc": "RUC_EMPRESA_063"
+  },
+  {
+    "codentcodi": 305,
+    "codentcodigo": "EG00025SGB",
+    "barrcodi": 788,
+    "barrnombre": "TUPURI 22.9",
+    "emprcodi": "EMPRESA_063",
+    "emprruc": "RUC_EMPRESA_063"
+  },
+  {
+    "codentcodi": 73,
+    "codentcodigo": "EG00028CLP",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_011",
+    "emprruc": "RUC_EMPRESA_011"
+  },
+  {
+    "codentcodi": 21,
+    "codentcodigo": "EG00029EGA",
+    "barrcodi": 308,
+    "barrnombre": "CT PISCO 60",
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016"
+  },
+  {
+    "codentcodi": 153,
+    "codentcodigo": "EG00030ENG",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 18,
+    "codentcodigo": "EG00030ENS",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_114",
+    "emprruc": "RUC_EMPRESA_114"
+  },
+  {
+    "codentcodi": 115,
+    "codentcodigo": "EG00030TCH",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 24,
+    "codentcodigo": "EG00031EGN",
+    "barrcodi": 8,
+    "barrnombre": "HUALLANCA 138",
+    "emprcodi": "EMPRESA_107",
+    "emprruc": "RUC_EMPRESA_107"
+  },
+  {
+    "codentcodi": 197,
+    "codentcodigo": "EG00031OEP",
+    "barrcodi": 8,
+    "barrnombre": "HUALLANCA 138",
+    "emprcodi": "EMPRESA_054",
+    "emprruc": "RUC_EMPRESA_054"
+  },
+  {
+    "codentcodi": 184,
+    "codentcodigo": "EG00031ORA",
+    "barrcodi": 8,
+    "barrnombre": "HUALLANCA 138",
+    "emprcodi": "EMPRESA_119",
+    "emprruc": "RUC_EMPRESA_119"
+  },
+  {
+    "codentcodi": 35,
+    "codentcodigo": "EG00034EGM",
+    "barrcodi": 209,
+    "barrnombre": "MACHUPICCHU 138",
+    "emprcodi": "EMPRESA_018",
+    "emprruc": "RUC_EMPRESA_018"
+  },
+  {
+    "codentcodi": 136,
+    "codentcodigo": "EG00035EGM",
+    "barrcodi": 500,
+    "barrnombre": "SANTA TERESA 220",
+    "emprcodi": "EMPRESA_018",
+    "emprruc": "RUC_EMPRESA_018"
+  },
+  {
+    "codentcodi": 207,
+    "codentcodigo": "EG00036EGM",
+    "barrcodi": 60,
+    "barrnombre": "DOLORESPATA 138",
+    "emprcodi": "EMPRESA_018",
+    "emprruc": "RUC_EMPRESA_018"
+  },
+  {
+    "codentcodi": 79,
+    "codentcodigo": "EG00036EPI",
+    "barrcodi": 1,
+    "barrnombre": "TALARA 220",
+    "emprcodi": "EMPRESA_028",
+    "emprruc": "RUC_EMPRESA_028"
+  },
+  {
+    "codentcodi": 80,
+    "codentcodigo": "EG00037EPI",
+    "barrcodi": 1,
+    "barrnombre": "TALARA 220",
+    "emprcodi": "EMPRESA_028",
+    "emprruc": "RUC_EMPRESA_028"
+  },
+  {
+    "codentcodi": 179,
+    "codentcodigo": "EG00038EPI",
+    "barrcodi": 67,
+    "barrnombre": "TALARA 13.2",
+    "emprcodi": "EMPRESA_028",
+    "emprruc": "RUC_EMPRESA_028"
+  },
+  {
+    "codentcodi": 246,
+    "codentcodigo": "EG00039EPI",
+    "barrcodi": 67,
+    "barrnombre": "TALARA 13.2",
+    "emprcodi": "EMPRESA_028",
+    "emprruc": "RUC_EMPRESA_028"
+  },
+  {
+    "codentcodi": 245,
+    "codentcodigo": "EG00040EPI",
+    "barrcodi": 1,
+    "barrnombre": "TALARA 220",
+    "emprcodi": "EMPRESA_028",
+    "emprruc": "RUC_EMPRESA_028"
+  },
+  {
+    "codentcodi": 33,
+    "codentcodigo": "EG00040KAL",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_117",
+    "emprruc": "RUC_EMPRESA_117"
+  },
+  {
+    "codentcodi": 38,
+    "codentcodigo": "EG00041EGA",
+    "barrcodi": 64,
+    "barrnombre": "MOLLENDO 138",
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016"
+  },
+  {
+    "codentcodi": 106,
+    "codentcodigo": "EG00048CHI",
+    "barrcodi": 472,
+    "barrnombre": "YANANGO 220",
+    "emprcodi": "EMPRESA_013",
+    "emprruc": "RUC_EMPRESA_013"
+  },
+  {
+    "codentcodi": 156,
+    "codentcodigo": "EG00050ENG",
+    "barrcodi": 509,
+    "barrnombre": "QUITARACSA 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 135,
+    "codentcodigo": "EG00050ENS",
+    "barrcodi": 509,
+    "barrnombre": "QUITARACSA 220",
+    "emprcodi": "EMPRESA_114",
+    "emprruc": "RUC_EMPRESA_114"
+  },
+  {
+    "codentcodi": 173,
+    "codentcodigo": "EG00051EPE",
+    "barrcodi": 322,
+    "barrnombre": "HUAMPANI 60",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 108,
+    "codentcodigo": "EG00054EGA",
+    "barrcodi": 56,
+    "barrnombre": "SANTUARIO 138",
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016"
+  },
+  {
+    "codentcodi": 109,
+    "codentcodigo": "EG00055ELP",
+    "barrcodi": 482,
+    "barrnombre": "CAMPO ARMIÑO 220",
+    "emprcodi": "EMPRESA_021",
+    "emprruc": "RUC_EMPRESA_021"
+  },
+  {
+    "codentcodi": 155,
+    "codentcodigo": "EG00056ENG",
+    "barrcodi": 219,
+    "barrnombre": "ILO2 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 31,
+    "codentcodigo": "EG00056ENS",
+    "barrcodi": 219,
+    "barrnombre": "ILO2 220",
+    "emprcodi": "EMPRESA_114",
+    "emprruc": "RUC_EMPRESA_114"
+  },
+  {
+    "codentcodi": 157,
+    "codentcodigo": "EG00057ENG",
+    "barrcodi": 219,
+    "barrnombre": "ILO2 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 32,
+    "codentcodigo": "EG00057ENS",
+    "barrcodi": 219,
+    "barrnombre": "ILO2 220",
+    "emprcodi": "EMPRESA_114",
+    "emprruc": "RUC_EMPRESA_114"
+  },
+  {
+    "codentcodi": 174,
+    "codentcodigo": "EG00057EPE",
+    "barrcodi": 334,
+    "barrnombre": "HUINCO 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 154,
+    "codentcodigo": "EG00060ENG",
+    "barrcodi": 336,
+    "barrnombre": "ILO1 138",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 111,
+    "codentcodigo": "EG00060ENS",
+    "barrcodi": 336,
+    "barrnombre": "ILO1 138",
+    "emprcodi": "EMPRESA_114",
+    "emprruc": "RUC_EMPRESA_114"
+  },
+  {
+    "codentcodi": 104,
+    "codentcodigo": "EG00062CLP",
+    "barrcodi": 417,
+    "barrnombre": "PLATANAL 220",
+    "emprcodi": "EMPRESA_011",
+    "emprruc": "RUC_EMPRESA_011"
+  },
+  {
+    "codentcodi": 175,
+    "codentcodigo": "EG00068EPE",
+    "barrcodi": 364,
+    "barrnombre": "MATUCANA 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 176,
+    "codentcodigo": "EG00072EPE",
+    "barrcodi": 143,
+    "barrnombre": "MOYOPAMPA 60",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 76,
+    "codentcodigo": "EG00073ELP",
+    "barrcodi": 426,
+    "barrnombre": "RESTITUCIÓN 220",
+    "emprcodi": "EMPRESA_021",
+    "emprruc": "RUC_EMPRESA_021"
+  },
+  {
+    "codentcodi": 66,
+    "codentcodigo": "EG00093ELP",
+    "barrcodi": 382,
+    "barrnombre": "NCTUMBES 60",
+    "emprcodi": "EMPRESA_021",
+    "emprruc": "RUC_EMPRESA_021"
+  },
+  {
+    "codentcodi": 370,
+    "codentcodigo": "EG00094ELP",
+    "barrcodi": 382,
+    "barrnombre": "NCTUMBES 60",
+    "emprcodi": "EMPRESA_021",
+    "emprruc": "RUC_EMPRESA_021"
+  },
+  {
+    "codentcodi": 158,
+    "codentcodigo": "EG00098ENG",
+    "barrcodi": 438,
+    "barrnombre": "SANTA ISABEL 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 65,
+    "codentcodigo": "EG00098ENS",
+    "barrcodi": 438,
+    "barrnombre": "SANTA ISABEL 220",
+    "emprcodi": "EMPRESA_114",
+    "emprruc": "RUC_EMPRESA_114"
+  },
+  {
+    "codentcodi": 169,
+    "codentcodigo": "EG00099ENG",
+    "barrcodi": 519,
+    "barrnombre": "S.E. ILO4 500",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 201,
+    "codentcodigo": "EG00100ENG",
+    "barrcodi": 146,
+    "barrnombre": "MOQUEGUA 138",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 306,
+    "codentcodigo": "EG00101ENG",
+    "barrcodi": 797,
+    "barrnombre": "PUNTA LOMITAS I",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 307,
+    "codentcodigo": "EG00102ENG",
+    "barrcodi": 798,
+    "barrnombre": "PUNTA LOMITAS II",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 177,
+    "codentcodigo": "EG00102EPE",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 308,
+    "codentcodigo": "EG00103ENG",
+    "barrcodi": 797,
+    "barrnombre": "PUNTA LOMITAS I",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 209,
+    "codentcodigo": "EG00103EPE",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 309,
+    "codentcodigo": "EG00104ENG",
+    "barrcodi": 798,
+    "barrnombre": "PUNTA LOMITAS II",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 311,
+    "codentcodigo": "EG00105ENG",
+    "barrcodi": 797,
+    "barrnombre": "PUNTA LOMITAS I",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 312,
+    "codentcodigo": "EG00106ENG",
+    "barrcodi": 797,
+    "barrnombre": "PUNTA LOMITAS I",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 313,
+    "codentcodigo": "EG00107ENG",
+    "barrcodi": 798,
+    "barrnombre": "PUNTA LOMITAS II",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 314,
+    "codentcodigo": "EG00108ENG",
+    "barrcodi": 798,
+    "barrnombre": "PUNTA LOMITAS II",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 424,
+    "codentcodigo": "EG00109ENG",
+    "barrcodi": 698,
+    "barrnombre": "INTIPAMPA 138",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 178,
+    "codentcodigo": "EG00117EPE",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 94,
+    "codentcodigo": "EG00118CCO",
+    "barrcodi": 20,
+    "barrnombre": "OROYA NUEVA 50",
+    "emprcodi": "EMPRESA_022",
+    "emprruc": "RUC_EMPRESA_022"
+  },
+  {
+    "codentcodi": 168,
+    "codentcodigo": "EG00118EDG",
+    "barrcodi": 76,
+    "barrnombre": "ZORRITOS 220",
+    "emprcodi": "EMPRESA_105",
+    "emprruc": "RUC_EMPRESA_105"
+  },
+  {
+    "codentcodi": 185,
+    "codentcodigo": "EG00118EPE",
+    "barrcodi": 76,
+    "barrnombre": "ZORRITOS 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 243,
+    "codentcodigo": "EG00118FPP",
+    "barrcodi": 76,
+    "barrnombre": "ZORRITOS 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 180,
+    "codentcodigo": "EG00118KAL",
+    "barrcodi": 76,
+    "barrnombre": "ZORRITOS 220",
+    "emprcodi": "EMPRESA_117",
+    "emprruc": "RUC_EMPRESA_117"
+  },
+  {
+    "codentcodi": 208,
+    "codentcodigo": "EG00120EPE",
+    "barrcodi": 488,
+    "barrnombre": "CALLAHUANCA EDEGEL 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 372,
+    "codentcodigo": "EG00121EPE",
+    "barrcodi": 696,
+    "barrnombre": "FLAMENCO 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 441,
+    "codentcodigo": "EG00122EPE",
+    "barrcodi": 696,
+    "barrnombre": "FLAMENCO 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 430,
+    "codentcodigo": "EGB0001ENG",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 431,
+    "codentcodigo": "EGB0001KLL",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 406,
+    "codentcodigo": "EGT0001ELP",
+    "barrcodi": 76,
+    "barrnombre": "ZORRITOS 220",
+    "emprcodi": "EMPRESA_021",
+    "emprruc": "RUC_EMPRESA_021"
+  },
+  {
+    "codentcodi": 295,
+    "codentcodigo": "EGT0001ENG",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 296,
+    "codentcodigo": "EGT0002ENG",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 297,
+    "codentcodigo": "EGT0003ENG",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 215,
+    "codentcodigo": "EGT0003SDF",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 298,
+    "codentcodigo": "EGT0004ENG",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 220,
+    "codentcodigo": "EGT0004SDF",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 210,
+    "codentcodigo": "EGT0005KLL",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 226,
+    "codentcodigo": "EGT0005SDF",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 216,
+    "codentcodigo": "EGT0006KLL",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 240,
+    "codentcodigo": "EGT0006SDF",
+    "barrcodi": 386,
+    "barrnombre": "OLLEROS 500",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 227,
+    "codentcodigo": "EGT0007KLL",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 251,
+    "codentcodigo": "EGT0007SDF",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 237,
+    "codentcodigo": "EGT0008KLL",
+    "barrcodi": 386,
+    "barrnombre": "OLLEROS 500",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 257,
+    "codentcodigo": "EGT0008SDF",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 262,
+    "codentcodigo": "EGT0009KLL",
+    "barrcodi": 386,
+    "barrnombre": "OLLEROS 500",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 267,
+    "codentcodigo": "EGT0009SDF",
+    "barrcodi": 386,
+    "barrnombre": "OLLEROS 500",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 266,
+    "codentcodigo": "EGT0010KLL",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 287,
+    "codentcodigo": "EGT0010SDF",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 268,
+    "codentcodigo": "EGT0011KLL",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 286,
+    "codentcodigo": "EGT0011SDF",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 278,
+    "codentcodigo": "EGT0012KLL",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 294,
+    "codentcodigo": "EGT0012SDF",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 350,
+    "codentcodigo": "EGT0013KLL",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 214,
+    "codentcodigo": "EGT0014EGS",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 351,
+    "codentcodigo": "EGT0014KLL",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 219,
+    "codentcodigo": "EGT0015EGS",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 352,
+    "codentcodigo": "EGT0015KLL",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 337,
+    "codentcodigo": "EGT0015SDF",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 225,
+    "codentcodigo": "EGT0016EGS",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 233,
+    "codentcodigo": "EGT0016FPP",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 353,
+    "codentcodigo": "EGT0016KLL",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 338,
+    "codentcodigo": "EGT0016SDF",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 239,
+    "codentcodigo": "EGT0017EGS",
+    "barrcodi": 386,
+    "barrnombre": "OLLEROS 500",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 234,
+    "codentcodigo": "EGT0017FPP",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 355,
+    "codentcodigo": "EGT0017KLL",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 339,
+    "codentcodigo": "EGT0017SDF",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 250,
+    "codentcodigo": "EGT0018EGS",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 235,
+    "codentcodigo": "EGT0018FPP",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 354,
+    "codentcodigo": "EGT0018KLL",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 340,
+    "codentcodigo": "EGT0018SDF",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 255,
+    "codentcodigo": "EGT0019EGS",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 252,
+    "codentcodigo": "EGT0019FPP",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 356,
+    "codentcodigo": "EGT0019KLL",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 341,
+    "codentcodigo": "EGT0019SDF",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 260,
+    "codentcodigo": "EGT0020EGS",
+    "barrcodi": 386,
+    "barrnombre": "OLLEROS 500",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 256,
+    "codentcodigo": "EGT0020FPP",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 365,
+    "codentcodigo": "EGT0020KLL",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 342,
+    "codentcodigo": "EGT0020SDF",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 264,
+    "codentcodigo": "EGT0021EGS",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 272,
+    "codentcodigo": "EGT0021FPP",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 432,
+    "codentcodigo": "EGT0021KLL",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 349,
+    "codentcodigo": "EGT0021SDF",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 271,
+    "codentcodigo": "EGT0022EGS",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 273,
+    "codentcodigo": "EGT0022FPP",
+    "barrcodi": 386,
+    "barrnombre": "OLLEROS 500",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 366,
+    "codentcodigo": "EGT0022SDF",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 276,
+    "codentcodigo": "EGT0023EGS",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 274,
+    "codentcodigo": "EGT0023FPP",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 367,
+    "codentcodigo": "EGT0023SDF",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 280,
+    "codentcodigo": "EGT0024EGS",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 275,
+    "codentcodigo": "EGT0024FPP",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 400,
+    "codentcodigo": "EGT0024SDF",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 212,
+    "codentcodigo": "EGT0024TCH",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 279,
+    "codentcodigo": "EGT0025FPP",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 401,
+    "codentcodigo": "EGT0025SDF",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 217,
+    "codentcodigo": "EGT0025TCH",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 402,
+    "codentcodigo": "EGT0026SDF",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_073",
+    "emprruc": "RUC_EMPRESA_073"
+  },
+  {
+    "codentcodi": 223,
+    "codentcodigo": "EGT0026TCH",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 249,
+    "codentcodigo": "EGT0027TCH",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 254,
+    "codentcodigo": "EGT0028TCH",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 269,
+    "codentcodigo": "EGT0029TCH",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 213,
+    "codentcodigo": "EGT0030EGA",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016"
+  },
+  {
+    "codentcodi": 332,
+    "codentcodigo": "EGT0030EGS",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 321,
+    "codentcodigo": "EGT0030FPP",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 270,
+    "codentcodigo": "EGT0030TCH",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 218,
+    "codentcodigo": "EGT0031EGA",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016"
+  },
+  {
+    "codentcodi": 333,
+    "codentcodigo": "EGT0031EGS",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 322,
+    "codentcodigo": "EGT0031FPP",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 281,
+    "codentcodigo": "EGT0031TCH",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 224,
+    "codentcodigo": "EGT0032EGA",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016"
+  },
+  {
+    "codentcodi": 334,
+    "codentcodigo": "EGT0032EGS",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 323,
+    "codentcodigo": "EGT0032FPP",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 284,
+    "codentcodigo": "EGT0032TCH",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 238,
+    "codentcodigo": "EGT0033EGA",
+    "barrcodi": 386,
+    "barrnombre": "OLLEROS 500",
+    "emprcodi": "EMPRESA_016",
+    "emprruc": "RUC_EMPRESA_016"
+  },
+  {
+    "codentcodi": 335,
+    "codentcodigo": "EGT0033EGS",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 324,
+    "codentcodigo": "EGT0033FPP",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 289,
+    "codentcodigo": "EGT0033TCH",
+    "barrcodi": 386,
+    "barrnombre": "OLLEROS 500",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 336,
+    "codentcodigo": "EGT0034EGS",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 325,
+    "codentcodigo": "EGT0034FPP",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 292,
+    "codentcodigo": "EGT0034TCH",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 348,
+    "codentcodigo": "EGT0035EGS",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 346,
+    "codentcodigo": "EGT0035FPP",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 360,
+    "codentcodigo": "EGT0036EGS",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 368,
+    "codentcodigo": "EGT0036FPP",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 361,
+    "codentcodigo": "EGT0037EGS",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 369,
+    "codentcodigo": "EGT0037FPP",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 362,
+    "codentcodigo": "EGT0038EGS",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 396,
+    "codentcodigo": "EGT0038FPP",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 384,
+    "codentcodigo": "EGT0039EGS",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 397,
+    "codentcodigo": "EGT0039FPP",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 385,
+    "codentcodigo": "EGT0040EGS",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 398,
+    "codentcodigo": "EGT0040FPP",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 326,
+    "codentcodigo": "EGT0040TCH",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 386,
+    "codentcodigo": "EGT0041EGS",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 399,
+    "codentcodigo": "EGT0041FPP",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 327,
+    "codentcodigo": "EGT0041TCH",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 387,
+    "codentcodigo": "EGT0042EGS",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 410,
+    "codentcodigo": "EGT0042FPP",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 328,
+    "codentcodigo": "EGT0042TCH",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 412,
+    "codentcodigo": "EGT0043EGS",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 414,
+    "codentcodigo": "EGT0043FPP",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 329,
+    "codentcodigo": "EGT0043TCH",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 416,
+    "codentcodigo": "EGT0044EGS",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 418,
+    "codentcodigo": "EGT0044FPP",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 330,
+    "codentcodigo": "EGT0044TCH",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 420,
+    "codentcodigo": "EGT0045EGS",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_019",
+    "emprruc": "RUC_EMPRESA_019"
+  },
+  {
+    "codentcodi": 435,
+    "codentcodigo": "EGT0045FPP",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_032",
+    "emprruc": "RUC_EMPRESA_032"
+  },
+  {
+    "codentcodi": 331,
+    "codentcodigo": "EGT0045TCH",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 347,
+    "codentcodigo": "EGT0046TCH",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 357,
+    "codentcodigo": "EGT0047TCH",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 358,
+    "codentcodigo": "EGT0048TCH",
+    "barrcodi": 14,
+    "barrnombre": "SANTA ROSA 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 359,
+    "codentcodigo": "EGT0049TCH",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 363,
+    "codentcodigo": "EGT0050TCH",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 364,
+    "codentcodigo": "EGT0051TCH",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 380,
+    "codentcodigo": "EGT0052TCH",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 381,
+    "codentcodigo": "EGT0053TCH",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 382,
+    "codentcodigo": "EGT0054TCH",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 383,
+    "codentcodigo": "EGT0055TCH",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 404,
+    "codentcodigo": "EGT0056TCH",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 411,
+    "codentcodigo": "EGT0057TCH",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 415,
+    "codentcodigo": "EGT0058TCH",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 419,
+    "codentcodigo": "EGT0059TCH",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 436,
+    "codentcodigo": "EGT0060TCH",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_068",
+    "emprruc": "RUC_EMPRESA_068"
+  },
+  {
+    "codentcodi": 285,
+    "codentcodigo": "EGT0101ENG",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 343,
+    "codentcodigo": "EGT0110ENG",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 344,
+    "codentcodigo": "EGT0111ENG",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 345,
+    "codentcodigo": "EGT0112ENG",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 388,
+    "codentcodigo": "EGT0113ENG",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 389,
+    "codentcodigo": "EGT0114ENG",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 390,
+    "codentcodigo": "EGT0115ENG",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 391,
+    "codentcodigo": "EGT0116ENG",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 403,
+    "codentcodigo": "EGT0117ENG",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 409,
+    "codentcodigo": "EGT0118ENG",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 211,
+    "codentcodigo": "EGT0118EPE",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 413,
+    "codentcodigo": "EGT0119ENG",
+    "barrcodi": 12,
+    "barrnombre": "VENTANILLA 220",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 417,
+    "codentcodigo": "EGT0120ENG",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 222,
+    "codentcodigo": "EGT0120EPE",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 433,
+    "codentcodigo": "EGT0121ENG",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_031",
+    "emprruc": "RUC_EMPRESA_031"
+  },
+  {
+    "codentcodi": 248,
+    "codentcodigo": "EGT0121EPE",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_047",
+    "emprruc": "RUC_EMPRESA_047"
+  },
+  {
+    "codentcodi": 253,
+    "codentcodigo": "EGT0122EPE",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 261,
+    "codentcodigo": "EGT0123EPE",
+    "barrcodi": 386,
+    "barrnombre": "OLLEROS 500",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 265,
+    "codentcodigo": "EGT0124EPE",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 277,
+    "codentcodigo": "EGT0125EPE",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 282,
+    "codentcodigo": "EGT0126EPE",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 293,
+    "codentcodigo": "EGT0127EPE",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 315,
+    "codentcodigo": "EGT0130EPE",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 316,
+    "codentcodigo": "EGT0131EPE",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 317,
+    "codentcodigo": "EGT0132EPE",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 318,
+    "codentcodigo": "EGT0133EPE",
+    "barrcodi": 288,
+    "barrnombre": "CHILCA UNO 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 319,
+    "codentcodigo": "EGT0134EPE",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 320,
+    "codentcodigo": "EGT0135EPE",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 392,
+    "codentcodigo": "EGT0136EPE",
+    "barrcodi": 483,
+    "barrnombre": "CHILCA REP 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 393,
+    "codentcodigo": "EGT0137EPE",
+    "barrcodi": 353,
+    "barrnombre": "LAS FLORES 220",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 394,
+    "codentcodigo": "EGT0138EPE",
+    "barrcodi": 390,
+    "barrnombre": "OQUENDO 60",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 395,
+    "codentcodigo": "EGT0139EPE",
+    "barrcodi": 316,
+    "barrnombre": "FENIX 500",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 405,
+    "codentcodigo": "EGT0140EPE",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  },
+  {
+    "codentcodi": 434,
+    "codentcodigo": "EGT0141EPE",
+    "barrcodi": 307,
+    "barrnombre": "CT INDEPENDENCIA 60",
+    "emprcodi": "EMPRESA_055",
+    "emprruc": "RUC_EMPRESA_055"
+  }
+]

@@ -1,0 +1,720 @@
+COES 
+
+INSTALAR Pyhton 3.13.0
+https://www.python.org/downloads/release/python-3130/
+
+INSTALAR NODE JS
+https://nodejs.org/es/download
+
+powershell
+python --version
+node --versión
+
+creamos una carpeta en disco D
+
+Abrimos VSCode y abrimos el folder
+CReamos una carpeta: backend
+creamos el entorno virtual de Python:  python -m venv venv
+Activamos:
+.\venv\Scripts\Activate.ps1
+
+
+Instalamos FastAPI
+Con (venv) activo: 
+pip install fastapi uvicorn
+pip install pandas numpy scikit-learn
+
+
+Creamos nuestra primera API
+Dentro de backend, crear carpeta: mkdir app
+
+backend → app → New File (main.py)
+=====
+from fastapi import FastAPI
+
+app = FastAPI(
+    title="COES Liquidaciones 360",
+    description="API para consulta y análisis de liquidaciones del mercado mayorista de electricidad",
+    version="0.1.0"
+)
+
+
+@app.get("/")
+def root():
+    return {
+        "sistema": "COES Liquidaciones 360",
+        "estado": "operativo",
+        "version": "0.1.0"
+    }
+
+
+@app.get("/health")
+def health():
+    return {
+        "status": "ok"
+    }
+=====
+
+dentro "backend" de VS code y y que aparezca (venv)
+ejecutamos: uvicorn app.main:app --reload
+
+vemos y probamos:
+INFO:     Uvicorn running on http://127.0.0.1:8000
+INFO:     Application startup complete.
+
+http://127.0.0.1:8000 --< info en JSON
+http://127.0.0.1:8000/docs --> vemos los endpoints
+
+que tenemos:
+Usuario
+   ↓
+Frontend
+   ↓
+API FastAPI
+   ↓
+Lógica de negocio
+   ↓
+Base de datos
+
+
+dentro de esta carpeta creamos el archivo: backend/app/ "data_generator.py"
+
+===
+import random
+from datetime import date
+
+import pandas as pd
+import numpy as np
+
+
+# ---------------------------------------------------------
+# CONFIGURACIÓN
+# ---------------------------------------------------------
+
+SEED = 42
+
+random.seed(SEED)
+np.random.seed(SEED)
+
+
+# ---------------------------------------------------------
+# DATOS MAESTROS
+# ---------------------------------------------------------
+
+AGENTES = [
+    {
+        "id": "AGE001",
+        "nombre": "Generadora Andina",
+        "tipo": "Generador"
+    },
+    {
+        "id": "AGE002",
+        "nombre": "Energía del Pacífico",
+        "tipo": "Generador"
+    },
+    {
+        "id": "AGE003",
+        "nombre": "Comercializadora Nacional",
+        "tipo": "Comercializador"
+    },
+    {
+        "id": "AGE004",
+        "nombre": "Empresa Eléctrica Norte",
+        "tipo": "Generador"
+    },
+    {
+        "id": "AGE005",
+        "nombre": "Distribuidora Centro",
+        "tipo": "Distribuidor"
+    }
+]
+
+
+CONCEPTOS = [
+    {
+        "id": "CON001",
+        "nombre": "Energía",
+        "categoria": "Energía"
+    },
+    {
+        "id": "CON002",
+        "nombre": "Potencia",
+        "categoria": "Potencia"
+    },
+    {
+        "id": "CON003",
+        "nombre": "Peajes",
+        "categoria": "Transmisión"
+    },
+    {
+        "id": "CON004",
+        "nombre": "Servicios Complementarios",
+        "categoria": "Servicios"
+    },
+    {
+        "id": "CON005",
+        "nombre": "Otros Conceptos",
+        "categoria": "Otros"
+    }
+]
+
+
+# ---------------------------------------------------------
+# GENERACIÓN DE LIQUIDACIONES
+# ---------------------------------------------------------
+
+def generar_liquidaciones():
+
+    registros = []
+
+    periodos = pd.date_range(
+        start="2025-01-01",
+        end="2026-08-01",
+        freq="MS"
+    )
+
+    for periodo in periodos:
+
+        for agente in AGENTES:
+
+            for concepto in CONCEPTOS:
+
+                # Monto base según concepto
+                if concepto["nombre"] == "Energía":
+                    base = random.uniform(800000, 2500000)
+
+                elif concepto["nombre"] == "Potencia":
+                    base = random.uniform(300000, 1000000)
+
+                elif concepto["nombre"] == "Peajes":
+                    base = random.uniform(100000, 500000)
+
+                elif concepto["nombre"] == "Servicios Complementarios":
+                    base = random.uniform(50000, 250000)
+
+                else:
+                    base = random.uniform(20000, 150000)
+
+                # Variación normal
+                variacion = np.random.normal(1, 0.08)
+
+                monto = base * variacion
+
+                # Variables físicas / operativas
+                energia_mwh = random.uniform(5000, 50000)
+                potencia_mw = random.uniform(50, 500)
+                precio_mwh = random.uniform(80, 250)
+
+                registros.append({
+
+                    "fecha": periodo.date(),
+
+                    "agente_id": agente["id"],
+                    "agente": agente["nombre"],
+                    "tipo_agente": agente["tipo"],
+
+                    "concepto_id": concepto["id"],
+                    "concepto": concepto["nombre"],
+                    "categoria": concepto["categoria"],
+
+                    "monto": round(monto, 2),
+
+                    "energia_mwh": round(energia_mwh, 2),
+                    "potencia_mw": round(potencia_mw, 2),
+                    "precio_mwh": round(precio_mwh, 2),
+
+                    "fuente": "COES - Dataset Sintético",
+
+                    "documento_fuente": (
+                        f"LIQ-{periodo.strftime('%Y%m')}-"
+                        f"{agente['id']}-{concepto['id']}"
+                    )
+                })
+
+    return pd.DataFrame(registros)
+
+
+# ---------------------------------------------------------
+# EJECUCIÓN
+# ---------------------------------------------------------
+
+if __name__ == "__main__":
+
+    df = generar_liquidaciones()
+
+    print("==========================================")
+    print(" COES LIQUIDACIONES 360")
+    print(" GENERADOR DE DATOS SINTÉTICOS")
+    print("==========================================")
+
+    print(f"\nRegistros generados: {len(df):,}")
+
+    print("\nColumnas:")
+    print(df.columns.tolist())
+
+    print("\nPrimeros registros:")
+    print(df.head())
+
+    print("\nResumen:")
+    print(df.describe(include="all"))
+
+    # Guardar dataset
+    df.to_csv(
+        "liquidaciones.csv",
+        index=False,
+        encoding="utf-8-sig"
+    )
+
+    print("\nArchivo generado:")
+    print("liquidaciones.csv")
+===
+
+abrimos otro terminal, dentro de backend: python app/data_generator.py
+
+se crea el archivo: liquidaciones.csv con datos
+
+
+Debtro de backend/app/ "analysis.py"
+
+===
+import pandas as pd
+import numpy as np
+from pathlib import Path
+
+
+# =========================================================
+# CONFIGURACIÓN
+# =========================================================
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_FILE = BASE_DIR / "liquidaciones.csv"
+
+
+# =========================================================
+# CARGAR DATOS
+# =========================================================
+
+def cargar_datos():
+
+    if not DATA_FILE.exists():
+        raise FileNotFoundError(
+            f"No se encontró el archivo: {DATA_FILE}"
+        )
+
+    df = pd.read_csv(DATA_FILE)
+
+    df["fecha"] = pd.to_datetime(df["fecha"])
+
+    return df
+
+
+# =========================================================
+# LIQUIDACIÓN TOTAL
+# =========================================================
+
+def obtener_liquidacion(
+    agente_id: str,
+    fecha: str
+):
+
+    df = cargar_datos()
+
+    fecha = pd.to_datetime(fecha)
+
+    resultado = df[
+        (df["agente_id"] == agente_id)
+        & (df["fecha"] == fecha)
+    ]
+
+    if resultado.empty:
+        return None
+
+    total = resultado["monto"].sum()
+
+    return {
+        "agente_id": agente_id,
+        "fecha": fecha.strftime("%Y-%m-%d"),
+        "liquidacion_total": round(float(total), 2),
+        "cantidad_conceptos": int(len(resultado))
+    }
+
+
+# =========================================================
+# DETALLE POR CONCEPTO
+# =========================================================
+
+def obtener_detalle_conceptos(
+    agente_id: str,
+    fecha: str
+):
+
+    df = cargar_datos()
+
+    fecha = pd.to_datetime(fecha)
+
+    resultado = df[
+        (df["agente_id"] == agente_id)
+        & (df["fecha"] == fecha)
+    ]
+
+    if resultado.empty:
+        return []
+
+    detalle = (
+        resultado
+        .groupby(
+            ["concepto_id", "concepto", "categoria"],
+            as_index=False
+        )
+        ["monto"]
+        .sum()
+    )
+
+    detalle["monto"] = detalle["monto"].round(2)
+
+    return detalle.to_dict(orient="records")
+
+
+# =========================================================
+# COMPARACIÓN DE PERIODOS
+# =========================================================
+
+def comparar_periodos(
+    agente_id: str,
+    fecha_actual: str,
+    fecha_anterior: str
+):
+
+    actual = obtener_liquidacion(
+        agente_id,
+        fecha_actual
+    )
+
+    anterior = obtener_liquidacion(
+        agente_id,
+        fecha_anterior
+    )
+
+    if actual is None or anterior is None:
+        return None
+
+    monto_actual = actual["liquidacion_total"]
+    monto_anterior = anterior["liquidacion_total"]
+
+    variacion_absoluta = (
+        monto_actual - monto_anterior
+    )
+
+    if monto_anterior != 0:
+
+        variacion_porcentual = (
+            variacion_absoluta
+            / monto_anterior
+        ) * 100
+
+    else:
+        variacion_porcentual = 0
+
+    return {
+
+        "agente_id": agente_id,
+
+        "periodo_anterior": fecha_anterior,
+        "periodo_actual": fecha_actual,
+
+        "monto_anterior": round(
+            monto_anterior,
+            2
+        ),
+
+        "monto_actual": round(
+            monto_actual,
+            2
+        ),
+
+        "variacion_absoluta": round(
+            variacion_absoluta,
+            2
+        ),
+
+        "variacion_porcentual": round(
+            variacion_porcentual,
+            2
+        )
+    }
+
+
+# =========================================================
+# ANÁLISIS DE FACTORES
+# =========================================================
+
+def analizar_factores(
+    agente_id: str,
+    fecha_actual: str,
+    fecha_anterior: str
+):
+
+    df = cargar_datos()
+
+    fecha_actual = pd.to_datetime(fecha_actual)
+    fecha_anterior = pd.to_datetime(fecha_anterior)
+
+    actual = df[
+        (df["agente_id"] == agente_id)
+        & (df["fecha"] == fecha_actual)
+    ]
+
+    anterior = df[
+        (df["agente_id"] == agente_id)
+        & (df["fecha"] == fecha_anterior)
+    ]
+
+    if actual.empty or anterior.empty:
+        return []
+
+    actual = (
+        actual
+        .groupby("concepto", as_index=False)["monto"]
+        .sum()
+    )
+
+    anterior = (
+        anterior
+        .groupby("concepto", as_index=False)["monto"]
+        .sum()
+    )
+
+    comparacion = pd.merge(
+        anterior,
+        actual,
+        on="concepto",
+        how="outer",
+        suffixes=("_anterior", "_actual")
+    )
+
+    comparacion = comparacion.fillna(0)
+
+    comparacion["variacion"] = (
+        comparacion["monto_actual"]
+        - comparacion["monto_anterior"]
+    )
+
+    total_variacion = comparacion[
+        "variacion"
+    ].sum()
+
+    if total_variacion != 0:
+
+        comparacion["contribucion_pct"] = (
+            comparacion["variacion"]
+            / total_variacion
+        ) * 100
+
+    else:
+
+        comparacion["contribucion_pct"] = 0
+
+    comparacion = comparacion.sort_values(
+        "variacion",
+        key=abs,
+        ascending=False
+    )
+
+    comparacion["monto_anterior"] = (
+        comparacion["monto_anterior"].round(2)
+    )
+
+    comparacion["monto_actual"] = (
+        comparacion["monto_actual"].round(2)
+    )
+
+    comparacion["variacion"] = (
+        comparacion["variacion"].round(2)
+    )
+
+    comparacion["contribucion_pct"] = (
+        comparacion["contribucion_pct"].round(2)
+    )
+
+    return comparacion.to_dict(
+        orient="records"
+    )
+
+
+# =========================================================
+# SCORE DE RELEVANCIA
+# =========================================================
+
+def calcular_score_relevancia(
+    variacion_porcentual
+):
+
+    valor = abs(variacion_porcentual)
+
+    if valor >= 40:
+        nivel = "CRÍTICO"
+        score = 95
+
+    elif valor >= 25:
+        nivel = "ALTO"
+        score = 80
+
+    elif valor >= 15:
+        nivel = "MEDIO"
+        score = 60
+
+    elif valor >= 5:
+        nivel = "BAJO"
+        score = 35
+
+    else:
+        nivel = "NORMAL"
+        score = 10
+
+    return {
+        "score": score,
+        "nivel": nivel
+    }
+
+
+# =========================================================
+# ANÁLISIS COMPLETO
+# =========================================================
+
+def analizar_liquidacion(
+    agente_id: str,
+    fecha_actual: str,
+    fecha_anterior: str
+):
+
+    comparacion = comparar_periodos(
+        agente_id,
+        fecha_actual,
+        fecha_anterior
+    )
+
+    if comparacion is None:
+        return None
+
+    relevancia = calcular_score_relevancia(
+        comparacion["variacion_porcentual"]
+    )
+
+    factores = analizar_factores(
+        agente_id,
+        fecha_actual,
+        fecha_anterior
+    )
+
+    return {
+
+        "comparacion": comparacion,
+
+        "relevancia": relevancia,
+
+        "principales_factores": factores[:5]
+
+    }
+
+
+# =========================================================
+# PRUEBA
+# =========================================================
+
+if __name__ == "__main__":
+
+    print("\n======================================")
+    print(" COES LIQUIDACIONES 360")
+    print(" MOTOR DE ANÁLISIS")
+    print("======================================")
+
+    agente = "AGE001"
+
+    fecha_anterior = "2026-07-01"
+    fecha_actual = "2026-08-01"
+
+    resultado = analizar_liquidacion(
+        agente,
+        fecha_actual,
+        fecha_anterior
+    )
+
+    print("\nRESULTADO DEL ANÁLISIS\n")
+
+    print(resultado)
+===
+
+en el terminal ejecutamos: python app/analysis.py
+
+ahora vamos a crear la API del MVP
+
+
+si sale error en main.py
+Ctrl + Shift + P
+Python: Select Interpreter
+Enter interpreter path…
+D:\Jr\COES_2026\backend\venv\Scripts\python.exe
+
+dentro de app: crear --> __init__.py
+
+en Powershell --> cd D:\Jr\COES_2026
+creamos React + vite
+
+npm create vite@latest frontend -- --template react
+"Y"
+enter, enter
+
+
+en Powershell --> cd frontend
+
+instalamos las dependencias:
+npm install
+
+
+npm run dev
+VITE v...
+Local: http://localhost:5173/
+
+
+Instalamos Axios
+
+en cd: D:\Jr\COES_2026\frontend
+npm install axios
+
+el código de App.css, App.jsx y index.css deben quedar como el código final
+
+Terminal: Backend
+
+cd D:\Jr\COES_2026\backend
+.\venv\Scripts\Activate.ps1
+uvicorn app.main:app --reload
+
+Terminal: Frontend
+
+cd D:\Jr\COES_2026\frontend
+npm run dev
+
+http://localhost:5173/
+debe salir:
+COES Liquidaciones 360
+--->  No se pudo conectar con el backend de COES Liquidaciones 360.
+
+
+
+
+
+
+
+
+
+
+cd D:\Jr\COES_2026\frontend
+npm install recharts
+
+para correr en el backend
+.\venv\Scripts\Activate.ps1
+uvicorn app.main:app --reload
+
+
+para correr en el frontend
+npm run dev 
