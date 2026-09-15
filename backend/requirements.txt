@@ -20,9 +20,3 @@ typing-inspection==0.4.4
 typing_extensions==4.16.0
 tzdata==2026.3
 uvicorn==0.52.4
-# Temporal: las necesita app/ml_model.py, que la Task 2 elimina.
-# Al borrar ml_model.py, quitar estas cuatro lineas.
-joblib==1.6.0
-scikit-learn==1.9.0
-scipy==1.18.1
-threadpoolctl==3.6.0

@@ -4,16 +4,6 @@ from fastapi import FastAPI, HTTPException
 
 from app.analysis import calcular_score_relevancia
 
-from app.analysis import (
-    cargar_datos,
-    obtener_liquidacion,
-    obtener_detalle_conceptos,
-    comparar_mismo_periodo_anterior,
-    analizar_liquidacion
-)
-
-from app.ml_model import obtener_anomalia
-
 from app.data.loader import cargar_datos_coes
 from app.services.integrity_service import IntegrityService
 from app.services.agent_service import AgentService
@@ -86,164 +76,6 @@ def health():
     }
 
 
-# =========================================================
-# LISTAR AGENTES
-# =========================================================
-
-@app.get("/agentes")
-def listar_agentes():
-
-    df = cargar_datos()
-
-    agentes = (
-        df[
-            [
-                "agente_id",
-                "agente",
-                "tipo_agente"
-            ]
-        ]
-        .drop_duplicates()
-        .sort_values("agente")
-    )
-
-    return agentes.to_dict(
-        orient="records"
-    )
-
-
-# =========================================================
-# LISTAR CONCEPTOS
-# =========================================================
-
-@app.get("/conceptos")
-def listar_conceptos():
-
-    df = cargar_datos()
-
-    conceptos = (
-        df[
-            [
-                "concepto_id",
-                "concepto",
-                "categoria"
-            ]
-        ]
-        .drop_duplicates()
-        .sort_values("concepto")
-    )
-
-    return conceptos.to_dict(
-        orient="records"
-    )
-
-
-# =========================================================
-# OBTENER LIQUIDACIÓN
-# =========================================================
-
-@app.get(
-    "/liquidaciones/{agente_id}/{fecha}"
-)
-def liquidacion(
-    agente_id: str,
-    fecha: str
-):
-
-    resultado = obtener_liquidacion(
-        agente_id,
-        fecha
-    )
-
-    if resultado is None:
-
-        raise HTTPException(
-            status_code=404,
-            detail="No se encontró la liquidación."
-        )
-
-    return resultado
-
-
-# =========================================================
-# DETALLE DE CONCEPTOS
-# =========================================================
-
-@app.get(
-    "/liquidaciones/{agente_id}/{fecha}/detalle"
-)
-def detalle_liquidacion(
-    agente_id: str,
-    fecha: str
-):
-
-    resultado = obtener_detalle_conceptos(
-        agente_id,
-        fecha
-    )
-
-    if not resultado:
-
-        raise HTTPException(
-            status_code=404,
-            detail="No se encontró información."
-        )
-
-    return {
-        "agente_id": agente_id,
-        "fecha": fecha,
-        "conceptos": resultado
-    }
-
-
-# =========================================================
-# ANÁLISIS COMPLETO
-# =========================================================
-
-@app.get(
-    "/analisis/{agente_id}/{fecha}"
-)
-def analisis(
-    agente_id: str,
-    fecha: str
-):
-
-    # Para comparar automáticamente
-    # con el periodo anterior.
-
-    fecha_actual = fecha
-
-    fecha_anterior = (
-        pd_periodo_anterior(fecha)
-    )
-
-    resultado = analizar_liquidacion(
-        agente_id,
-        fecha_actual,
-        fecha_anterior
-    )
-
-    if resultado is None:
-
-        raise HTTPException(
-            status_code=404,
-            detail=(
-                "No existe información suficiente "
-                "para realizar el análisis."
-            )
-        )
-
-    resultado_ml = obtener_anomalia(
-        agente_id,
-        fecha
-    )
-
-    return {
-        **resultado,
-        "ml": resultado_ml
-    }
-
-
 @app.get("/periodos")
 def obtener_periodos():
 
@@ -263,18 +95,6 @@ def obtener_empresas():
 
     return {
         "empresas": empresas.to_dict(
-            orient="records"
-        )
-    }
-
-
-@app.get("/periodos")
-def obtener_periodos():
-
-    periodos = datos_coes["periodos"]
-
-    return {
-        "periodos": periodos.to_dict(
             orient="records"
         )
     }
@@ -691,26 +511,6 @@ def radar(fecha: int):
         "alertas":
             alertas_relevantes
     }
-
-
-@app.get("/comparacion-interanual/{agente_id}/{fecha}")
-def comparacion_interanual(
-    agente_id: str,
-    fecha: str
-):
-
-    resultado = comparar_mismo_periodo_anterior(
-        agente_id,
-        fecha
-    )
-
-    if resultado is None:
-        raise HTTPException(
-            status_code=404,
-            detail="No existe información para realizar la comparación interanual."
-        )
-
-    return resultado
 
 
 # =========================================================
