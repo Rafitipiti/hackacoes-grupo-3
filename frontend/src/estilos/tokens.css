@@ -15,6 +15,7 @@
   --shadow:0 1px 2px rgba(0,36,130,.06);
   --grad:linear-gradient(90deg,#002482 0%,#005BA7 17%,#209DD3 32%,#6E73BC 49%,#944785 64%,#CB252A 79%,#EE8729 91%,#F5C354 100%);
   --ok:#0C7C3E; --bad:#C0392B;
+  --sobre-accent:#ffffff;
 
   --radio:10px;
   --fuente:"Poppins", system-ui, -apple-system, sans-serif;
@@ -31,11 +32,13 @@
     --grid:#232C42; --axis:#35405A; --border:rgba(255,255,255,.13);
     --accent:#4193DA;
     --s1:#4193DA; --s2:#CC6330; --s3:#8F72D6; --s4:#B8871A;
+    --warn:#F5C354; --crit:#E8736A; --good:#3BC46F;
     --seq1:#002482; --seq2:#114F97; --seq3:#2E6DB8; --seq4:#5F94D0;
     --seq5:#93B8E2; --seq6:#BBD3EE; --seq7:#DCE8F7;
     --shadow:none;
     --grad:linear-gradient(90deg,#2E6DB8 0%,#4193DA 16%,#38B0E0 31%,#8F9BE0 48%,#C07BB4 64%,#E2564F 80%,#F08F3C 92%,#F5C354 100%);
     --ok:#3BC46F; --bad:#E8736A;
+    --sobre-accent:#0A0E19;
   }
 }
 
@@ -48,9 +51,23 @@
   --grid:#232C42; --axis:#35405A; --border:rgba(255,255,255,.13);
   --accent:#4193DA;
   --s1:#4193DA; --s2:#CC6330; --s3:#8F72D6; --s4:#B8871A;
+  --warn:#F5C354; --crit:#E8736A; --good:#3BC46F;
   --seq1:#002482; --seq2:#114F97; --seq3:#2E6DB8; --seq4:#5F94D0;
   --seq5:#93B8E2; --seq6:#BBD3EE; --seq7:#DCE8F7;
   --shadow:none;
   --grad:linear-gradient(90deg,#2E6DB8 0%,#4193DA 16%,#38B0E0 31%,#8F9BE0 48%,#C07BB4 64%,#E2564F 80%,#F08F3C 92%,#F5C354 100%);
   --ok:#3BC46F; --bad:#E8736A;
+  --sobre-accent:#0A0E19;
+}
+
+/* Alto contraste. Va al final y repite los selectores de cada modo para
+   empatar su especificidad: un :root suelto (0,1,0) pierde contra los
+   bloques de modo oscuro (0,2,0) y el refuerzo quedaria inerte. */
+@media (prefers-contrast: more) {
+  :root,
+  :root:not([data-tema="claro"]),
+  :root[data-tema="oscuro"] {
+    --border: var(--ink-2);
+    --grid: var(--ink-muted);
+  }
 }

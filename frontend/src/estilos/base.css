@@ -30,7 +30,7 @@ h3 { font-size: 14px; }
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--ink-2);
 }
 
 .tabla { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -39,7 +39,7 @@ h3 { font-size: 14px; }
   font-size: 11px;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--ink-2);
   font-weight: 600;
   padding: 8px 10px;
   border-bottom: 1px solid var(--border);
@@ -50,7 +50,7 @@ h3 { font-size: 14px; }
 
 .boton {
   background: var(--accent);
-  color: #fff;
+  color: var(--sobre-accent);
   border: 0;
   border-radius: 8px;
   padding: 9px 16px;
@@ -97,7 +97,7 @@ h3 { font-size: 14px; }
   top: 8px;
   z-index: 100;
   background: var(--accent);
-  color: #fff;
+  color: var(--sobre-accent);
   padding: 10px 16px;
   border-radius: 8px;
   font-weight: 600;
@@ -125,11 +125,6 @@ h3 { font-size: 14px; }
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* En modo de alto contraste, los bordes sutiles desaparecen; se refuerzan. */
-@media (prefers-contrast: more) {
-  :root { --border: var(--ink-2); --grid: var(--ink-muted); }
 }
 
 /* El area tactil minima recomendada es 44px. En escritorio se permite
