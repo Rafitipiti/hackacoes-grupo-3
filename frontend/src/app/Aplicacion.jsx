@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import { Layout } from "./Layout.jsx";
 import { ProveedorSeleccion, useSeleccion } from "./contexto.jsx";
 import { CicloRevisiones } from "../secciones/CicloRevisiones.jsx";
+import { ApisDescargas } from "../secciones/ApisDescargas.jsx";
 
 import "../estilos/tokens.css";
 import "../estilos/base.css";
 import "./layout.css";
 import "../componentes/componentes.css";
 import "../secciones/ciclo.css";
+import "../secciones/apis.css";
 
 const TEMAS = ["auto", "claro", "oscuro"];
 
@@ -42,7 +44,9 @@ function Contenido({ seccion }) {
     );
   }
 
-  return seccion === "revisiones" ? <CicloRevisiones /> : <Marcador seccion={seccion} />;
+  if (seccion === "revisiones") return <CicloRevisiones />;
+  if (seccion === "apis") return <ApisDescargas />;
+  return <Marcador seccion={seccion} />;
 }
 
 export function Aplicacion() {
