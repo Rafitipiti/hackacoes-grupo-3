@@ -28,7 +28,7 @@ export const SECCIONES = [
     id: "procesos",
     titulo: "Procesos",
     icono: "⚡",
-    descripcion: "Pagos y cobros por proceso: LVTA · LVTP · LSCIO · SST-SCT",
+    descripcion: "Pagos y cobros por proceso: LVTEA · LVTP · LSCIO · SST-SCT",
     disponible: true,
   },
   {

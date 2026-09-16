@@ -58,10 +58,10 @@ const CATALOGO = [
     ],
   },
   {
-    grupo: "Análisis por empresa - Energía Activa (LVTA)",
+    grupo: "Análisis por empresa - Energía Activa (LVTEA)",
     endpoints: [
       { ruta: "/agente/causas-lvta/{empresa_id}/{pericodi}", descripcion: "Descompone la variación de Energía Activa por valorización y concepto (factores asociados, no causalidad confirmada).", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/agente/trazabilidad-lvta/{empresa_id}/{pericodi}", descripcion: "Válida que el resultado de Energía Activa cuadre contra su soporte de transferencias por empresa (regla LVTA-001).", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/trazabilidad-lvta/{empresa_id}/{pericodi}", descripcion: "Válida que el resultado de Energía Activa cuadre contra su soporte de transferencias por empresa (regla LVTEA-001).", parametros: ["empresa_id", "pericodi"] },
     ],
   },
   {

@@ -19,6 +19,7 @@ import { Tarjeta } from "../componentes/Tarjeta.jsx";
 import { nombreEmpresa } from "../lib/empresa.js";
 import { aCSV, descargar } from "../lib/exportar.js";
 import { soles, solesCortos } from "../lib/formato.js";
+import { etiquetaProceso } from "../lib/procesos.js";
 
 const COLOR_COBROS = "var(--pos)";
 const COLOR_PAGOS = "var(--neg)";
@@ -71,7 +72,7 @@ function TooltipProceso({ active, payload }) {
 
   return (
     <div className="tooltip-grafico">
-      <p className="tooltip-titulo">{fila.proceso} · {NOMBRE[fila.proceso]}</p>
+      <p className="tooltip-titulo">{etiquetaProceso(fila.proceso)} · {NOMBRE[fila.proceso]}</p>
       <p>
         <span className="muestra" style={{ background: COLOR_COBROS }} aria-hidden="true" />
         Cobra: <strong className="cifra">{soles(fila.cobros)}</strong>
@@ -105,6 +106,7 @@ function DiagramaPagosCobros({ procesos }) {
           type="category"
           dataKey="proceso"
           width={80}
+          tickFormatter={etiquetaProceso}
           tick={{ fill: "var(--ink)", fontSize: 12, fontWeight: 600 }}
           axisLine={false}
           tickLine={false}
@@ -173,7 +175,7 @@ function FichaProcesos() {
         {PROCESOS.map((p) => (
           <article key={p.codigo} className="ficha-proceso">
             <h3>
-              <span className="distintivo distintivo-revision">{p.codigo}</span> {p.nombre}
+              <span className="distintivo distintivo-revision">{etiquetaProceso(p.codigo)}</span> {p.nombre}
             </h3>
             <p className="nota">{p.largo}</p>
             <p>{p.que}</p>
@@ -240,10 +242,10 @@ export function Procesos() {
     const filas = [];
     for (const p of datos?.procesos ?? []) {
       for (const c of p.contrapartes_pago) {
-        filas.push({ proceso: p.proceso, sentido: "paga", contraparte: c.razon_social ?? c.alias, ruc: c.ruc, valorizacion: c.valorizacion, monto: c.monto });
+        filas.push({ proceso: etiquetaProceso(p.proceso), sentido: "paga", contraparte: c.razon_social ?? c.alias, ruc: c.ruc, valorizacion: c.valorizacion, monto: c.monto });
       }
       for (const c of p.contrapartes_cobro) {
-        filas.push({ proceso: p.proceso, sentido: "cobra", contraparte: c.razon_social ?? c.alias, ruc: c.ruc, valorizacion: c.valorizacion, monto: c.monto });
+        filas.push({ proceso: etiquetaProceso(p.proceso), sentido: "cobra", contraparte: c.razon_social ?? c.alias, ruc: c.ruc, valorizacion: c.valorizacion, monto: c.monto });
       }
     }
     descargar(`pagos_cobros_${empresa}_${periodo}.csv`, aCSV(filas), "text/csv");
@@ -332,7 +334,7 @@ export function Procesos() {
                   <tbody>
                     {datos.procesos.map((p) => (
                       <tr key={p.proceso}>
-                        <td><strong>{p.proceso}</strong> <span className="nombre-proceso">{NOMBRE[p.proceso]}</span></td>
+                        <td><strong>{etiquetaProceso(p.proceso)}</strong> <span className="nombre-proceso">{NOMBRE[p.proceso]}</span></td>
                         <td className="num">{soles(p.cobros)}</td>
                         <td className="num">{soles(p.pagos)}</td>
                         <td className="num">{soles(p.neto)}</td>
@@ -367,7 +369,7 @@ export function Procesos() {
         </Tarjeta>
 
         {datos?.procesos?.map((p) => (
-          <Tarjeta key={p.proceso} etiqueta={p.proceso} titulo={`${NOMBRE[p.proceso]} · a quién paga y de quién cobra`}>
+          <Tarjeta key={p.proceso} etiqueta={etiquetaProceso(p.proceso)} titulo={`${NOMBRE[p.proceso]} · a quién paga y de quién cobra`}>
             <div className="rejilla rejilla-2">
               <div>
                 <h3 style={{ color: "var(--pos-texto)" }}>Cobra {soles(p.cobros)}</h3>

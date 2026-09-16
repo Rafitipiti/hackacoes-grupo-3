@@ -22,15 +22,9 @@ import { Variacion } from "../componentes/Variacion.jsx";
 import { nombreEmpresa } from "../lib/empresa.js";
 import { aCSV, descargar } from "../lib/exportar.js";
 import { soles, solesCortos } from "../lib/formato.js";
+import { COLOR_PROCESO, NOMBRE_PROCESO, ORDEN_PROCESOS, etiquetaProceso } from "../lib/procesos.js";
 
-const NOMBRE_PROCESO = {
-  "LVTA": "Energía Activa",
-  "LVTP": "Potencia",
-  "LSCIO": "Servicios Complementarios",
-  "SST-SCT": "Sistemas Secundarios de Transmisión",
-};
 
-const ORDEN_PROCESOS = ["LVTA", "LVTP", "LSCIO", "SST-SCT"];
 
 // Los colores se pasan como var(--token): el SVG los resuelve contra el
 // tema activo, asi que el grafico cambia de modo con el resto de la pagina
@@ -43,6 +37,18 @@ const COLOR_RECALCULOS = "var(--serie-2)";
 const COLOR_ANTERIOR = "var(--ink-muted)";
 const COLOR_POS = "var(--pos)";
 const COLOR_NEG = "var(--neg)";
+
+// Series que se pueden apilar en el primer grafico: el total y cada
+// proceso. La clave "total" es propia; las demas son las del dato.
+const SERIES = [
+  { clave: "total", etiqueta: "Liquidación total", color: COLOR_TOTAL, dataKey: "liquidacion_total" },
+  ...ORDEN_PROCESOS.map((p) => ({
+    clave: p,
+    etiqueta: `${etiquetaProceso(p)} · ${NOMBRE_PROCESO[p]}`,
+    color: COLOR_PROCESO[p],
+    dataKey: p,
+  })),
+];
 
 // "2025.Enero" -> "Ene 25". En un eje con 20 marcas el nombre completo
 // se pisa; la version completa va en el tooltip y en la tabla.
@@ -70,7 +76,7 @@ function TickPeriodo({ x, y, payload, seleccionado }) {
   );
 }
 
-function TooltipSerie({ active, payload, label }) {
+function TooltipSerie({ active, payload, label, activas }) {
   if (!active || !payload?.length) return null;
 
   const punto = payload[0].payload;
@@ -78,10 +84,12 @@ function TooltipSerie({ active, payload, label }) {
   return (
     <div className="tooltip-grafico">
       <p className="tooltip-titulo">{label}</p>
-      <p>
-        <span className="muestra" style={{ background: COLOR_TOTAL }} aria-hidden="true" />
-        Liquidación total: <strong className="cifra">{soles(punto.liquidacion_total)}</strong>
-      </p>
+      {SERIES.filter((serie) => activas.includes(serie.clave)).map((serie) => (
+        <p key={serie.clave}>
+          <span className="muestra" style={{ background: serie.color }} aria-hidden="true" />
+          {serie.etiqueta}: <strong className="cifra">{soles(punto[serie.dataKey])}</strong>
+        </p>
+      ))}
       <p>
         <span className="muestra" style={{ background: COLOR_RECALCULOS }} aria-hidden="true" />
         Efecto neto de recálculos: <strong className="cifra">{soles(punto.efecto_neto_recalculos)}</strong>
@@ -94,10 +102,54 @@ function TooltipSerie({ active, payload, label }) {
 }
 
 function SerieTemporal({ periodos, seleccionado }) {
+  // Que se compara en el eje izquierdo. Arranca en el total; cada chip
+  // anade o quita un proceso, y siempre queda al menos una serie.
+  const [activas, setActivas] = useState(["total"]);
+
+  function alternar(clave) {
+    setActivas((actual) => {
+      if (actual.includes(clave)) {
+        return actual.length === 1 ? actual : actual.filter((c) => c !== clave);
+      }
+      return [...actual, clave];
+    });
+  }
+
+  // Cada periodo trae los procesos anidados; aqui se aplanan para que
+  // Recharts los lea como columnas.
+  const datos = useMemo(
+    () =>
+      periodos.map((p) => ({
+        ...p,
+        ...Object.fromEntries(ORDEN_PROCESOS.map((pr) => [pr, p.procesos?.[pr] ?? 0])),
+      })),
+    [periodos],
+  );
+
   return (
     <div className="grafico-serie">
+      <div className="selector-series" role="group" aria-label="Series a comparar en el eje izquierdo">
+        <span className="etiqueta">Comparar</span>
+        {SERIES.map((serie) => {
+          const activa = activas.includes(serie.clave);
+          return (
+            <button
+              key={serie.clave}
+              type="button"
+              className={`chip${activa ? " activo" : ""}`}
+              aria-pressed={activa}
+              onClick={() => alternar(serie.clave)}
+              title={serie.etiqueta}
+            >
+              <span className="muestra" style={{ background: activa ? serie.color : "transparent", border: `1px solid ${serie.color}` }} aria-hidden="true" />
+              {serie.clave === "total" ? "Total" : etiquetaProceso(serie.clave)}
+            </button>
+          );
+        })}
+      </div>
+
       <ResponsiveContainer width="100%" height={300}>
-        <ComposedChart data={periodos} margin={{ top: 10, right: 12, bottom: 10, left: 4 }}>
+        <ComposedChart data={datos} margin={{ top: 10, right: 12, bottom: 10, left: 4 }}>
           <CartesianGrid stroke="var(--grid)" vertical={false} />
 
           {/* El mes seleccionado se destaca con una linea vertical, no con
@@ -147,7 +199,7 @@ function SerieTemporal({ periodos, seleccionado }) {
           />
 
           <Tooltip
-            content={<TooltipSerie />}
+            content={<TooltipSerie activas={activas} />}
             cursor={{ stroke: "var(--axis)" }}
           />
           <Legend
@@ -159,17 +211,20 @@ function SerieTemporal({ periodos, seleccionado }) {
 
           <ReferenceLine yAxisId="recalculos" y={0} stroke="var(--axis)" strokeDasharray="3 3" />
 
-          <Line
-            yAxisId="total"
-            type="monotone"
-            dataKey="liquidacion_total"
-            name="Liquidación total"
-            stroke={COLOR_TOTAL}
-            strokeWidth={2.2}
-            dot={{ r: 3, fill: COLOR_TOTAL, strokeWidth: 0 }}
-            activeDot={{ r: 5 }}
-            isAnimationActive={false}
-          />
+          {SERIES.filter((serie) => activas.includes(serie.clave)).map((serie) => (
+            <Line
+              key={serie.clave}
+              yAxisId="total"
+              type="monotone"
+              dataKey={serie.dataKey}
+              name={serie.etiqueta}
+              stroke={serie.color}
+              strokeWidth={serie.clave === "total" ? 2.2 : 1.8}
+              dot={{ r: 3, fill: serie.color, strokeWidth: 0 }}
+              activeDot={{ r: 5 }}
+              isAnimationActive={false}
+            />
+          ))}
           <Line
             yAxisId="recalculos"
             type="monotone"
@@ -186,7 +241,8 @@ function SerieTemporal({ periodos, seleccionado }) {
       </ResponsiveContainer>
 
       <p className="nota">
-        Eje izquierdo: liquidación total del mes. Eje derecho: efecto neto de
+        Eje izquierdo: la serie o series elegidas arriba (total o por proceso).
+        Eje derecho: efecto neto de
         los recálculos publicados después, calculado como suma de los ajustes
         entre revisiones consecutivas (no de los montos restatados, que
         contarían el mes varias veces).
@@ -258,7 +314,7 @@ function MiniProceso({ fila, anterior, actual }) {
   return (
     <div className="mini-proceso">
       <h3>
-        {fila.proceso}
+        {etiquetaProceso(fila.proceso)}
         <span className="nombre-proceso"> {NOMBRE_PROCESO[fila.proceso] ?? ""}</span>
       </h3>
       {sinMovimiento ? (
@@ -361,7 +417,7 @@ function ComparacionProcesos({ actual, anterior }) {
             {filas.map((f) => (
               <tr key={f.proceso}>
                 <td>
-                  <strong>{f.proceso}</strong>
+                  <strong>{etiquetaProceso(f.proceso)}</strong>
                   <span className="nombre-proceso"> {NOMBRE_PROCESO[f.proceso] ?? ""}</span>
                 </td>
                 <td className="num">{soles(f.anterior)}</td>
@@ -453,7 +509,7 @@ export function EvolucionEmpresa() {
       efecto_neto_recalculos: p.efecto_neto_recalculos,
       revisiones: p.revisiones,
       ...Object.fromEntries(
-        ORDEN_PROCESOS.map((pr) => [pr, p.procesos?.[pr] ?? 0]),
+        ORDEN_PROCESOS.map((pr) => [etiquetaProceso(pr), p.procesos?.[pr] ?? 0]),
       ),
     }));
 

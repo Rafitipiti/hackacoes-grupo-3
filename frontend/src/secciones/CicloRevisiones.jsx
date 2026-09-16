@@ -6,12 +6,7 @@ import { porcentaje, soles } from "../lib/formato.js";
 import { obtenerCalendario, obtenerCascada, obtenerImpacto } from "../api/revisiones.js";
 import { useSeleccion } from "../app/contexto.jsx";
 
-const NOMBRE_PROCESO = {
-  "LVTA": "Energía Activa",
-  "LVTP": "Potencia",
-  "LSCIO": "Servicios Complementarios",
-  "SST-SCT": "Sistemas Secundarios de Transmisión",
-};
+import { NOMBRE_PROCESO, etiquetaProceso } from "../lib/procesos.js";
 
 function Impacto({ datos }) {
   const neto = datos.corriente + datos.arrastre;
@@ -97,7 +92,7 @@ function Calendario({ entradas }) {
       <div className="rejilla rejilla-2">
         {Object.entries(porProceso).map(([proceso, filas]) => (
           <div key={proceso}>
-            <h3>{proceso} · {NOMBRE_PROCESO[proceso] ?? ""}</h3>
+            <h3>{etiquetaProceso(proceso)} · {NOMBRE_PROCESO[proceso] ?? ""}</h3>
             <div className="tabla-scroll">
               <table className="tabla">
                 <thead>
@@ -137,7 +132,7 @@ function Cascada({ procesos }) {
 
       {Object.entries(procesos).map(([proceso, pasos]) => (
         <div key={proceso} className="cadena">
-          <h3>{proceso} · {NOMBRE_PROCESO[proceso] ?? ""}</h3>
+          <h3>{etiquetaProceso(proceso)} · {NOMBRE_PROCESO[proceso] ?? ""}</h3>
           <div className="tabla-scroll">
             <table className="tabla">
               <thead>

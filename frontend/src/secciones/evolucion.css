@@ -111,3 +111,9 @@
 }
 .mini-proceso h3 { font-size: 13px; margin-bottom: 2px; }
 .mini-proceso .delta-mini { margin: 4px 0 0; font-size: 12px; color: var(--ink-2); text-align: right; }
+
+/* Selector de series del primer grafico: chips con la muestra de color de
+   cada serie; la activa se rellena, la inactiva solo lleva el borde. */
+.selector-series { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 8px; }
+.selector-series .etiqueta { margin-right: 4px; }
+.selector-series .muestra { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }

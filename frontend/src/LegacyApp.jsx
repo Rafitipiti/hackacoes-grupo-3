@@ -265,6 +265,11 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
         }
     }
 
+    // La clave interna es "LVTA"; en pantalla el proceso se llama LVTEA.
+    function mostrarProceso(codigo) {
+        return codigo === "LVTA" ? "LVTEA" : codigo;
+    }
+
     // El RUC bajo el nombre, en lugar del codigo tecnico: es lo que el
     // usuario reconoce (spec D5). Vacio si la empresa no tiene identidad.
     function rucDeEmpresa(empresaId) {
@@ -1513,7 +1518,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                     if (principal?.proceso) {
 
                         mensaje +=
-                            `Como primera revisión, conviene revisar ${principal.proceso}`;
+                            `Como primera revisión, conviene revisar ${mostrarProceso(principal.proceso)}`;
 
                         if (principal.valorizacion) {
                             mensaje +=
@@ -3012,13 +3017,13 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                     .map((proceso) => (
 
                                                         <tr
-                                                            key={proceso.proceso}
+                                                            key={mostrarProceso(proceso.proceso)}
                                                         >
 
                                                             <td>
 
                                                                 <strong>
-                                                                    {proceso.proceso}
+                                                                    {mostrarProceso(proceso.proceso)}
                                                                 </strong>
 
                                                             </td>
@@ -3144,12 +3149,12 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                 return (
                                                     <div
                                                         className="comparison-chart-row"
-                                                        key={`chart-${proceso.proceso}`}
+                                                        key={`chart-${mostrarProceso(proceso.proceso)}`}
                                                     >
 
                                                         <div className="comparison-chart-process">
                                                             <strong>
-                                                                {proceso.proceso}
+                                                                {mostrarProceso(proceso.proceso)}
                                                             </strong>
                                                         </div>
 
@@ -3264,7 +3269,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                                                     <div
                                                         className="factor"
-                                                        key={`${movimiento.proceso}-${movimiento.concepto}-${index}`}
+                                                        key={`${mostrarProceso(movimiento.proceso)}-${movimiento.concepto}-${index}`}
                                                     >
 
                                                         <div>
@@ -3272,7 +3277,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                             <div className="factor-title">
 
                                                                 <strong>
-                                                                    {movimiento.proceso}
+                                                                    {mostrarProceso(movimiento.proceso)}
                                                                 </strong>
 
                                                             </div>
@@ -4173,12 +4178,12 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                                                 <div
                                                     className="agent-process-row"
-                                                    key={proceso.proceso}
+                                                    key={mostrarProceso(proceso.proceso)}
                                                 >
 
                                                     <div>
                                                         <strong>
-                                                            {proceso.proceso}
+                                                            {mostrarProceso(proceso.proceso)}
                                                         </strong>
 
                                                         <span>
@@ -4249,12 +4254,12 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                 return (
                                                     <div
                                                         className="agent-variation-row"
-                                                        key={proceso.proceso}
+                                                        key={mostrarProceso(proceso.proceso)}
                                                     >
 
                                                         <div>
                                                             <strong>
-                                                                {proceso.proceso}
+                                                                {mostrarProceso(proceso.proceso)}
                                                             </strong>
 
                                                             <span>
@@ -4342,7 +4347,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                             <span>Principal incremento</span>
 
                                             <strong>
-                                                {resumenAgente.impulsores?.principal_incremento?.proceso}
+                                                {mostrarProceso(resumenAgente.impulsores?.principal_incremento?.proceso)}
                                             </strong>
 
                                             <p>
@@ -4370,7 +4375,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                             <span>Principal reducción</span>
 
                                             <strong>
-                                                {resumenAgente.impulsores?.principal_reduccion?.proceso}
+                                                {mostrarProceso(resumenAgente.impulsores?.principal_reduccion?.proceso)}
                                             </strong>
 
                                             <p>
@@ -4575,13 +4580,13 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                                                 <div
                                                     className="process-change-row"
-                                                    key={proceso.proceso}
+                                                    key={mostrarProceso(proceso.proceso)}
                                                 >
 
                                                     <div className="process-change-name">
 
                                                         <strong>
-                                                            {proceso.proceso}
+                                                            {mostrarProceso(proceso.proceso)}
                                                         </strong>
 
                                                         <span>
@@ -4832,11 +4837,11 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                 ? "waterfall-item positive-item"
                                                                 : "waterfall-item negative-item"
                                                         }
-                                                        key={`wf-${proceso.proceso}`}
+                                                        key={`wf-${mostrarProceso(proceso.proceso)}`}
                                                     >
 
                                                         <span>
-                                                            {proceso.proceso}
+                                                            {mostrarProceso(proceso.proceso)}
                                                         </span>
 
                                                         <strong>
@@ -5020,11 +5025,11 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                                                     return (
 
-                                                        <tr key={proceso.proceso}>
+                                                        <tr key={mostrarProceso(proceso.proceso)}>
 
                                                             <td>
                                                                 <strong>
-                                                                    {proceso.proceso}
+                                                                    {mostrarProceso(proceso.proceso)}
                                                                 </strong>
                                                             </td>
 
@@ -5367,7 +5372,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                 <div>
 
                                                     <span className="section-label">
-                                                        LVTA · TRAZABILIDAD
+                                                        LVTEA · TRAZABILIDAD
                                                     </span>
 
                                                     <h3
@@ -5642,7 +5647,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                                                             Para{" "}
                                                             {resumenAgente?.periodo?.perinombre},
-                                                            el resultado LVTA coincide con el soporte de
+                                                            el resultado LVTEA coincide con el soporte de
                                                             Energía Activa. Diferencia de{" "}
 
                                                             <strong>
@@ -5694,7 +5699,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                                                             Para{" "}
                                                             {resumenAgente?.periodo?.perinombre},
-                                                            el resultado LVTA presenta una
+                                                            el resultado LVTEA presenta una
                                                             diferencia de{" "}
 
                                                             <strong>
@@ -6675,11 +6680,11 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                         {resumenAgente?.resultado?.procesos?.map(
                                                             (proceso, index) => (
                                                                 <div
-                                                                    key={`${proceso.proceso}-${index}`}
+                                                                    key={`${mostrarProceso(proceso.proceso)}-${index}`}
                                                                 >
 
                                                                     <span>
-                                                                        {proceso.proceso}
+                                                                        {mostrarProceso(proceso.proceso)}
                                                                     </span>
 
                                                                     <strong>
@@ -6767,7 +6772,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                             >
 
                                                                 <strong>
-                                                                    {motivo.proceso}
+                                                                    {mostrarProceso(motivo.proceso)}
                                                                     {" · "}
                                                                     {motivo.titulo}
                                                                 </strong>
@@ -7187,10 +7192,10 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                     (proceso, index) => (
                                                         <div
                                                             className="traceability-process"
-                                                            key={`${proceso.proceso}-${index}`}
+                                                            key={`${mostrarProceso(proceso.proceso)}-${index}`}
                                                         >
                                                             <span>
-                                                                {proceso.proceso}
+                                                                {mostrarProceso(proceso.proceso)}
                                                             </span>
 
                                                             <strong>
@@ -7515,7 +7520,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                                                                     <div>
                                                                         <span className="process-code">
-                                                                            {motivo.proceso}
+                                                                            {mostrarProceso(motivo.proceso)}
                                                                         </span>
 
                                                                         <h4>
