@@ -37,13 +37,31 @@ const CATALOGO = [
       { ruta: "/agente/integridad/{empresa_id}/{pericodi}", descripcion: "Reglas de validacion ejecutadas y su resultado.", parametros: ["empresa_id", "pericodi"] },
       { ruta: "/agente/contexto/{empresa_id}/{pericodi}", descripcion: "Energia, mercado y operacion del periodo, para contexto.", parametros: ["empresa_id", "pericodi"] },
       { ruta: "/agente/cierre/{empresa_id}/{pericodi}", descripcion: "Si la liquidacion esta lista para cerrar.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/explicacion/{empresa_id}/{pericodi}", descripcion: "Explicacion consolidada de la liquidacion: resumen, variacion, impulsores y detalle por proceso en un solo texto.", parametros: ["empresa_id", "pericodi"] },
+    ],
+  },
+  {
+    grupo: "Analisis por empresa - Energia Activa (LVTA)",
+    endpoints: [
+      { ruta: "/agente/causas-lvta/{empresa_id}/{pericodi}", descripcion: "Descompone la variacion de Energia Activa por valorizacion y concepto (factores asociados, no causalidad confirmada).", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/trazabilidad-lvta/{empresa_id}/{pericodi}", descripcion: "Valida que el resultado de Energia Activa cuadre contra su soporte de transferencias por empresa (regla LVTA-001).", parametros: ["empresa_id", "pericodi"] },
+    ],
+  },
+  {
+    grupo: "Analisis por empresa - Servicios Complementarios (LSCIO)",
+    endpoints: [
+      { ruta: "/agente/causas-concepto/{empresa_id}/{pericodi}", descripcion: "Explica la variacion de LSCIO bajando del mecanismo al concepto especifico que la origina.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/explicacion-lscio/{empresa_id}/{pericodi}", descripcion: "Explicacion consolidada de la variacion de LSCIO: del mecanismo al concepto y su evidencia.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/integridad-lscio/{empresa_id}/{pericodi}", descripcion: "Valida que la suma del desglose por mecanismo cuadre con el total de transferencias LSCIO (regla LSCIO-001).", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/integridad-lscio-conceptos/{empresa_id}/{pericodi}", descripcion: "Valida que cada mecanismo LSCIO se pueda reconstruir sumando sus conceptos.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/evidencia-lscio/{empresa_id}/{pericodi}", descripcion: "Registros originales que sustentan un concepto LSCIO puntual y si su suma cuadra con el importe reportado. Ademas de empresa y periodo, esta ruta pide mecanismo y concepto exactos (no se completan solos: se obtienen del desglose que devuelve integridad-lscio-conceptos).", parametros: ["empresa_id", "pericodi"] },
     ],
   },
   {
     grupo: "Servicio",
     endpoints: [
+      { ruta: "/", descripcion: "Identifica el servicio y su version, y apunta a la documentacion interactiva.", parametros: [] },
       { ruta: "/health", descripcion: "Estado del servicio.", parametros: [] },
-      { ruta: "/docs", descripcion: "Documentacion interactiva generada por FastAPI.", parametros: [] },
     ],
   },
 ];
@@ -76,7 +94,7 @@ function FichaEndpoint({ endpoint, contexto }) {
   }
 
   function bajarJSON() {
-    const nombre = rutaResuelta.replace(/^\//, "").replace(/\//g, "_");
+    const nombre = rutaResuelta.replace(/^\//, "").replace(/\//g, "_") || "raiz";
     descargar(`${nombre}.json`, JSON.stringify(respuesta, null, 2), "application/json");
   }
 
@@ -94,7 +112,7 @@ function FichaEndpoint({ endpoint, contexto }) {
       return;
     }
 
-    const nombre = rutaResuelta.replace(/^\//, "").replace(/\//g, "_");
+    const nombre = rutaResuelta.replace(/^\//, "").replace(/\//g, "_") || "raiz";
     descargar(`${nombre}.csv`, aCSV(filas), "text/csv");
   }
 
