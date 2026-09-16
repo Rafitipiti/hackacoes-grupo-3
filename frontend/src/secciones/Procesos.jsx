@@ -112,10 +112,10 @@ function DiagramaPagosCobros({ procesos }) {
         <Tooltip content={<TooltipProceso />} cursor={{ fill: "var(--surface-2)" }} />
         <Legend verticalAlign="top" align="right" iconType="square" wrapperStyle={{ fontSize: 12, paddingBottom: 6 }} />
         <ReferenceLine x={0} stroke="var(--ink-2)" />
-        <Bar dataKey="pagosNeg" name="Paga" stackId="a" isAnimationActive={false} radius={[3, 0, 0, 3]}>
+        <Bar dataKey="pagosNeg" name="Paga" fill={COLOR_PAGOS} stackId="a" isAnimationActive={false} radius={[3, 0, 0, 3]}>
           {datos.map((d) => <Cell key={d.proceso} fill={COLOR_PAGOS} />)}
         </Bar>
-        <Bar dataKey="cobros" name="Cobra" stackId="a" isAnimationActive={false} radius={[0, 3, 3, 0]}>
+        <Bar dataKey="cobros" name="Cobra" fill={COLOR_COBROS} stackId="a" isAnimationActive={false} radius={[0, 3, 3, 0]}>
           {datos.map((d) => <Cell key={d.proceso} fill={COLOR_COBROS} />)}
         </Bar>
       </BarChart>
@@ -209,7 +209,7 @@ export function Procesos() {
           datos: null,
           error:
             e.response?.status === 404
-              ? "Esta empresa no aparece en ninguna transferencia bilateral del cruce."
+              ? "No hay detalle de pagos y cobros registrado para esta empresa."
               : "No se pudo contactar con el servicio de liquidaciones.",
         });
       }
@@ -272,9 +272,9 @@ export function Procesos() {
         <Tarjeta etiqueta="Pagos y cobros" titulo={titulo}>
           <p className="nota">{error}</p>
           <p className="nota">
-            El cruce bilateral del welcome kit cubre 13 de los 20 periodos y no
-            todas las empresas. Prueba con otra empresa o mira la evolución de
-            esta en "Evolución histórica".
+            El detalle de pagos y cobros está disponible para una parte de las
+            empresas y periodos. Elige otra empresa o revisa su evolución
+            histórica.
           </p>
         </Tarjeta>
         <FichaProcesos />
@@ -343,14 +343,14 @@ export function Procesos() {
                 </table>
               </div>
               <p className="nota">
-                Fuente: cruce bilateral deudora → acreedora. Un monto de la deudora
-                a la acreedora es un pago de la primera y un cobro de la segunda.
+                Transferencias entre empresas, de la deudora a la acreedora: cada
+                monto es un pago de la primera y un cobro de la segunda.
               </p>
             </>
           ) : (
             <>
               <p className="nota">
-                El cruce bilateral no trae detalle de {titulo} en {periodoActual?.perinombre}.
+                No hay detalle de pagos y cobros de {titulo} en {periodoActual?.perinombre}.
                 {disponibles.length > 0 && " Sí lo hay en estos meses:"}
               </p>
               {disponibles.length > 0 && (

@@ -54,14 +54,23 @@ COES_2026/
 │   │   ├── main.py            ensamblador de la app (CORS, routers)
 │   │   ├── analysis.py        análisis de liquidaciones
 │   │   ├── data/loader.py     carga perezosa de la capa curada
-│   │   ├── routers/           endpoints por dominio (catálogos, panorama, empresa, revisiones)
-│   │   └── services/          trazabilidad, integridad, agente
+│   │   ├── routers/           endpoints por dominio (catálogos, panorama, empresa, revisiones, red, contactos)
+│   │   └── services/          trazabilidad, integridad, agente, revisiones, pagos, red, contactos
 │   ├── scripts/
-│   │   └── preparar_datos.py  ETL: welcome kit -> data/curated/
+│   │   ├── preparar_datos.py        ETL: welcome kit -> data/curated/
+│   │   ├── identidad_empresa.py     adjudica RUC y razón social a los códigos con liquidación
+│   │   ├── extraer_padron.py        saca el padrón real del libro de liquidaciones (una vez)
+│   │   └── estimar_coordenadas.py   estima lat/lon de cada barra por su nombre -> ../data/
 │   ├── data/
 │   │   ├── raw/                copia de trabajo del welcome kit (no versionada)
-│   │   └── curated/             parquet consumidos por la API (sí versionada)
+│   │   ├── curated/             parquet consumidos por la API (sí versionada)
+│   │   └── padron_empresas.csv  87 empresas reales del COES (RUC, razón social)
 │   └── tests/                pruebas de ETL, servicios y endpoints
+├── data/                  insumos y salidas que viven fuera del backend
+│   ├── coordenadas_barras.csv        ubicación estimada de las 828 barras (mapa)
+│   ├── contactos.xlsx                fichas de contacto; lo crea el portal al guardar la primera
+│   ├── simulado_liquidaciones_*.xlsx libro del que sale el padrón real
+│   └── spotPriceBarraRevisado/       costo marginal a 15 minutos por barra (reserva para intradía)
 ├── frontend/         aplicación React + Vite
 │   └── src/
 │       ├── app/          cáscara: navegación, selección global, tema
@@ -77,6 +86,8 @@ COES_2026/
 ├── presentacion/            PPT de la exposición
 └── COES.txt                 notas de instalación del entorno
 ```
+
+Secciones del portal, en el orden del menú: Panorama, Mi empresa, Evolución histórica, Procesos (pagos y cobros), Comparador de empresas, Ciclo y revisiones, Red y precios (mapa de barras y costo marginal), Contactos, APIs y descargas y Calidad y trazabilidad. El selector de publicación y empresa vive en la cabecera, arriba a la derecha, y gobierna todas ellas. El diseño y sus decisiones están en `docs/superpowers/specs/`.
 
 `frontend/src/LegacyApp.jsx` tiene cerca de 7.900 líneas en una sola función. No es un descuido: ahí vive el análisis causal (flujo A1→A7) que ya funciona, y reescribirlo no era parte del alcance de la reconstrucción del frontend. Se conserva tal cual y se monta dentro de las secciones `Panorama` y `Mi empresa` (`secciones/Panorama.jsx`, `secciones/MiEmpresa.jsx`), que le pasan el periodo y la empresa seleccionados por props.
 
@@ -158,7 +169,9 @@ La fuente de datos ya no es un generador sintético ni un CSV: es el **welcome k
 
 El welcome kit trae datos reales hasta cierto corte y, a partir de ahí, un **backcast 2025**: periodos generados sintéticamente para completar el histórico. Cada periodo indica su procedencia en el campo `origen`, con valor `real` o `sintetico` — así queda explícito qué cifras corresponden a liquidaciones reales del mercado y cuáles son una proyección hacia atrás.
 
-Las empresas se identifican internamente por su clave técnica (`EMPRESA_00X`), la única que participa en cálculos y relaciones. De cara al usuario se muestran con un **alias ficticio** (por ejemplo, `Generadora Andina`) generado de forma determinística a partir de esa clave: no es una re-identificación de la empresa real, solo una etiqueta legible para la demo.
+Las empresas se identifican internamente por su clave técnica (`EMPRESA_00X`), la única que participa en cálculos y relaciones. De cara al usuario, los 74 códigos con liquidación se muestran con **razón social y RUC reales** tomados del padrón del COES (`backend/data/padron_empresas.csv`) mediante una adjudicación determinista (`scripts/identidad_empresa.py`): no hay clave común entre el kit y el padrón, así que es una asignación para la presentación, no una recuperación de identidad, y las cifras bajo cada nombre son simuladas. Los 57 códigos sin liquidación conservan un alias ficticio y no aparecen en el selector. La sección "Calidad y trazabilidad" del portal lo documenta; las demás pantallas no etiquetan la procedencia (decisión D13 del spec).
+
+Las coordenadas de las barras del mapa (`data/coordenadas_barras.csv`) son estimadas por nombre contra una tabla de localidades; las no reconocidas se dibujan en posición nominal y se marcan como tal. Las fichas de contacto se guardan en `data/contactos.xlsx` (una fila por empresa) como persistencia provisional antes de Supabase.
 
 ## Equipo
 

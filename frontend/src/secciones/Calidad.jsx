@@ -23,17 +23,17 @@ const LIMITES = [
   {
     titulo: "La cadena de cálculo no es reproducible desde estos datos",
     detalle:
-      "Se verifico sobre los datos originales: los retiros cubren 12 de 71 empresas, el costo marginal cubre 248 de 828 barras, y la Energía Activa viene como una sola fila sin desglosar. Los datasets son resultados de consultas a producción, no insumos de un modelo recalculable. Las validaciones comprueban consistencia interna, no reconstruyen la fórmula regulatoria.",
+      "Se verifico sobre los datos originales: los retiros cubren 12 de 71 empresas, el costo marginal cubre 248 de 828 barras, y la Energía Activa viene como una sola fila sin desglosar. Los datos son resultados de consultas a producción, no insumos de un modelo recalculable. Las validaciones comprueban consistencia interna, no reconstruyen la fórmula regulatoria.",
   },
   {
     titulo: "Los meses de 2025 son proyectados",
     detalle:
-      "El welcome kit trae liquidaciones publicadas hasta cierto corte y, hacia atrás, periodos proyectados a partir del comportamiento de los meses publicados, para dar profundidad interanual. El COES autorizó usar esa proyección en esta presentación, por lo que las pantallas no la etiquetan: sirve para mostrar tendencias y estacionalidad, no para contrastar cifras publicadas. El campo `origen` de cada periodo en la API (`real` o `sintetico`) conserva la distinción para quien la necesite.",
+      "La fuente de datos trae liquidaciones publicadas hasta cierto corte y, hacia atrás, periodos proyectados a partir del comportamiento de los meses publicados, para dar profundidad interanual. El COES autorizó usar esa proyección en esta presentación, por lo que las pantallas no la etiquetan: sirve para mostrar tendencias y estacionalidad, no para contrastar cifras publicadas. El campo `origen` de cada periodo en la API (`real` o `sintetico`) conserva la distinción para quien la necesite.",
   },
   {
     titulo: "Los nombres de empresa son reales; sus cifras no",
     detalle:
-      "El welcome kit llega anonimizado: cada empresa es un codigo tecnico (EMPRESA_001) sin RUC ni razon social, y no existe ninguna clave que lo cruce con una empresa real. Para la presentacion, a los 74 codigos con liquidacion se les ADJUDICO una identidad tomada del padron real del COES: los codigos ordenados por clave, las empresas reales ordenadas por RUC, emparejados por posicion. Es una asignacion determinista, no una recuperacion de identidad. Consecuencia: los montos, variaciones y alertas que ves bajo un nombre real son simulados y esa empresa no tuvo esos resultados. Esta seccion es el unico lugar del portal que lo dice; las demas pantallas van limpias a proposito.",
+      "Los datos de origen llegan anonimizados: cada empresa es un código interno sin RUC ni razón social, y no existe ninguna clave que lo cruce con una empresa real. Para la presentación, a los 74 códigos con liquidación se les adjudicó una identidad tomada del padrón real del COES: los códigos ordenados por clave, las empresas reales ordenadas por RUC, emparejados por posición. Es una asignación determinista, no una recuperación de identidad. Consecuencia: los montos, variaciones y alertas que ves bajo un nombre real son simulados y esa empresa no tuvo esos resultados. Esta sección es el único lugar del portal que lo dice; las demás pantallas van limpias a propósito.",
   },
   {
     titulo: "LSCIO tiene meses sin carga",
