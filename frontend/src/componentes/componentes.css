@@ -46,3 +46,22 @@
 .limite { border-top: 1px solid var(--grid); padding: 9px 0; }
 .limite summary { cursor: pointer; font-weight: 600; font-size: 13px; }
 .limite p { margin: 7px 0 0; font-size: 12px; color: var(--ink-2); line-height: 1.6; }
+
+/* Distintivo (spec portal-analitico, C3): un estado se lee como etiqueta,
+   no como texto suelto. Neutro por defecto; las variantes solo cambian el
+   tono, el texto sigue siendo lo que informa. */
+.distintivo {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  border-radius: 999px;
+  padding: 2px 9px;
+  background: var(--surface-3);
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.distintivo-revision { background: color-mix(in srgb, var(--serie-1) 16%, transparent); color: var(--ink); }
+.distintivo-aviso { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn-texto); }
+.distintivo-critico { background: color-mix(in srgb, var(--crit) 16%, transparent); color: var(--crit); }
+.distintivo-ok { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good-texto); }

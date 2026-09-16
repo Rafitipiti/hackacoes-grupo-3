@@ -13,7 +13,7 @@ export const SECCIONES = [
     id: "mi-empresa",
     titulo: "Mi empresa",
     icono: "◉",
-    descripcion: "Que cambio en mi liquidacion y por que",
+    descripcion: "Qué cambió en mi liquidación y por qué",
     disponible: true,
   },
   {
@@ -24,17 +24,24 @@ export const SECCIONES = [
     disponible: true,
   },
   {
+    id: "comparador",
+    titulo: "Comparador de empresas",
+    icono: "⇄",
+    descripcion: "Varias empresas lado a lado en un mismo mes",
+    disponible: true,
+  },
+  {
     id: "revisiones",
     titulo: "Ciclo y revisiones",
     icono: "↻",
-    descripcion: "Como evoluciona una liquidacion entre publicaciones",
+    descripcion: "Cómo evoluciona una liquidación entre publicaciones",
     disponible: true,
   },
   {
     id: "calidad",
     titulo: "Calidad y trazabilidad",
     icono: "✓",
-    descripcion: "Reglas de integridad y limites del dato",
+    descripcion: "Reglas de integridad y límites del dato",
     disponible: true,
   },
   {
@@ -55,7 +62,7 @@ export const SECCIONES = [
     id: "red",
     titulo: "Red y precios",
     icono: "◈",
-    descripcion: "Mapa del SEIN, intradia y costo marginal",
+    descripcion: "Mapa del SEIN, intradía y costo marginal",
     disponible: false,
   },
 ];

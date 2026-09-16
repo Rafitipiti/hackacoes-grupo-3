@@ -49,6 +49,36 @@ def historico_empresa(empresa_id: str):
     }
 
 
+@router.get("/empresas/comparar/{pericodi}")
+def comparar_empresas(pericodi: int):
+    """Las empresas con liquidacion en el mes, lado a lado (spec 5.3)."""
+    filas = revision_service.comparativa_de_periodo(pericodi)
+
+    if not filas:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Ninguna empresa tiene liquidacion en el periodo {pericodi}.",
+        )
+
+    empresas = datos_coes["empresas"].set_index("empresa_id")
+
+    for fila in filas:
+        ficha = empresas.loc[fila["empresa_id"]] if fila["empresa_id"] in empresas.index else None
+
+        for campo in ("alias", "ruc", "razon_social"):
+            valor = ficha[campo] if ficha is not None else None
+            fila[campo] = None if valor is None or pd.isna(valor) else valor
+
+    periodo = datos_coes["periodos"]
+    periodo = periodo[periodo["pericodi"] == pericodi]
+
+    return {
+        "pericodi": pericodi,
+        "perinombre": periodo["perinombre"].iloc[0] if not periodo.empty else None,
+        "empresas": filas,
+    }
+
+
 @router.get(
     "/agente/integridad/{empresa_id}/{pericodi}"
 )

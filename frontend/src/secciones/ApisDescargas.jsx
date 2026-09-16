@@ -10,7 +10,7 @@ const CATALOGO = [
   {
     grupo: "Catalogos",
     endpoints: [
-      { ruta: "/periodos", descripcion: "Los 20 periodos disponibles, con su estado y revision vigente.", parametros: [] },
+      { ruta: "/periodos", descripcion: "Los 20 periodos disponibles, con su estado y revisión vigente.", parametros: [] },
       { ruta: "/empresas", descripcion: "El padrón: código técnico, alias, RUC y razón social. Con ?pericodi= devuelve solo las que liquidan en ese periodo, que es lo que usa el selector de la barra lateral.", parametros: [] },
     ],
   },
@@ -23,46 +23,47 @@ const CATALOGO = [
   {
     grupo: "Trazabilidad de revisiones",
     endpoints: [
-      { ruta: "/revisiones/calendario/{pericodi}", descripcion: "Que liquidaciones salen en la publicacion de ese mes.", parametros: ["pericodi"] },
+      { ruta: "/revisiones/calendario/{pericodi}", descripcion: "Qué liquidaciones salen en la publicación de ese mes.", parametros: ["pericodi"] },
       { ruta: "/revisiones/cascada/{empresa_id}/{pericodi}", descripcion: "Cadena R0 a R4 de un mes, separada por proceso, con el ajuste de cada salto.", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/revisiones/impacto/{pericodi}", descripcion: "Cuanto de la publicacion es del mes y cuanto viene arrastrado.", parametros: ["pericodi"] },
+      { ruta: "/revisiones/impacto/{pericodi}", descripcion: "Cuánto de la publicación es del mes y cuánto viene arrastrado.", parametros: ["pericodi"] },
     ],
   },
   {
-    grupo: "Analisis por empresa",
+    grupo: "Análisis por empresa",
     endpoints: [
+      { ruta: "/empresas/comparar/{pericodi}", descripcion: "Todas las empresas con liquidación en el mes, lado a lado: liquidación, monto restatado, revisión vigente y efecto neto de recálculos. Alimenta el comparador.", parametros: ["pericodi"] },
       { ruta: "/empresa/historico/{empresa_id}", descripcion: "Los 20 periodos de la empresa: liquidación total, desglose por proceso y efecto neto de los recálculos. Alimenta la evolución histórica y la comparación por proceso.", parametros: ["empresa_id"] },
-      { ruta: "/agente/resumen/{empresa_id}/{pericodi}", descripcion: "Resultado del periodo, variacion y principales movimientos.", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/agente/cambios/{empresa_id}/{pericodi}", descripcion: "Que cambio respecto del periodo anterior, por proceso.", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/agente/causas/{empresa_id}/{pericodi}", descripcion: "Descomposicion de la variacion en sus causas.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/resumen/{empresa_id}/{pericodi}", descripcion: "Resultado del periodo, variación y principales movimientos.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/cambios/{empresa_id}/{pericodi}", descripcion: "Qué cambió respecto del periodo anterior, por proceso.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/causas/{empresa_id}/{pericodi}", descripcion: "Descomposicion de la variación en sus causas.", parametros: ["empresa_id", "pericodi"] },
       { ruta: "/agente/trazabilidad/{empresa_id}/{pericodi}", descripcion: "Del monto al proceso y del proceso a su fuente.", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/agente/integridad/{empresa_id}/{pericodi}", descripcion: "Reglas de validacion ejecutadas y su resultado.", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/agente/contexto/{empresa_id}/{pericodi}", descripcion: "Energia, mercado y operacion del periodo, para contexto.", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/agente/cierre/{empresa_id}/{pericodi}", descripcion: "Si la liquidacion esta lista para cerrar.", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/agente/explicacion/{empresa_id}/{pericodi}", descripcion: "Explicacion consolidada de la liquidacion: resumen, variacion, impulsores y detalle por proceso en un solo texto.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/integridad/{empresa_id}/{pericodi}", descripcion: "Reglas de validación ejecutadas y su resultado.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/contexto/{empresa_id}/{pericodi}", descripcion: "Energía, mercado y operación del periodo, para contexto.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/cierre/{empresa_id}/{pericodi}", descripcion: "Si la liquidación está lista para cerrar.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/explicacion/{empresa_id}/{pericodi}", descripcion: "Explicación consolidada de la liquidación: resumen, variación, impulsores y detalle por proceso en un solo texto.", parametros: ["empresa_id", "pericodi"] },
     ],
   },
   {
-    grupo: "Analisis por empresa - Energia Activa (LVTA)",
+    grupo: "Análisis por empresa - Energía Activa (LVTA)",
     endpoints: [
-      { ruta: "/agente/causas-lvta/{empresa_id}/{pericodi}", descripcion: "Descompone la variacion de Energia Activa por valorizacion y concepto (factores asociados, no causalidad confirmada).", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/agente/trazabilidad-lvta/{empresa_id}/{pericodi}", descripcion: "Valida que el resultado de Energia Activa cuadre contra su soporte de transferencias por empresa (regla LVTA-001).", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/causas-lvta/{empresa_id}/{pericodi}", descripcion: "Descompone la variación de Energía Activa por valorización y concepto (factores asociados, no causalidad confirmada).", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/trazabilidad-lvta/{empresa_id}/{pericodi}", descripcion: "Válida que el resultado de Energía Activa cuadre contra su soporte de transferencias por empresa (regla LVTA-001).", parametros: ["empresa_id", "pericodi"] },
     ],
   },
   {
-    grupo: "Analisis por empresa - Servicios Complementarios (LSCIO)",
+    grupo: "Análisis por empresa - Servicios Complementarios (LSCIO)",
     endpoints: [
-      { ruta: "/agente/causas-concepto/{empresa_id}/{pericodi}", descripcion: "Explica la variacion de LSCIO bajando del mecanismo al concepto especifico que la origina.", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/agente/explicacion-lscio/{empresa_id}/{pericodi}", descripcion: "Explicacion consolidada de la variacion de LSCIO: del mecanismo al concepto y su evidencia.", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/agente/integridad-lscio/{empresa_id}/{pericodi}", descripcion: "Valida que la suma del desglose por mecanismo cuadre con el total de transferencias LSCIO (regla LSCIO-001).", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/agente/integridad-lscio-conceptos/{empresa_id}/{pericodi}", descripcion: "Valida que cada mecanismo LSCIO se pueda reconstruir sumando sus conceptos.", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/agente/evidencia-lscio/{empresa_id}/{pericodi}", descripcion: "Registros originales que sustentan un concepto LSCIO puntual y si su suma cuadra con el importe reportado. Ademas de empresa y periodo, esta ruta pide mecanismo y concepto exactos (no se completan solos: se obtienen del desglose que devuelve integridad-lscio-conceptos).", parametros: ["empresa_id", "pericodi"], sinPrueba: true },
+      { ruta: "/agente/causas-concepto/{empresa_id}/{pericodi}", descripcion: "Explica la variación de LSCIO bajando del mecanismo al concepto específico que la origina.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/explicacion-lscio/{empresa_id}/{pericodi}", descripcion: "Explicación consolidada de la variación de LSCIO: del mecanismo al concepto y su evidencia.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/integridad-lscio/{empresa_id}/{pericodi}", descripcion: "Válida que la suma del desglose por mecanismo cuadre con el total de transferencias LSCIO (regla LSCIO-001).", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/integridad-lscio-conceptos/{empresa_id}/{pericodi}", descripcion: "Válida que cada mecanismo LSCIO se pueda reconstruir sumando sus conceptos.", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/evidencia-lscio/{empresa_id}/{pericodi}", descripcion: "Registros originales que sustentan un concepto LSCIO puntual y si su suma cuadra con el importe reportado. Además de empresa y periodo, esta ruta pide mecanismo y concepto exactos (no se completan solos: se obtienen del desglose que devuelve integridad-lscio-conceptos).", parametros: ["empresa_id", "pericodi"], sinPrueba: true },
     ],
   },
   {
     grupo: "Servicio",
     endpoints: [
-      { ruta: "/", descripcion: "Identifica el servicio y su version, y apunta a la documentacion interactiva.", parametros: [] },
+      { ruta: "/", descripcion: "Identifica el servicio y su versión, y apunta a la documentación interactiva.", parametros: [] },
       { ruta: "/health", descripcion: "Estado del servicio.", parametros: [] },
     ],
   },
@@ -148,7 +149,7 @@ function FichaEndpoint({ endpoint, contexto }) {
         {endpoint.sinPrueba ? (
           <p className="nota">
             Esta ruta necesita mecanismo y concepto exactos, que no salen de la
-            barra lateral, asi que no se puede probar desde aqui. Tomalos del
+            barra lateral, así que no se puede probar desde aquí. Tómalos del
             desglose de <code>/agente/integridad-lscio-conceptos</code>.
           </p>
         ) : (
@@ -189,7 +190,7 @@ export function ApisDescargas() {
 
   return (
     <div className="rejilla">
-      <Tarjeta etiqueta="Como funciona" titulo="Consulta y exporta los datos">
+      <Tarjeta etiqueta="Cómo funciona" titulo="Consulta y exporta los datos">
         <p className="nota">
           Todos los endpoints son <code>GET</code> y devuelven JSON. Las rutas
           se completan con lo que elijas en la barra lateral: hoy periodo{" "}

@@ -236,3 +236,89 @@ class RevisionService:
                 for pericodi, valor in recalculos.items()
             },
         }
+
+    def comparativa_de_periodo(self, pericodi: int) -> list[dict]:
+        """Todas las empresas con liquidacion en un mes, lado a lado.
+
+        Alimenta el comparador entre empresas (spec 5.3): contrasta el
+        monto restatado vigente con la revision en que esta cada una.
+        'liquidacion_total' viene de la evolucion, como en el resto del
+        portal; 'monto_restatado' es la ultima revision de cada proceso
+        sumada, y 'efecto_neto_recalculos' la diferencia de esa ultima
+        revision contra la R0 -- nunca la suma de montos restatados.
+        """
+        del_mes = self.evolucion[self.evolucion["pericodi"] == pericodi]
+
+        if del_mes.empty:
+            return []
+
+        totales = del_mes.groupby("empresa_deudora")["monto"].sum()
+
+        anteriores = self.periodos.loc[
+            self.periodos["pericodi"] < pericodi, "pericodi"
+        ]
+        pericodi_anterior = (
+            int(anteriores.max()) if not anteriores.empty else None
+        )
+
+        del_anterior = (
+            self.evolucion[self.evolucion["pericodi"] == pericodi_anterior]
+            .groupby("empresa_deudora")["monto"]
+            .sum()
+            if pericodi_anterior is not None
+            else pd.Series(dtype="float64")
+        )
+
+        revisiones = self.totales[self.totales["pericodi"] == pericodi]
+        revisiones = revisiones.sort_values(["emprcodi", "proceso", "revision"])
+
+        primera = revisiones.groupby(["emprcodi", "proceso"]).first()
+        ultima = revisiones.groupby(["emprcodi", "proceso"]).last()
+
+        restatado = ultima.groupby("emprcodi")["monto_total"].sum()
+        efecto_neto = (
+            (ultima["monto_total"] - primera["monto_total"])
+            .groupby("emprcodi")
+            .sum()
+        )
+        revision_max = ultima.groupby("emprcodi")["revision"].max()
+        revision_nombre = (
+            ultima.reset_index()
+            .sort_values("revision")
+            .groupby("emprcodi")["revision_nombre"]
+            .last()
+        )
+
+        filas = []
+
+        for empresa_id, total in totales.items():
+            anterior = del_anterior.get(empresa_id)
+            anterior = None if anterior is None or pd.isna(anterior) else float(anterior)
+
+            filas.append({
+                "empresa_id": empresa_id,
+                "liquidacion_total": float(total),
+                "liquidacion_anterior": anterior,
+                "monto_restatado": (
+                    float(restatado[empresa_id])
+                    if empresa_id in restatado.index
+                    else None
+                ),
+                "efecto_neto_recalculos": (
+                    float(efecto_neto[empresa_id])
+                    if empresa_id in efecto_neto.index
+                    else 0.0
+                ),
+                "revision": (
+                    int(revision_max[empresa_id])
+                    if empresa_id in revision_max.index
+                    else None
+                ),
+                "revision_nombre": (
+                    revision_nombre[empresa_id]
+                    if empresa_id in revision_nombre.index
+                    else None
+                ),
+            })
+
+        return filas

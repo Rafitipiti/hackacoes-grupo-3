@@ -5,6 +5,7 @@ import { ProveedorSeleccion, useSeleccion } from "./contexto.jsx";
 import { Panorama } from "../secciones/Panorama.jsx";
 import { MiEmpresa } from "../secciones/MiEmpresa.jsx";
 import { EvolucionEmpresa } from "../secciones/EvolucionEmpresa.jsx";
+import { Comparador } from "../secciones/Comparador.jsx";
 import { CicloRevisiones } from "../secciones/CicloRevisiones.jsx";
 import { ApisDescargas } from "../secciones/ApisDescargas.jsx";
 import { Calidad } from "../secciones/Calidad.jsx";
@@ -15,12 +16,13 @@ import "./layout.css";
 import "../componentes/componentes.css";
 import "../secciones/ciclo.css";
 import "../secciones/evolucion.css";
+import "../secciones/comparador.css";
 import "../secciones/apis.css";
 import "../App.css";
 
 const TEMAS = ["auto", "claro", "oscuro"];
 
-function Contenido({ seccion }) {
+function Contenido({ seccion, alCambiarSeccion }) {
   const { cargando, error } = useSeleccion();
 
   if (cargando) {
@@ -35,8 +37,8 @@ function Contenido({ seccion }) {
         <h2>No se pudo conectar con el servicio de liquidaciones</h2>
         <p className="nota">Detalle: {error}</p>
         <p className="nota">
-          Comprueba que el servicio este disponible y vuelve a cargar la
-          pagina. Si el problema persiste, avisa al equipo del COES.
+          Comprueba que el servicio esté disponible y vuelve a cargar la
+          página. Si el problema persiste, avisa al equipo del COES.
         </p>
       </section>
     );
@@ -45,6 +47,7 @@ function Contenido({ seccion }) {
   if (seccion === "panorama") return <Panorama />;
   if (seccion === "mi-empresa") return <MiEmpresa />;
   if (seccion === "evolucion") return <EvolucionEmpresa />;
+  if (seccion === "comparador") return <Comparador irA={alCambiarSeccion} />;
   if (seccion === "revisiones") return <CicloRevisiones />;
   if (seccion === "calidad") return <Calidad />;
   if (seccion === "apis") return <ApisDescargas />;
@@ -93,7 +96,7 @@ export function Aplicacion() {
         tema={tema}
         alCambiarTema={alternarTema}
       >
-        <Contenido seccion={seccion} />
+        <Contenido seccion={seccion} alCambiarSeccion={setSeccion} />
       </Layout>
     </ProveedorSeleccion>
   );
