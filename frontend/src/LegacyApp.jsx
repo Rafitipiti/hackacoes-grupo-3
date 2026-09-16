@@ -4050,6 +4050,14 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                 {modoActual === "agente" && (
                     <section className="agent-mode-view">
 
+                        {loadingResumenAgente && (
+
+                            <div className="message">
+                                Cargando información...
+                            </div>
+
+                        )}
+
                         {/* =========================================================
                                 A1 · RESULTADO Y VARIACIÓN
                             ========================================================= */}
