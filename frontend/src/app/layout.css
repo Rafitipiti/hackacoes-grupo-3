@@ -1,0 +1,112 @@
+.disposicion { display: flex; min-height: 100vh; }
+
+.barra-lateral {
+  width: 260px;
+  flex: 0 0 260px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.marca { display: flex; align-items: center; gap: 10px; }
+.marca-escudo {
+  width: 32px; height: 32px;
+  flex: 0 0 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--grad);
+  color: #fff;
+  font-size: 16px;
+}
+.marca-texto { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.marca-texto strong { font-size: 15px; letter-spacing: -.01em; }
+.marca-texto span { font-size: 10px; color: var(--ink-muted); line-height: 1.3; }
+
+.barra-lateral nav { display: flex; flex-direction: column; gap: 2px; }
+
+.enlace-seccion {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-left: 3px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: var(--fuente);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  transition: background .12s ease;
+}
+.enlace-seccion:hover:not(:disabled) { background: var(--surface-2); color: var(--ink); }
+
+/* La seccion activa se marca por color, por peso tipografico Y por una
+   barra lateral. Tres senales, ninguna dependiente de percibir el color. */
+.enlace-seccion.activo {
+  background: var(--surface-3);
+  border-left-color: var(--accent);
+  color: var(--ink);
+  font-weight: 600;
+}
+.enlace-seccion.proximo { opacity: .5; cursor: default; }
+.enlace-seccion .icono { width: 18px; text-align: center; line-height: 1.5; }
+.enlace-seccion .titulo { flex: 1; display: flex; flex-direction: column; gap: 1px; }
+.enlace-seccion .titulo small {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--ink-muted);
+  line-height: 1.3;
+}
+.enlace-seccion.activo .titulo small { color: var(--ink-2); }
+
+.tag-proximo {
+  font-size: 9px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 4px;
+}
+
+.seleccion-global { display: flex; flex-direction: column; gap: 6px; margin-top: auto; }
+.seleccion-global select,
+.seleccion-global input {
+  width: 100%;
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font-family: var(--fuente);
+  font-size: 12px;
+}
+.seleccion-global input:focus,
+.seleccion-global select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.aviso-sintetico {
+  margin: 0;
+  font-size: 11px;
+  color: var(--warn-texto);
+  background: color-mix(in srgb, var(--warn) 12%, transparent);
+  border-radius: 6px;
+  padding: 5px 7px;
+}
+.aviso-empresa { margin: 0; font-size: 11px; color: var(--ink-muted); }
+
+.alternar-tema { width: 100%; }
+
+.contenido { flex: 1; padding: 22px 26px; max-width: 1400px; }
+.cabecera-seccion { margin-bottom: 18px; }
+
+@media (max-width: 860px) {
+  .disposicion { flex-direction: column; }
+  .barra-lateral { width: auto; flex: none; border-right: 0; border-bottom: 1px solid var(--border); }
+  .contenido { padding: 16px; }
+}
