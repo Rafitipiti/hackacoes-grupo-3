@@ -177,3 +177,51 @@ la lista final.**
   Es un dataset real y grande, con estructura propia, y cambiaría el proyecto
   entero. Queda anotado como opción.
 - Conectar con Supabase. Sigue siendo la segunda etapa.
+
+---
+
+## 9. Ampliación (2026-09-15, tarde): módulos que faltaban
+
+Petición del usuario sobre lo ya implementado: habilitar las dos entradas
+del menú que seguían en "Próximo" y añadir tres capacidades. Se
+documentan aquí para que el spec siga siendo la fuente de verdad.
+
+| # | Decisión | Razón |
+|---|----------|-------|
+| D9 | "Procesos" y "Red y precios" dejan de ser próximos y se construyen | El menú ya prometía el mapa del producto; ahora existe |
+| D10 | **Pagos y cobros por proceso** salen de `fact_bilateral` (deudora → acreedora, por LVTA, LVTP, LSCIO y SST-SCT) | Es la única tabla con las dos puntas de cada transferencia. Un monto positivo de la deudora a la acreedora es un pago de la primera y un cobro de la segunda |
+| D11 | **Mapa y perfiles**: mapa del Perú con las barras como puntos y curva diaria del costo marginal por barra y periodo, con periodos apilables al hacer clic | El kit no trae coordenadas. Se estiman por nombre de barra contra una tabla de localidades conocidas; las que no se reconocen se marcan como "ubicación aproximada" y así se declara en Calidad |
+| D12 | **Contactos**: ficha por empresa (razón social, RUC, tipo de cuenta, moneda, correos, número de cuenta, teléfonos, CCI, banco, notas) guardada en un libro Excel del backend | El usuario pide lo visual primero; la migración a Supabase queda como etapa posterior. El Excel es texto plano: la ficha lleva el aviso de no cargar datos bancarios reales en la demo |
+
+### 9.1 Procesos: pagos y cobros
+
+Por empresa y periodo, para cada proceso: cuánto paga (es deudora), cuánto
+cobra (es acreedora), el neto, y la lista de contrapartes con su monto.
+Diagrama de barras divergentes por proceso (pagos a un lado, cobros al
+otro) y tabla contraparte a contraparte con razón social y RUC.
+
+Endpoint nuevo: `GET /empresa/pagos-cobros/{empresa_id}/{pericodi}`.
+
+### 9.2 Red y precios: mapa y perfiles
+
+- Mapa del Perú (SVG propio, sin dependencias externas) con un punto por
+  barra. Tamaño o color según el costo marginal promedio del periodo.
+- Al elegir una barra, curva del costo marginal diario del periodo
+  seleccionado. Cada clic en otro periodo **añade** una línea con su
+  propio color; se pueden quitar una a una. Eje X: día del mes.
+- Fuente: `costos_marginales_diario` (capa curada, 244 barras × 20
+  periodos). El libro `spotPriceBarraRevisado` trae la misma serie a 15
+  minutos para 304 barras; queda como fuente para un perfil intradía
+  posterior.
+
+Endpoints nuevos: `GET /red/barras` (con coordenadas estimadas y CMg
+promedio del periodo) y `GET /red/cmg/{barrcodi}/{pericodi}`.
+
+### 9.3 Contactos
+
+Ficha editable por empresa. Persistencia en `backend/data/contactos.xlsx`
+(una hoja, una fila por empresa) mediante `GET /contactos/{empresa_id}` y
+`PUT /contactos/{empresa_id}`. `openpyxl` entra a `requirements.txt`.
+
+**Aviso en la ficha:** el libro no está cifrado ni controlado por acceso;
+en la demo no deben cargarse cuentas bancarias reales.
