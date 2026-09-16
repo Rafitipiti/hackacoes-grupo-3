@@ -75,20 +75,25 @@ los `<select>`/`<input>` de la barra lateral tienen `<label htmlFor>`, y los
 íconos puramente decorativos llevan `aria-hidden="true"`. No se encontraron
 controles sin nombre en este perímetro.
 
-**Hallazgo sin corregir, en `LegacyApp.jsx`** (archivo de ~8.000 líneas que
-esta tarea tiene instrucción explícita de no tocar salvo un texto puntual,
-por el riesgo de modificarlo sin poder probarlo en navegador):
+**Hallazgo corregido (fix round 1):** el `<select>` de "Periodo analizado"
+en `LegacyApp.jsx` (línea ~2071) no tenía `<label htmlFor>` ni `aria-label`
+— solo un `<span>` visual adyacente, que no cuenta como nombre accesible.
+No se le añadió una etiqueta: se ocultó junto con el resto del encabezado
+propio del legado (ver sección 5), porque **duplica** el selector de
+período que ya vive en la barra lateral (`SeleccionGlobal.jsx`), el cual sí
+tiene su `<label htmlFor="sel-periodo">`. Añadirle un `aria-label` a un
+control duplicado habría sido resolver el síntoma sin resolver la causa: la
+solución fue quitar el duplicado, no anotarlo.
 
-- El `<select>` de "Periodo analizado" (línea ~2071) no tiene `<label
-  htmlFor>` ni `aria-label`; solo un `<span>` visual adyacente, que no cuenta
-  como nombre accesible para un lector de pantalla.
+**Hallazgo sin corregir, en `LegacyApp.jsx`** (archivo de ~8.000 líneas que
+esta tarea tiene instrucción explícita de no tocar salvo lo puntual, por el
+riesgo de modificarlo sin poder probarlo en navegador):
+
 - El botón para cerrar el chat asistente (`.assistant-chat-close`, línea
   ~7714) solo contiene el carácter "×" como texto — pasa la prueba de "no
   está vacío" pero un lector de pantalla lo anuncia como "×, botón", que es
-  ambiguo.
-
-No se corrigieron por estar fuera del texto puntual autorizado en
-`LegacyApp.jsx` para esta tarea.
+  ambiguo. No se corrigió por estar fuera de lo autorizado en `LegacyApp.jsx`
+  para esta tarea.
 
 ## 4. Daltonismo — NO VERIFICADO
 
@@ -120,15 +125,29 @@ tarjeta. Dentro de `CicloRevisiones.jsx`, los `<h3>` de cada proceso
 (Calendario/Cascada) están anidados dentro de una tarjeta con `<h2>`, así
 que la secuencia es H1 → H2 → H3 sin salto.
 
-**Hallazgo sin corregir:** `Panorama.jsx` y `MiEmpresa.jsx` renderizan
-`LegacyApp.jsx`, que tiene su **propio** `<h1>` ("COES Liquidaciones 360",
-línea ~2054) además del `<h1>` de `Layout.jsx` ("Panorama" / "Mi empresa").
-Eso da **dos `<h1>` por pantalla** en esas dos secciones, lo cual viola la
-regla de un solo H1. No se corrigió: arreglarlo implica tocar `LegacyApp.jsx`
-más allá del texto puntual autorizado para esta tarea, en un archivo que no
-se puede probar en navegador en este entorno. Queda documentado para que se
-corrija cuando ese archivo se pueda verificar en un navegador real o se
-descomponga (fuera de alcance de este plan, según el propio brief).
+**Hallazgo corregido (fix round 1):** `Panorama.jsx` y `MiEmpresa.jsx`
+renderizan `LegacyApp.jsx`, que tenía su **propio** `<h1>` ("COES
+Liquidaciones 360", línea ~2054) además del `<h1>` de `Layout.jsx`
+("Panorama" / "Mi empresa"). Eso daba **dos `<h1>` por pantalla** en esas
+dos secciones. Es la misma familia de vestigio que los botones "Inicio" de
+una tarea anterior: restos de cuando `LegacyApp` era la aplicación entera,
+ahora que vive dentro de la cáscara (`Layout.jsx`) que ya provee marca,
+título de sección (H1) y selector de período.
+
+Se envolvió el `<header className="header">` completo (línea ~2050-2093:
+el `<h1>`, el subtítulo "Consulta - Analiza - Explica - Decide." y el
+`<select>` de período con su `<span>`) en
+`{modoInicial === null && (...)}`, la misma condición ya usada para los
+demás vestigios de modo standalone en este archivo. Se verificó primero que
+ese `<header>` no contenía nada más que la cáscara no proveyera — solo esos
+tres elementos — así que se ocultó entero, sin necesidad de separarlo en
+piezas. Montado con `modoInicial` fijo (`"analista"`/`"agente"`, es decir
+desde `Panorama`/`MiEmpresa`), el encabezado desaparece y queda un solo
+`<h1>` por pantalla, el de `Layout.jsx`. Montado suelto (`modoInicial =
+null`), el encabezado sigue apareciendo completo, igual que siempre. El
+`fecha` interno de `LegacyApp` ya se sincroniza con `periodoInicial` vía
+`useEffect` (línea ~202), así que ocultar el `<select>` no le quita a la
+app la forma de saber qué período mostrar cuando el modo llega por prop.
 
 ## 6. Estados vacíos (verificado y ajustado)
 
@@ -208,7 +227,14 @@ de alcance de esta tarea).
    decir desde `Panorama`/`MiEmpresa`) ya no hay botón de "volver a
    seleccionar empresa" oculto sin reemplazo; ahora el banner agrega el
    texto "Puedes cambiar de empresa o de periodo desde la barra lateral."
-   Es el único cambio hecho en ese archivo en esta tarea.
+7. **(Fix round 1) Encabezado propio del legado oculto cuando el modo
+   llega por prop**: en `LegacyApp.jsx` (~línea 2050-2093), el
+   `<header className="header">` completo (su `<h1>` "COES Liquidaciones
+   360", el subtítulo, y el `<select>` de período sin etiqueta) ahora está
+   envuelto en `{modoInicial === null && (...)}`, igual que los demás
+   vestigios de modo standalone. Elimina el `<h1>` duplicado y el `<select>`
+   de período redundante en `Panorama.jsx`/`MiEmpresa.jsx`. Ver detalle en
+   las secciones 3 y 5 arriba.
 
 ## Verificaciones ejecutadas
 
@@ -230,9 +256,12 @@ al grafo de módulos.
 - Medición real en 390px (Step 7): no ejecutado, requiere navegador; se hizo
   únicamente revisión de código y una corrección preventiva razonada.
 - Auditoría exhaustiva de `LegacyApp.jsx` (nombres accesibles, jerarquía de
-  encabezados, estados vacíos): revisión parcial únicamente, sin
-  modificaciones más allá del texto puntual autorizado. Se documentan dos
-  hallazgos (el `<h1>` duplicado y el `<select>` sin nombre accesible) para
-  que no se asuma que ese archivo fue auditado por completo.
+  encabezados, estados vacíos): revisión parcial únicamente. Dos hallazgos
+  de la ronda anterior (el `<h1>` duplicado y el `<select>` de período sin
+  nombre accesible) se corrigieron en el fix round 1 ocultando el
+  encabezado propio del legado cuando el modo llega por prop. Queda un
+  hallazgo sin corregir: el botón de cerrar el chat asistente
+  (`.assistant-chat-close`) solo tiene "×" como texto. No se asuma que el
+  resto de ese archivo (~8.000 líneas) fue auditado por completo.
 - "Procesos" y "Red y precios": fuera de alcance de este plan (endpoints
   que no existen todavía), como ya indicaba el brief de esta tarea.

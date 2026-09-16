@@ -2047,6 +2047,8 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
         <div className="app">
 
+            {modoInicial === null && (
+
             <header className="header">
 
                 <div className="header-title">
@@ -2091,6 +2093,8 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                 </div>
 
             </header>
+
+            )}
 
 
 
