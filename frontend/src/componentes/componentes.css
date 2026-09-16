@@ -37,3 +37,7 @@
 .rejilla { display: grid; gap: 14px; }
 .rejilla-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
 .rejilla-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+.limite { border-top: 1px solid var(--grid); padding: 9px 0; }
+.limite summary { cursor: pointer; font-weight: 600; font-size: 13px; }
+.limite p { margin: 7px 0 0; font-size: 12px; color: var(--ink-2); line-height: 1.6; }
