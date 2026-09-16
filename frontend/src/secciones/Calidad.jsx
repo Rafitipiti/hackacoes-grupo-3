@@ -14,8 +14,8 @@ const REGLAS = [
   },
   {
     codigo: "REGLA-POTENCIA-001",
-    nombre: "Trazabilidad Potencia",
-    que: "El resultado de Potencia debe reconstruirse desde su desglose por valorizacion.",
+    nombre: "Compensacion a transmisoras",
+    que: "La compensacion a transmisoras por ingreso tarifario debe cuadrar entre el resultado de Potencia y su desglose por valorizacion. No cubre las otras dos valorizaciones del proceso.",
   },
 ];
 
