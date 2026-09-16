@@ -8,10 +8,15 @@ export function sinEmoji(texto) {
   return String(texto).replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]\u{FE0F}?\s?/gu, "").trim();
 }
 
-// Nivel de alerta -> variante del distintivo. Las etiquetas del servicio
-// van en mayusculas y con tilde ("CRÍTICO"); se compara sin acentos.
+// Sin tildes ni emoji, en mayusculas: la forma en que se comparan los
+// niveles que manda el servicio ("CRÍTICO", "Observación", "🟢 OK").
+function normalizar(texto) {
+  return sinEmoji(texto).normalize("NFD").replace(/[̀-ͯ]/g, "").toUpperCase();
+}
+
+// Nivel de alerta -> variante del distintivo.
 export function claseNivel(nivel) {
-  const plano = sinEmoji(nivel).normalize("NFD").replace(/[̀-ͯ]/g, "").toUpperCase();
+  const plano = normalizar(nivel);
 
   if (plano.includes("CRITIC") || plano.includes("ERROR")) return "distintivo-critico";
   if (plano.includes("ALTO") || plano.includes("OBSERVACION") || plano.includes("REVISAR") || plano.includes("ADVERTENCIA")) return "distintivo-aviso";
@@ -24,7 +29,7 @@ export function claseNivel(nivel) {
 const ORDEN_NIVEL = ["CRITIC", "ALTO", "MEDIO", "BAJO", "NORMAL", "OK"];
 
 export function pesoNivel(nivel) {
-  const plano = sinEmoji(nivel).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+  const plano = normalizar(nivel);
   const indice = ORDEN_NIVEL.findIndex((n) => plano.includes(n));
   return indice === -1 ? ORDEN_NIVEL.length : indice;
 }
