@@ -2,6 +2,7 @@ import pandas as pd
 from fastapi import APIRouter, HTTPException
 
 from app.data.loader import cargar_datos_coes
+from app.data.identificadores import a_empresa_id
 from app.services.agent_service import AgentService
 from app.services.integrity_service import IntegrityService
 from app.services.pagos_service import PagosService
@@ -19,6 +20,7 @@ pagos_service = PagosService(datos_coes)
 @router.get("/empresa/pagos-cobros/{empresa_id}/{pericodi}")
 def pagos_cobros(empresa_id: str, pericodi: int):
     """Cuanto paga y cuanto cobra la empresa en el mes, proceso por proceso."""
+    empresa_id = a_empresa_id(empresa_id)
     resultado = pagos_service.pagos_cobros(empresa_id, pericodi)
 
     if resultado is None:
@@ -40,6 +42,7 @@ def historico_empresa(empresa_id: str):
     vistas leen del mismo sitio para que la barra de un mes y el punto de
     ese mes en la linea no puedan discrepar.
     """
+    empresa_id = a_empresa_id(empresa_id)
     serie = revision_service.serie_historica(empresa_id)
 
     if not serie:
@@ -104,6 +107,7 @@ def integridad_agente(
     empresa_id: str,
     pericodi: int
 ):
+    empresa_id = a_empresa_id(empresa_id)
 
     resultado = integrity_service.generar_resumen_integridad(
         empresa_id,
@@ -124,6 +128,7 @@ def resumen_agente(
     empresa_id: str,
     pericodi: int
 ):
+    empresa_id = a_empresa_id(empresa_id)
 
     resumen = agent_service.obtener_resumen_empresa(
         empresa_id,
@@ -216,6 +221,7 @@ def resumen_agente(
 
 @router.get("/agente/explicacion/{empresa_id}/{pericodi}")
 def explicacion_agente(empresa_id: str, pericodi: int):
+    empresa_id = a_empresa_id(empresa_id)
     return agent_service.obtener_explicacion_empresa(
         empresa_id,
         pericodi
@@ -233,6 +239,7 @@ def cambios_agente(
     empresa_id: str,
     pericodi: int
 ):
+    empresa_id = a_empresa_id(empresa_id)
 
     variacion = agent_service.obtener_variacion_empresa(
         empresa_id,
@@ -317,6 +324,7 @@ def trazabilidad_lvta_agente(
     empresa_id: str,
     pericodi: int
 ):
+    empresa_id = a_empresa_id(empresa_id)
     resultado = agent_service.validar_trazabilidad_lvta(
         empresa_id,
         pericodi
@@ -345,6 +353,7 @@ def causas_agente(
     empresa_id: str,
     pericodi: int
 ):
+    empresa_id = a_empresa_id(empresa_id)
 
     resultado = agent_service.obtener_causas_variacion_lscio(
         empresa_id,
@@ -374,6 +383,7 @@ def integridad_lscio_agente(
     empresa_id: str,
     pericodi: int
 ):
+    empresa_id = a_empresa_id(empresa_id)
 
     resultado = agent_service.validar_reconstruccion_lscio(
         empresa_id,
@@ -403,6 +413,7 @@ def causas_concepto_agente(
     empresa_id: str,
     pericodi: int
 ):
+    empresa_id = a_empresa_id(empresa_id)
 
     resultado = agent_service.obtener_causas_concepto_lscio(
         empresa_id,
@@ -432,6 +443,7 @@ def integridad_lscio_conceptos_agente(
     empresa_id: str,
     pericodi: int
 ):
+    empresa_id = a_empresa_id(empresa_id)
 
     resultado = (
         agent_service
@@ -466,6 +478,7 @@ def evidencia_lscio_agente(
     mecanismo: str,
     concepto: str
 ):
+    empresa_id = a_empresa_id(empresa_id)
 
     resultado = (
         agent_service
@@ -500,6 +513,7 @@ def explicacion_lscio_agente(
     empresa_id: str,
     pericodi: int
 ):
+    empresa_id = a_empresa_id(empresa_id)
 
     resultado = (
         agent_service
@@ -532,6 +546,7 @@ def causas_lvta_agente(
     empresa_id: str,
     pericodi: int
 ):
+    empresa_id = a_empresa_id(empresa_id)
     resultado = agent_service.obtener_causas_variacion_lvta(
         empresa_id,
         pericodi
@@ -555,6 +570,7 @@ def cierre_agente(
     empresa_id: str,
     pericodi: int
 ):
+    empresa_id = a_empresa_id(empresa_id)
     resultado = integrity_service.generar_estado_cierre(
         empresa_id,
         pericodi
@@ -570,6 +586,7 @@ def trazabilidad_agente(
     empresa_id: str,
     pericodi: int
 ):
+    empresa_id = a_empresa_id(empresa_id)
     resultado = agent_service.obtener_trazabilidad_empresa(
         empresa_id,
         pericodi
@@ -586,6 +603,7 @@ def trazabilidad_agente(
 
 @router.get("/agente/contexto/{empresa_id}/{pericodi}")
 def contexto_agente(empresa_id: str, pericodi: int):
+    empresa_id = a_empresa_id(empresa_id)
 
     return agent_service.obtener_contexto_agente(
         empresa_id,

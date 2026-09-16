@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException
+from app.data.identificadores import a_empresa_id
 from pydantic import BaseModel, Field
 
 from app.services.contactos_service import (
@@ -36,6 +37,7 @@ def listar():
 
 @router.get("/{empresa_id}")
 def obtener(empresa_id: str):
+    empresa_id = a_empresa_id(empresa_id)
     ficha = _servicio.obtener(empresa_id)
 
     if ficha is None:
@@ -49,6 +51,7 @@ def obtener(empresa_id: str):
 
 @router.put("/{empresa_id}")
 def guardar(empresa_id: str, ficha: Ficha):
+    empresa_id = a_empresa_id(empresa_id)
     if ficha.moneda and ficha.moneda not in MONEDAS:
         raise HTTPException(status_code=422, detail=f"Moneda no valida: {ficha.moneda}.")
 
@@ -62,6 +65,7 @@ def guardar(empresa_id: str, ficha: Ficha):
 
 @router.delete("/{empresa_id}")
 def eliminar(empresa_id: str):
+    empresa_id = a_empresa_id(empresa_id)
     if not _servicio.eliminar(empresa_id):
         raise HTTPException(
             status_code=404,

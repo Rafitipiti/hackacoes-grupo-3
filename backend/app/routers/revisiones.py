@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
 from app.data.loader import cargar_datos_coes
+from app.data.identificadores import a_empresa_id
 from app.services.revision_service import RevisionService
 
 router = APIRouter(prefix="/revisiones", tags=["revisiones"])
@@ -27,6 +28,7 @@ def calendario(publicacion_pericodi: int):
 
 @router.get("/cascada/{empresa_id}/{pericodi}")
 def cascada(empresa_id: str, pericodi: int):
+    empresa_id = a_empresa_id(empresa_id)
     por_proceso = _servicio.cascada(empresa_id, pericodi)
 
     if not por_proceso:
