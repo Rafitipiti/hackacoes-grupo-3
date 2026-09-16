@@ -1,0 +1,16 @@
+.bloque-impacto .grande { font-size: 26px; font-weight: 700; margin: 4px 0; }
+.nota { font-size: 12px; color: var(--ink-muted); margin: 4px 0 0; }
+
+.barra-proporcion {
+  display: flex;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 14px;
+  background: var(--surface-3);
+}
+.parte-corriente { background: var(--s1); }
+.parte-arrastre { background: var(--s2); }
+
+.cadena { margin-top: 16px; }
+.cadena h3 { color: var(--ink-2); }
