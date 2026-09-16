@@ -9,8 +9,8 @@ export function MiEmpresa() {
     return (
       <Tarjeta etiqueta="Modo agente" titulo="Elige una empresa">
         <p className="nota">
-          Busca tu empresa en la barra lateral para ver que cambio en su
-          liquidación, por que cambio, y si puede avanzar al cierre.
+          Busca tu empresa en la cabecera para ver qué cambió en su
+          liquidación, por qué cambió, y si puede avanzar al cierre.
         </p>
       </Tarjeta>
     );

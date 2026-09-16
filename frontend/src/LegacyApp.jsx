@@ -265,6 +265,16 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
         }
     }
 
+    // El RUC bajo el nombre, en lugar del codigo tecnico: es lo que el
+    // usuario reconoce (spec D5). Vacio si la empresa no tiene identidad.
+    function rucDeEmpresa(empresaId) {
+        const ruc = empresas.find(
+            (empresa) => empresa.empresa_id === empresaId
+        )?.ruc;
+
+        return ruc ? `RUC ${ruc}` : "";
+    }
+
     // Razon social cuando la hay (spec portal-analitico, D5); alias si no.
     function aliasDeEmpresa(empresaId) {
         const empresa = empresas.find(
@@ -2522,7 +2532,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                     </strong>
 
                                                                     <span>
-                                                                        {item.agente_id}
+                                                                        {rucDeEmpresa(item.agente_id)}
                                                                     </span>
 
                                                                 </div>
@@ -3770,8 +3780,8 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                     }
                                                                 >
                                                                     {motivo
-                                                                        ? "🟡 OBSERVACIÓN"
-                                                                        : "🟢 OK"}
+                                                                        ? "OBSERVACIÓN"
+                                                                        : "OK"}
                                                                 </span>
 
                                                             </td>
@@ -5025,7 +5035,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                         : "table-negative"
                                                                 }
                                                             >
-                                                                {aumento ? "🟢 ↑" : "🔴 ↓"}{" "}
+                                                                {aumento ? "↑" : "↓"}{" "}
                                                                 S/{" "}
                                                                 {Math.abs(
                                                                     variacion
@@ -5080,8 +5090,8 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                             {Number(
                                                                 analisis.variacion?.variacion || 0
                                                             ) >= 0
-                                                                ? "🟢 ↑"
-                                                                : "🔴 ↓"}
+                                                                ? "↑"
+                                                                : "↓"}
                                                             {" S/ "}
                                                             {Math.abs(
                                                                 Number(
@@ -5154,8 +5164,8 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                     <h3>
 
                                                         {aumento
-                                                            ? "🟢 ↑"
-                                                            : "🔴 ↓"}{" "}
+                                                            ? "↑"
+                                                            : "↓"}{" "}
                                                         S/{" "}
                                                         {Math.abs(
                                                             Number(
@@ -5372,8 +5382,8 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                         {Number(
                                                             lvta?.variacion || 0
                                                         ) >= 0
-                                                            ? "🟢 ↑"
-                                                            : "🔴 ↓"}{" "}
+                                                            ? "↑"
+                                                            : "↓"}{" "}
                                                         S/{" "}
                                                         {Math.abs(
                                                             Number(
@@ -5535,8 +5545,8 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                         ?.periodo_anterior
                                                                         ?.diferencia ?? 0
                                                                 ) >= 0
-                                                                    ? "🟢 +S/ "
-                                                                    : "🔴 -S/ "}
+                                                                    ? "+S/ "
+                                                                    : "-S/ "}
 
                                                                 {Math.abs(
                                                                     Number(
@@ -5574,15 +5584,15 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                             ?.diferencia ?? 0
                                                                     )
                                                                 ) < 0.005
-                                                                    ? "🟢 +S/ "
+                                                                    ? "+S/ "
                                                                     : Number(
                                                                         trazabilidad
                                                                             ?.validacion
                                                                             ?.periodo_actual
                                                                             ?.diferencia ?? 0
                                                                     ) >= 0
-                                                                        ? "🟢 +S/ "
-                                                                        : "🔴 -S/ "}
+                                                                        ? "+S/ "
+                                                                        : "-S/ "}
 
                                                                 {Math.abs(
                                                                     Number(
@@ -5620,8 +5630,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                 <div className="traceability-inline-alert traceability-ok">
 
                                                     <span>
-                                                        🟢
-                                                    </span>
+                                                                                                            </span>
 
                                                     <div>
 
@@ -5811,8 +5820,8 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                     >
 
                                                         {totalLVTP >= 0
-                                                            ? "🟢 ↑"
-                                                            : "🔴 ↓"}{" "}
+                                                            ? "↑"
+                                                            : "↓"}{" "}
                                                         S/{" "}
                                                         {Math.abs(
                                                             totalLVTP
@@ -5935,8 +5944,8 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                         >
 
                                                                             {variacion >= 0
-                                                                                ? "🟢 ↑"
-                                                                                : "🔴 ↓"}{" "}
+                                                                                ? "↑"
+                                                                                : "↓"}{" "}
                                                                             S/{" "}
                                                                             {Math.abs(
                                                                                 variacion
@@ -6045,8 +6054,8 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                 >
 
                                                                     {otrosLVTP >= 0
-                                                                        ? "🟢 ↑"
-                                                                        : "🔴 ↓"}{" "}
+                                                                        ? "↑"
+                                                                        : "↓"}{" "}
                                                                     S/{" "}
                                                                     {Math.abs(
                                                                         otrosLVTP
@@ -6146,8 +6155,8 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                             >
                                                                 <strong>
                                                                     {totalLVTP >= 0
-                                                                        ? "🟢 ↑"
-                                                                        : "🔴 ↓"}{" "}
+                                                                        ? "↑"
+                                                                        : "↓"}{" "}
                                                                     S/{" "}
                                                                     {Math.abs(
                                                                         totalLVTP
@@ -6424,10 +6433,10 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                     {requiereRevision
                                                                         ? (
                                                                             esObservacion
-                                                                                ? "🟡 OBSERVACIÓN"
-                                                                                : "🔴 REVISAR"
+                                                                                ? "OBSERVACIÓN"
+                                                                                : "REVISAR"
                                                                         )
-                                                                        : "🟢 OK"}
+                                                                        : "OK"}
                                                                 </strong>
                                                             </span>
 
@@ -6738,7 +6747,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                             <span className="closure-action-final-icon">
                                                 {resumenAgente.cierre.motivos?.length > 0
                                                     ? "⚠️"
-                                                    : "🟢"}
+                                                    : ""}
                                             </span>
 
                                             <div>
@@ -6853,10 +6862,10 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                                             <div className="integrity-status-icon">
                                                 {resumenAgente.integridad.estado?.nivel === "ALTO"
-                                                    ? "🔴"
+                                                    ? ""
                                                     : resumenAgente.integridad.estado?.codigo === "OK"
-                                                        ? "🟢"
-                                                        : "🟡"}
+                                                        ? ""
+                                                        : ""}
                                             </div>
 
                                             <div>
@@ -6949,8 +6958,8 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                                                         <div className="integrity-alert-icon">
                                                             {alerta.nivel === "ALTO"
-                                                                ? "🔴"
-                                                                : "🟡"}
+                                                                ? ""
+                                                                : ""}
                                                         </div>
 
                                                         <div className="integrity-alert-content">
@@ -7004,8 +7013,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                     <div className="integrity-ok-card">
 
                                                         <span>
-                                                            🟢
-                                                        </span>
+                                                                                                                    </span>
 
                                                         <div>
                                                             <strong>
@@ -7497,8 +7505,8 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                                                             <div className="closure-action-icon">
                                                                 {motivo.nivel === "ALTO"
-                                                                    ? "🔴"
-                                                                    : "🟡"}
+                                                                    ? ""
+                                                                    : ""}
                                                             </div>
 
                                                             <div className="closure-action-content">
@@ -7560,8 +7568,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                 <div className="closure-ok-card">
 
                                                     <span>
-                                                        🟢
-                                                    </span>
+                                                                                                            </span>
 
                                                     <div>
                                                         <strong>
