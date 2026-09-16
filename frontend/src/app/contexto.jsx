@@ -133,7 +133,15 @@ export function ProveedorSeleccion({ children }) {
 }
 
 function describirError(e) {
-  return e.response
-    ? `el servicio respondió ${e.response.status}`
-    : "no se pudo contactar con el servicio de liquidaciones";
+  if (e.response) return `el servicio respondió ${e.response.status}`;
+
+  // El caso tipico en un despliegue: el build salio sin VITE_API_URL y el
+  // portal busca la API en la maquina del visitante. Conviene decirlo.
+  const apuntaALocal = /127\.0\.0\.1|localhost/.test(API_URL);
+  const sirveDesdeFuera = typeof window !== "undefined" && !/localhost|127\.0\.0\.1/.test(window.location.hostname);
+  if (apuntaALocal && sirveDesdeFuera) {
+    return `el portal está configurado para buscar la API en ${API_URL}, que no existe en producción. Falta definir VITE_API_URL con la URL pública del backend y volver a desplegar`;
+  }
+
+  return `no se pudo contactar con el servicio de liquidaciones en ${API_URL}`;
 }
