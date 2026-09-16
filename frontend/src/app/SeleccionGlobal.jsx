@@ -78,13 +78,6 @@ export function SeleccionGlobal() {
       </div>
 
       <div className="seleccion-avisos">
-        {periodoActual?.origen === "sintetico" && (
-          <p className="aviso-sintetico">
-            ⚠ Mes sintético: generado para dar profundidad interanual, no son
-            cifras publicadas.
-          </p>
-        )}
-
         {empresaActual ? (
           <p className="empresa-elegida">
             <strong>{nombreEmpresa(empresaActual)}</strong>

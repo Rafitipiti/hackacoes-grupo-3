@@ -17,7 +17,6 @@ import {
 import { obtenerHistorico } from "../api/empresa.js";
 import { useSeleccion } from "../app/contexto.jsx";
 import { EstadoCarga } from "../componentes/EstadoCarga.jsx";
-import { MarcaSintetico } from "../componentes/MarcaSintetico.jsx";
 import { Tarjeta } from "../componentes/Tarjeta.jsx";
 import { Variacion } from "../componentes/Variacion.jsx";
 import { nombreEmpresa } from "../lib/empresa.js";
@@ -52,13 +51,8 @@ function etiquetaCorta(perinombre) {
   return `${mes.slice(0, 3)} ${anio.slice(2)}`;
 }
 
-/**
- * Marca del eje X. Es el gemelo SVG de <MarcaSintetico>: mismo tono, mismo
- * trazo discontinuo, porque un span HTML no puede vivir dentro del SVG del
- * grafico. La marca accesible (con explicacion) esta en la tabla de abajo.
- */
-function TickPeriodo({ x, y, payload, sinteticos, seleccionado }) {
-  const esSintetico = sinteticos.has(payload.value);
+/** Marca del eje X: mes abreviado, en negrita el seleccionado. */
+function TickPeriodo({ x, y, payload, seleccionado }) {
   const esSeleccionado = payload.value === seleccionado;
 
   return (
@@ -72,32 +66,18 @@ function TickPeriodo({ x, y, payload, sinteticos, seleccionado }) {
       >
         {etiquetaCorta(payload.value)}
       </text>
-      {esSintetico && (
-        <line
-          x1={-12}
-          x2={12}
-          y1={17}
-          y2={17}
-          stroke="var(--warn)"
-          strokeWidth={1.5}
-          strokeDasharray="2 2"
-        />
-      )}
     </g>
   );
 }
 
-function TooltipSerie({ active, payload, label, sinteticos }) {
+function TooltipSerie({ active, payload, label }) {
   if (!active || !payload?.length) return null;
 
   const punto = payload[0].payload;
 
   return (
     <div className="tooltip-grafico">
-      <p className="tooltip-titulo">
-        {label}
-        {sinteticos.has(label) && <MarcaSintetico />}
-      </p>
+      <p className="tooltip-titulo">{label}</p>
       <p>
         <span className="muestra" style={{ background: COLOR_TOTAL }} aria-hidden="true" />
         Liquidación total: <strong className="cifra">{soles(punto.liquidacion_total)}</strong>
@@ -113,7 +93,7 @@ function TooltipSerie({ active, payload, label, sinteticos }) {
   );
 }
 
-function SerieTemporal({ periodos, seleccionado, sinteticos }) {
+function SerieTemporal({ periodos, seleccionado }) {
   return (
     <div className="grafico-serie">
       <ResponsiveContainer width="100%" height={300}>
@@ -146,7 +126,7 @@ function SerieTemporal({ periodos, seleccionado, sinteticos }) {
             height={34}
             tickLine={false}
             axisLine={{ stroke: "var(--axis)" }}
-            tick={<TickPeriodo sinteticos={sinteticos} seleccionado={seleccionado} />}
+            tick={<TickPeriodo seleccionado={seleccionado} />}
           />
           <YAxis
             yAxisId="total"
@@ -167,7 +147,7 @@ function SerieTemporal({ periodos, seleccionado, sinteticos }) {
           />
 
           <Tooltip
-            content={<TooltipSerie sinteticos={sinteticos} />}
+            content={<TooltipSerie />}
             cursor={{ stroke: "var(--axis)" }}
           />
           <Legend
@@ -209,8 +189,7 @@ function SerieTemporal({ periodos, seleccionado, sinteticos }) {
         Eje izquierdo: liquidación total del mes. Eje derecho: efecto neto de
         los recálculos publicados después, calculado como suma de los ajustes
         entre revisiones consecutivas (no de los montos restatados, que
-        contarían el mes varias veces). Los meses con marca discontinua bajo
-        la etiqueta son sintéticos.
+        contarían el mes varias veces).
       </p>
     </div>
   );
@@ -235,10 +214,7 @@ function TablaHistorico({ periodos, seleccionado }) {
         <tbody>
           {periodos.map((p) => (
             <tr key={p.pericodi} className={p.perinombre === seleccionado ? "fila-seleccionada" : ""}>
-              <td>
-                {p.perinombre}
-                {p.origen === "sintetico" && <MarcaSintetico />}
-              </td>
+              <td>{p.perinombre}</td>
               <td>{p.estado}</td>
               <td className="num">{soles(p.liquidacion_total)}</td>
               <td className="num">{soles(p.efecto_neto_recalculos)}</td>
@@ -422,7 +398,7 @@ function ComparacionProcesos({ actual, anterior }) {
 }
 
 export function EvolucionEmpresa() {
-  const { empresa, periodo, empresas, periodos } = useSeleccion();
+  const { empresa, periodo, empresas } = useSeleccion();
 
   // El historico recuerda de que empresa es: "cargando" se deduce
   // comparando con la empresa elegida, sin bandera aparte.
@@ -454,11 +430,6 @@ export function EvolucionEmpresa() {
 
     return () => { vigente = false; };
   }, [empresa]);
-
-  const sinteticos = useMemo(
-    () => new Set(periodos.filter((p) => p.origen === "sintetico").map((p) => p.perinombre)),
-    [periodos],
-  );
 
   const cargando = Boolean(empresa) && historico.empresa !== empresa;
   const datos = cargando ? null : historico.datos;
@@ -523,11 +494,7 @@ export function EvolucionEmpresa() {
               <span className="cifra">RUC {datos.ruc}</span> · {serie.length} periodos con liquidación
             </p>
           )}
-          <SerieTemporal
-            periodos={serie}
-            seleccionado={actual?.perinombre}
-            sinteticos={sinteticos}
-          />
+          <SerieTemporal periodos={serie} seleccionado={actual?.perinombre} />
           <details className="detalle-tabla">
             <summary>Ver la tabla de los {serie.length} periodos</summary>
             <TablaHistorico periodos={serie} seleccionado={actual?.perinombre} />

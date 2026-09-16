@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 import { EstadoCarga } from "../componentes/EstadoCarga.jsx";
-import { MarcaSintetico } from "../componentes/MarcaSintetico.jsx";
 import { Tarjeta } from "../componentes/Tarjeta.jsx";
 import { porcentaje, soles } from "../lib/formato.js";
 import { obtenerCalendario, obtenerCascada, obtenerImpacto } from "../api/revisiones.js";
@@ -78,19 +77,12 @@ function Impacto({ datos }) {
   );
 }
 
-function Calendario({ entradas, periodos }) {
+function Calendario({ entradas }) {
   const porProceso = entradas.reduce((acc, e) => {
     (acc[e.proceso] ??= []).push(e);
     return acc;
   }, {});
 
-  // La publicacion de un mes trae la R0 de ese mes mas recalculos de meses
-  // anteriores, y algunos de esos meses anteriores son sinteticos (2025).
-  // El aviso de la barra lateral habla del periodo seleccionado, no de cada
-  // fila: aqui se marca fila por fila con el origen real de cada periodo.
-  const sinteticos = new Set(
-    periodos.filter((p) => p.origen === "sintetico").map((p) => p.pericodi),
-  );
 
   return (
     <Tarjeta
@@ -118,7 +110,6 @@ function Calendario({ entradas, periodos }) {
                       <tr key={`${f.pericodi}-${f.revision}`}>
                         <td>
                           {f.perianiomes}
-                          {sinteticos.has(f.pericodi) && <MarcaSintetico />}
                         </td>
                         <td>{f.revision_nombre}</td>
                       </tr>
@@ -163,7 +154,6 @@ function Cascada({ procesos }) {
                   <tr key={p.revision}>
                     <td>
                       {p.revision_nombre}
-                      {p.origen === "sintetico" && <MarcaSintetico />}
                     </td>
                     <td className="num">{soles(p.monto_total)}</td>
                     <td className="num">{p.ajuste === null ? "—" : soles(p.ajuste)}</td>
@@ -181,7 +171,7 @@ function Cascada({ procesos }) {
 }
 
 export function CicloRevisiones() {
-  const { periodo, empresa, periodos } = useSeleccion();
+  const { periodo, empresa } = useSeleccion();
 
   const [impacto, setImpacto] = useState(null);
   const [calendario, setCalendario] = useState(null);
@@ -262,7 +252,7 @@ export function CicloRevisiones() {
     >
       <div className="rejilla">
         {impacto && <Impacto datos={impacto} />}
-        {calendario && <Calendario entradas={calendario} periodos={periodos} />}
+        {calendario && <Calendario entradas={calendario} />}
 
         {cascada ? (
           <Cascada procesos={cascada} />

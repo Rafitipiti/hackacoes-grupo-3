@@ -86,7 +86,7 @@
 }
 
 /* Selector global (D8): arriba a la derecha, en la cabecera de cada
-   seccion. Dos controles en fila; los avisos (mes sintetico, empresa
+   seccion. Dos controles en fila; los avisos (la empresa
    elegida con su RUC) van debajo, alineados al mismo borde derecho. */
 .seleccion-global {
   display: flex;
@@ -122,14 +122,6 @@
   width: 100%;
 }
 
-.aviso-sintetico {
-  margin: 0;
-  font-size: 11px;
-  color: var(--warn-texto);
-  background: color-mix(in srgb, var(--warn) 12%, transparent);
-  border-radius: 6px;
-  padding: 5px 7px;
-}
 .aviso-empresa { font-size: 11px; color: var(--ink-muted); }
 .ayuda-empresa { margin: 0; font-size: 11px; color: var(--ink-muted); text-align: right; }
 

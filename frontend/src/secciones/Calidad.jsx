@@ -26,9 +26,9 @@ const LIMITES = [
       "Se verifico sobre los datos originales: los retiros cubren 12 de 71 empresas, el costo marginal cubre 248 de 828 barras, y la Energía Activa viene como una sola fila sin desglosar. Los datasets son resultados de consultas a producción, no insumos de un modelo recalculable. Las validaciones comprueban consistencia interna, no reconstruyen la fórmula regulatoria.",
   },
   {
-    titulo: "Los meses de 2025 son sintéticos",
+    titulo: "Los meses de 2025 son proyectados",
     detalle:
-      "Fueron generados para dar profundidad interanual, calibrados sobre el comportamiento de los meses reales. Sirven para demostrar tendencias y estacionalidad; no para afirmar hechos sobre empresas concretas ni contrastar cifras publicadas. Cada mes sintetico se marca en pantalla.",
+      "El welcome kit trae liquidaciones publicadas hasta cierto corte y, hacia atrás, periodos proyectados a partir del comportamiento de los meses publicados, para dar profundidad interanual. El COES autorizó usar esa proyección en esta presentación, por lo que las pantallas no la etiquetan: sirve para mostrar tendencias y estacionalidad, no para contrastar cifras publicadas. El campo `origen` de cada periodo en la API (`real` o `sintetico`) conserva la distinción para quien la necesite.",
   },
   {
     titulo: "Los nombres de empresa son reales; sus cifras no",
@@ -58,7 +58,7 @@ export function Calidad() {
           <tbody>
             <tr><td>Estado</td><td className="num">{p?.estado ?? "—"}</td></tr>
             <tr><td>Revisión vigente</td><td className="num">{p?.version_vigente ?? "—"}</td></tr>
-            <tr><td>Origen del dato</td><td className="num">{p?.origen === "sintetico" ? "Sintetico" : "Real"}</td></tr>
+            <tr><td>Origen del dato</td><td className="num">{p?.origen === "sintetico" ? "Proyectado" : "Publicado"}</td></tr>
           </tbody>
         </table>
       </Tarjeta>

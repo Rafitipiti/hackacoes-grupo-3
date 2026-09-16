@@ -171,7 +171,7 @@ function ListaEmpresas({ empresas, seleccionadas, alCambiar, alTodas, alLimpiar 
 }
 
 export function Comparador({ irA }) {
-  const { periodo, periodos, empresa, setEmpresa } = useSeleccion();
+  const { periodo, empresa, setEmpresa } = useSeleccion();
 
   // La comparativa recuerda de que periodo es: "cargando" se deduce
   // comparando con el periodo elegido, sin bandera aparte.
@@ -208,7 +208,7 @@ export function Comparador({ irA }) {
           datos: null,
           error:
             e.response?.status === 404
-              ? "Ninguna empresa tiene liquidación en este periodo."
+              ? "El servicio no devolvió la comparativa de este periodo."
               : "No se pudo contactar con el servicio de liquidaciones.",
         });
       }
@@ -234,8 +234,6 @@ export function Comparador({ irA }) {
         .sort((a, b) => (b.monto_restatado ?? 0) - (a.monto_restatado ?? 0)),
     [empresas, seleccionadas],
   );
-
-  const periodoActual = periodos.find((p) => p.pericodi === periodo);
 
   function alternar(id) {
     setSeleccionadas((actual) => {
@@ -351,7 +349,6 @@ export function Comparador({ irA }) {
                 en el resto del portal. El monto restatado es la última revisión
                 publicada de cada proceso; el efecto neto es esa última revisión
                 menos la original, nunca la suma de montos restatados.
-                {periodoActual?.origen === "sintetico" && " Este mes es sintético."}
               </p>
             </>
           )}

@@ -23,16 +23,6 @@
 .estado { padding: 22px; text-align: center; color: var(--ink-muted); font-size: 13px; }
 .estado-error { color: var(--bad); }
 
-.marca-sintetico {
-  font-size: 9px;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--warn-texto);
-  border: 1px dashed var(--warn);
-  border-radius: 4px;
-  padding: 1px 5px;
-  margin-left: 6px;
-}
 
 /* Tablas anchas (varias columnas numericas) se desplazan dentro de su
    propio contenedor en pantallas angostas, en vez de forzar scroll
