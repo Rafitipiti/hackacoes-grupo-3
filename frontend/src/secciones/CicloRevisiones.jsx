@@ -161,7 +161,10 @@ function Cascada({ procesos }) {
               <tbody>
                 {pasos.map((p) => (
                   <tr key={p.revision}>
-                    <td>{p.revision_nombre}</td>
+                    <td>
+                      {p.revision_nombre}
+                      {p.origen === "sintetico" && <MarcaSintetico />}
+                    </td>
                     <td className="num">{soles(p.monto_total)}</td>
                     <td className="num">{p.ajuste === null ? "—" : soles(p.ajuste)}</td>
                     <td className="num">{p.ajuste_pct === null ? "—" : porcentaje(p.ajuste_pct)}</td>
