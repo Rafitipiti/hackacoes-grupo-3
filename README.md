@@ -62,10 +62,19 @@ COES_2026/
 │   │   ├── raw/                copia de trabajo del welcome kit (no versionada)
 │   │   └── curated/             parquet consumidos por la API (sí versionada)
 │   └── tests/                pruebas de ETL, servicios y endpoints
-├── frontend/                aplicación React + Vite
+├── frontend/         aplicación React + Vite
+│   └── src/
+│       ├── app/          cáscara: navegación, selección global, tema
+│       ├── secciones/    una por entrada del menú
+│       ├── componentes/  tarjetas, variaciones, estados de carga
+│       ├── lib/          formato de cifras y semántica de variaciones
+│       ├── api/          cliente HTTP por dominio
+│       └── LegacyApp.jsx flujo causal A1→A7, montado dentro de las secciones
 ├── presentacion/            PPT de la exposición
 └── COES.txt                 notas de instalación del entorno
 ```
+
+`frontend/src/LegacyApp.jsx` tiene cerca de 7.900 líneas en una sola función. No es un descuido: ahí vive el análisis causal (flujo A1→A7) que ya funciona, y reescribirlo no era parte del alcance de la reconstrucción del frontend. Se conserva tal cual y se monta dentro de las secciones `Panorama` y `Mi empresa` (`secciones/Panorama.jsx`, `secciones/MiEmpresa.jsx`), que le pasan el periodo y la empresa seleccionados por props.
 
 ## Cómo levantarlo
 
@@ -133,6 +142,11 @@ pytest
 ```
 
 Los 23 tests de `test_etl_*.py` requieren el welcome kit en `backend/data/raw/` (no versionado). En un clon limpio, sin ese directorio, se saltan automáticamente en vez de fallar.
+
+```bash
+cd frontend
+npm test      # tests de formato, variaciones y exportación
+```
 
 ## Sobre los datos
 
