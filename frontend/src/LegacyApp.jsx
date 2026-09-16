@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
+import { Variacion } from "./componentes/Variacion.jsx";
+
 import {
     BarChart,
     Bar,
@@ -2527,22 +2529,15 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                                                             <td>
 
-                                                                <span
-                                                                    className={
-                                                                        item.variacion_porcentual >= 0
-                                                                            ? "positive"
-                                                                            : "negative"
+                                                                <Variacion
+                                                                    delta={item.variacion_absoluta}
+                                                                    pct={
+                                                                        item.variacion_porcentual === null ||
+                                                                        item.variacion_porcentual === undefined
+                                                                            ? null
+                                                                            : item.variacion_porcentual / 100
                                                                     }
-                                                                >
-
-                                                                    {item.variacion_porcentual >= 0
-                                                                        ? "+"
-                                                                        : ""}
-
-                                                                    {item.variacion_porcentual.toFixed(2)}
-                                                                    %
-
-                                                                </span>
+                                                                />
 
                                                             </td>
 

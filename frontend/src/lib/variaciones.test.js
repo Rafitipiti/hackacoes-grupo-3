@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { clasificarVariacion } from "./variaciones.js";
+import { clasificarVariacion, describirVariacion } from "./variaciones.js";
 
 describe("clasificarVariacion", () => {
   it("el caso normal trae porcentaje", () => {
@@ -67,5 +67,49 @@ describe("clasificarVariacion", () => {
 
     expect(v.tipo).toBe("normal");
     expect(v.texto).toBe("+50.0%");
+  });
+});
+
+describe("describirVariacion", () => {
+  it("con cambioSigno=true no calcula nada, confia en quien llama", () => {
+    // Quien llama (clasificarVariacion, que tiene actual y anterior con
+    // signo real) ya decidio que hubo cruce de cero; describirVariacion
+    // solo arma texto y magnitud a partir de delta y pct.
+    const v = describirVariacion({ delta: -265000, pct: -1.293, cambioSigno: true });
+
+    expect(v.tipo).toBe("cambio-signo");
+    expect(v.texto).toContain("↔");
+    expect(v.texto).not.toContain("%");
+  });
+
+  it("fuera de rango: una variacion mayor a 999% muestra el delta", () => {
+    const v = describirVariacion({ delta: 49990, pct: 4999 });
+
+    expect(v.tipo).toBe("fuera-de-rango");
+    expect(v.texto).toContain("Δ");
+    expect(v.texto).not.toContain("%");
+  });
+
+  it("caso normal: sin cambioSigno y dentro de rango, da porcentaje", () => {
+    const v = describirVariacion({ delta: 12.3, pct: 0.123 });
+
+    expect(v.tipo).toBe("normal");
+    expect(v.texto).toBe("+12.3%");
+  });
+
+  it("sin delta o pct devuelve sin-dato", () => {
+    expect(describirVariacion({ delta: null, pct: null }).tipo).toBe("sin-dato");
+    expect(describirVariacion({ delta: 10, pct: undefined }).tipo).toBe("sin-dato");
+  });
+
+  it("sin cambioSigno, un pct fuera de [-1,1] por un vaiven grande (no un cruce de cero) se reporta como variacion grande, no como cambio de posicion", () => {
+    // delta y pct por si solos no distinguen "cruzo cero" de "crecio mucho
+    // sin cruzarlo" (ver el comentario en variaciones.js). Sin la señal
+    // cambioSigno, describirVariacion nunca inventa un cruce que no puede
+    // confirmar: se queda en normal o fuera-de-rango segun la magnitud.
+    const v = describirVariacion({ delta: 250, pct: 2.5 });
+
+    expect(v.tipo).toBe("normal");
+    expect(v.texto).toBe("+250.0%");
   });
 });

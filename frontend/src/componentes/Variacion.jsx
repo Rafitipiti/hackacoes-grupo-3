@@ -1,6 +1,6 @@
 import { useId } from "react";
 
-import { clasificarVariacion } from "../lib/variaciones.js";
+import { clasificarVariacion, describirVariacion } from "../lib/variaciones.js";
 
 const TITULOS = {
   "normal": "Variacion respecto del periodo anterior",
@@ -9,8 +9,14 @@ const TITULOS = {
   "sin-dato": "Sin periodo base para comparar",
 };
 
-export function Variacion({ actual, anterior }) {
-  const v = clasificarVariacion(actual, anterior);
+// Acepta {actual, anterior} (calcula todo, incluido cambio de signo) o
+// {delta, pct} directo, para cuando el llamador ya trae esos dos valores
+// calculados (por ejemplo filas de una API) y no los montos crudos.
+export function Variacion({ actual, anterior, delta, pct }) {
+  const v =
+    delta !== undefined || pct !== undefined
+      ? describirVariacion({ delta, pct })
+      : clasificarVariacion(actual, anterior);
 
   // La flecha indica direccion, nunca si algo es bueno o malo: en
   // liquidaciones subir es favorable o no segun si la empresa cobra o paga.

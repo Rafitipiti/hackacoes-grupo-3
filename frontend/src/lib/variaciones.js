@@ -28,28 +28,32 @@ function abreviar(monto) {
 }
 
 /**
- * Clasifica una variacion entre dos periodos.
+ * Decide tipo/texto/magnitud a partir de delta y pct YA CALCULADOS (pct es
+ * la fraccion delta/abs(anterior), la misma convencion que usa
+ * clasificarVariacion). Es la parte de la decision que SI se puede tomar
+ * sin conocer el signo real de "anterior" por separado.
  *
- * Un porcentaje engaña en tres casos, y los tres se distinguen aqui:
- * cuando el monto cambia de signo (pasar de cobrar a pagar no es un
- * porcentaje, es un cambio de posicion), cuando la variacion es tan
- * grande que el porcentaje deja de informar, y cuando no hay base
- * contra la cual comparar.
+ * cambioSigno es opcional: quien ya sepa (porque tiene actual y anterior
+ * con su signo real, como clasificarVariacion) que el monto cruzo cero lo
+ * indica aqui. Sin ese dato esta funcion NO puede reconstruir un cambio de
+ * signo de forma confiable: delta y pct (con anterior en valor absoluto)
+ * no alcanzan para distinguir "cruzo cero" de "vario mucho sin cruzarlo"
+ * (dos periodos negativos, uno mucho mas negativo que el otro, dan el
+ * mismo pct que un cruce de cero real). Por eso las filas del radar, que
+ * solo traen delta y pct, nunca muestran "cambio-signo": degradan a
+ * "normal" o "fuera-de-rango" segun la magnitud, sin inventar un cruce que
+ * no se puede confirmar.
  */
-export function clasificarVariacion(actual, anterior) {
+export function describirVariacion({ delta, pct, cambioSigno = false }) {
   const faltaDato =
-    actual === null || actual === undefined ||
-    anterior === null || anterior === undefined ||
-    anterior === 0;
+    delta === null || delta === undefined ||
+    pct === null || pct === undefined;
 
   if (faltaDato) {
     return { tipo: "sin-dato", texto: "s/d", delta: null, pct: null, magnitud: "normal" };
   }
 
-  const delta = actual - anterior;
-  const pct = delta / Math.abs(anterior);
-
-  if (Math.sign(actual) !== Math.sign(anterior) && actual !== 0) {
+  if (cambioSigno) {
     return {
       tipo: "cambio-signo",
       texto: `↔ ${soles(delta, 0)}`,
@@ -80,4 +84,30 @@ export function clasificarVariacion(actual, anterior) {
     pct,
     magnitud: magnitudDe(pct),
   };
+}
+
+/**
+ * Clasifica una variacion entre dos periodos.
+ *
+ * Un porcentaje engaña en tres casos, y los tres se distinguen aqui:
+ * cuando el monto cambia de signo (pasar de cobrar a pagar no es un
+ * porcentaje, es un cambio de posicion), cuando la variacion es tan
+ * grande que el porcentaje deja de informar, y cuando no hay base
+ * contra la cual comparar.
+ */
+export function clasificarVariacion(actual, anterior) {
+  const faltaDato =
+    actual === null || actual === undefined ||
+    anterior === null || anterior === undefined ||
+    anterior === 0;
+
+  if (faltaDato) {
+    return { tipo: "sin-dato", texto: "s/d", delta: null, pct: null, magnitud: "normal" };
+  }
+
+  const delta = actual - anterior;
+  const pct = delta / Math.abs(anterior);
+  const cambioSigno = Math.sign(actual) !== Math.sign(anterior) && actual !== 0;
+
+  return describirVariacion({ delta, pct, cambioSigno });
 }
