@@ -1,8 +1,8 @@
-* {
+.legacy * {
   box-sizing: border-box;
 }
 
-body {
+.legacy {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: #f4f6f8;
@@ -76,7 +76,7 @@ body {
   color: #6b7280;
 }
 
-button {
+.legacy button {
   border: none;
   background: #2563eb;
   color: white;
@@ -86,7 +86,7 @@ button {
   font-weight: bold;
 }
 
-button:hover {
+.legacy button:hover {
   background: #1d4ed8;
 }
 
@@ -171,7 +171,7 @@ button:hover {
   overflow-x: auto;
 }
 
-table {
+.legacy table {
   width: 100%;
   border-collapse: collapse;
 }

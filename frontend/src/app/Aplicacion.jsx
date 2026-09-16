@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import { Layout } from "./Layout.jsx";
 import { ProveedorSeleccion, useSeleccion } from "./contexto.jsx";
+import { Panorama } from "../secciones/Panorama.jsx";
+import { MiEmpresa } from "../secciones/MiEmpresa.jsx";
 import { CicloRevisiones } from "../secciones/CicloRevisiones.jsx";
 import { ApisDescargas } from "../secciones/ApisDescargas.jsx";
 
@@ -11,6 +13,7 @@ import "./layout.css";
 import "../componentes/componentes.css";
 import "../secciones/ciclo.css";
 import "../secciones/apis.css";
+import "../App.css";
 
 const TEMAS = ["auto", "claro", "oscuro"];
 
@@ -44,6 +47,8 @@ function Contenido({ seccion }) {
     );
   }
 
+  if (seccion === "panorama") return <Panorama />;
+  if (seccion === "mi-empresa") return <MiEmpresa />;
   if (seccion === "revisiones") return <CicloRevisiones />;
   if (seccion === "apis") return <ApisDescargas />;
   return <Marcador seccion={seccion} />;

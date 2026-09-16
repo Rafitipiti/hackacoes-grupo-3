@@ -70,7 +70,7 @@ function construirWaterfall(analisis) {
 }
 
 
-function App() {
+function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial = null }) {
 
     const [radar, setRadar] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -96,7 +96,7 @@ function App() {
     // ==========================================
     // MODO AGENTE
     // ==========================================
-    const [modoActual, setModoActual] = useState(null);
+    const [modoActual, setModoActual] = useState(modoInicial);
 
     const [resumenAgente, setResumenAgente] = useState(null);
     const [loadingResumenAgente, setLoadingResumenAgente] = useState(false);
@@ -105,7 +105,7 @@ function App() {
     const [contextoAgente, setContextoAgente] = useState(null);
     const [loadingExplicacionAgente, setLoadingExplicacionAgente] = useState(false);
 
-    const [empresaAgente, setEmpresaAgente] = useState(null);
+    const [empresaAgente, setEmpresaAgente] = useState(empresaInicial);
     const [busquedaEmpresa, setBusquedaEmpresa] = useState("");
     const [pericodiAgente, setPericodiAgente] = useState(null);
 
@@ -123,7 +123,7 @@ function App() {
             agenteSeleccionado
         );
 
-    const [fecha, setFecha] = useState("");
+    const [fecha, setFecha] = useState(periodoInicial ?? "");
     const [periodos, setPeriodos] = useState([]);
 
     const [empresas, setEmpresas] = useState([]);
@@ -185,6 +185,17 @@ function App() {
         cargarPeriodos();
         cargarEmpresas();
     }, []);
+
+    // La seleccion vive ahora en la barra lateral. Cuando cambia, este
+    // componente la adopta sin que el usuario tenga que volver a una
+    // pantalla de seleccion propia.
+    useEffect(() => {
+        if (empresaInicial !== null) setEmpresaAgente(empresaInicial);
+    }, [empresaInicial]);
+
+    useEffect(() => {
+        if (periodoInicial !== null) setFecha(periodoInicial);
+    }, [periodoInicial]);
 
 
     async function cargarPeriodos() {
@@ -2027,6 +2038,8 @@ function App() {
 
     return (
 
+        <div className="legacy">
+
         <div className="app">
 
             <header className="header">
@@ -2105,7 +2118,7 @@ function App() {
 
                 )}
 
-                {!modoActual && (
+                {modoInicial === null && modoActual === null && (
 
                     <div className="mode-home">
 
@@ -7941,7 +7954,9 @@ function App() {
 
         </div >
 
+        </div>
+
     );
 }
 
-export default App;
+export default LegacyApp;
