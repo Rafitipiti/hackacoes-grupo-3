@@ -658,7 +658,7 @@ si algo es bueno o malo."
 **Interfaces:**
 - Consumes: `tokens.css`, `base.css` de Task 1.
 - Produces:
-  - `useSeleccion() -> { periodo, setPeriodo, empresa, setEmpresa, periodos, empresas, cargando }` — `empresa` es la clave técnica `EMPRESA_00X` o `null`
+  - `useSeleccion() -> { periodo, setPeriodo, empresa, setEmpresa, periodos, empresas, cargando, error }` — `empresa` es la clave técnica `EMPRESA_00X` o `null`
   - `SECCIONES: Array<{ id, titulo, icono, descripcion, disponible }>`
   - `<Aplicacion/>` como raíz de la app
 
@@ -690,36 +690,58 @@ export function ProveedorSeleccion({ children }) {
   const [periodo, setPeriodo] = useState(null);
   const [empresa, setEmpresa] = useState(null);
   const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    // Evita escribir estado si el componente se desmonta a media carga.
+    let vigente = true;
+
     async function cargar() {
-      const [respPeriodos, respEmpresas] = await Promise.all([
-        axios.get(`${API_URL}/periodos`),
-        axios.get(`${API_URL}/empresas`),
-      ]);
+      try {
+        const [respPeriodos, respEmpresas] = await Promise.all([
+          axios.get(`${API_URL}/periodos`),
+          axios.get(`${API_URL}/empresas`),
+        ]);
 
-      const listaPeriodos = respPeriodos.data.periodos;
-      setPeriodos(listaPeriodos);
-      setEmpresas(respEmpresas.data.empresas);
+        if (!vigente) return;
 
-      // Arranca en el ultimo periodo CERRADO, no en el mas reciente.
-      // Los periodos abiertos no tienen reportes intermedios cargados, asi
-      // que la pantalla saldria vacia en la primera impresion.
-      const cerrados = listaPeriodos.filter((p) => p.estado === "Cerrado");
-      const inicial = cerrados.length
-        ? cerrados[cerrados.length - 1]
-        : listaPeriodos[listaPeriodos.length - 1];
+        const listaPeriodos = respPeriodos.data.periodos;
 
-      setPeriodo(inicial.pericodi);
-      setCargando(false);
+        if (!listaPeriodos || listaPeriodos.length === 0) {
+          throw new Error("El servicio no devolvio ningun periodo.");
+        }
+
+        setPeriodos(listaPeriodos);
+        setEmpresas(respEmpresas.data.empresas ?? []);
+
+        // Arranca en el ultimo periodo CERRADO, no en el mas reciente.
+        // Los periodos abiertos no tienen reportes intermedios cargados, asi
+        // que la pantalla saldria vacia en la primera impresion.
+        const cerrados = listaPeriodos.filter((p) => p.estado === "Cerrado");
+        const inicial = cerrados.length
+          ? cerrados[cerrados.length - 1]
+          : listaPeriodos[listaPeriodos.length - 1];
+
+        setPeriodo(inicial.pericodi);
+      } catch (e) {
+        if (!vigente) return;
+
+        setError(
+          e.response ? `el servicio respondio ${e.response.status}` : e.message,
+        );
+      } finally {
+        if (vigente) setCargando(false);
+      }
     }
 
     cargar();
+
+    return () => { vigente = false; };
   }, []);
 
   const valor = useMemo(
-    () => ({ periodo, setPeriodo, empresa, setEmpresa, periodos, empresas, cargando }),
-    [periodo, empresa, periodos, empresas, cargando],
+    () => ({ periodo, setPeriodo, empresa, setEmpresa, periodos, empresas, cargando, error }),
+    [periodo, empresa, periodos, empresas, cargando, error],
   );
 
   return (
@@ -821,8 +843,14 @@ export function SeleccionGlobal() {
   function alEscribir(texto) {
     setBusqueda(texto);
 
+    // Se compara con el mismo criterio con que se ordena la lista:
+    // insensible a mayusculas y tildes. Comparar con === haria que un alias
+    // bien tecleado pero con otra capitalizacion no resolviera.
     const encontrada = empresas.find(
-      (e) => (e.alias ?? e.empresa_id) === texto,
+      (e) =>
+        (e.alias ?? e.empresa_id).localeCompare(texto, "es", {
+          sensitivity: "base",
+        }) === 0,
     );
 
     setEmpresa(encontrada ? encontrada.empresa_id : null);
@@ -1065,6 +1093,9 @@ export function Layout({ seccionActiva, alCambiarSeccion, tema, alCambiarTema, c
 
 .alternar-tema { width: 100%; }
 
+.estado { padding: 22px; text-align: center; color: var(--ink-muted); font-size: 13px; }
+.nota { font-size: 12px; color: var(--ink-muted); margin: 6px 0 0; }
+
 .contenido { flex: 1; padding: 22px 26px; max-width: 1400px; }
 .cabecera-seccion { margin-bottom: 18px; }
 
@@ -1083,11 +1114,13 @@ Las secciones todavía no existen: en este paso renderizan un marcador. Las tare
 import { useEffect, useState } from "react";
 
 import { Layout } from "./Layout.jsx";
-import { ProveedorSeleccion } from "./contexto.jsx";
+import { ProveedorSeleccion, useSeleccion } from "./contexto.jsx";
 
 import "../estilos/tokens.css";
 import "../estilos/base.css";
 import "./layout.css";
+
+const TEMAS = ["auto", "claro", "oscuro"];
 
 function Marcador({ seccion }) {
   return (
@@ -1097,11 +1130,40 @@ function Marcador({ seccion }) {
   );
 }
 
+// El spec exige estado de carga explicito: nunca una pantalla en blanco.
+// Aplicacion esta por fuera del proveedor, asi que este componente
+// intermedio es el que puede leer el contexto.
+function Contenido({ seccion }) {
+  const { cargando, error } = useSeleccion();
+
+  if (cargando) {
+    return <p className="estado">Cargando periodos y empresas…</p>;
+  }
+
+  if (error) {
+    return (
+      <section className="tarjeta">
+        <h2>No se pudo conectar con el servicio de liquidaciones</h2>
+        <p className="nota">Detalle: {error}</p>
+        <p className="nota">
+          Comprueba que el servicio este disponible y vuelve a cargar la
+          pagina. Si el problema persiste, avisa al equipo del COES.
+        </p>
+      </section>
+    );
+  }
+
+  return <Marcador seccion={seccion} />;
+}
+
 export function Aplicacion() {
   const [seccion, setSeccion] = useState("panorama");
-  const [tema, setTema] = useState(
-    () => localStorage.getItem("coes-tema") ?? "auto",
-  );
+  // Se valida contra los tres valores permitidos: un valor corrupto en
+  // localStorage dejaria data-tema invalido y el boton mintiendo.
+  const [tema, setTema] = useState(() => {
+    const guardado = localStorage.getItem("coes-tema");
+    return TEMAS.includes(guardado) ? guardado : "auto";
+  });
 
   useEffect(() => {
     if (tema === "auto") {
@@ -1125,7 +1187,7 @@ export function Aplicacion() {
         tema={tema}
         alCambiarTema={alternarTema}
       >
-        <Marcador seccion={seccion} />
+        <Contenido seccion={seccion} />
       </Layout>
     </ProveedorSeleccion>
   );
