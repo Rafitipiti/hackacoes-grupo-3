@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Line, LineChart, ResponsiveContainer, Tooltip, YAxis } from "recharts";
 
-import LegacyApp from "../LegacyApp.jsx";
-import { obtenerContexto, obtenerResumenAgente, obtenerTrazabilidad } from "../api/agente.js";
+import { obtenerContexto, obtenerExplicacion, obtenerResumenAgente, obtenerTrazabilidad } from "../api/agente.js";
+import { obtenerDetallePublicacion } from "../api/publicacion.js";
 import { useSeleccion } from "../app/contexto.jsx";
 import { EstadoCarga } from "../componentes/EstadoCarga.jsx";
 import { Tarjeta } from "../componentes/Tarjeta.jsx";
@@ -94,12 +94,129 @@ function Acordeon({ titulo, resumen, distintivo, abierto, children }) {
   );
 }
 
+function filaVariacion(actual, anterior) {
+  return <Variacion actual={actual} anterior={anterior} />;
+}
+
+function TablaConceptos({ titulo, filas, columna, conVariacion }) {
+  if (!filas?.length) return null;
+  return (
+    <div className="detalle-proceso">
+      <h3>{titulo}</h3>
+      <div className="tabla-scroll">
+        <table className="tabla">
+          <thead>
+            <tr>
+              <th>{columna}</th>
+              {conVariacion && <th className="num">Anterior</th>}
+              <th className="num">{conVariacion ? "Actual" : "Monto"}</th>
+              {conVariacion && <th>Variación</th>}
+            </tr>
+          </thead>
+          <tbody>
+            {filas.map((f, i) => (
+              <tr key={`${f.etiqueta}-${i}`}>
+                <td>
+                  <strong>{f.etiqueta}</strong>
+                  {f.grupo && <span className="nota"> · {f.grupo}</span>}
+                </td>
+                {conVariacion && <td className="num">{soles(f.anterior)}</td>}
+                <td className="num">{soles(f.actual ?? f.monto)}</td>
+                {conVariacion && <td>{filaVariacion(f.actual, f.anterior)}</td>}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Desglose plano por proceso: valorizacion, mecanismo o concepto, ordenado
+ * por impacto. Es lo que la vista ejecutiva NO muestra; lo que ya esta
+ * arriba (total, variacion, trazabilidad, integridad) no se repite.
+ */
+function DetalleProcesos({ empresa, periodo }) {
+  const clave = `${empresa}-${periodo}`;
+  const [estado, setEstado] = useState({ clave: null, explicacion: null, lvtea: null });
+
+  useEffect(() => {
+    let vigente = true;
+    Promise.all([
+      obtenerExplicacion(empresa, periodo).catch(() => null),
+      obtenerDetallePublicacion(periodo, "LVTA", periodo, 0, empresa).catch(() => null),
+    ]).then(([explicacion, lvtea]) => {
+      if (vigente) setEstado({ clave, explicacion, lvtea });
+    });
+    return () => { vigente = false; };
+  }, [clave, empresa, periodo]);
+
+  const listo = estado.clave === clave;
+  const ex = listo ? estado.explicacion?.explicaciones ?? {} : {};
+  const lvtea = listo ? estado.lvtea : null;
+
+  const porImpacto = (filas, campo = "variacion") =>
+    [...filas].sort((a, b) => Math.abs(b[campo] ?? b.monto ?? 0) - Math.abs(a[campo] ?? a.monto ?? 0));
+
+  if (!listo) return <p className="estado estado-cargando">Cargando…</p>;
+
+  const lscio = ex.LSCIO;
+  const lvtp = ex.LVTP?.resultado;
+  const sst = ex["SST-SCT"]?.resultado;
+  const hayAlgo = lvtea?.componentes?.length || lscio?.encontrado || lvtp?.encontrado || sst?.encontrado;
+
+  if (!hayAlgo) return <p className="nota">Sin desglose disponible para esta empresa en el periodo.</p>;
+
+  return (
+    <div className="detalle-procesos">
+      {lvtea?.componentes?.length > 0 && (
+        <TablaConceptos
+          titulo={`${etiquetaProceso("LVTA")} · componentes de la liquidación`}
+          columna="Componente"
+          conVariacion
+          filas={porImpacto(lvtea.componentes.map((c) => ({ etiqueta: c.componente, actual: c.actual, anterior: c.previo, variacion: c.delta })))}
+        />
+      )}
+      {lscio?.encontrado && (
+        <>
+          <TablaConceptos
+            titulo={`${etiquetaProceso("LSCIO")} · mecanismos`}
+            columna="Mecanismo"
+            conVariacion
+            filas={porImpacto(lscio.mecanismos.map((m) => ({ etiqueta: m.mecanismo, actual: m.actual, anterior: m.anterior, variacion: m.variacion })))}
+          />
+          <TablaConceptos
+            titulo={`${etiquetaProceso("LSCIO")} · conceptos que más pesaron`}
+            columna="Concepto"
+            conVariacion
+            filas={porImpacto(lscio.principales_conceptos.map((c) => ({ etiqueta: c.concepto, grupo: c.mecanismo, actual: c.actual, anterior: c.anterior, variacion: c.variacion })))}
+          />
+        </>
+      )}
+      {lvtp?.encontrado && (
+        <TablaConceptos
+          titulo={`${etiquetaProceso("LVTP")} · detalle por concepto (${lvtp.cantidad_registros} registros)`}
+          columna="Concepto"
+          filas={porImpacto(lvtp.detalle.map((d) => ({ etiqueta: d.concepto, grupo: d.valorizacion, monto: d.monto })), "monto").slice(0, 12)}
+        />
+      )}
+      {sst?.encontrado && (
+        <TablaConceptos
+          titulo={`${etiquetaProceso("SST-SCT")} · detalle por concepto (${sst.cantidad_registros} registros)`}
+          columna="Concepto"
+          filas={porImpacto(sst.detalle.map((d) => ({ etiqueta: d.concepto, grupo: d.valorizacion, monto: d.monto })), "monto").slice(0, 12)}
+        />
+      )}
+    </div>
+  );
+}
+
 export function MiEmpresa({ irA }) {
   const { empresa, periodo, periodos, empresas } = useSeleccion();
 
   const clave = empresa && periodo ? `${empresa}-${periodo}` : null;
   const [estado, setEstado] = useState({ clave: null, resumen: null, trazabilidad: null, contexto: null, error: null });
-  const [detallado, setDetallado] = useState(false);
 
   useEffect(() => {
     if (!clave) return;
@@ -302,22 +419,12 @@ export function MiEmpresa({ irA }) {
           </Acordeon>
         </Tarjeta>
 
-        <Tarjeta etiqueta="Análisis detallado" titulo={detallado ? "Flujo completo A1 → A7" : "¿Necesitas ir al fondo?"}
-          acciones={
-            <button type="button" className="boton-secundario" onClick={() => setDetallado((d) => !d)}>
-              {detallado ? "Ocultar análisis detallado" : "Abrir análisis detallado"}
-            </button>
-          }
-        >
-          {detallado ? (
-            <LegacyApp key={`agente-${empresa}-${periodo}`} modoInicial="agente" empresaInicial={empresa} periodoInicial={periodo} />
-          ) : (
-            <p className="nota">
-              El flujo completo recorre resultado, variación, causas, trazabilidad, integridad,
-              contexto y cierre paso a paso, con la evidencia de cada concepto. Lo de arriba es su
-              resumen; abre el detalle solo si necesitas sustentar una cifra.
-            </p>
-          )}
+        <Tarjeta etiqueta="Análisis detallado" titulo="Desglose por proceso, ordenado por impacto">
+          <p className="nota">
+            Valorización, mecanismo y concepto detrás de cada proceso. Los totales y la
+            variación están arriba; aquí solo el detalle.
+          </p>
+          <DetalleProcesos empresa={empresa} periodo={periodo} />
         </Tarjeta>
       </div>
     </EstadoCarga>

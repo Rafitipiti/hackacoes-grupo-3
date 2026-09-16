@@ -252,15 +252,15 @@ export function Panorama({ irA }) {
           </div>
         </section>
 
-        <Tarjeta etiqueta="Quién movió el mes" titulo="Mayores subidas y bajadas frente al mes anterior">
-          <QuienMovioElMes agentes={agentes} alAnalizar={analizar} />
-          <p className="nota">Azul sube, rojo baja. Pulsa una barra para abrir el análisis de esa empresa.</p>
-        </Tarjeta>
-
         <PublicacionMensual />
 
         <Tarjeta etiqueta="Radar de liquidaciones" titulo="Todas las empresas del mes, por relevancia">
           <TablaRadar agentes={agentes} alAnalizar={analizar} />
+        </Tarjeta>
+
+        <Tarjeta etiqueta="Quién movió el mes" titulo="Mayores subidas y bajadas frente al mes anterior">
+          <QuienMovioElMes agentes={agentes} alAnalizar={analizar} />
+          <p className="nota">Azul sube, rojo baja. Pulsa una barra para abrir el análisis de esa empresa.</p>
         </Tarjeta>
 
       </div>

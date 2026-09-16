@@ -131,3 +131,7 @@
   .hero-periodo { grid-template-columns: 1fr; }
   .kpis-empresa { grid-template-columns: 1fr; }
 }
+
+/* Analisis detallado: un desglose plano por proceso, sin submodulos. */
+.detalle-procesos { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+.detalle-proceso h3 { font-size: 13px; color: var(--ink-2); margin-bottom: 6px; }

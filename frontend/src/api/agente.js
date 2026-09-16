@@ -23,3 +23,8 @@ export async function obtenerContexto(empresaId, pericodi) {
   const { data } = await cliente.get(`/agente/contexto/${empresaId}/${pericodi}`);
   return data;
 }
+
+export async function obtenerExplicacion(empresaId, pericodi) {
+  const { data } = await cliente.get(`/agente/explicacion/${empresaId}/${pericodi}`);
+  return data;
+}
