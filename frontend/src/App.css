@@ -176,7 +176,7 @@
   border-collapse: collapse;
 }
 
-th {
+.legacy th {
   text-align: left;
   background: #f9fafb;
   padding: 15px 20px;
@@ -184,7 +184,7 @@ th {
   color: #6b7280;
 }
 
-td {
+.legacy td {
   padding: 16px 20px;
   border-top: 1px solid #f0f0f0;
 }
@@ -274,7 +274,7 @@ td {
   color: #b91c1c;
 }
 
-footer {
+.legacy footer {
   text-align: center;
   padding: 30px;
   color: #9ca3af;
