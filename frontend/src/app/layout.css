@@ -9,6 +9,16 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+
+  /* La barra se queda fija y con su propio scroll. Sin esto se estira a la
+     altura del contenido (el radar son 72 filas) y el `margin-top: auto` de
+     .seleccion-global empuja el selector de periodo y empresa al final de la
+     pagina: el control principal del portal quedaba fuera de pantalla. */
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .marca { display: flex; align-items: center; gap: 10px; }

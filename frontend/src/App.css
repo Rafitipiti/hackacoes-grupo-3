@@ -578,12 +578,17 @@
   color: #6b7280;
 }
 
-.factor-positive {
-  color: #15803d;
+/* Sin verde/rojo por signo: el color no puede decir "bueno" o "malo"
+   cuando subir es favorable o no segun si la empresa cobra o paga.
+   La direccion la comunica el signo o la flecha, nunca el color. */
+.legacy .variacion-monto {
+  color: #0f172a;
+  font-weight: 700;
 }
 
-.factor-negative {
-  color: #dc2626;
+.factor-monto {
+  color: #334155;
+  font-weight: 600;
 }
 
 
@@ -772,12 +777,8 @@
   font-weight: 700;
 }
 
-.principal-factor-cell .factor-positive {
-  color: #15803d;
-}
-
-.principal-factor-cell .factor-negative {
-  color: #dc2626;
+.principal-factor-cell .factor-monto {
+  color: #334155;
 }
 
 
@@ -5519,16 +5520,14 @@ css .table-section-description {
 }
 
 
-.agent-variation-unfavorable {
-  color: #dc2626 !important;
-}
-
-.agent-variation-favorable {
-  color: #16a34a !important;
-}
-
+/* Estas tres clases coloreaban la variacion de verde a rojo dando por hecho
+   que bajar es "favorable". No lo es: en liquidaciones bajar es bueno o malo
+   segun si la empresa cobra o paga, y el spec (7.1) prohibe que el color lo
+   decida. La direccion ya la comunica la flecha y el signo. */
+.agent-variation-unfavorable,
+.agent-variation-favorable,
 .agent-variation-neutral {
-  color: #6b7280 !important;
+  color: #0f172a !important;
 }
 
 .context-section .cards.detail-cards {

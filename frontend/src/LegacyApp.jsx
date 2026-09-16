@@ -249,7 +249,6 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                 `${API_URL}/empresas`
             );
 
-            console.log("EMPRESAS API:", response.data);
 
             setEmpresas(
                 response.data.empresas
@@ -1002,7 +1001,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                         }, con una variación de -S/ ${Math.abs(
                             principalCompensador.variacion
                         ).toLocaleString("es-PE", {
-                            minimumFractionDigits: 2
+                            minimumFractionDigits: 2, maximumFractionDigits: 2
                         })}.`
                 };
             }
@@ -2548,7 +2547,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                 {item.variacion_absoluta.toLocaleString(
                                                                     "es-PE",
                                                                     {
-                                                                        minimumFractionDigits: 2,
+                                                                        minimumFractionDigits: 2, maximumFractionDigits: 2,
                                                                     }
                                                                 )}
 
@@ -2601,13 +2600,10 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                     </strong>
 
                                                                     {item.principal_factor && (
-                                                                        <span
-                                                                            className={
-                                                                                item.variacion_principal_factor >= 0
-                                                                                    ? "factor-positive"
-                                                                                    : "factor-negative"
-                                                                            }
-                                                                        >
+                                                                        /* Sin color por signo: en liquidaciones subir es
+                                                                           favorable o no segun si la empresa cobra o paga.
+                                                                           El signo ya va en el texto. */
+                                                                        <span className="factor-monto">
                                                                             {item.variacion_principal_factor >= 0
                                                                                 ? "+"
                                                                                 : "-"}
@@ -2615,7 +2611,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                             {Math.abs(
                                                                                 item.variacion_principal_factor
                                                                             ).toLocaleString("es-PE", {
-                                                                                minimumFractionDigits: 2
+                                                                                minimumFractionDigits: 2, maximumFractionDigits: 2
                                                                             })}
                                                                         </span>
                                                                     )}
@@ -2794,7 +2790,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                             ).toLocaleString(
                                                 "es-PE",
                                                 {
-                                                    minimumFractionDigits: 2
+                                                    minimumFractionDigits: 2, maximumFractionDigits: 2
                                                 }
                                             )}
                                         </strong>
@@ -2820,7 +2816,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                             ).toLocaleString(
                                                 "es-PE",
                                                 {
-                                                    minimumFractionDigits: 2
+                                                    minimumFractionDigits: 2, maximumFractionDigits: 2
                                                 }
                                             )}
                                         </strong>
@@ -2841,17 +2837,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                         </span>
 
                                         <strong
-                                            className={
-                                                Number(
-                                                    analisis.variacion?.variacion || 0
-                                                ) > 0
-                                                    ? "negative"
-                                                    : Number(
-                                                        analisis.variacion?.variacion || 0
-                                                    ) < 0
-                                                        ? "positive"
-                                                        : ""
-                                            }
+                                            className="variacion-monto"
                                         >
 
                                             {Number(
@@ -2869,24 +2855,14 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                             ).toLocaleString(
                                                 "es-PE",
                                                 {
-                                                    minimumFractionDigits: 2
+                                                    minimumFractionDigits: 2, maximumFractionDigits: 2
                                                 }
                                             )}
 
                                         </strong>
 
                                         <small
-                                            className={
-                                                Number(
-                                                    analisis.variacion?.variacion || 0
-                                                ) > 0
-                                                    ? "negative"
-                                                    : Number(
-                                                        analisis.variacion?.variacion || 0
-                                                    ) < 0
-                                                        ? "positive"
-                                                        : ""
-                                            }
+                                            className="variacion-monto"
                                         >
                                             {analisis.variacion?.variacion_pct !== null &&
                                                 analisis.variacion?.variacion_pct !== undefined
@@ -3044,7 +3020,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                 ).toLocaleString(
                                                                     "es-PE",
                                                                     {
-                                                                        minimumFractionDigits: 2
+                                                                        minimumFractionDigits: 2, maximumFractionDigits: 2
                                                                     }
                                                                 )}
 
@@ -3059,7 +3035,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                 ).toLocaleString(
                                                                     "es-PE",
                                                                     {
-                                                                        minimumFractionDigits: 2
+                                                                        minimumFractionDigits: 2, maximumFractionDigits: 2
                                                                     }
                                                                 )}
 
@@ -3069,13 +3045,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                             <td>
 
                                                                 <span
-                                                                    className={
-                                                                        Number(
-                                                                            proceso.variacion || 0
-                                                                        ) >= 0
-                                                                            ? "positive"
-                                                                            : "negative"
-                                                                    }
+                                                                    className="variacion-monto"
                                                                 >
 
                                                                     {Number(
@@ -3094,7 +3064,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                     ).toLocaleString(
                                                                         "es-PE",
                                                                         {
-                                                                            minimumFractionDigits: 2
+                                                                            minimumFractionDigits: 2, maximumFractionDigits: 2
                                                                         }
                                                                     )}
 
@@ -3195,7 +3165,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                     {anterior.toLocaleString(
                                                                         "es-PE",
                                                                         {
-                                                                            minimumFractionDigits: 2
+                                                                            minimumFractionDigits: 2, maximumFractionDigits: 2
                                                                         }
                                                                     )}
                                                                 </span>
@@ -3230,7 +3200,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                     {actual.toLocaleString(
                                                                         "es-PE",
                                                                         {
-                                                                            minimumFractionDigits: 2
+                                                                            minimumFractionDigits: 2, maximumFractionDigits: 2
                                                                         }
                                                                     )}
                                                                 </span>
@@ -3337,7 +3307,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                                 ).toLocaleString(
                                                                     "es-PE",
                                                                     {
-                                                                        minimumFractionDigits: 2
+                                                                        minimumFractionDigits: 2, maximumFractionDigits: 2
                                                                     }
                                                                 )}
 
@@ -3413,7 +3383,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                     ).toLocaleString(
                                                         "es-PE",
                                                         {
-                                                            minimumFractionDigits: 2
+                                                            minimumFractionDigits: 2, maximumFractionDigits: 2
                                                         }
                                                     )
                                                     : "0.00"}
@@ -3598,7 +3568,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                 ).toLocaleString(
                                                     "es-PE",
                                                     {
-                                                        minimumFractionDigits: 2
+                                                        minimumFractionDigits: 2, maximumFractionDigits: 2
                                                     }
                                                 )}
                                             </strong>
@@ -3618,7 +3588,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                 ).toLocaleString(
                                                     "es-PE",
                                                     {
-                                                        minimumFractionDigits: 2
+                                                        minimumFractionDigits: 2, maximumFractionDigits: 2
                                                     }
                                                 )}
                                             </strong>
@@ -3633,13 +3603,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                             </span>
 
                                             <strong
-                                                className={
-                                                    Number(
-                                                        contextoAgente?.energia?.entregas?.variacion || 0
-                                                    ) >= 0
-                                                        ? "positive"
-                                                        : "negative"
-                                                }
+                                                className="variacion-monto"
                                             >
                                                 {Number(
                                                     contextoAgente?.energia?.entregas?.variacion || 0
@@ -3654,7 +3618,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                 ).toLocaleString(
                                                     "es-PE",
                                                     {
-                                                        minimumFractionDigits: 2
+                                                        minimumFractionDigits: 2, maximumFractionDigits: 2
                                                     }
                                                 )}
                                             </strong>
@@ -3684,13 +3648,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                             </span>
 
                                             <strong
-                                                className={
-                                                    Number(
-                                                        contextoAgente?.mercado?.promedio?.variacion_pct || 0
-                                                    ) >= 0
-                                                        ? "positive"
-                                                        : "negative"
-                                                }
+                                                className="variacion-monto"
                                             >
                                                 {Number(
                                                     contextoAgente?.mercado?.promedio?.variacion_pct || 0
@@ -3922,7 +3880,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                 ).toLocaleString(
                                                     "es-PE",
                                                     {
-                                                        minimumFractionDigits: 2
+                                                        minimumFractionDigits: 2, maximumFractionDigits: 2
                                                     }
                                                 )}
                                             </strong>
@@ -3950,7 +3908,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                 ).toLocaleString(
                                                     "es-PE",
                                                     {
-                                                        minimumFractionDigits: 2
+                                                        minimumFractionDigits: 2, maximumFractionDigits: 2
                                                     }
                                                 )}
                                             </strong>
@@ -3993,7 +3951,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                 ).toLocaleString(
                                                     "es-PE",
                                                     {
-                                                        minimumFractionDigits: 2
+                                                        minimumFractionDigits: 2, maximumFractionDigits: 2
                                                     }
                                                 )}
                                             </strong>
@@ -4657,11 +4615,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                         </span>
 
                                                         <strong
-                                                            className={
-                                                                proceso.variacion >= 0
-                                                                    ? "positive"
-                                                                    : "negative"
-                                                            }
+                                                            className="variacion-monto"
                                                         >
                                                             {proceso.variacion_pct >= 0
                                                                 ? "+"
@@ -5118,13 +5072,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                                     </td>
 
                                                     <td
-                                                        className={
-                                                            Number(
-                                                                analisis.variacion?.variacion || 0
-                                                            ) >= 0
-                                                                ? "positive"
-                                                                : "negative"
-                                                        }
+                                                        className="variacion-monto"
                                                     >
                                                         <strong>
                                                             {Number(
