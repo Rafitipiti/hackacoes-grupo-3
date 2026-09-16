@@ -1,0 +1,50 @@
+/* Red y precios: mapa de barras y perfil de costo marginal (spec 9.2). */
+
+.mapa-y-tabla {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+.mapa-peru { width: 100%; height: auto; display: block; }
+.mapa-peru .pais {
+  fill: var(--surface-2);
+  stroke: var(--axis);
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+}
+.mapa-peru .barra-punto {
+  fill: var(--serie-1);
+  fill-opacity: .75;
+  stroke: var(--surface);
+  stroke-width: .8;
+  cursor: pointer;
+  transition: r .12s ease;
+}
+.mapa-peru .barra-punto:hover, .mapa-peru .barra-punto:focus-visible { fill-opacity: 1; outline: none; stroke: var(--ink); }
+.mapa-peru .barra-punto.nominal { fill: transparent; stroke: var(--serie-2); stroke-width: 1.2; }
+.mapa-peru .barra-punto.activa { fill: var(--serie-2); fill-opacity: 1; stroke: var(--ink); stroke-width: 1.5; }
+
+.tabla-barras input[type="search"] {
+  flex: 1 1 160px;
+  padding: 6px 9px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font-family: var(--fuente);
+  font-size: 12px;
+}
+.lista-barras { max-height: 540px; overflow-y: auto; margin-top: 8px; }
+.lista-barras .fila-elegible { cursor: pointer; }
+.lista-barras .fila-seleccionada td { background: var(--surface-2); font-weight: 600; }
+
+.cabecera-perfil { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.perfil-cmg .chips { margin: 10px 0 8px; }
+
+@media (max-width: 960px) {
+  .mapa-y-tabla { grid-template-columns: 1fr; }
+  .lista-barras { max-height: 300px; }
+}

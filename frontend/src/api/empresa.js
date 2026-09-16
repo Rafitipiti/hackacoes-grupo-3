@@ -9,3 +9,8 @@ export async function obtenerComparativa(pericodi) {
   const { data } = await cliente.get(`/empresas/comparar/${pericodi}`);
   return data;
 }
+
+export async function obtenerPagosCobros(empresaId, pericodi) {
+  const { data } = await cliente.get(`/empresa/pagos-cobros/${empresaId}/${pericodi}`);
+  return data;
+}

@@ -4,6 +4,7 @@ from fastapi import APIRouter, HTTPException
 from app.data.loader import cargar_datos_coes
 from app.services.agent_service import AgentService
 from app.services.integrity_service import IntegrityService
+from app.services.pagos_service import PagosService
 from app.services.revision_service import RevisionService
 
 router = APIRouter(tags=["empresa"])
@@ -12,6 +13,23 @@ datos_coes = cargar_datos_coes()
 agent_service = AgentService()
 integrity_service = IntegrityService(datos_coes)
 revision_service = RevisionService(datos_coes)
+pagos_service = PagosService(datos_coes)
+
+
+@router.get("/empresa/pagos-cobros/{empresa_id}/{pericodi}")
+def pagos_cobros(empresa_id: str, pericodi: int):
+    """Cuanto paga y cuanto cobra la empresa en el mes, proceso por proceso."""
+    resultado = pagos_service.pagos_cobros(empresa_id, pericodi)
+
+    if resultado is None:
+        raise HTTPException(
+            status_code=404,
+            detail=(
+                f"{empresa_id} no aparece en ninguna transferencia bilateral."
+            ),
+        )
+
+    return resultado
 
 
 @router.get("/empresa/historico/{empresa_id}")

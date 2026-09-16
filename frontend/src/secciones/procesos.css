@@ -1,0 +1,42 @@
+/* Procesos: pagos y cobros por proceso (spec 9.1). */
+
+.resumen-pagos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.tabla-contrapartes .valorizacion { font-size: 12px; color: var(--ink-2); }
+.tabla-contrapartes .ruc { font-size: 11px; color: var(--ink-muted); }
+
+.ficha-proceso {
+  border: 1px solid var(--grid);
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: var(--surface);
+}
+.ficha-proceso h3 { display: flex; align-items: center; gap: 8px; }
+.ficha-proceso p { margin: 6px 0 0; font-size: 13px; line-height: 1.55; }
+.ficha-proceso .valorizaciones { margin: 8px 0 0; padding-left: 18px; font-size: 12px; color: var(--ink-2); }
+
+/* Chips: lista corta de opciones que se pulsan (meses disponibles,
+   periodos apilados en el mapa). */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.chip {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font-family: var(--fuente);
+  font-size: 12px;
+  padding: 4px 11px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.chip:hover { background: var(--surface-3); }
+.chip.activo { border-color: var(--accent); font-weight: 600; }
+.chip .muestra { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+.chip:disabled { opacity: .45; cursor: not-allowed; }

@@ -15,6 +15,19 @@ const CATALOGO = [
     ],
   },
   {
+    grupo: "Red y precios",
+    endpoints: [
+      { ruta: "/red/barras/{pericodi}", descripcion: "Barras con costo marginal en el mes, con ubicación estimada y promedio, mínimo y máximo del periodo.", parametros: ["pericodi"] },
+      { ruta: "/red/cmg/1/{pericodi}", descripcion: "Curva diaria del costo marginal de una barra (aquí la barra 1, TALARA 220) en el periodo, y los periodos con dato.", parametros: ["pericodi"] },
+    ],
+  },
+  {
+    grupo: "Contactos",
+    endpoints: [
+      { ruta: "/contactos", descripcion: "Todas las fichas de contacto guardadas en el libro Excel, con los catálogos de moneda y tipo de cuenta.", parametros: [] },
+    ],
+  },
+  {
     grupo: "Panorama",
     endpoints: [
       { ruta: "/radar/{pericodi}", descripcion: "Variaciones del periodo contra el anterior, por empresa.", parametros: ["pericodi"] },
@@ -31,6 +44,7 @@ const CATALOGO = [
   {
     grupo: "Análisis por empresa",
     endpoints: [
+      { ruta: "/empresa/pagos-cobros/{empresa_id}/{pericodi}", descripcion: "Cuánto paga y cuánto cobra la empresa en el mes, proceso por proceso, con sus contrapartes. Alimenta la sección Procesos.", parametros: ["empresa_id", "pericodi"] },
       { ruta: "/empresas/comparar/{pericodi}", descripcion: "Todas las empresas con liquidación en el mes, lado a lado: liquidación, monto restatado, revisión vigente y efecto neto de recálculos. Alimenta el comparador.", parametros: ["pericodi"] },
       { ruta: "/empresa/historico/{empresa_id}", descripcion: "Los 20 periodos de la empresa: liquidación total, desglose por proceso y efecto neto de los recálculos. Alimenta la evolución histórica y la comparación por proceso.", parametros: ["empresa_id"] },
       { ruta: "/agente/resumen/{empresa_id}/{pericodi}", descripcion: "Resultado del periodo, variación y principales movimientos.", parametros: ["empresa_id", "pericodi"] },
