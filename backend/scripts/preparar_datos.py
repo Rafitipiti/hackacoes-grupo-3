@@ -12,6 +12,7 @@ from pathlib import Path
 import pandas as pd
 
 from scripts.identidad_empresa import asignar_identidad
+from scripts import proyectar_bilateral
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 RAW = BASE_DIR / "data" / "raw"
@@ -408,6 +409,11 @@ def main() -> None:
     escribir(evolucion, "fact_evolucion")
     escribir(construir_fact_bilateral(), "fact_bilateral")
     escribir(construir_fact_desglose(), "fact_desglose")
+
+    # El cruce bilateral llega para 13 de 20 meses; el resto se proyecta
+    # sobre la plantilla del ultimo mes publicado (ver proyectar_bilateral).
+    print("Proyectando el detalle bilateral faltante...")
+    proyectar_bilateral.main()
 
     print("Construyendo tablas de soporte...")
     for clave in TABLAS_SOPORTE:

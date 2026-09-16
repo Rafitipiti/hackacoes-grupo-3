@@ -203,6 +203,15 @@ otro) y tabla contraparte a contraparte con razón social y RUC.
 
 Endpoint nuevo: `GET /empresa/pagos-cobros/{empresa_id}/{pericodi}`.
 
+**D14 (2026-09-16).** El cruce bilateral de la fuente cubre 13 de los 20
+meses (2025 y julio 2026). El usuario pidió proyectar lo faltante:
+`scripts/proyectar_bilateral.py` toma julio 2026 como plantilla de
+estructura (quién paga a quién, proceso, valorización) y escala los pagos
+de cada empresa por su actividad mensual en la evolución, acotada a
+[0,25, 4], con ±8 % determinista por fila. Sale a
+`data/cruce_bilateral_proyectado.csv` y se anexa a `fact_bilateral` con
+`origen = sintetico`. Se declara en Calidad y trazabilidad.
+
 ### 9.2 Red y precios: mapa y perfiles
 
 - Mapa del Perú (SVG propio, sin dependencias externas) con un punto por

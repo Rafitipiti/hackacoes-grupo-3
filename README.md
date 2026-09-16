@@ -60,7 +60,8 @@ COES_2026/
 │   │   ├── preparar_datos.py        ETL: welcome kit -> data/curated/
 │   │   ├── identidad_empresa.py     adjudica RUC y razón social a los códigos con liquidación
 │   │   ├── extraer_padron.py        saca el padrón real del libro de liquidaciones (una vez)
-│   │   └── estimar_coordenadas.py   estima lat/lon de cada barra por su nombre -> ../data/
+│   │   ├── estimar_coordenadas.py   estima lat/lon de cada barra por su nombre -> ../data/
+│   │   └── proyectar_bilateral.py   proyecta el detalle de pagos y cobros de los meses que no lo traen
 │   ├── data/
 │   │   ├── raw/                copia de trabajo del welcome kit (no versionada)
 │   │   ├── curated/             parquet consumidos por la API (sí versionada)
@@ -68,6 +69,7 @@ COES_2026/
 │   └── tests/                pruebas de ETL, servicios y endpoints
 ├── data/                  insumos y salidas que viven fuera del backend
 │   ├── coordenadas_barras.csv        ubicación estimada de las 828 barras (mapa)
+│   ├── cruce_bilateral_proyectado.csv pagos y cobros proyectados para los meses sin detalle (2026 salvo julio)
 │   ├── contactos.xlsx                fichas de contacto; lo crea el portal al guardar la primera
 │   ├── simulado_liquidaciones_*.xlsx libro del que sale el padrón real
 │   └── spotPriceBarraRevisado/       costo marginal a 15 minutos por barra (reserva para intradía)

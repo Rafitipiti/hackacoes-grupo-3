@@ -33,9 +33,10 @@ class PagosService:
     def periodos_con_dato(self, empresa_id: str) -> list[int]:
         """En que periodos la empresa aparece en alguna transferencia.
 
-        El cruce bilateral no cubre todos los meses de la evolucion (hoy,
-        13 de 20). Saberlo permite que la pantalla ofrezca los meses que si
-        tienen detalle en vez de quedarse en un mensaje de error.
+        La fuente trae detalle para 13 de los 20 meses; los otros siete se
+        proyectan con scripts/proyectar_bilateral.py. Si algun mes quedara
+        sin detalle, la pantalla ofrece los que si lo tienen en vez de
+        quedarse en un mensaje de error.
         """
         propias = self.bilateral[
             (self.bilateral["empresa_deudora"] == empresa_id)

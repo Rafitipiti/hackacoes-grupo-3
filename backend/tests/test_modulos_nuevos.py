@@ -62,11 +62,26 @@ def test_las_contrapartes_llevan_identidad_y_suman_el_proceso(pagos):
             assert "razon_social" in contraparte
 
 
+def test_el_detalle_cubre_los_veinte_meses(datos):
+    """Los meses que la fuente no trae se proyectan (proyectar_bilateral).
+
+    Sin esto, Procesos quedaba vacio en enero-junio y agosto 2026 para
+    todas las empresas.
+    """
+    bilateral = datos["cruce_bilateral"]
+    periodos = datos["periodos"]
+
+    assert set(int(p) for p in bilateral["pericodi"]) == set(int(p) for p in periodos["pericodi"])
+
+    proyectados = bilateral[bilateral["pericodi"].isin([132, 137, 139])]
+    assert (proyectados["origen"] == "sintetico").all()
+
+
 def test_un_mes_sin_cruce_devuelve_la_ficha_vacia_con_los_meses_que_si(cliente, datos):
-    """Sin esto la pantalla se quedaria en un error para 7 de 20 meses."""
+    """Si algun mes quedara sin detalle, la pantalla ofrece los que si lo tienen."""
     bilateral = datos["cruce_bilateral"]
     empresa = bilateral["empresa_deudora"].iloc[0]
-    sin_dato = sorted(set(range(120, 140)) - set(int(p) for p in bilateral["pericodi"]))[0]
+    sin_dato = 999999
 
     respuesta = cliente.get(f"/empresa/pagos-cobros/{empresa}/{sin_dato}")
 

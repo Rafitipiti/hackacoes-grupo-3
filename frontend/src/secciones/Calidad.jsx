@@ -36,6 +36,11 @@ const LIMITES = [
       "Los datos de origen llegan anonimizados: cada empresa es un código interno sin RUC ni razón social, y no existe ninguna clave que lo cruce con una empresa real. Para la presentación, a los 74 códigos con liquidación se les adjudicó una identidad tomada del padrón real del COES: los códigos ordenados por clave, las empresas reales ordenadas por RUC, emparejados por posición. Es una asignación determinista, no una recuperación de identidad. Consecuencia: los montos, variaciones y alertas que ves bajo un nombre real son simulados y esa empresa no tuvo esos resultados. Esta sección es el único lugar del portal que lo dice; las demás pantallas van limpias a propósito.",
   },
   {
+    titulo: "El detalle de pagos y cobros de 2026 es proyectado, salvo julio",
+    detalle:
+      "Las transferencias entre empresas (quién le paga a quién, por proceso y valorización) llegan publicadas para julio 2026 y proyectadas para 2025. Para enero–junio y agosto 2026 no había detalle: se proyectó tomando julio 2026 como plantilla de estructura y escalando los pagos de cada empresa por su propia actividad mensual, con una variación determinista pequeña. Los totales por empresa siguen siendo los de la evolución mensual; lo proyectado es el reparto entre contrapartes. La proyección está en data/cruce_bilateral_proyectado.csv.",
+  },
+  {
     titulo: "LSCIO tiene meses sin carga",
     detalle:
       "Es carga manual mes a mes del equipo de COES. Los meses vacios no son un error del dato: reflejan como es la operación real.",
