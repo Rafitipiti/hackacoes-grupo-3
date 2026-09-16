@@ -69,6 +69,10 @@ COES_2026/
 │       ├── componentes/  tarjetas, variaciones, estados de carga
 │       ├── lib/          formato de cifras y semántica de variaciones
 │       ├── api/          cliente HTTP por dominio
+│       ├── estilos/      tokens.css (identidad HackaCOES: color, modo claro/oscuro) y base.css (tipografía, componentes base, accesibilidad)
+│       ├── assets/       imágenes
+│       ├── main.jsx      punto de entrada de la aplicación
+│       ├── App.css       hoja del componente legado; sus selectores van acotados bajo `.legacy` para no competir con el sistema de diseño
 │       └── LegacyApp.jsx flujo causal A1→A7, montado dentro de las secciones
 ├── presentacion/            PPT de la exposición
 └── COES.txt                 notas de instalación del entorno
