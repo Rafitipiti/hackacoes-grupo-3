@@ -21,36 +21,60 @@ export function ProveedorSeleccion({ children }) {
   const [periodo, setPeriodo] = useState(null);
   const [empresa, setEmpresa] = useState(null);
   const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    // Evita escribir estado si el componente se desmonta a media carga.
+    let vigente = true;
+
     async function cargar() {
-      const [respPeriodos, respEmpresas] = await Promise.all([
-        axios.get(`${API_URL}/periodos`),
-        axios.get(`${API_URL}/empresas`),
-      ]);
+      try {
+        const [respPeriodos, respEmpresas] = await Promise.all([
+          axios.get(`${API_URL}/periodos`),
+          axios.get(`${API_URL}/empresas`),
+        ]);
 
-      const listaPeriodos = respPeriodos.data.periodos;
-      setPeriodos(listaPeriodos);
-      setEmpresas(respEmpresas.data.empresas);
+        if (!vigente) return;
 
-      // Arranca en el ultimo periodo CERRADO, no en el mas reciente.
-      // Los periodos abiertos no tienen reportes intermedios cargados, asi
-      // que la pantalla saldria vacia en la primera impresion.
-      const cerrados = listaPeriodos.filter((p) => p.estado === "Cerrado");
-      const inicial = cerrados.length
-        ? cerrados[cerrados.length - 1]
-        : listaPeriodos[listaPeriodos.length - 1];
+        const listaPeriodos = respPeriodos.data.periodos;
 
-      setPeriodo(inicial.pericodi);
-      setCargando(false);
+        if (!listaPeriodos || listaPeriodos.length === 0) {
+          throw new Error("El servicio no devolvio ningun periodo.");
+        }
+
+        setPeriodos(listaPeriodos);
+        setEmpresas(respEmpresas.data.empresas ?? []);
+
+        // Arranca en el ultimo periodo CERRADO, no en el mas reciente.
+        // Los periodos abiertos no tienen reportes intermedios cargados,
+        // asi que la pantalla saldria vacia en la primera impresion.
+        const cerrados = listaPeriodos.filter((p) => p.estado === "Cerrado");
+        const inicial = cerrados.length
+          ? cerrados[cerrados.length - 1]
+          : listaPeriodos[listaPeriodos.length - 1];
+
+        setPeriodo(inicial.pericodi);
+      } catch (e) {
+        if (!vigente) return;
+
+        setError(
+          e.response
+            ? `el servicio respondio ${e.response.status}`
+            : e.message,
+        );
+      } finally {
+        if (vigente) setCargando(false);
+      }
     }
 
     cargar();
+
+    return () => { vigente = false; };
   }, []);
 
   const valor = useMemo(
-    () => ({ periodo, setPeriodo, empresa, setEmpresa, periodos, empresas, cargando }),
-    [periodo, empresa, periodos, empresas, cargando],
+    () => ({ periodo, setPeriodo, empresa, setEmpresa, periodos, empresas, cargando, error }),
+    [periodo, empresa, periodos, empresas, cargando, error],
   );
 
   return (

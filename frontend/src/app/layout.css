@@ -110,3 +110,6 @@
   .barra-lateral { width: auto; flex: none; border-right: 0; border-bottom: 1px solid var(--border); }
   .contenido { padding: 16px; }
 }
+
+.estado { padding: 22px; text-align: center; color: var(--ink-muted); font-size: 13px; }
+.nota { font-size: 12px; color: var(--ink-muted); margin: 6px 0 0; }

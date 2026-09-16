@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 
 import { Layout } from "./Layout.jsx";
-import { ProveedorSeleccion } from "./contexto.jsx";
+import { ProveedorSeleccion, useSeleccion } from "./contexto.jsx";
 
 import "../estilos/tokens.css";
 import "../estilos/base.css";
 import "./layout.css";
+
+const TEMAS = ["auto", "claro", "oscuro"];
 
 function Marcador({ seccion }) {
   return (
@@ -15,11 +17,37 @@ function Marcador({ seccion }) {
   );
 }
 
+function Contenido({ seccion }) {
+  const { cargando, error } = useSeleccion();
+
+  if (cargando) {
+    return (
+      <p className="estado">Cargando periodos y empresas…</p>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="tarjeta">
+        <h2>No se pudo conectar con el servicio de liquidaciones</h2>
+        <p className="nota">Detalle: {error}</p>
+        <p className="nota">
+          Comprueba que el servicio este disponible y vuelve a cargar la
+          pagina. Si el problema persiste, avisa al equipo del COES.
+        </p>
+      </section>
+    );
+  }
+
+  return <Marcador seccion={seccion} />;
+}
+
 export function Aplicacion() {
   const [seccion, setSeccion] = useState("panorama");
-  const [tema, setTema] = useState(
-    () => localStorage.getItem("coes-tema") ?? "auto",
-  );
+  const [tema, setTema] = useState(() => {
+    const guardado = localStorage.getItem("coes-tema");
+    return TEMAS.includes(guardado) ? guardado : "auto";
+  });
 
   useEffect(() => {
     if (tema === "auto") {
@@ -43,7 +71,7 @@ export function Aplicacion() {
         tema={tema}
         alCambiarTema={alternarTema}
       >
-        <Marcador seccion={seccion} />
+        <Contenido seccion={seccion} />
       </Layout>
     </ProveedorSeleccion>
   );

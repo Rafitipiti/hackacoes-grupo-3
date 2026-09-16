@@ -24,7 +24,10 @@ export function SeleccionGlobal() {
     setBusqueda(texto);
 
     const encontrada = empresas.find(
-      (e) => (e.alias ?? e.empresa_id) === texto,
+      (e) =>
+        (e.alias ?? e.empresa_id).localeCompare(texto, "es", {
+          sensitivity: "base",
+        }) === 0,
     );
 
     setEmpresa(encontrada ? encontrada.empresa_id : null);
