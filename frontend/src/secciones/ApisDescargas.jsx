@@ -54,7 +54,7 @@ const CATALOGO = [
       { ruta: "/agente/explicacion-lscio/{empresa_id}/{pericodi}", descripcion: "Explicacion consolidada de la variacion de LSCIO: del mecanismo al concepto y su evidencia.", parametros: ["empresa_id", "pericodi"] },
       { ruta: "/agente/integridad-lscio/{empresa_id}/{pericodi}", descripcion: "Valida que la suma del desglose por mecanismo cuadre con el total de transferencias LSCIO (regla LSCIO-001).", parametros: ["empresa_id", "pericodi"] },
       { ruta: "/agente/integridad-lscio-conceptos/{empresa_id}/{pericodi}", descripcion: "Valida que cada mecanismo LSCIO se pueda reconstruir sumando sus conceptos.", parametros: ["empresa_id", "pericodi"] },
-      { ruta: "/agente/evidencia-lscio/{empresa_id}/{pericodi}", descripcion: "Registros originales que sustentan un concepto LSCIO puntual y si su suma cuadra con el importe reportado. Ademas de empresa y periodo, esta ruta pide mecanismo y concepto exactos (no se completan solos: se obtienen del desglose que devuelve integridad-lscio-conceptos).", parametros: ["empresa_id", "pericodi"] },
+      { ruta: "/agente/evidencia-lscio/{empresa_id}/{pericodi}", descripcion: "Registros originales que sustentan un concepto LSCIO puntual y si su suma cuadra con el importe reportado. Ademas de empresa y periodo, esta ruta pide mecanismo y concepto exactos (no se completan solos: se obtienen del desglose que devuelve integridad-lscio-conceptos).", parametros: ["empresa_id", "pericodi"], sinPrueba: true },
     ],
   },
   {
@@ -143,9 +143,17 @@ function FichaEndpoint({ endpoint, contexto }) {
       )}
 
       <div className="acciones-endpoint">
-        <button type="button" className="boton" onClick={probar} disabled={cargando}>
-          {cargando ? "Consultando…" : "Probar"}
-        </button>
+        {endpoint.sinPrueba ? (
+          <p className="nota">
+            Esta ruta necesita mecanismo y concepto exactos, que no salen de la
+            barra lateral, asi que no se puede probar desde aqui. Tomalos del
+            desglose de <code>/agente/integridad-lscio-conceptos</code>.
+          </p>
+        ) : (
+          <button type="button" className="boton" onClick={probar} disabled={cargando}>
+            {cargando ? "Consultando…" : "Probar"}
+          </button>
+        )}
 
         {respuesta && (
           <>
