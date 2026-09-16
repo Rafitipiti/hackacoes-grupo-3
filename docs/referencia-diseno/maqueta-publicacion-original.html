@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publicación mensual de liquidaciones — COES</title>
+<style>
+/* ===========================================================================
+   Publicación mensual de liquidaciones (COES)
+   Necesita maqueta_revisiones_datos.js en la misma carpeta: los dos archivos
+   viajan juntos. No requiere servidor ni internet.
+   =========================================================================== */
+:root{
+  color-scheme: light;
+  --surface-1:#fcfcfb; --plane:#f9f9f7; --surface-2:#f2f1ee; --surface-3:#eceae5;
+  --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+  --serie-1:#2a78d6; --serie-2:#eb6834; --serie-3:#1baf7a; --serie-4:#eda100;
+  --pos:#2a78d6; --neg:#d03b3b;
+  --warning:#fab219; --critical:#d03b3b; --good:#0ca30c;
+  --radio:10px; --sombra:0 1px 2px rgba(11,11,11,.04),0 4px 12px rgba(11,11,11,.05);
+  --fuente:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-tema="claro"]){
+  color-scheme: dark;
+  --surface-1:#1a1a19; --plane:#0d0d0d; --surface-2:#232321; --surface-3:#2c2c2a;
+  --text-primary:#fff; --text-secondary:#c3c2b7; --text-muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+  --serie-1:#3987e5; --serie-2:#d95926; --serie-3:#199e70; --serie-4:#c98500;
+  --pos:#3987e5; --neg:#e66767;
+  --sombra:0 1px 2px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.25);
+}}
+:root[data-tema="oscuro"]{
+  color-scheme: dark;
+  --surface-1:#1a1a19; --plane:#0d0d0d; --surface-2:#232321; --surface-3:#2c2c2a;
+  --text-primary:#fff; --text-secondary:#c3c2b7; --text-muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+  --serie-1:#3987e5; --serie-2:#d95926; --serie-3:#199e70; --serie-4:#c98500;
+  --pos:#3987e5; --neg:#e66767;
+  --sombra:0 1px 2px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--text-primary);
+     font:14px/1.5 var(--fuente);-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;font-weight:640;letter-spacing:-.01em}
+
+.cab{position:sticky;top:0;z-index:20;background:var(--surface-1);border-bottom:1px solid var(--border)}
+.cab__fila{display:flex;align-items:center;gap:14px;padding:12px 20px;flex-wrap:wrap;max-width:1400px;margin:0 auto}
+.marca{display:flex;align-items:center;gap:9px;margin-right:auto}
+.marca strong{font-size:15px;display:block;line-height:1.2}
+.marca span{font-size:12px;color:var(--text-muted)}
+.ctrl{display:flex;align-items:center;gap:7px}
+.ctrl label{font-size:12px;color:var(--text-secondary);font-weight:600}
+select{padding:7px 10px;font:inherit;font-size:13px;color:var(--text-primary);
+       background:var(--surface-1);border:1px solid var(--axis);border-radius:8px}
+select:focus-visible,button:focus-visible{outline:2px solid var(--serie-1);outline-offset:2px}
+.icono-btn{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;
+           width:34px;height:34px;cursor:pointer;display:grid;place-items:center;color:inherit}
+.icono-btn:hover{background:var(--grid)}
+main{padding:20px;max-width:1400px;margin:0 auto}
+
+.aviso{display:flex;gap:10px;align-items:flex-start;padding:11px 14px;border-radius:9px;
+  background:color-mix(in srgb,var(--warning) 12%,transparent);
+  border:1px solid color-mix(in srgb,var(--warning) 35%,transparent);
+  font-size:12.5px;color:var(--text-secondary);margin-bottom:18px}
+.aviso svg{flex:none;margin-top:2px}
+.aviso code{background:var(--surface-2);padding:1px 5px;border-radius:4px;font-size:11.5px}
+
+.portada{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radio);
+         padding:20px;box-shadow:var(--sombra);margin-bottom:22px}
+.portada__et{font-size:12px;font-weight:700;color:var(--text-secondary);
+             text-transform:uppercase;letter-spacing:.06em}
+.portada__tit{font-size:27px;font-weight:680;letter-spacing:-.02em;margin:3px 0 14px}
+.resumen{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.res{background:var(--surface-2);border-radius:9px;padding:13px 15px}
+.res__et{font-size:11.5px;font-weight:700;color:var(--text-secondary);
+         text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.res__val{font-size:21px;font-weight:660;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.res__sub{font-size:12px;color:var(--text-muted);margin-top:4px}
+
+.proc{margin-bottom:26px}
+.proc__cab{display:flex;align-items:center;gap:10px;margin-bottom:11px;flex-wrap:wrap}
+.proc__pt{width:11px;height:11px;border-radius:3px;flex:none}
+.proc__nom{font-size:15px;font-weight:660}
+.proc__meta{font-size:12px;color:var(--text-muted);margin-left:auto;
+            font-variant-numeric:tabular-nums;text-align:right}
+.proc__meta b{color:var(--text-secondary);font-weight:660}
+.tarjetas{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(236px,1fr))}
+
+.t{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radio);
+   padding:14px;box-shadow:var(--sombra);position:relative;cursor:pointer;
+   transition:transform .08s,box-shadow .08s}
+.t:hover{transform:translateY(-1px);box-shadow:0 2px 4px rgba(11,11,11,.06),0 8px 20px rgba(11,11,11,.07)}
+.t--r0{border-color:color-mix(in srgb,var(--acento) 45%,var(--border));
+       background:linear-gradient(to bottom,color-mix(in srgb,var(--acento) 7%,var(--surface-1)),var(--surface-1) 58%)}
+.t--sel{outline:2px solid var(--acento);outline-offset:1px}
+.t__top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:9px}
+.t__mes{font-size:13.5px;font-weight:660;line-height:1.25}
+.t__tipo{font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.rev{font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:20px;flex:none;font-variant-numeric:tabular-nums}
+.rev--r0{background:color-mix(in srgb,var(--acento) 18%,transparent);color:var(--acento)}
+.rev--rn{background:var(--surface-3);color:var(--text-secondary)}
+.t__monto{font-size:19.5px;font-weight:660;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-bottom:9px}
+.t__var{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.t__pct{font-size:14px;font-weight:660;font-variant-numeric:tabular-nums}
+.t__abs{font-size:12px;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.sube::before{content:"▲ ";font-size:9px}
+.baja::before{content:"▼ ";font-size:9px}
+.signo{color:var(--critical)}
+.signo::before{content:"↔ ";font-size:10px}
+.t__base{font-size:11.5px;color:var(--text-muted);margin-top:6px}
+.t__cadena{display:flex;gap:4px;margin-top:11px;align-items:center}
+.pt{width:6px;height:6px;border-radius:50%;background:var(--axis)}
+.pt--on{background:var(--acento);width:7px;height:7px}
+.t__cadena span{font-size:10.5px;color:var(--text-muted);margin-left:3px}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:20px;
+      font-size:10.5px;font-weight:700;margin-top:8px;margin-right:5px}
+.chip--alta{background:color-mix(in srgb,var(--critical) 15%,transparent);color:var(--critical)}
+.chip--real{background:color-mix(in srgb,var(--good) 16%,transparent);color:var(--good)}
+
+.detalle{grid-column:1/-1;background:var(--surface-2);border:1px solid var(--border);
+         border-radius:var(--radio);padding:16px}
+.detalle h3{font-size:13.5px;margin-bottom:3px}
+.detalle p{margin:0 0 13px;font-size:12.5px;color:var(--text-secondary)}
+.detalle h4{font-size:12px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;
+            letter-spacing:.05em;margin:18px 0 8px}
+.tabla-caja{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px 10px;text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);
+   font-weight:700;border-bottom:1px solid var(--axis)}
+td{border-bottom:1px solid var(--grid);font-variant-numeric:tabular-nums}
+tr.actual td{font-weight:700;background:var(--surface-3)}
+.barra{display:inline-block;height:7px;border-radius:4px;vertical-align:middle;min-width:2px}
+.vacio{padding:34px 16px;text-align:center;color:var(--text-muted);line-height:1.7}
+.pie{padding:24px 20px 44px;text-align:center;color:var(--text-muted);font-size:12px;max-width:1400px;margin:0 auto}
+@media(max-width:620px){.portada__tit{font-size:22px}.ctrl{flex:1 1 100%}.ctrl select{flex:1}}
+</style>
+</head>
+<body>
+
+<header class="cab">
+  <div class="cab__fila">
+    <div class="marca">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2" y="2" width="8" height="8" rx="2" fill="var(--serie-1)"/>
+        <rect x="14" y="2" width="8" height="8" rx="2" fill="var(--serie-2)"/>
+        <rect x="2" y="14" width="8" height="8" rx="2" fill="var(--serie-4)"/>
+        <rect x="14" y="14" width="8" height="8" rx="2" fill="var(--serie-3)"/>
+      </svg>
+      <div><strong>Publicación mensual de liquidaciones</strong><span id="subMarca">COES</span></div>
+    </div>
+    <div class="ctrl"><label for="selEmpresa">Empresa</label><select id="selEmpresa"></select></div>
+    <div class="ctrl"><label for="selPub">Publicación</label><select id="selPub"></select></div>
+    <button class="icono-btn" id="btnTema" title="Cambiar tema" aria-label="Cambiar tema">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="app"><div class="vacio">Cargando datos…</div></main>
+
+<footer class="pie">
+  Montos en Soles (S/) · R0 se compara con la última revisión conocida del mes anterior;
+  R1 o mayor con su versión inmediata anterior.
+</footer>
+
+<script>
+/* =========================================================================
+   CONFIGURACIÓN — lo editable
+   ========================================================================= */
+const COLOR_PROC = { 'LVTA':'--serie-1', 'LVTP':'--serie-2',
+                     'LSCIO':'--serie-3', 'SST-SCT':'--serie-4' };
+
+/* Una revisión que mueve ≥10% el monto ya publicado es una alarma; que un mes
+   varíe 25% contra el anterior es normal. De ahí dos umbrales distintos. */
+const UMBRAL = { r0:25, revision:10, montoMinimo:1000 };
+
+/* =========================================================================
+   DATOS — los inyecta maqueta_revisiones_datos.js
+   ========================================================================= */
+let D = null, IDX = null, PER = {};
+window.__REVISIONES__ = (obj) => { D = obj; arrancar(); };
+
+/* IDX[proceso][pericodi][revision] = { pub, monto } */
+function indexar(empresa){
+  const out = {}, datos = D.datos[empresa] || {};
+  for(const proc in datos){
+    out[proc] = {};
+    for(const [peri, rev, pub, monto] of datos[proc]){
+      (out[proc][peri] = out[proc][peri] || {})[rev] = { pub, monto };
+    }
+  }
+  return out;
+}
+
+/* =========================================================================
+   FORMATO
+   ========================================================================= */
+const MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto',
+             'Septiembre','Octubre','Noviembre','Diciembre'];
+const MESES_C=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Set','Oct','Nov','Dic'];
+const mesLargo = pc => { const p=PER[pc]; return p ? `${MESES[+p.clave.slice(4,6)-1]} ${p.clave.slice(0,4)}` : '—'; };
+const mesCorto = pc => { const p=PER[pc]; return p ? `${MESES_C[+p.clave.slice(4,6)-1]} ${p.clave.slice(2,4)}` : '—'; };
+
+const nfS=new Intl.NumberFormat('es-PE',{style:'currency',currency:'PEN',minimumFractionDigits:2,maximumFractionDigits:2});
+const nf0=new Intl.NumberFormat('es-PE',{maximumFractionDigits:0});
+const nf1=new Intl.NumberFormat('es-PE',{minimumFractionDigits:1,maximumFractionDigits:1});
+const soles=v=>(v==null||!isFinite(v))?'—':nfS.format(v);
+function solesCorto(v){
+  if(v==null||!isFinite(v))return '—';
+  const s=v<0?'−':'', a=Math.abs(v);
+  if(a>=1e6)return `${s}S/ ${nf1.format(a/1e6)} M`;
+  if(a>=1e3)return `${s}S/ ${nf0.format(a/1e3)} k`;
+  return `${s}S/ ${nf0.format(a)}`;
+}
+const pct=v=>`${v>=0?'+':'−'}${nf1.format(Math.abs(v))}%`;
+
+/* El % se oculta cuando es correcto pero engañoso (mismo criterio del portal). */
+function variacion(monto, base){
+  if(base==null) return { delta:null, deltaPct:null, nota:'sin periodo de comparación' };
+  const delta = monto - base;
+  if(Math.abs(base)<0.005) return { delta, deltaPct:null, nota:'el periodo base es cero' };
+  if((monto>0&&base<0)||(monto<0&&base>0))
+    return { delta, deltaPct:null, cambioSigno:true,
+             nota:`cambió de ${base>0?'a favor':'en contra'} a ${monto>0?'a favor':'en contra'}` };
+  const p = delta/Math.abs(base)*100;
+  if(Math.abs(p)>999) return { delta, deltaPct:p, fueraRango:true, nota:'variación fuera de rango' };
+  return { delta, deltaPct:p };
+}
+const esFuerte = it => {
+  if(Math.abs(it.monto)<UMBRAL.montoMinimo) return false;
+  if(it.cambioSigno||it.fueraRango) return true;
+  if(it.deltaPct==null) return false;
+  return Math.abs(it.deltaPct) >= (it.rev===0 ? UMBRAL.r0 : UMBRAL.revision);
+};
+
+/* =========================================================================
+   CONTENIDO DE UNA PUBLICACIÓN
+   ========================================================================= */
+function contenido(proc, pub){
+  const porPeri = IDX[proc] || {}, items = [];
+  for(const peri in porPeri){
+    const pc = +peri;
+    for(const rev in porPeri[pc]){
+      const r = +rev, e = porPeri[pc][r];
+      if(e.pub !== pub) continue;                 // no sale en esta publicación
+      let base=null, baseEt='';
+      if(r === 0){
+        /* R0 → última revisión del mes anterior conocida a esta fecha */
+        const ant = porPeri[pc-1];
+        if(ant){
+          let mejor=-1;
+          for(const rr in ant) if(ant[rr].pub <= pub && +rr > mejor) mejor = +rr;
+          if(mejor >= 0){ base = ant[mejor].monto; baseEt = `${mesLargo(pc-1)} · R${mejor}`; }
+        }
+      } else {
+        const prev = porPeri[pc][r-1];
+        if(prev){ base = prev.monto; baseEt = `${mesLargo(pc)} · R${r-1}`; }
+      }
+      /* Cuántas revisiones llega a tener este mes DEPENDE DEL PROCESO: un mes
+         puede llegar a R2 en Energía Activa y sólo a R1 en Potencia. */
+      const rmax = ((D.rmax_proc||{})[proc]||{})[pc];
+      const rm = (rmax===undefined) ? r : rmax;
+      items.push({ pc, rev:r, monto:e.monto, base, baseEt, rmax:rm,
+                   esReal: r===rm && PER[pc] && PER[pc].origen==='real',
+                   ...variacion(e.monto, base) });
+    }
+  }
+  return items.sort((a,b)=> b.pc - a.pc);
+}
+
+/* =========================================================================
+   RENDER
+   ========================================================================= */
+const estado = { empresa:null, pub:null, abierta:null };
+const $=s=>document.querySelector(s);
+const el=(t,c,h)=>{const n=document.createElement(t); if(c)n.className=c; if(h!=null)n.innerHTML=h; return n;};
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function varHTML(it){
+  if(it.cambioSigno)
+    return `<span class="t__pct signo" title="${esc(it.nota)}">${solesCorto(it.delta)}</span>`;
+  if(it.deltaPct==null)
+    return `<span class="t__pct" style="color:var(--text-muted);font-weight:500" title="${esc(it.nota||'')}">s/d</span>`;
+  if(it.fueraRango)
+    return `<span class="t__pct" title="${esc(it.nota)}">Δ ${solesCorto(it.delta)}</span>`;
+  return `<span class="t__pct ${it.deltaPct>=0?'sube':'baja'}">${pct(it.deltaPct)}</span>
+          <span class="t__abs">${it.delta>=0?'+':'−'}${soles(Math.abs(it.delta))}</span>`;
+}
+
+function tarjeta(proc, it){
+  const sel = estado.abierta === `${proc}-${it.pc}`;
+  const t = el('div', `t${it.rev===0?' t--r0':''}${sel?' t--sel':''}`);
+  t.style.setProperty('--acento', `var(${COLOR_PROC[proc]})`);
+  const cadena = Array.from({length:it.rmax+1},(_,i)=>`<i class="pt${i===it.rev?' pt--on':''}"></i>`).join('');
+  t.innerHTML =
+    `<div class="t__top">
+       <div><div class="t__mes">${mesLargo(it.pc)}</div>
+            <div class="t__tipo">${it.rev===0?'liquidación del mes':'recálculo'}</div></div>
+       <span class="rev rev--${it.rev===0?'r0':'rn'}">R${it.rev}</span>
+     </div>
+     <div class="t__monto" style="color:${it.monto>=0?'var(--pos)':'var(--neg)'}">${soles(it.monto)}</div>
+     <div class="t__var">${varHTML(it)}</div>
+     <div class="t__base">${it.baseEt ? 'vs '+esc(it.baseEt) : 'sin comparación'}</div>
+     ${esFuerte(it)?`<span class="chip chip--alta">
+        <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5 15 14H1L8 1.5Zm0 4.2a.8.8 0 0 0-.8.85l.2 3.1a.6.6 0 0 0 1.2 0l.2-3.1A.8.8 0 0 0 8 5.7Zm0 5.2a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7Z"/></svg>
+        Variación fuerte</span>`:''}
+     ${it.esReal?`<span class="chip chip--real">✓ dato real</span>`:''}
+     <div class="t__cadena">${cadena}<span>R0–R${it.rmax}</span></div>`;
+  t.onclick = () => { const id=`${proc}-${it.pc}`;
+    estado.abierta = estado.abierta===id ? null : id; render(); };
+  return t;
+}
+
+/* Detalle: cadena completa de revisiones + qué valorización movió el recálculo */
+function detalle(proc, it){
+  const d = el('div','detalle');
+  const porPeri = IDX[proc][it.pc] || {};
+  const revs = Object.keys(porPeri).map(Number).sort((a,b)=>a-b);
+
+  d.appendChild(el('h3',null,`${esc(D.procesos.find(p=>p.id===proc).nombre)} — ${mesLargo(it.pc)}`));
+  d.appendChild(el('p',null,
+    `Historial de revisiones de este mes liquidado. La última (R${it.rmax}) es el valor que ` +
+    `trae el dataset; las anteriores están reconstruidas hacia atrás desde ella.`));
+
+  const filasRev = revs.map(r=>{
+    const e=porPeri[r], ant = r>0 ? porPeri[r-1] : null;
+    const v = ant ? variacion(e.monto, ant.monto) : {delta:null,deltaPct:null};
+    const futura = e.pub > estado.pub;
+    const real = r===it.rmax && PER[it.pc] && PER[it.pc].origen==='real';
+    return `<tr class="${r===it.rev?'actual':''}"${futura?' style="opacity:.42"':''}>
+      <td>R${r}${r===it.rev?' ◀ en esta publicación':''}
+          ${real?' <span class="chip chip--real" style="margin:0">✓ real</span>':''}
+          ${futura?' <span style="color:var(--text-muted)">(aún no publicada)</span>':''}</td>
+      <td>${mesCorto(e.pub)}</td>
+      <td>${soles(e.monto)}</td>
+      <td>${ant==null?'—':soles(v.delta)}</td>
+      <td>${v.deltaPct==null?'—':pct(v.deltaPct)}</td></tr>`;
+  }).join('');
+  d.insertAdjacentHTML('beforeend',
+    `<div class="tabla-caja"><table><thead><tr><th>Revisión</th><th>Sale en</th>
+       <th>Monto restatado</th><th>Δ vs versión previa</th><th>Δ %</th></tr></thead>
+       <tbody>${filasRev}</tbody></table></div>`);
+
+  /* Origen del recálculo: qué valorización se movió entre R(n-1) y R(n) */
+  if(it.rev > 0){
+    const vals = (D.valorizaciones[estado.empresa]||{})[proc]||[];
+    const aq = {}, an = {};
+    for(const [pc, r, vi, monto] of vals){
+      if(pc !== it.pc) continue;
+      if(r === it.rev)   aq[vi] = monto;
+      if(r === it.rev-1) an[vi] = monto;
+    }
+    const filas = Object.keys(aq).map(vi=>{
+      const a=aq[vi], b=(an[vi]===undefined?null:an[vi]), delta=(b==null?null:a-b);
+      return { nombre: D.tabla_valorizaciones[vi], actual:a, previo:b, delta,
+               pctv: (b!=null && Math.abs(b)>0.005) ? delta/Math.abs(b)*100 : null };
+    }).sort((x,y)=>Math.abs(y.delta||0)-Math.abs(x.delta||0));
+    const maxAbs = Math.max.apply(null, filas.map(f=>Math.abs(f.delta||0)).concat([1]));
+    const movidas = filas.filter(f=>Math.abs(f.delta||0) > 0.005).length;
+
+    d.insertAdjacentHTML('beforeend',
+      `<h4>Origen del recálculo R${it.rev-1} → R${it.rev}</h4>
+       <p style="margin:-4px 0 10px">${movidas} de ${filas.length} valorización(es) cambiaron.
+          Un recálculo corrige mecanismos puntuales, no todo el mes a la vez.</p>
+       <div class="tabla-caja"><table><thead><tr><th>Valorización</th><th>R${it.rev-1}</th>
+         <th>R${it.rev}</th><th>Δ</th><th>Δ %</th><th>peso</th></tr></thead><tbody>` +
+      filas.map(f=>`<tr>
+         <td>${esc(f.nombre)}</td>
+         <td>${soles(f.previo)}</td>
+         <td>${soles(f.actual)}</td>
+         <td>${f.delta==null?'—':soles(f.delta)}</td>
+         <td>${f.pctv==null?'—':pct(f.pctv)}</td>
+         <td><span class="barra" style="width:${Math.abs(f.delta||0)/maxAbs*70}px;
+              background:${(f.delta||0)>=0?'var(--pos)':'var(--neg)'}"></span></td></tr>`).join('') +
+      `</tbody></table></div>`);
+  }
+  return d;
+}
+
+function render(){
+  const app = $('#app');
+  app.innerHTML = '';
+  $('#subMarca').textContent = `COES · sesión de ${estado.empresa}`;
+
+  const bloques = D.procesos.map(p=>({ proc:p, items: contenido(p.id, estado.pub) }));
+  const todos = bloques.reduce((a,b)=>a.concat(b.items), []);
+
+  app.appendChild(el('div','aviso',
+    `<svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5 15 14H1L8 1.5Zm0 4.2a.8.8 0 0 0-.8.85l.2 3.1a.6.6 0 0 0 1.2 0l.2-3.1A.8.8 0 0 0 8 5.7Zm0 5.2a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7Z"/></svg>
+     <div>El dataset guarda <b>una sola versión por periodo: la última</b>. Las revisiones
+     intermedias se reconstruyeron hacia atrás desde ese valor con
+     <code>scripts/generar_revisiones.py</code> — por eso la última revisión de cada mes
+     lleva la marca <b>✓ dato real</b> y las anteriores son sintéticas.</div>`));
+
+  if(!todos.length){
+    app.appendChild(el('div','vacio',
+      'Esta publicación no contiene liquidaciones para la empresa seleccionada.'));
+    return;
+  }
+
+  const mesCurso = todos.filter(i=>i.rev===0).reduce((s,i)=>s+i.monto,0);
+  const efecto   = todos.filter(i=>i.rev>0&&i.delta!=null).reduce((s,i)=>s+i.delta,0);
+  const nRec     = todos.filter(i=>i.rev>0).length;
+  const antiguo  = Math.min.apply(null, todos.map(i=>i.pc));
+  const fuertes  = todos.filter(esFuerte).length;
+  /* El R0 es obligatorio para los 4 procesos cada mes. Si falta, hay dos causas
+     muy distintas que en pantalla se verían igual:
+       · el proceso no tiene datos ese mes      -> hueco del dataset
+       · el proceso sí tiene, pero esta empresa no -> no tiene obligación ahí
+     La cobertura del mercado permite separarlas. */
+  const cob = (D.cobertura || {})[estado.pub] || {};
+  const sinR0 = bloques.filter(b=>!b.items.some(i=>i.rev===0)).map(b=>({
+    nombre: b.proc.nombre,
+    hueco: !(cob[b.proc.id] > 0),
+  }));
+  const conR0 = D.procesos.length - sinR0.length;
+
+  const portada = el('div','portada');
+  portada.innerHTML =
+    `<div class="portada__et">Publicación</div>
+     <div class="portada__tit">${mesLargo(estado.pub)}</div>
+     <div class="resumen">
+       <div class="res"><div class="res__et">Liquidación del mes en curso</div>
+         <div class="res__val" style="color:${mesCurso>=0?'var(--pos)':'var(--neg)'}">${soles(mesCurso)}</div>
+         <div class="res__sub">${conR0} de ${D.procesos.length} procesos${
+            sinR0.length ? ' · ' + sinR0.map(s => s.hueco
+              ? `<b style="color:var(--critical)">${esc(s.nombre)} sin datos este mes</b>`
+              : `<span title="El proceso sí se publicó este mes, pero esta empresa no tiene liquidación en él">sin ${esc(s.nombre)}</span>`).join(' · ')
+            : ''}</div></div>
+       <div class="res"><div class="res__et">Efecto neto de recálculos</div>
+         <div class="res__val" style="color:${efecto>=0?'var(--pos)':'var(--neg)'}">${soles(efecto)}</div>
+         <div class="res__sub">${nRec} revisión(es) · sólo el delta, no el monto restatado</div></div>
+       <div class="res"><div class="res__et">Alcance hacia atrás</div>
+         <div class="res__val">${mesCorto(antiguo)}</div>
+         <div class="res__sub">${estado.pub-antiguo} mes(es) atrás</div></div>
+       <div class="res"><div class="res__et">Variaciones fuertes</div>
+         <div class="res__val" style="color:${fuertes?'var(--critical)':'inherit'}">${fuertes}</div>
+         <div class="res__sub">≥${UMBRAL.r0}% en un R0 · ≥${UMBRAL.revision}% en una revisión</div></div>
+     </div>`;
+  app.appendChild(portada);
+
+  bloques.forEach(function(b){
+    if(!b.items.length) return;
+    const sec = el('section','proc');
+    const totalR0 = b.items.filter(i=>i.rev===0).reduce((s,i)=>s+i.monto,0);
+    const dRev    = b.items.filter(i=>i.rev>0&&i.delta!=null).reduce((s,i)=>s+i.delta,0);
+    sec.appendChild(el('div','proc__cab',
+      `<i class="proc__pt" style="background:var(${COLOR_PROC[b.proc.id]})"></i>
+       <span class="proc__nom">${esc(b.proc.nombre)}</span>
+       <span class="t__tipo">${b.items.length} liquidación(es)</span>
+       <span class="proc__meta">mes en curso <b>${solesCorto(totalR0)}</b>
+         &nbsp;·&nbsp; recálculos <b>${solesCorto(dRev)}</b></span>`));
+    const cont = el('div','tarjetas');
+    b.items.forEach(function(it){
+      cont.appendChild(tarjeta(b.proc.id, it));
+      if(estado.abierta === `${b.proc.id}-${it.pc}`) cont.appendChild(detalle(b.proc.id, it));
+    });
+    sec.appendChild(cont);
+    app.appendChild(sec);
+  });
+}
+
+/* =========================================================================
+   ARRANQUE
+   ========================================================================= */
+function arrancar(){
+  D.periodos.forEach(p => PER[p.pericodi] = p);
+  estado.empresa = D.empresas[0];
+  estado.pub = D.periodos[D.periodos.length-1].pericodi;
+  IDX = indexar(estado.empresa);
+
+  $('#selEmpresa').innerHTML = D.empresas.map(e=>`<option>${e}</option>`).join('');
+  $('#selPub').innerHTML = D.periodos.slice().reverse()
+    .map(p=>`<option value="${p.pericodi}">${mesLargo(p.pericodi)}</option>`).join('');
+  $('#selPub').value = estado.pub;
+
+  $('#selEmpresa').onchange = e => { estado.empresa=e.target.value; IDX=indexar(estado.empresa);
+                                     estado.abierta=null; render(); };
+  $('#selPub').onchange     = e => { estado.pub=+e.target.value; estado.abierta=null; render(); };
+  $('#btnTema').onclick = () => { const r=document.documentElement;
+    r.setAttribute('data-tema',
+      getComputedStyle(r).getPropertyValue('--plane').trim()==='#0d0d0d'?'claro':'oscuro'); };
+  render();
+}
+
+setTimeout(function(){ if(!D) $('#app').innerHTML =
+  `<div class="vacio"><b>Falta el archivo de datos.</b><br><br>
+   Este HTML necesita <code>maqueta_revisiones_datos.js</code> en la misma carpeta.<br>
+   Genéralo con <code>python scripts/generar_revisiones.py</code></div>`; }, 1500);
+</script>
+<script src="maqueta-publicacion-original.datos.js"></script>
+</body>
+</html>

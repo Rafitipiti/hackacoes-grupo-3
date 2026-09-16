@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar de empresas - COES</title>
+<style>
+:root{
+  color-scheme:light;
+  --fondo:#f4f4f1;--superficie:#fff;--superficie-2:#eeeee9;--texto:#111;--secundario:#66645f;
+  --borde:rgba(17,17,17,.12);--grid:#dddcd5;--azul:#2a78d6;--rojo:#c83c3c;--verde:#158a55;--ambar:#b86f00;
+  --sombra:0 3px 14px rgba(17,17,17,.06);--fuente:system-ui,-apple-system,"Segoe UI",sans-serif
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--texto);font:14px/1.5 var(--fuente)}
+h1,h2,h3{margin:0;line-height:1.2}
+.cab{background:var(--superficie);border-bottom:1px solid var(--borde)}
+.cab__fila{max-width:1400px;margin:auto;padding:16px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.marca{display:flex;align-items:center;gap:10px;margin-right:auto}.marca strong{display:block;font-size:16px}.marca span{display:block;color:var(--secundario);font-size:12px}
+.acciones{display:flex;align-items:center;gap:8px}.btn,.ctrl select,.buscar{height:36px;border:1px solid var(--borde);border-radius:8px;background:var(--superficie);color:inherit;font:inherit;padding:0 11px}.btn{display:inline-flex;align-items:center;text-decoration:none;font-size:12px;font-weight:700;cursor:pointer}.btn:hover{background:var(--superficie-2)}
+main{max-width:1400px;margin:0 auto;padding:22px 20px 42px}#app{display:flex;flex-direction:column}.encabezado{order:1;display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:18px}.encabezado h1{font-size:27px}.encabezado p{margin:5px 0 0;color:var(--secundario);font-size:13px}.filtros{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.buscar{min-width:230px}.ctrl{display:flex;align-items:center;gap:7px}.ctrl label{font-size:12px;color:var(--secundario);font-weight:700}
+.indicadores{order:2;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}.indicador{background:var(--superficie);border:1px solid var(--borde);border-radius:10px;padding:14px;box-shadow:var(--sombra)}.indicador small{display:block;color:var(--secundario);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}.indicador strong{display:block;margin-top:4px;font-size:24px;font-variant-numeric:tabular-nums}.indicador span{display:block;margin-top:3px;color:var(--secundario);font-size:12px}
+.ranking{order:4;background:var(--superficie);border:1px solid var(--borde);border-radius:10px;box-shadow:var(--sombra);padding:16px;margin-bottom:20px}.ranking__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px}.ranking__head h2{font-size:16px}.ranking__head span{color:var(--secundario);font-size:12px}.ranking__fila{display:grid;grid-template-columns:150px minmax(160px,1fr) 92px 132px;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--grid)}.ranking__fila:last-child{border-bottom:0}.ranking__empresa{font-weight:700;font-size:12px;overflow:hidden;text-overflow:ellipsis}.ranking__barra{height:12px;background:var(--superficie-2);border-radius:8px;overflow:hidden}.ranking__barra i{display:block;height:100%;border-radius:8px;min-width:3px}.ranking__pct{text-align:right;font-weight:800;font-variant-numeric:tabular-nums}.ranking__impacto{text-align:right;color:var(--secundario);font-size:11px;font-variant-numeric:tabular-nums}.ranking__factor{display:block;color:var(--secundario);font-size:10px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media(max-width:700px){.ranking__fila{grid-template-columns:115px minmax(100px,1fr) 76px}.ranking__impacto{display:none}}
+.panel{order:3;background:var(--superficie);border:1px solid var(--borde);border-radius:10px;box-shadow:var(--sombra);overflow:hidden}.panel__head{padding:15px 16px;border-bottom:1px solid var(--grid);display:flex;justify-content:space-between;gap:12px;align-items:center}.panel__head h2{font-size:16px}.panel__head span{color:var(--secundario);font-size:12px}.tabla-caja{overflow:auto}table{width:100%;border-collapse:collapse;min-width:850px}th,td{padding:11px 13px;border-bottom:1px solid var(--grid);text-align:right;white-space:nowrap}th:first-child,td:first-child{text-align:left}th{color:var(--secundario);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em}td{font-variant-numeric:tabular-nums}tbody tr:hover{background:var(--superficie-2)}.empresa{font-weight:700}.sub{display:block;color:var(--secundario);font-size:11px;font-weight:400}.positivo{color:var(--verde)}.negativo{color:var(--rojo)}.neutral{color:var(--secundario)}.nivel{display:inline-flex;padding:4px 8px;border-radius:99px;font-size:11px;font-weight:800}.nivel--alta{background:#fae3e3;color:var(--rojo)}.nivel--media{background:#fff0d2;color:var(--ambar)}.nivel--baja{background:#dff2e8;color:var(--verde)}.nivel--sin{background:var(--superficie-2);color:var(--secundario)}.vacio{padding:34px;text-align:center;color:var(--secundario)}.nota{order:5;margin-top:14px;color:var(--secundario);font-size:12px;line-height:1.55}.paginacion{display:flex;justify-content:center;align-items:center;gap:10px;padding:13px 16px}.paginacion button{height:32px;padding:0 11px;border:1px solid var(--borde);border-radius:7px;background:var(--superficie);color:inherit;font:inherit;font-size:12px;font-weight:700;cursor:pointer}.paginacion button:hover:not(:disabled){background:var(--superficie-2)}.paginacion button:disabled{opacity:.45;cursor:not-allowed}.paginacion span{color:var(--secundario);font-size:12px;font-variant-numeric:tabular-nums}
+@media(max-width:800px){.indicadores{grid-template-columns:repeat(2,1fr)}.acciones{width:100%}.encabezado h1{font-size:23px}}
+@media(max-width:520px){.indicadores{grid-template-columns:1fr}.buscar{min-width:0;width:100%}.filtros{width:100%}.ctrl{width:100%}.ctrl select{flex:1}}
+</style>
+</head>
+<body>
+<header class="cab"><div class="cab__fila">
+  <div class="marca"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="8" height="8" rx="2" fill="#2a78d6"/><rect x="14" y="2" width="8" height="8" rx="2" fill="#eb6834"/><rect x="2" y="14" width="8" height="8" rx="2" fill="#eda100"/><rect x="14" y="14" width="8" height="8" rx="2" fill="#1baf7a"/></svg><div><strong>Radar de empresas</strong><span>COES · lectura comparativa de liquidaciones</span></div></div>
+  <div class="acciones"><button class="btn" id="btnExportarJson" type="button">Exportar JSON</button><a class="btn" href="maqueta_publicacion_mensual.html">Volver a publicación</a></div>
+</div></header>
+<main id="app"><div class="vacio">Cargando radar…</div></main>
+<script>
+let D=null;
+window.__RADAR__=obj=>{D=obj;arrancar()};
+window.__REVISIONES__=window.__RADAR__;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));
+const nfS=new Intl.NumberFormat('es-PE',{style:'currency',currency:'PEN',minimumFractionDigits:2,maximumFractionDigits:2});
+const nf1=new Intl.NumberFormat('es-PE',{minimumFractionDigits:1,maximumFractionDigits:1});
+const soles=v=>v==null||!isFinite(v)?'—':nfS.format(v);
+const porcentaje=v=>v==null||!isFinite(v)?'—':`${v>=0?'+':'−'}${nf1.format(Math.abs(v))}%`;
+const variacionTexto=row=>porcentaje(row.variacion);
+const MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const MESES_C=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Set','Oct','Nov','Dic'];
+const periodo=pc=>D.periodos.find(p=>p.pericodi===pc);
+const mesLargo=pc=>{const p=periodo(pc);return p?p.nombre:`Periodo ${pc}`};
+const mesCorto=pc=>{const p=periodo(pc);return p?`${MESES_C[+p.clave.slice(4,6)-1]} ${p.clave.slice(2,4)}`:'—'};
+
+function contenido(proc,empresa,pub){
+  const datos=((D.datos[empresa]||{})[proc]||[]),porPeriodo={};
+  datos.forEach(([pc,rev,sale,monto])=>{if(sale!==pub)return;(porPeriodo[pc]??=[]).push({rev,monto})});
+  const items=[];
+  Object.keys(porPeriodo).forEach(pcTexto=>{
+    const pc=+pcTexto;
+    porPeriodo[pc].forEach(item=>{
+      let base=null;
+      if(item.rev===0){
+        const anterior=datos.filter(row=>row[0]===pc-1&&row[2]<=pub).sort((a,b)=>b[1]-a[1])[0];
+        base=anterior?anterior[3]:null;
+      }else{
+        const anterior=datos.find(row=>row[0]===pc&&row[1]===item.rev-1);
+        base=anterior?anterior[3]:null;
+      }
+      const delta=base==null?null:item.monto-base;
+      const deltaPct=base==null||Math.abs(base)<.005?null:delta/Math.abs(base)*100;
+      items.push({pc,rev:item.rev,monto:item.monto,delta,deltaPct});
+    });
+  });
+  return items;
+}
+function calcular(){
+  const pub=estado.pub;
+  const anterior=D.periodos.filter(p=>p.pericodi<pub).slice(-1)[0];
+  return D.empresas.map(empresa=>{
+    const procesos=D.procesos.map(proc=>{
+      const actual=contenido(proc.id,empresa,pub).find(item=>item.rev===0)||null;
+      const rec=contenido(proc.id,empresa,pub).filter(item=>item.rev>0&&item.delta!=null);
+      return {proc,actual,recalc:rec.reduce((s,item)=>s+item.delta,0)};
+    });
+    const conDatos=procesos.filter(item=>item.actual);
+    const total=conDatos.reduce((s,item)=>s+item.actual.monto,0);
+    const delta=conDatos.reduce((s,item)=>s+(item.actual.delta||0),0);
+    const previo=anterior?D.procesos.reduce((s,proc)=>{
+      const datos=((D.datos[empresa]||{})[proc.id]||[]);
+      const base=datos.filter(row=>row[0]===anterior.pericodi&&row[2]<=pub)
+        .sort((a,b)=>b[1]-a[1])[0];
+      return s+(base?base[3]:0);
+    },0):null;
+    const cambioSigno=previo!=null&&((total>0&&previo<0)||(total<0&&previo>0));
+    const variacion=previo==null||previo===0?null:delta/Math.abs(previo)*100;
+    const driver=conDatos.slice().sort((a,b)=>Math.abs(b.actual.delta||0)-Math.abs(a.actual.delta||0))[0]||null;
+    const fuerte=conDatos.some(item=>item.actual.deltaPct!=null&&Math.abs(item.actual.deltaPct)>=(item.actual.rev===0?25:10));
+    const nivel=!conDatos.length?'sin':fuerte||variacion!=null&&Math.abs(variacion)>=25?'alta':variacion!=null&&Math.abs(variacion)>=10?'media':'baja';
+    return {empresa,total,previo,delta,variacion,cambioSigno,driver,nivel,conDatos:conDatos.length,recalculo:procesos.reduce((s,item)=>s+item.recalc,0)};
+  });
+}
+const estado={pub:null,filtrado:'',orden:'variacion',pagina:1};
+function exportarJSON(){
+  const empresas=calcular();
+  const top10=empresas.filter(row=>row.variacion!=null)
+    .slice().sort((a,b)=>Math.abs(b.variacion)-Math.abs(a.variacion)).slice(0,10);
+  const salida={
+    esquema:'radar_empresas.v1',
+    generado_en:new Date().toISOString(),
+    publicacion:{pericodi:estado.pub,nombre:mesLargo(estado.pub)},
+    criterios:{
+      orden_predeterminado:'mayor_variacion_absoluta',
+      variacion:'(liquidacion_actual - mes_anterior) / valor_absoluto(mes_anterior) * 100',
+      impacto_economico:'liquidacion_actual - mes_anterior',
+      registros_por_pagina:10
+    },
+    indicadores:{
+      empresas_evaluadas:empresas.length,
+      atencion_alta:empresas.filter(row=>row.nivel==='alta').length,
+      atencion_media:empresas.filter(row=>row.nivel==='media').length,
+      sin_datos:empresas.filter(row=>row.nivel==='sin').length
+    },
+    empresas:empresas.map(row=>({
+      empresa:row.empresa,
+      liquidacion_actual:row.total,
+      mes_anterior:row.previo,
+      variacion_pct:row.variacion,
+      impacto_economico:row.delta,
+      nivel_atencion:row.nivel,
+      principal_factor:row.driver?{id:row.driver.proc.id,nombre:row.driver.proc.nombre,variacion_monto:row.driver.actual.delta}:null,
+      procesos_con_datos:row.conDatos,
+      efecto_rec_calculos:row.recalculo
+    })),
+    top_10_mayor_variacion:top10.map(row=>({empresa:row.empresa,variacion_pct:row.variacion,impacto_economico:row.delta,principal_factor:row.driver?row.driver.proc.id:null}))
+  };
+  const blob=new Blob([JSON.stringify(salida,null,2)],{type:'application/json;charset=utf-8'});
+  const enlace=document.createElement('a');
+  enlace.href=URL.createObjectURL(blob);
+  enlace.download=`radar_empresas_${estado.pub}.json`;
+  enlace.click();
+  URL.revokeObjectURL(enlace.href);
+}
+function render(){
+  const todas=calcular();
+  const filtradas=todas.filter(row=>row.empresa.toLowerCase().includes(estado.filtrado.toLowerCase())).sort((a,b)=>{
+    if(estado.orden==='empresa') return a.empresa.localeCompare(b.empresa);
+    if(estado.orden==='impacto') return Math.abs(b.delta)-Math.abs(a.delta);
+    return (b.variacion==null?-1:Math.abs(b.variacion))-(a.variacion==null?-1:Math.abs(a.variacion));
+  });
+  const paginas=Math.max(1,Math.ceil(filtradas.length/10));
+  estado.pagina=Math.min(estado.pagina,paginas);
+  const inicio=(estado.pagina-1)*10, filas=filtradas.slice(inicio,inicio+10);
+  const altas=todas.filter(row=>row.nivel==='alta').length, medias=todas.filter(row=>row.nivel==='media').length;
+  const topVariacion=todas.filter(row=>row.variacion!=null).sort((a,b)=>Math.abs(b.variacion)-Math.abs(a.variacion)).slice(0,10);
+  const maxVariacion=Math.max(...topVariacion.map(row=>Math.abs(row.variacion)),1);
+  $('#app').innerHTML=`<div class="encabezado"><div><h1>Radar de empresas</h1><p>${esc(mesLargo(estado.pub))} · comparación de liquidaciones y atención requerida</p></div><div class="filtros"><div class="ctrl"><label for="selPub">Publicación</label><select id="selPub">${D.periodos.slice().reverse().map(p=>`<option value="${p.pericodi}" ${p.pericodi===estado.pub?'selected':''}>${esc(p.nombre)}</option>`).join('')}</select></div><div class="ctrl"><label for="selOrden">Ordenar</label><select id="selOrden"><option value="variacion" ${estado.orden==='variacion'?'selected':''}>Mayor variación</option><option value="impacto" ${estado.orden==='impacto'?'selected':''}>Mayor impacto</option><option value="empresa" ${estado.orden==='empresa'?'selected':''}>Empresa</option></select></div><input class="buscar" id="buscar" type="search" placeholder="Buscar empresa" value="${esc(estado.filtrado)}"></div></div>
+  <section class="indicadores"><div class="indicador"><small>Empresas evaluadas</small><strong>${todas.length}</strong><span>en la publicación seleccionada</span></div><div class="indicador"><small>Atención alta</small><strong class="${altas?'negativo':''}">${altas}</strong><span>requieren validación prioritaria</span></div><div class="indicador"><small>Atención media</small><strong class="${medias?'':'positivo'}">${medias}</strong><span>presentan movimiento relevante</span></div><div class="indicador"><small>Sin datos</small><strong>${todas.filter(row=>row.nivel==='sin').length}</strong><span>sin liquidación R0 publicada</span></div></section>
+  <section class="ranking"><div class="ranking__head"><h2>Top 10 · mayor variación de liquidaciones</h2><span>Ordenado por variación absoluta</span></div>${topVariacion.length?topVariacion.map(row=>`<div class="ranking__fila"><div class="ranking__empresa">${esc(row.empresa)}<span class="ranking__factor">${row.driver?esc(row.driver.proc.nombre):'Sin factor'}</span></div><div class="ranking__barra"><i style="width:${Math.max(3,Math.abs(row.variacion)/maxVariacion*100)}%;background:${row.variacion>=0?'var(--verde)':'var(--rojo)'}"></i></div><div class="ranking__pct ${row.variacion>=0?'positivo':'negativo'}">${variacionTexto(row)}</div><div class="ranking__impacto">${soles(row.delta)} impacto</div></div>`).join(''):'<div class="vacio">No hay variaciones comparables para este periodo.</div>'}</section>
+  <section class="panel"><div class="panel__head"><h2>Empresas y liquidaciones</h2><span>${filtradas.length?inicio+1:0}-${Math.min(inicio+filas.length,filtradas.length)} de ${filtradas.length} empresa(s)</span></div><div class="tabla-caja"><table><thead><tr><th>Empresa</th><th>Liquidación actual</th><th>Mes anterior</th><th>% variación</th><th>Impacto económico</th><th>Nivel de atención</th><th>Principal factor</th></tr></thead><tbody>${filas.length?filas.map(row=>`<tr><td class="empresa">${esc(row.empresa)}<span class="sub">${row.conDatos} proceso(s) con datos</span></td><td>${soles(row.total)}<span class="sub">periodo seleccionado</span></td><td>${soles(row.previo)}<span class="sub">base de comparación</span></td><td class="${row.variacion==null?'neutral':row.variacion>=0?'positivo':'negativo'}">${variacionTexto(row)}</td><td class="${row.delta>=0?'positivo':'negativo'}">${soles(row.delta)}<span class="sub">recálculos: ${soles(row.recalculo)}</span></td><td><span class="nivel nivel--${row.nivel}">${row.nivel==='sin'?'Sin datos':row.nivel==='alta'?'Alta':row.nivel==='media'?'Media':'Baja'}</span></td><td>${row.driver?esc(row.driver.proc.nombre):'—'}${row.driver?`<span class="sub">${soles(row.driver.actual.delta)} vs referencia</span>`:''}</td></tr>`).join(''):'<tr><td colspan="7" class="vacio">No se encontraron empresas.</td></tr>'}</tbody></table></div><div class="paginacion"><button id="paginaAnterior" type="button" ${estado.pagina===1?'disabled':''}>Anterior</button><span>Página ${estado.pagina} de ${paginas}</span><button id="paginaSiguiente" type="button" ${estado.pagina===paginas?'disabled':''}>Siguiente</button></div></section><p class="nota"><b>Orden actual:</b> ${estado.orden==='variacion'?'mayor variación absoluta':estado.orden==='impacto'?'mayor impacto económico':'nombre de empresa'}. <b>Criterio:</b> la variación compara la liquidación actual contra el monto del mes anterior mostrado en la tabla; el impacto económico es el cambio monetario total frente a esa referencia.</p>`;
+  $('#selPub').onchange=e=>{estado.pub=+e.target.value;estado.pagina=1;render()};$('#selOrden').onchange=e=>{estado.orden=e.target.value;estado.pagina=1;render()};$('#buscar').oninput=e=>{estado.filtrado=e.target.value;estado.pagina=1;render()};$('#paginaAnterior').onclick=()=>{estado.pagina--;render()};$('#paginaSiguiente').onclick=()=>{estado.pagina++;render()};$('#btnExportarJson').onclick=exportarJSON;
+}
+function arrancar(){estado.pub=Number(new URLSearchParams(location.search).get('pub'))||D.periodos[D.periodos.length-1].pericodi;render()}
+</script>
+<script src="maqueta-resumen-empresa.datos.js"></script>
+</body>
+</html>

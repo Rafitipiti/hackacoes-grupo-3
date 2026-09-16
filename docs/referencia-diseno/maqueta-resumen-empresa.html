@@ -1,0 +1,1094 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publicación mensual de liquidaciones — COES</title>
+<style>
+/* ===========================================================================
+   Publicación mensual de liquidaciones (COES)
+   Necesita maqueta_revisiones_datos.js en la misma carpeta: los dos archivos
+   viajan juntos. No requiere servidor ni internet.
+   =========================================================================== */
+:root{
+  color-scheme: light;
+  --surface-1:#fcfcfb; --plane:#f9f9f7; --surface-2:#f2f1ee; --surface-3:#eceae5;
+  --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,.10);
+  --serie-1:#2a78d6; --serie-2:#eb6834; --serie-3:#1baf7a; --serie-4:#eda100;
+  --pos:#2a78d6; --neg:#d03b3b;
+  --warning:#fab219; --critical:#d03b3b; --good:#0ca30c;
+  --radio:10px; --sombra:0 1px 2px rgba(11,11,11,.04),0 4px 12px rgba(11,11,11,.05);
+  --fuente:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-tema="claro"]){
+  color-scheme: dark;
+  --surface-1:#1a1a19; --plane:#0d0d0d; --surface-2:#232321; --surface-3:#2c2c2a;
+  --text-primary:#fff; --text-secondary:#c3c2b7; --text-muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+  --serie-1:#3987e5; --serie-2:#d95926; --serie-3:#199e70; --serie-4:#c98500;
+  --pos:#3987e5; --neg:#e66767;
+  --sombra:0 1px 2px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.25);
+}}
+:root[data-tema="oscuro"]{
+  color-scheme: dark;
+  --surface-1:#1a1a19; --plane:#0d0d0d; --surface-2:#232321; --surface-3:#2c2c2a;
+  --text-primary:#fff; --text-secondary:#c3c2b7; --text-muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+  --serie-1:#3987e5; --serie-2:#d95926; --serie-3:#199e70; --serie-4:#c98500;
+  --pos:#3987e5; --neg:#e66767;
+  --sombra:0 1px 2px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--text-primary);
+     font:14px/1.5 var(--fuente);-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;font-weight:640;letter-spacing:-.01em}
+
+.cab{position:sticky;top:0;z-index:20;background:var(--surface-1);border-bottom:1px solid var(--border)}
+.cab__fila{display:flex;align-items:center;gap:14px;padding:12px 20px;flex-wrap:wrap;max-width:1400px;margin:0 auto}
+.marca{display:flex;align-items:center;gap:9px;margin-right:auto}
+.marca strong{font-size:15px;display:block;line-height:1.2}
+.marca span{font-size:12px;color:var(--text-muted)}
+.ctrl{display:flex;align-items:center;gap:7px}
+.ctrl label{font-size:12px;color:var(--text-secondary);font-weight:600}
+select{padding:7px 10px;font:inherit;font-size:13px;color:var(--text-primary);
+       background:var(--surface-1);border:1px solid var(--axis);border-radius:8px}
+select:focus-visible,button:focus-visible{outline:2px solid var(--serie-1);outline-offset:2px}
+.btn-accion{padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:var(--surface-2);color:var(--text-primary);font:inherit;font-size:12.5px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .15s ease,transform .15s ease}
+.btn-accion:hover{background:var(--surface-3)}
+.btn-accion:active{transform:translateY(1px)}
+.icono-btn{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;
+           width:34px;height:34px;cursor:pointer;display:grid;place-items:center;color:inherit}
+.icono-btn:hover{background:var(--grid)}
+main{padding:20px;max-width:1400px;margin:0 auto}#app{display:flex;flex-direction:column}#app>.aviso{order:0}#app>.portada{order:1}#app>.impacto{order:2}#app>.comparativa{order:3}#app>.contexto{order:4}#app>.historico{order:5}#app>.trazabilidad{order:6}#app>.proc{order:7}
+
+.aviso{display:flex;gap:10px;align-items:flex-start;padding:11px 14px;border-radius:9px;
+  background:color-mix(in srgb,var(--warning) 12%,transparent);
+  border:1px solid color-mix(in srgb,var(--warning) 35%,transparent);
+  font-size:12.5px;color:var(--text-secondary);margin-bottom:18px}
+.aviso svg{flex:none;margin-top:2px}
+.aviso code{background:var(--surface-2);padding:1px 5px;border-radius:4px;font-size:11.5px}
+
+.portada{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radio);
+         padding:20px;box-shadow:var(--sombra);margin-bottom:22px}
+.portada__et{font-size:12px;font-weight:700;color:var(--text-secondary);
+             text-transform:uppercase;letter-spacing:.06em}
+.portada__tit{font-size:27px;font-weight:680;letter-spacing:-.02em;margin:3px 0 14px}
+.resumen{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.res{background:var(--surface-2);border-radius:9px;padding:13px 15px}
+.res__et{font-size:11.5px;font-weight:700;color:var(--text-secondary);
+         text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.res__val{font-size:21px;font-weight:660;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.res__sub{font-size:12px;color:var(--text-muted);margin-top:4px}
+
+.comparativa{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radio);
+             padding:18px;box-shadow:var(--sombra);margin:0 0 22px}
+.comparativa__head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+                  margin-bottom:14px}
+.comparativa__head h3{font-size:16px;font-weight:680}
+.comparativa__head span{font-size:12px;color:var(--text-muted);font-weight:600}
+.comparativa__tabla{overflow-x:auto}
+.comparativa table{width:100%;border-collapse:collapse;font-size:13px}
+.comparativa th, .comparativa td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--grid)}
+.comparativa th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);
+               font-weight:700}
+.comparativa td{font-variant-numeric:tabular-nums}
+.comparativa__proc{display:flex;align-items:center;gap:10px;font-weight:600}
+.comparativa__dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.comparativa__bar{display:inline-block;height:8px;border-radius:8px;min-width:6px}
+.comparativa__pill{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;
+                  font-size:11px;font-weight:700}
+.comparativa__pill--ok{background:color-mix(in srgb,var(--good) 14%,transparent);color:var(--good)}
+.comparativa__pill--warn{background:color-mix(in srgb,var(--critical) 12%,transparent);color:var(--critical)}
+.comparativa__pill--neutral{background:var(--surface-3);color:var(--text-secondary)}
+
+.contexto{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radio);padding:18px;box-shadow:var(--sombra);margin:0 0 22px}
+.contexto__head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.contexto__head h3{font-size:16px;font-weight:680}
+.contexto__head span{font-size:12px;color:var(--text-muted);font-weight:600}
+.contexto__grid{display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.contexto__bloque{border:1px solid var(--border);border-radius:9px;padding:12px 14px;background:var(--surface-2)}
+.contexto__titulo{font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+.contexto__icono{font-size:17px;margin-right:5px;vertical-align:-1px}
+.contexto__dato{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid var(--grid);font-size:12.5px}
+.contexto__dato:last-child{border-bottom:0}
+.contexto__dato b{font-variant-numeric:tabular-nums;text-align:right}
+.contexto__nota{margin-top:10px;color:var(--text-muted);font-size:11px;line-height:1.45}
+.trazabilidad{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radio);padding:18px;box-shadow:var(--sombra);margin:0 0 22px}
+.trazabilidad__head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.trazabilidad__head h3{font-size:16px;font-weight:680}
+.trazabilidad__head span{font-size:12px;color:var(--text-muted);font-weight:600}
+.trazabilidad__flujo{display:grid;grid-template-columns:1fr auto 1.3fr auto 1.8fr;align-items:stretch;gap:10px}
+.trazabilidad__nodo{border:1px solid var(--border);border-radius:8px;padding:11px 12px;background:var(--surface-2);min-width:0}
+.trazabilidad__nodo--resultado{background:color-mix(in srgb,var(--serie-1) 9%,var(--surface-2))}
+.trazabilidad__et{font-size:10px;text-transform:uppercase;color:var(--text-secondary);font-weight:700;letter-spacing:.05em;margin-bottom:5px}
+.trazabilidad__valor{font-size:17px;font-weight:660;font-variant-numeric:tabular-nums}
+.trazabilidad__sub{font-size:11px;color:var(--text-muted);margin-top:4px;line-height:1.4}
+.trazabilidad__flecha{display:grid;place-items:center;color:var(--text-muted);font-size:20px}
+.trazabilidad__fuentes{display:grid;gap:4px;font-size:11px;color:var(--text-secondary)}
+.trazabilidad__fuentes span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:800px){.contexto__grid{grid-template-columns:1fr}.trazabilidad__flujo{grid-template-columns:1fr}.trazabilidad__flecha{transform:rotate(90deg);height:10px}}
+
+.historico{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radio);padding:18px;box-shadow:var(--sombra);margin:0 0 22px}
+.historico__head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.historico__head h3{font-size:16px;font-weight:680}
+.historico__head span{font-size:12px;color:var(--text-muted);font-weight:600}
+.historico__chart{width:100%;overflow-x:auto}
+.historico__chart svg{width:100%;min-width:640px;height:250px;display:block}
+.historico__grid{stroke:var(--grid);stroke-width:1}
+.historico__axis{stroke:var(--axis);stroke-width:1}
+.historico__line{fill:none;stroke:var(--serie-1);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.historico__line--rec{fill:none;stroke:var(--serie-2);stroke-width:2.5;stroke-dasharray:7 5;stroke-linecap:round;stroke-linejoin:round}
+.historico__area{fill:color-mix(in srgb,var(--serie-1) 15%,transparent)}
+.historico__point{fill:var(--serie-1);stroke:var(--surface-1);stroke-width:2}
+.historico__point--actual{fill:var(--serie-2);stroke:var(--surface-1);stroke-width:2}
+.historico__point--rec{fill:var(--serie-2);stroke:var(--surface-1);stroke-width:2}
+.historico__label{font-size:11px;fill:var(--text-muted);font-weight:600}
+.historico__value{font-size:11px;fill:var(--text-secondary);font-weight:700}
+.historico__legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:var(--text-secondary)}
+.historico__legend-item{display:inline-flex;align-items:center;gap:7px}
+.historico__legend-line{width:24px;border-top:3px solid var(--serie-1)}
+.historico__legend-line--rec{border-top:2.5px dashed var(--serie-2)}
+
+.impacto{background:linear-gradient(to bottom,var(--surface-1),color-mix(in srgb,var(--surface-2) 90%,var(--surface-1)));border:1px solid var(--border);border-radius:var(--radio);padding:18px;box-shadow:var(--sombra);margin:0 0 22px}
+.impacto__head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.impacto__head h3{font-size:16px;font-weight:680}
+.impacto__head span{font-size:12px;color:var(--text-muted);font-weight:600}
+.impacto__grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-bottom:12px}
+.impacto__card{background:var(--surface-2);border:1px solid var(--border);border-radius:9px;padding:12px 14px}
+.impacto__card--primary{background:linear-gradient(to bottom,color-mix(in srgb,var(--serie-1) 10%,var(--surface-2)),var(--surface-2));}
+.impacto__label{font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.impacto__valor{font-size:22px;font-weight:660;letter-spacing:-.02em;line-height:1.2;font-variant-numeric:tabular-nums}
+.impacto__meta{font-size:12.5px;color:var(--text-secondary);margin-top:6px;line-height:1.5}
+.impacto__alerta{padding:12px 14px;border-radius:9px;border:1px solid var(--border);font-size:12.5px;line-height:1.6;color:var(--text-secondary);margin-bottom:12px}
+.impacto__alerta--warn{background:color-mix(in srgb,var(--critical) 10%,transparent);border-color:color-mix(in srgb,var(--critical) 35%,transparent)}
+.impacto__alerta--ok{background:color-mix(in srgb,var(--good) 10%,transparent);border-color:color-mix(in srgb,var(--good) 35%,transparent)}
+.impacto__lista-wrap{border-top:1px solid var(--grid);padding-top:12px}
+.impacto__subhead{font-size:12px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.impacto__list{margin:0;padding-left:18px;display:grid;gap:8px;font-size:12.5px;color:var(--text-secondary);line-height:1.5}
+.impacto__tag{display:inline-block;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:700;margin-left:8px}
+.impacto__tag--warn{background:color-mix(in srgb,var(--critical) 12%,transparent);color:var(--critical)}
+.impacto__tag--ok{background:color-mix(in srgb,var(--good) 12%,transparent);color:var(--good)}
+
+.proc{margin-bottom:26px}
+.proc__cab{display:flex;align-items:center;gap:10px;margin-bottom:11px;flex-wrap:wrap}
+.proc__pt{width:11px;height:11px;border-radius:3px;flex:none}
+.proc__nom{font-size:15px;font-weight:660}
+.proc__meta{font-size:12px;color:var(--text-muted);margin-left:auto;
+            font-variant-numeric:tabular-nums;text-align:right}
+.proc__meta b{color:var(--text-secondary);font-weight:660}
+.tarjetas{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(236px,1fr))}
+
+.t{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radio);
+   padding:14px;box-shadow:var(--sombra);position:relative;cursor:pointer;
+   transition:transform .08s,box-shadow .08s}
+.t:hover{transform:translateY(-1px);box-shadow:0 2px 4px rgba(11,11,11,.06),0 8px 20px rgba(11,11,11,.07)}
+.t--r0{border-color:color-mix(in srgb,var(--acento) 45%,var(--border));
+       background:linear-gradient(to bottom,color-mix(in srgb,var(--acento) 7%,var(--surface-1)),var(--surface-1) 58%)}
+.t--sel{outline:2px solid var(--acento);outline-offset:1px}
+.t__top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:9px}
+.t__mes{font-size:13.5px;font-weight:660;line-height:1.25}
+.t__tipo{font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.rev{font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:20px;flex:none;font-variant-numeric:tabular-nums}
+.rev--r0{background:color-mix(in srgb,var(--acento) 18%,transparent);color:var(--acento)}
+.rev--rn{background:var(--surface-3);color:var(--text-secondary)}
+.t__monto{font-size:19.5px;font-weight:660;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-bottom:9px}
+.t__var{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.t__pct{font-size:14px;font-weight:660;font-variant-numeric:tabular-nums}
+.t__abs{font-size:12px;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.sube::before{content:"▲ ";font-size:9px}
+.baja::before{content:"▼ ";font-size:9px}
+.signo{color:var(--critical)}
+.signo::before{content:"↔ ";font-size:10px}
+.t__base{font-size:11.5px;color:var(--text-muted);margin-top:6px}
+.t__cadena{display:flex;gap:4px;margin-top:11px;align-items:center}
+.pt{width:6px;height:6px;border-radius:50%;background:var(--axis)}
+.pt--on{background:var(--acento);width:7px;height:7px}
+.t__cadena span{font-size:10.5px;color:var(--text-muted);margin-left:3px}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:20px;
+      font-size:10.5px;font-weight:700;margin-top:8px;margin-right:5px}
+.chip--alta{background:color-mix(in srgb,var(--critical) 15%,transparent);color:var(--critical)}
+.chip--real{background:color-mix(in srgb,var(--good) 16%,transparent);color:var(--good)}
+
+.detalle{grid-column:1/-1;background:var(--surface-2);border:1px solid var(--border);
+         border-radius:var(--radio);padding:16px}
+.detalle h3{font-size:13.5px;margin-bottom:3px}
+.detalle p{margin:0 0 13px;font-size:12.5px;color:var(--text-secondary)}
+.detalle h4{font-size:12px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;
+            letter-spacing:.05em;margin:18px 0 8px}
+.tabla-caja{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px 10px;text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);
+   font-weight:700;border-bottom:1px solid var(--axis)}
+td{border-bottom:1px solid var(--grid);font-variant-numeric:tabular-nums}
+tr.actual td{font-weight:700;background:var(--surface-3)}
+.barra{display:inline-block;height:7px;border-radius:4px;vertical-align:middle;min-width:2px}
+.vacio{padding:34px 16px;text-align:center;color:var(--text-muted);line-height:1.7}
+.pie{padding:24px 20px 44px;text-align:center;color:var(--text-muted);font-size:12px;max-width:1400px;margin:0 auto}
+.reporte-exportacion{display:none}
+.reporte-exportacion__marca{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;border-bottom:2px solid var(--text-primary);padding-bottom:14px;margin-bottom:18px}
+.reporte-exportacion__marca h1{font-size:22px;margin:0 0 4px}
+.reporte-exportacion__marca p{margin:0;color:var(--text-secondary);font-size:12px}
+.reporte-exportacion__fecha{text-align:right;color:var(--text-secondary);font-size:11px}
+.reporte-exportacion__resumen{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.reporte-exportacion__dato{border:1px solid var(--border);padding:10px 12px;border-radius:6px}
+.reporte-exportacion__dato small{display:block;color:var(--text-secondary);font-size:10px;text-transform:uppercase;font-weight:700;margin-bottom:4px}
+.reporte-exportacion__dato strong{font-size:16px;font-variant-numeric:tabular-nums}
+.reporte-exportacion h2{font-size:14px;margin:18px 0 8px;border-bottom:1px solid var(--grid);padding-bottom:6px}
+.reporte-exportacion__lectura{border-left:3px solid var(--serie-1);padding:8px 12px;background:var(--surface-2);font-size:12px;line-height:1.55}
+.reporte-exportacion table{font-size:11px}
+.reporte-exportacion th,.reporte-exportacion td{padding:7px 8px}
+.reporte-exportacion__sustento{font-size:10.5px;color:var(--text-secondary);line-height:1.55}
+.reporte-exportacion__sustento p{margin:5px 0}
+
+@media print{
+  @page { margin: 14mm; }
+  body{background:#fff;color:#000}
+  body > :not(.reporte-exportacion){display:none !important}
+  .reporte-exportacion{display:block !important;color:#000}
+  .reporte-exportacion__dato{border-color:#bdbdbd}
+  .reporte-exportacion__lectura{background:#f3f3f3}
+  .reporte-exportacion table{page-break-inside:avoid}
+}
+@media(max-width:620px){.portada__tit{font-size:22px}.ctrl{flex:1 1 100%}.ctrl select{flex:1}}
+</style>
+</head>
+<body>
+
+<header class="cab">
+  <div class="cab__fila">
+    <div class="marca">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2" y="2" width="8" height="8" rx="2" fill="var(--serie-1)"/>
+        <rect x="14" y="2" width="8" height="8" rx="2" fill="var(--serie-2)"/>
+        <rect x="2" y="14" width="8" height="8" rx="2" fill="var(--serie-4)"/>
+        <rect x="14" y="14" width="8" height="8" rx="2" fill="var(--serie-3)"/>
+      </svg>
+      <div><strong>Publicación mensual de liquidaciones</strong><span id="subMarca">COES</span></div>
+    </div>
+    <div class="ctrl"><label for="selEmpresa">Empresa</label><select id="selEmpresa"></select></div>
+    <button class="btn-accion" id="btnExportPdf" type="button" aria-label="Exportar resumen ejecutivo como PDF">Exportar resumen PDF</button>
+    <button class="btn-accion" id="btnExportarJsonEmpresa" type="button" aria-label="Exportar información de la empresa como JSON">Exportar JSON empresa</button>
+    <a class="btn-accion" id="btnRadarEmpresas" href="radar_empresas.html" aria-label="Abrir radar de empresas">Radar empresas</a>
+    <div class="ctrl"><label for="selPub">Publicación</label><select id="selPub"></select></div>
+    <button class="icono-btn" id="btnTema" title="Cambiar tema" aria-label="Cambiar tema">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="app"><div class="vacio">Cargando datos…</div></main>
+
+<section id="reporteExportacion" class="reporte-exportacion" aria-hidden="true"></section>
+
+<footer class="pie">
+  Montos en Soles (S/) · R0 se compara con la última revisión conocida del mes anterior;
+  R1 o mayor con su versión inmediata anterior.
+</footer>
+
+<script>
+/* =========================================================================
+   CONFIGURACIÓN — lo editable
+   ========================================================================= */
+const COLOR_PROC = { 'LVTA':'--serie-1', 'LVTP':'--serie-2',
+                     'LSCIO':'--serie-3', 'SST-SCT':'--serie-4' };
+
+/* Una revisión que mueve ≥10% el monto ya publicado es una alarma; que un mes
+   varíe 25% contra el anterior es normal. De ahí dos umbrales distintos. */
+const UMBRAL = { r0:25, revision:10, montoMinimo:1000 };
+
+/* =========================================================================
+   DATOS — los inyecta maqueta_revisiones_datos.js
+   ========================================================================= */
+let D = null, IDX = null, PER = {};
+window.__REVISIONES__ = (obj) => { D = obj; arrancar(); };
+
+/* IDX[proceso][pericodi][revision] = { pub, monto } */
+function indexar(empresa){
+  const out = {}, datos = D.datos[empresa] || {};
+  for(const proc in datos){
+    out[proc] = {};
+    for(const [peri, rev, pub, monto] of datos[proc]){
+      (out[proc][peri] = out[proc][peri] || {})[rev] = { pub, monto };
+    }
+  }
+  return out;
+}
+
+/* =========================================================================
+   FORMATO
+   ========================================================================= */
+const MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto',
+             'Septiembre','Octubre','Noviembre','Diciembre'];
+const MESES_C=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Set','Oct','Nov','Dic'];
+const mesLargo = pc => { const p=PER[pc]; return p ? `${MESES[+p.clave.slice(4,6)-1]} ${p.clave.slice(0,4)}` : '—'; };
+const mesCorto = pc => { const p=PER[pc]; return p ? `${MESES_C[+p.clave.slice(4,6)-1]} ${p.clave.slice(2,4)}` : '—'; };
+
+const nfS=new Intl.NumberFormat('es-PE',{style:'currency',currency:'PEN',minimumFractionDigits:2,maximumFractionDigits:2});
+const nf0=new Intl.NumberFormat('es-PE',{maximumFractionDigits:0});
+const nf1=new Intl.NumberFormat('es-PE',{minimumFractionDigits:1,maximumFractionDigits:1});
+const nfE=new Intl.NumberFormat('es-PE',{minimumFractionDigits:2,maximumFractionDigits:2});
+const soles=v=>(v==null||!isFinite(v))?'—':nfS.format(v);
+const energia=v=>(v==null||!isFinite(v))?'—':`${nfE.format(v)} MWh`;
+const costoMarginal=v=>(v==null||!isFinite(v))?'—':`${nfE.format(v)} S/ por MWh`;
+function solesCorto(v){
+  if(v==null||!isFinite(v))return '—';
+  const s=v<0?'−':'', a=Math.abs(v);
+  if(a>=1e6)return `${s}S/ ${nf1.format(a/1e6)} M`;
+  if(a>=1e3)return `${s}S/ ${nf0.format(a/1e3)} k`;
+  return `${s}S/ ${nf0.format(a)}`;
+}
+const pct=v=>`${v>=0?'+':'−'}${nf1.format(Math.abs(v))}%`;
+
+/* El % se oculta cuando es correcto pero engañoso (mismo criterio del portal). */
+function variacion(monto, base){
+  if(base==null) return { delta:null, deltaPct:null, nota:'sin periodo de comparación' };
+  const delta = monto - base;
+  if(Math.abs(base)<0.005) return { delta, deltaPct:null, nota:'el periodo base es cero' };
+  if((monto>0&&base<0)||(monto<0&&base>0))
+    return { delta, deltaPct:null, cambioSigno:true,
+             nota:`cambió de ${base>0?'a favor':'en contra'} a ${monto>0?'a favor':'en contra'}` };
+  const p = delta/Math.abs(base)*100;
+  if(Math.abs(p)>999) return { delta, deltaPct:p, fueraRango:true, nota:'variación fuera de rango' };
+  return { delta, deltaPct:p };
+}
+const esFuerte = it => {
+  if(Math.abs(it.monto)<UMBRAL.montoMinimo) return false;
+  if(it.cambioSigno||it.fueraRango) return true;
+  if(it.deltaPct==null) return false;
+  return Math.abs(it.deltaPct) >= (it.rev===0 ? UMBRAL.r0 : UMBRAL.revision);
+};
+
+/* =========================================================================
+   CONTENIDO DE UNA PUBLICACIÓN
+   ========================================================================= */
+function contenido(proc, pub){
+  const porPeri = IDX[proc] || {}, items = [];
+  for(const peri in porPeri){
+    const pc = +peri;
+    for(const rev in porPeri[pc]){
+      const r = +rev, e = porPeri[pc][r];
+      if(e.pub !== pub) continue;                 // no sale en esta publicación
+      let base=null, baseEt='';
+      if(r === 0){
+        /* R0 → última revisión del mes anterior conocida a esta fecha */
+        const ant = porPeri[pc-1];
+        if(ant){
+          let mejor=-1;
+          for(const rr in ant) if(ant[rr].pub <= pub && +rr > mejor) mejor = +rr;
+          if(mejor >= 0){ base = ant[mejor].monto; baseEt = `${mesLargo(pc-1)} · R${mejor}`; }
+        }
+      } else {
+        const prev = porPeri[pc][r-1];
+        if(prev){ base = prev.monto; baseEt = `${mesLargo(pc)} · R${r-1}`; }
+      }
+      /* Cuántas revisiones llega a tener este mes DEPENDE DEL PROCESO: un mes
+         puede llegar a R2 en Energía Activa y sólo a R1 en Potencia. */
+      const rmax = ((D.rmax_proc||{})[proc]||{})[pc];
+      const rm = (rmax===undefined) ? r : rmax;
+      items.push({ pc, rev:r, monto:e.monto, base, baseEt, rmax:rm,
+                   esReal: r===rm && PER[pc] && PER[pc].origen==='real',
+                   ...variacion(e.monto, base) });
+    }
+  }
+  return items.sort((a,b)=> b.pc - a.pc);
+}
+
+/* =========================================================================
+   RENDER
+   ========================================================================= */
+const estado = { empresa:null, pub:null, abierta:null };
+const $=s=>document.querySelector(s);
+const el=(t,c,h)=>{const n=document.createElement(t); if(c)n.className=c; if(h!=null)n.innerHTML=h; return n;};
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function varHTML(it){
+  if(it.cambioSigno)
+    return `<span class="t__pct signo" title="${esc(it.nota)}">${solesCorto(it.delta)}</span>`;
+  if(it.deltaPct==null)
+    return `<span class="t__pct" style="color:var(--text-muted);font-weight:500" title="${esc(it.nota||'')}">s/d</span>`;
+  if(it.fueraRango)
+    return `<span class="t__pct" title="${esc(it.nota)}">Δ ${solesCorto(it.delta)}</span>`;
+  return `<span class="t__pct ${it.deltaPct>=0?'sube':'baja'}">${pct(it.deltaPct)}</span>
+          <span class="t__abs">${it.delta>=0?'+':'−'}${soles(Math.abs(it.delta))}</span>`;
+}
+
+function tarjeta(proc, it){
+  const sel = estado.abierta === `${proc}-${it.pc}`;
+  const t = el('div', `t${it.rev===0?' t--r0':''}${sel?' t--sel':''}`);
+  t.style.setProperty('--acento', `var(${COLOR_PROC[proc]})`);
+  const cadena = Array.from({length:it.rmax+1},(_,i)=>`<i class="pt${i===it.rev?' pt--on':''}"></i>`).join('');
+  t.innerHTML =
+    `<div class="t__top">
+       <div><div class="t__mes">${mesLargo(it.pc)}</div>
+            <div class="t__tipo">${it.rev===0?'liquidación del mes':'recálculo'}</div></div>
+       <span class="rev rev--${it.rev===0?'r0':'rn'}">R${it.rev}</span>
+     </div>
+     <div class="t__monto" style="color:${it.monto>=0?'var(--pos)':'var(--neg)'}">${soles(it.monto)}</div>
+     <div class="t__var">${varHTML(it)}</div>
+     <div class="t__base">${it.baseEt ? 'vs '+esc(it.baseEt) : 'sin comparación'}</div>
+     ${esFuerte(it)?`<span class="chip chip--alta">
+        <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5 15 14H1L8 1.5Zm0 4.2a.8.8 0 0 0-.8.85l.2 3.1a.6.6 0 0 0 1.2 0l.2-3.1A.8.8 0 0 0 8 5.7Zm0 5.2a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7Z"/></svg>
+        Variación fuerte</span>`:''}
+     ${it.esReal?`<span class="chip chip--real">✓ dato real</span>`:''}
+     <div class="t__cadena">${cadena}<span>R0–R${it.rmax}</span></div>`;
+  t.onclick = () => { const id=`${proc}-${it.pc}`;
+    estado.abierta = estado.abierta===id ? null : id; render(); };
+  return t;
+}
+
+/* Detalle: cadena completa de revisiones + qué valorización movió el recálculo */
+function detalle(proc, it){
+  const d = el('div','detalle');
+  const porPeri = IDX[proc][it.pc] || {};
+  const revs = Object.keys(porPeri).map(Number).sort((a,b)=>a-b);
+
+  d.appendChild(el('h3',null,`${esc(D.procesos.find(p=>p.id===proc).nombre)} — ${mesLargo(it.pc)}`));
+  d.appendChild(el('p',null,
+    `Historial de revisiones de este mes liquidado. La última (R${it.rmax}) es el valor que ` +
+    `trae el dataset; las anteriores están reconstruidas hacia atrás desde ella.`));
+
+  const filasRev = revs.map(r=>{
+    const e=porPeri[r], ant = r>0 ? porPeri[r-1] : null;
+    const v = ant ? variacion(e.monto, ant.monto) : {delta:null,deltaPct:null};
+    const futura = e.pub > estado.pub;
+    const real = r===it.rmax && PER[it.pc] && PER[it.pc].origen==='real';
+    return `<tr class="${r===it.rev?'actual':''}"${futura?' style="opacity:.42"':''}>
+      <td>R${r}${r===it.rev?' ◀ en esta publicación':''}
+          ${real?' <span class="chip chip--real" style="margin:0">✓ real</span>':''}
+          ${futura?' <span style="color:var(--text-muted)">(aún no publicada)</span>':''}</td>
+      <td>${mesCorto(e.pub)}</td>
+      <td>${soles(e.monto)}</td>
+      <td>${ant==null?'—':soles(v.delta)}</td>
+      <td>${v.deltaPct==null?'—':pct(v.deltaPct)}</td></tr>`;
+  }).join('');
+  d.insertAdjacentHTML('beforeend',
+    `<div class="tabla-caja"><table><thead><tr><th>Revisión</th><th>Sale en</th>
+       <th>Monto restatado</th><th>Δ vs versión previa</th><th>Δ %</th></tr></thead>
+       <tbody>${filasRev}</tbody></table></div>`);
+
+  /* Origen del recálculo: qué valorización se movió entre R(n-1) y R(n) */
+  if(it.rev > 0){
+    const vals = (D.valorizaciones[estado.empresa]||{})[proc]||[];
+    const aq = {}, an = {};
+    for(const [pc, r, vi, monto] of vals){
+      if(pc !== it.pc) continue;
+      if(r === it.rev)   aq[vi] = monto;
+      if(r === it.rev-1) an[vi] = monto;
+    }
+    const filas = Object.keys(aq).map(vi=>{
+      const a=aq[vi], b=(an[vi]===undefined?null:an[vi]), delta=(b==null?null:a-b);
+      return { nombre: D.tabla_valorizaciones[vi], actual:a, previo:b, delta,
+               pctv: (b!=null && Math.abs(b)>0.005) ? delta/Math.abs(b)*100 : null };
+    }).sort((x,y)=>Math.abs(y.delta||0)-Math.abs(x.delta||0));
+    const maxAbs = Math.max.apply(null, filas.map(f=>Math.abs(f.delta||0)).concat([1]));
+    const movidas = filas.filter(f=>Math.abs(f.delta||0) > 0.005).length;
+
+    d.insertAdjacentHTML('beforeend',
+      `<h4>Origen del recálculo R${it.rev-1} → R${it.rev}</h4>
+       <p style="margin:-4px 0 10px">${movidas} de ${filas.length} valorización(es) cambiaron.
+          Un recálculo corrige mecanismos puntuales, no todo el mes a la vez.</p>
+       <div class="tabla-caja"><table><thead><tr><th>Valorización</th><th>R${it.rev-1}</th>
+         <th>R${it.rev}</th><th>Δ</th><th>Δ %</th><th>peso</th></tr></thead><tbody>` +
+      filas.map(f=>`<tr>
+         <td>${esc(f.nombre)}</td>
+         <td>${soles(f.previo)}</td>
+         <td>${soles(f.actual)}</td>
+         <td>${f.delta==null?'—':soles(f.delta)}</td>
+         <td>${f.pctv==null?'—':pct(f.pctv)}</td>
+         <td><span class="barra" style="width:${Math.abs(f.delta||0)/maxAbs*70}px;
+              background:${(f.delta||0)>=0?'var(--pos)':'var(--neg)'}"></span></td></tr>`).join('') +
+      `</tbody></table></div>`);
+  }
+  return d;
+}
+
+function render(){
+  const app = $('#app');
+  app.innerHTML = '';
+  $('#subMarca').textContent = `COES · sesión de ${estado.empresa}`;
+
+  const bloques = D.procesos.map(p=>({ proc:p, items: contenido(p.id, estado.pub) }));
+  const todos = bloques.reduce((a,b)=>a.concat(b.items), []);
+
+  app.appendChild(el('div','aviso',
+    `<svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5 15 14H1L8 1.5Zm0 4.2a.8.8 0 0 0-.8.85l.2 3.1a.6.6 0 0 0 1.2 0l.2-3.1A.8.8 0 0 0 8 5.7Zm0 5.2a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7Z"/></svg>
+     <div>El dataset guarda <b>una sola versión por periodo: la última</b>. Las revisiones
+     intermedias se reconstruyeron hacia atrás desde ese valor con
+     <code>scripts/generar_revisiones.py</code> — por eso la última revisión de cada mes
+     lleva la marca <b>✓ dato real</b> y las anteriores son sintéticas.</div>`));
+
+  if(!todos.length){
+    app.appendChild(el('div','vacio',
+      'Esta publicación no contiene liquidaciones para la empresa seleccionada.'));
+    return;
+  }
+
+  const mesCurso = todos.filter(i=>i.rev===0).reduce((s,i)=>s+i.monto,0);
+  const efecto   = todos.filter(i=>i.rev>0&&i.delta!=null).reduce((s,i)=>s+i.delta,0);
+  const nRec     = todos.filter(i=>i.rev>0).length;
+  const antiguo  = Math.min.apply(null, todos.map(i=>i.pc));
+  const fuertes  = todos.filter(esFuerte).length;
+  /* El R0 es obligatorio para los 4 procesos cada mes. Si falta, hay dos causas
+     muy distintas que en pantalla se verían igual:
+       · el proceso no tiene datos ese mes      -> hueco del dataset
+       · el proceso sí tiene, pero esta empresa no -> no tiene obligación ahí
+     La cobertura del mercado permite separarlas. */
+  const cob = (D.cobertura || {})[estado.pub] || {};
+  const sinR0 = bloques.filter(b=>!b.items.some(i=>i.rev===0)).map(b=>({
+    nombre: b.proc.nombre,
+    hueco: !(cob[b.proc.id] > 0),
+  }));
+  const conR0 = D.procesos.length - sinR0.length;
+  const periodoAnterior = D.periodos.filter(p=>p.pericodi < estado.pub).slice(-1)[0];
+  const mesAnterior = periodoAnterior ? D.procesos.reduce((s,p)=>{
+    const actual = contenido(p.id, periodoAnterior.pericodi).find(i=>i.rev===0);
+    return s + (actual ? actual.monto : 0);
+  },0) : null;
+  const cambioMesAnterior = mesAnterior == null ? null : mesCurso - mesAnterior;
+  const cambioPctMesAnterior = cambioMesAnterior != null && mesAnterior !== 0
+    ? cambioMesAnterior / Math.abs(mesAnterior) * 100 : null;
+  const periodoAnioAnterior = (() => {
+    const periodo = PER[estado.pub];
+    if(!periodo) return null;
+    const clave = `${Number(periodo.clave.slice(0,4))-1}${periodo.clave.slice(4)}`;
+    return D.periodos.find(p => p.clave === clave) || null;
+  })();
+  const mesAnioAnterior = periodoAnioAnterior ? D.procesos.reduce((s,p)=>{
+    const actual = contenido(p.id, periodoAnioAnterior.pericodi).find(i=>i.rev===0);
+    return s + (actual ? actual.monto : 0);
+  },0) : null;
+  const cambioAnioAnterior = mesAnioAnterior == null ? null : mesCurso - mesAnioAnterior;
+  const cambioPctAnioAnterior = cambioAnioAnterior != null && mesAnioAnterior !== 0
+    ? cambioAnioAnterior / Math.abs(mesAnioAnterior) * 100 : null;
+
+  const portada = el('div','portada');
+  portada.innerHTML =
+    `<div class="portada__et">Publicación</div>
+     <div class="portada__tit">${mesLargo(estado.pub)}</div>
+     <div class="resumen">
+       <div class="res"><div class="res__et">Liquidación del mes en curso</div>
+         <div class="res__val" style="color:${mesCurso>=0?'var(--pos)':'var(--neg)'}">${soles(mesCurso)}</div>
+         <div class="res__sub">${conR0} de ${D.procesos.length} procesos${
+            sinR0.length ? ' · ' + sinR0.map(s => s.hueco
+              ? `<b style="color:var(--critical)">${esc(s.nombre)} sin datos este mes</b>`
+              : `<span title="El proceso sí se publicó este mes, pero esta empresa no tiene liquidación en él">sin ${esc(s.nombre)}</span>`).join(' · ')
+            : ''}</div></div>
+       <div class="res"><div class="res__et">Efecto neto de recálculos</div>
+         <div class="res__val" style="color:${efecto>=0?'var(--pos)':'var(--neg)'}">${soles(efecto)}</div>
+         <div class="res__sub">${nRec} revisión(es) · sólo el delta, no el monto restatado</div></div>
+       <div class="res"><div class="res__et">Cambio vs. mes anterior</div>
+         <div class="res__val" style="color:${cambioMesAnterior==null?'inherit':cambioMesAnterior>=0?'var(--pos)':'var(--neg)'}">${cambioMesAnterior==null?'—':soles(cambioMesAnterior)}</div>
+         <div class="res__sub">${cambioPctMesAnterior==null?'Sin comparación disponible':`${pct(cambioPctMesAnterior)} · vs ${mesLargo(periodoAnterior.pericodi)}`}</div></div>
+       <div class="res"><div class="res__et">Variación vs. año anterior</div>
+         <div class="res__val" style="color:${cambioAnioAnterior==null?'inherit':cambioAnioAnterior>=0?'var(--pos)':'var(--neg)'}">${cambioAnioAnterior==null?'—':soles(cambioAnioAnterior)}</div>
+         <div class="res__sub">${cambioPctAnioAnterior==null?'Sin comparación disponible':`${pct(cambioPctAnioAnterior)} · vs ${mesLargo(periodoAnioAnterior.pericodi)}`}</div></div>
+       <div class="res"><div class="res__et">Alcance hacia atrás</div>
+         <div class="res__val">${mesCorto(antiguo)}</div>
+         <div class="res__sub">${estado.pub-antiguo} mes(es) atrás</div></div>
+       <div class="res"><div class="res__et">Variaciones fuertes</div>
+         <div class="res__val" style="color:${fuertes?'var(--critical)':'inherit'}">${fuertes}</div>
+         <div class="res__sub">≥${UMBRAL.r0}% en un R0 · ≥${UMBRAL.revision}% en una revisión</div></div>
+     </div>`;
+  app.appendChild(portada);
+
+  const contextoEmpresa = ((D.contexto||{}).empresas||{})[estado.empresa] || {};
+  const contextoPeriodo = contextoEmpresa[String(estado.pub)] || {};
+  const energiaCtx = contextoPeriodo.energia || {};
+  const operacionCtx = contextoPeriodo.operacion || {};
+  const mercadoCtx = ((D.contexto||{}).mercado||{})[String(estado.pub)] || {};
+  const periodoContextoAnterior = D.periodos.filter(p=>p.pericodi < estado.pub).slice(-1)[0];
+  const mercadoAnterior = periodoContextoAnterior
+    ? ((D.contexto||{}).mercado||{})[String(periodoContextoAnterior.pericodi)]
+    : null;
+  const variacionMercado = mercadoCtx.promedio != null && mercadoAnterior && mercadoAnterior.promedio != null
+    ? mercadoCtx.promedio - mercadoAnterior.promedio : null;
+  const contextoDisponible = mercadoCtx.promedio != null || energiaCtx.entregas != null
+    || energiaCtx.retiros != null || operacionCtx.puntos_entrega != null;
+  const periodosContexto = Object.keys((D.contexto||{}).mercado||{});
+  const rangoContexto = periodosContexto.length
+    ? `${mesLargo(+periodosContexto[0])} a ${mesLargo(+periodosContexto[periodosContexto.length-1])}`
+    : 'sin rango disponible';
+  const contexto = el('section','contexto');
+  contexto.innerHTML = `
+    <div class="contexto__head">
+      <h3>Contexto relacionado</h3>
+      <span>${contextoDisponible ? `${esc(estado.empresa)} · ${esc(mesLargo(estado.pub))}` : `Sin datos para ${esc(mesLargo(estado.pub))}`}</span>
+    </div>
+    ${contextoDisponible ? '' : `<div class="contexto__nota" style="margin:0 0 12px;padding:10px 12px;border:1px solid var(--grid);border-radius:8px">Los reportes de contexto disponibles cubren ${esc(rangoContexto)}. El periodo seleccionado pertenece al histórico de liquidaciones, pero no tiene registros intermedios asociados.</div>`}
+    <div class="contexto__grid">
+      <div class="contexto__bloque">
+        <div class="contexto__titulo"><span class="contexto__icono">⚡</span>Energía</div>
+        <div class="contexto__dato"><span>Entregas</span><b>${energia(energiaCtx.entregas)}</b></div>
+        <div class="contexto__dato"><span>Retiros</span><b>${energia(energiaCtx.retiros)}</b></div>
+        <div class="contexto__dato"><span>Variación entregas</span><b style="color:${(energiaCtx.variacion_entregas||0)>=0?'var(--pos)':'var(--neg)'}">${energiaCtx.variacion_entregas == null ? '—' : `${energiaCtx.variacion_entregas>=0?'↑':'↓'} ${energia(Math.abs(energiaCtx.variacion_entregas))}`}</b></div>
+        <div class="contexto__nota">Flujo físico diario agregado para la empresa en el periodo.</div>
+      </div>
+      <div class="contexto__bloque">
+        <div class="contexto__titulo"><span class="contexto__icono">📈</span>Mercado</div>
+        <div class="contexto__dato"><span>CM promedio</span><b>${costoMarginal(mercadoCtx.promedio)}</b></div>
+        <div class="contexto__dato"><span>Variación</span><b style="color:${(variacionMercado||0)>=0?'var(--pos)':'var(--neg)'}">${variacionMercado == null ? '—' : `${variacionMercado>=0?'↑':'↓'} ${costoMarginal(Math.abs(variacionMercado))}`}</b></div>
+        <div class="contexto__dato"><span>Mínimo / máximo</span><b>${costoMarginal(mercadoCtx.minimo)} / ${costoMarginal(mercadoCtx.maximo)}</b></div>
+        <div class="contexto__nota">Costo marginal promedio del sistema; ${mercadoCtx.barras == null ? 'sin' : mercadoCtx.barras} barra(s) con dato.</div>
+      </div>
+      <div class="contexto__bloque">
+        <div class="contexto__titulo"><span class="contexto__icono">🏭</span>Operación</div>
+        <div class="contexto__dato"><span>Puntos de entrega</span><b>${operacionCtx.puntos_entrega == null ? '—' : nf0.format(operacionCtx.puntos_entrega)}</b></div>
+        <div class="contexto__dato"><span>Días con entregas</span><b>${operacionCtx.dias_entregas == null ? '—' : nf0.format(operacionCtx.dias_entregas)}</b></div>
+        <div class="contexto__dato"><span>Días con retiros</span><b>${operacionCtx.dias_retiros == null ? '—' : nf0.format(operacionCtx.dias_retiros)}</b></div>
+        <div class="contexto__nota">La fuente de retiros cubre una muestra de generadoras, no el universo completo.</div>
+      </div>
+    </div>`;
+  app.appendChild(contexto);
+
+  const fuentesPorProceso = {
+    'LVTA':['liquidaciones/evolucion_mensual.json','reportes_intermedios/energia_activa/transferencias_por_empresa.json','revisiones/revisiones_por_valorizacion.json'],
+    'LVTP':['reportes_intermedios/potencia/transferencias_por_empresa.json','revisiones/revisiones_por_valorizacion.json'],
+    'LSCIO':['reportes_intermedios/lscio/transferencias_por_empresa.json','revisiones/revisiones_por_valorizacion.json'],
+    'SST-SCT':['reportes_intermedios/sstsct/transferencias_por_empresa.json','revisiones/revisiones_por_valorizacion.json'],
+  };
+  const trazaProcesos = bloques.filter(b=>b.items.some(i=>i.rev===0)).map(b=>{
+    const actual = b.items.find(i=>i.rev===0);
+    return { nombre:b.proc.nombre, monto:actual.monto, fuentes:fuentesPorProceso[b.proc.id]||[] };
+  });
+  const trazabilidad = el('section','trazabilidad');
+  trazabilidad.innerHTML = `
+    <div class="trazabilidad__head">
+      <h3>Trazabilidad</h3>
+      <span>Resultado → procesos → fuentes</span>
+    </div>
+    <div class="trazabilidad__flujo">
+      <div class="trazabilidad__nodo trazabilidad__nodo--resultado">
+        <div class="trazabilidad__et">Resultado · ${esc(mesLargo(estado.pub))}</div>
+        <div class="trazabilidad__valor">${soles(mesCurso)}</div>
+        <div class="trazabilidad__sub">Liquidación total de ${esc(estado.empresa)}</div>
+      </div>
+      <div class="trazabilidad__flecha">→</div>
+      <div class="trazabilidad__nodo">
+        <div class="trazabilidad__et">Procesos</div>
+        <div class="trazabilidad__fuentes">${trazaProcesos.map(item=>`<span><b>${esc(item.nombre)}</b> · ${soles(item.monto)}</span>`).join('') || '<span>Sin procesos con datos</span>'}</div>
+      </div>
+      <div class="trazabilidad__flecha">→</div>
+      <div class="trazabilidad__nodo">
+        <div class="trazabilidad__et">Fuentes</div>
+        <div class="trazabilidad__fuentes">${[...new Set(trazaProcesos.flatMap(item=>item.fuentes))].map(fuente=>`<span>📊 ${esc(fuente)}</span>`).join('') || '<span>Sin fuentes disponibles</span>'}</div>
+      </div>
+    </div>`;
+  app.appendChild(trazabilidad);
+
+  const comparativa = el('section','comparativa');
+  const procsResumen = D.procesos.map(p => {
+    const items = contenido(p.id, estado.pub);
+    const actual = items.find(i => i.rev === 0) || items[0] || null;
+    const monto = actual ? actual.monto : 0;
+    const delta = actual ? actual.delta : null;
+    const deltaPct = actual ? actual.deltaPct : null;
+    const fuerte = actual ? esFuerte(actual) : false;
+    const estadoProc = !actual ? 'Sin datos' : (fuerte ? 'Alerta' : 'Estable');
+    return { proc: p, items, actual, monto, delta, deltaPct, fuerte, estadoProc };
+  });
+  const maxMonto = Math.max(...procsResumen.map(x => Math.abs(x.monto) || 0), 1);
+  const procsOrdenados = procsResumen.slice().sort((a,b) => {
+    const alertaA = a.estadoProc === 'Alerta' ? 1 : 0;
+    const alertaB = b.estadoProc === 'Alerta' ? 1 : 0;
+    if(alertaB !== alertaA) return alertaB - alertaA;
+    const impactoA = a.delta == null ? 0 : Math.abs(a.delta);
+    const impactoB = b.delta == null ? 0 : Math.abs(b.delta);
+    return impactoB - impactoA;
+  });
+
+  comparativa.innerHTML = `
+    <div class="comparativa__head">
+      <h3>Comparación por proceso</h3>
+      <span>${mesLargo(estado.pub)}</span>
+    </div>
+    <div class="comparativa__tabla">
+      <table>
+        <thead>
+          <tr>
+            <th>Proceso</th>
+            <th>Monto actual</th>
+            <th>Monto anterior</th>
+            <th>Δ vs anterior</th>
+            <th>Variación</th>
+            <th>Peso</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${procsOrdenados.map(r => {
+            const ancho = Math.max(6, (Math.abs(r.monto) / maxMonto) * 100);
+            const estadoClass = !r.actual ? 'comparativa__pill comparativa__pill--neutral'
+              : r.fuerte ? 'comparativa__pill comparativa__pill--warn' : 'comparativa__pill comparativa__pill--ok';
+            return `<tr>
+              <td>
+                <div class="comparativa__proc">
+                  <span class="comparativa__dot" style="background:var(${COLOR_PROC[r.proc.id]})"></span>
+                  <span>${esc(r.proc.nombre)}</span>
+                </div>
+              </td>
+              <td>${r.actual ? soles(r.monto) : '—'}</td>
+              <td>${r.actual && r.actual.base!=null ? soles(r.actual.base) : '—'}</td>
+              <td>${r.actual && r.delta!=null ? soles(r.delta) : '—'}</td>
+              <td>${r.actual && r.deltaPct!=null ? pct(r.deltaPct) : '—'}</td>
+              <td>
+                <span class="comparativa__bar" style="width:${ancho}%; background:var(${COLOR_PROC[r.proc.id]})"></span>
+              </td>
+              <td><span class="${estadoClass}">${r.estadoProc}</span></td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>`;
+  app.appendChild(comparativa);
+
+  const historico = el('section','historico');
+  const serieHistorica = D.periodos.map(p => {
+    const total = D.procesos.reduce((sum, proc) => {
+      const items = contenido(proc.id, p.pericodi);
+      const actual = items.find(i => i.rev === 0) || items[0] || null;
+      return sum + (actual ? actual.monto : 0);
+    }, 0);
+    const recalc = D.procesos.reduce((sum, proc) => {
+      return sum + contenido(proc.id, p.pericodi)
+        .filter(i => i.rev > 0 && i.delta != null)
+        .reduce((subtotal, i) => subtotal + i.delta, 0);
+    }, 0);
+    return { pericodi: p.pericodi, mes: mesCorto(p.pericodi), total, recalc };
+  });
+  const minHist = Math.min(...serieHistorica.flatMap(x => [x.total, x.recalc]), 0);
+  const maxHist = Math.max(...serieHistorica.flatMap(x => [x.total, x.recalc]), 0);
+  const chartW = 860; const chartH = 220; const padL = 42; const padR = 16; const padT = 16; const padB = 28;
+  const yMin = Math.min(0, minHist * 1.1);
+  const yMax = Math.max(0, maxHist * 1.1);
+  const yRange = yMax - yMin || 1;
+  const xStep = (chartW - padL - padR) / Math.max(serieHistorica.length - 1, 1);
+  const points = serieHistorica.map((d, i) => {
+    const x = padL + i * xStep;
+    const y = padT + ((yMax - d.total) / yRange) * (chartH - padT - padB);
+    return { ...d, x, y };
+  });
+  const recalcPoints = points.map(p => ({ ...p,
+    y: padT + ((yMax - p.recalc) / yRange) * (chartH - padT - padB)
+  }));
+  const linePath = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
+  const recalcPath = recalcPoints.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
+  const areaPath = points.length ? `${linePath} L ${points[points.length-1].x} ${chartH - padB} L ${points[0].x} ${chartH - padB} Z` : '';
+  const gridLines = Array.from({ length: 5 }, (_, i) => {
+    const y = padT + ((chartH - padT - padB) / 4) * i;
+    const val = yMax - ((yMax - yMin) / 4) * i;
+    return `<line class="historico__grid" x1="${padL}" x2="${chartW - padR}" y1="${y}" y2="${y}" />
+            <text class="historico__label" x="8" y="${y + 4}" text-anchor="start">${solesCorto(val)}</text>`;
+  }).join('');
+  const labels = points.map(p => `<text class="historico__label" x="${p.x}" y="${chartH - 8}" text-anchor="middle">${p.mes}</text>`).join('');
+  const actualPoint = points[points.length - 1];
+  const historicalSvg = `
+    <svg viewBox="0 0 ${chartW} ${chartH}" role="img" aria-label="Evolución histórica de la liquidación por empresa">
+      <line class="historico__axis" x1="${padL}" y1="${padT}" x2="${padL}" y2="${chartH - padB}" />
+      <line class="historico__axis" x1="${padL}" y1="${chartH - padB}" x2="${chartW - padR}" y2="${chartH - padB}" />
+      ${gridLines}
+      <path class="historico__area" d="${areaPath}" />
+      <path class="historico__line" d="${linePath}" />
+      <path class="historico__line--rec" d="${recalcPath}" />
+      ${points.map(p => `<circle class="historico__point${p.pericodi === estado.pub ? ' historico__point--actual' : ''}" cx="${p.x}" cy="${p.y}" r="${p.pericodi === estado.pub ? 5 : 4}" />`).join('')}
+      ${recalcPoints.map(p => `<circle class="historico__point--rec" cx="${p.x}" cy="${p.y}" r="3" />`).join('')}
+      <text class="historico__value" x="${actualPoint.x}" y="${actualPoint.y - 12}" text-anchor="middle">${soles(actualPoint.total)}</text>
+      ${labels}
+    </svg>`;
+  historico.innerHTML = `
+    <div class="historico__head">
+      <h3>Evolución histórica de la liquidación</h3>
+      <span>${estado.empresa}</span>
+    </div>
+    <div class="historico__chart">${historicalSvg}</div>
+    <div class="historico__legend" aria-label="Series del gráfico">
+      <span class="historico__legend-item"><i class="historico__legend-line"></i>Liquidación total</span>
+      <span class="historico__legend-item"><i class="historico__legend-line--rec"></i>Efecto neto de recálculos</span>
+    </div>`;
+  app.appendChild(historico);
+
+  const impacto = el('section','impacto');
+  const procesosConDelta = procsResumen.filter(r => r.actual && r.delta!=null);
+  const totalDeltaAbs = procesosConDelta.reduce((s,r) => s + Math.abs(r.delta), 0) || 1;
+  const driver = procesosConDelta.sort((a,b) => Math.abs(b.delta) - Math.abs(a.delta))[0] || null;
+  const driverShare = driver && driver.delta!=null ? (Math.abs(driver.delta) / totalDeltaAbs) * 100 : 0;
+  const topProcesos = procesosConDelta.sort((a,b) => Math.abs(b.delta) - Math.abs(a.delta)).slice(0,3);
+  const top1 = topProcesos[0] || null;
+  const top2Total = topProcesos.slice(0,2).reduce((sum,r) => sum + Math.abs(r.delta || 0), 0);
+  const top1Share = top1 && totalDeltaAbs ? (Math.abs(top1.delta) / totalDeltaAbs) * 100 : 0;
+  const top2Share = totalDeltaAbs ? (top2Total / totalDeltaAbs) * 100 : 0;
+  const concentracion = top1Share >= 80 ? 'muy concentrado en un solo proceso' : (top2Share >= 70 ? 'concentrado en dos procesos' : 'más distribuido entre varios procesos');
+  const revisionesAlerta = procsResumen.filter(r => r.fuerte).length;
+  const nivelImpacto = fuertes > 0 ? 'alto' : (Math.abs(efecto) > (Math.abs(mesCurso) * 0.05) ? 'moderado' : 'estable');
+  const nivelColor = nivelImpacto === 'alto' ? 'impacto__tag--warn' : (nivelImpacto === 'moderado' ? 'impacto__tag--ok' : 'impacto__tag--ok');
+  const prevMonth = D.periodos.slice().filter(p => p.pericodi < estado.pub).slice(-1)[0];
+  let prevTotal = null;
+  let cambioPctPrev = null;
+  if(prevMonth){
+    prevTotal = D.procesos.reduce((sum,p) => sum + (contenido(p.id, prevMonth.pericodi).find(i => i.rev === 0)?.monto || 0), 0);
+    if(prevTotal !== 0) cambioPctPrev = (mesCurso - prevTotal) / Math.abs(prevTotal) * 100;
+  }
+  const cambioTotalPrev = prevTotal == null ? null : mesCurso - prevTotal;
+  const accionLista = [];
+  if(driver){
+    accionLista.push(driver.fuerte
+      ? `Validar ${driver.proc.nombre}: concentra ${driverShare.toFixed(1)}% del ajuste absoluto entre procesos y supera el rango de revisión esperado.`
+      : `Monitorear ${driver.proc.nombre}: concentra ${driverShare.toFixed(1)}% del ajuste absoluto entre procesos y conviene confirmar que el comportamiento es consistente.`);
+  }
+  if(revisionesAlerta > 0){
+    procsResumen.filter(r => r.fuerte).slice(0,2).forEach(r => accionLista.push(`Revisar ${r.proc.nombre}: presenta variación fuerte y requiere validación de recálculo.`));
+  }
+  if(top1){
+    accionLista.push(top1Share >= 80
+      ? `El ajuste está muy concentrado en ${top1.proc.nombre}: representa ${top1Share.toFixed(1)}% del cambio total.`
+      : top2Share >= 70
+        ? `El cambio está concentrado en ${topProcesos.slice(0,2).map(p => p.proc.nombre).join(' y ')}: entre ambos explican ${top2Share.toFixed(1)}% del ajuste.`
+        : `El ajuste está más distribuido: los procesos principales explican ${top2Share.toFixed(1)}% del cambio total.`);
+  }
+  if(!accionLista.length){
+    accionLista.push('No se identifican variaciones relevantes; la publicación se mantiene estable para esta empresa.');
+  }
+  const mensajeImpacto = driver && driver.delta!=null && driver.deltaPct!=null
+    ? `${driver.proc.nombre} concentra ${driverShare.toFixed(1)}% del ajuste absoluto entre procesos y ${driver.fuerte ? 'requiere validación de recálculo' : 'mantiene un comportamiento consistente con la referencia'}.`
+    : 'La publicación no presenta un proceso con cambio relevante en este periodo.';
+
+  impacto.innerHTML = `
+    <div class="impacto__head">
+      <h3>Impacto directo para la empresa</h3>
+      <span>${mesLargo(estado.pub)}</span>
+    </div>
+    <div class="impacto__grid">
+      <div class="impacto__card impacto__card--primary">
+        <div class="impacto__label">Liquidación total</div>
+        <div class="impacto__valor" style="color:${mesCurso>=0?'var(--pos)':'var(--neg)'}">${soles(mesCurso)}</div>
+        <div class="impacto__meta">${driver ? `${driver.proc.nombre} lidera el cambio del mes` : 'Sin proceso dominante'}</div>
+      </div>
+      <div class="impacto__card">
+        <div class="impacto__label">Cambio total vs. mes anterior</div>
+        <div class="impacto__valor" style="color:${cambioTotalPrev==null?'inherit':cambioTotalPrev>=0?'var(--pos)':'var(--neg)'}">${soles(cambioTotalPrev)}</div>
+        <div class="impacto__meta">${cambioPctPrev==null ? 'Sin comparación previa disponible' : `${pct(cambioPctPrev)} · ${cambioTotalPrev>=0 ? 'alza' : 'baja'} de la liquidación`} <span class="impacto__tag ${nivelColor}">Impacto ${nivelImpacto}</span></div>
+      </div>
+      <div class="impacto__card">
+        <div class="impacto__label">Driver principal</div>
+        <div class="impacto__valor">${driver ? driver.proc.nombre : '—'}</div>
+        <div class="impacto__meta">${driver && driver.delta!=null && driver.deltaPct!=null ? `${soles(driver.delta)} · ${pct(driver.deltaPct)} · concentra ${driverShare.toFixed(1)}% del ajuste entre procesos` : 'Sin variación relevante'}</div>
+      </div>
+    </div>
+    <div class="impacto__alerta ${fuertes ? 'impacto__alerta--warn' : 'impacto__alerta--ok'}">
+      ${fuertes ? '⚠️' : '✓'} ${fuertes ? `Hay ${fuertes} variación(es) fuerte(s) en la publicación; ${revisionesAlerta > 0 ? 'al menos un proceso requiere validación urgente.' : 'se mantiene controlado.'}` : 'La publicación se mantiene estable y sin variaciones fuertes relevantes.'}
+      ${driver ? ` ${driver.proc.nombre} explica ${driverShare.toFixed(1)}% del cambio del mes.` : ''}
+      ${top1 ? ` El ajuste está ${concentracion}.` : ''}
+    </div>
+    <div class="impacto__lista-wrap">
+      <div class="impacto__subhead">Qué revisar hoy</div>
+      <ul class="impacto__list">
+        ${accionLista.slice(0,3).map(item => `<li>${esc(item)}</li>`).join('')}
+      </ul>
+    </div>`;
+  app.appendChild(impacto);
+
+  bloques.forEach(function(b){
+    if(!b.items.length) return;
+    const sec = el('section','proc');
+    const totalR0 = b.items.filter(i=>i.rev===0).reduce((s,i)=>s+i.monto,0);
+    const dRev    = b.items.filter(i=>i.rev>0&&i.delta!=null).reduce((s,i)=>s+i.delta,0);
+    sec.appendChild(el('div','proc__cab',
+      `<i class="proc__pt" style="background:var(${COLOR_PROC[b.proc.id]})"></i>
+       <span class="proc__nom">${esc(b.proc.nombre)}</span>
+       <span class="t__tipo">${b.items.length} liquidación(es)</span>
+       <span class="proc__meta">mes en curso <b>${solesCorto(totalR0)}</b>
+         &nbsp;·&nbsp; recálculos <b>${solesCorto(dRev)}</b></span>`));
+    const cont = el('div','tarjetas');
+    b.items.forEach(function(it){
+      cont.appendChild(tarjeta(b.proc.id, it));
+      if(estado.abierta === `${b.proc.id}-${it.pc}`) cont.appendChild(detalle(b.proc.id, it));
+    });
+    sec.appendChild(cont);
+    app.appendChild(sec);
+  });
+}
+
+function prepararReporteExportacion(){
+  const reporte = $('#reporteExportacion');
+  const bloques = D.procesos.map(proc => {
+    const items = contenido(proc.id, estado.pub);
+    const actual = items.find(item => item.rev === 0) || null;
+    const recalcItems = items.filter(item => item.rev > 0 && item.delta != null);
+    return {
+      proc,
+      actual,
+      monto: actual ? actual.monto : null,
+      delta: actual ? actual.delta : null,
+      deltaPct: actual ? actual.deltaPct : null,
+      recalc: recalcItems.reduce((sum, item) => sum + item.delta, 0),
+      revisiones: recalcItems.length,
+      fuerte: actual ? esFuerte(actual) : false,
+    };
+  });
+  const total = bloques.reduce((sum, item) => sum + (item.monto || 0), 0);
+  const efecto = bloques.reduce((sum, item) => sum + item.recalc, 0);
+  const procesosConDatos = bloques.filter(item => item.actual).length;
+  const driver = bloques.filter(item => item.delta != null)
+    .slice().sort((a,b) => Math.abs(b.delta) - Math.abs(a.delta))[0] || null;
+  const periodoAnterior = D.periodos.filter(periodo => periodo.pericodi < estado.pub).slice(-1)[0];
+  let totalAnterior = null;
+  if(periodoAnterior){
+    totalAnterior = D.procesos.reduce((sum, proc) => {
+      const actual = contenido(proc.id, periodoAnterior.pericodi).find(item => item.rev === 0);
+      return sum + (actual ? actual.monto : 0);
+    }, 0);
+  }
+  const cambio = totalAnterior == null ? null : total - totalAnterior;
+  const cambioPct = cambio != null && totalAnterior !== 0 ? cambio / Math.abs(totalAnterior) * 100 : null;
+  const alertas = bloques.filter(item => item.fuerte).map(item => item.proc.nombre);
+  const lectura = driver
+    ? `${driver.proc.nombre} es el principal componente de la variación publicada${driver.deltaPct == null ? '.' : `, con ${pct(driver.deltaPct)} frente a su referencia.`}`
+    : 'No se identificó un proceso con variación comparable en esta publicación.';
+  const fechaExportacion = new Intl.DateTimeFormat('es-PE', {
+    dateStyle:'medium', timeStyle:'short'
+  }).format(new Date());
+  const contextoEmpresaExport = ((D.contexto||{}).empresas||{})[estado.empresa] || {};
+  const contextoPeriodoExport = contextoEmpresaExport[String(estado.pub)] || {};
+  const energiaExport = contextoPeriodoExport.energia || {};
+  const operacionExport = contextoPeriodoExport.operacion || {};
+  const mercadoExport = ((D.contexto||{}).mercado||{})[String(estado.pub)] || {};
+  const trazasExport = bloques.filter(item => item.actual).map(item => `${item.proc.nombre}: ${soles(item.monto)}`);
+
+  reporte.innerHTML = `
+    <div class="reporte-exportacion__marca">
+      <div>
+        <h1>Resumen ejecutivo de liquidación</h1>
+        <p>Empresa: <b>${esc(estado.empresa)}</b> · Publicación: <b>${esc(mesLargo(estado.pub))}</b></p>
+      </div>
+      <div class="reporte-exportacion__fecha">COES<br>Emitido: ${esc(fechaExportacion)}</div>
+    </div>
+    <div class="reporte-exportacion__resumen">
+      <div class="reporte-exportacion__dato"><small>Liquidación total</small><strong>${soles(total)}</strong></div>
+      <div class="reporte-exportacion__dato"><small>Cambio vs. periodo anterior</small><strong>${cambio == null ? '—' : soles(cambio)}</strong></div>
+      <div class="reporte-exportacion__dato"><small>Efecto de recálculos</small><strong>${soles(efecto)}</strong></div>
+      <div class="reporte-exportacion__dato"><small>Cobertura</small><strong>${procesosConDatos} / ${D.procesos.length} procesos</strong></div>
+    </div>
+    <h2>Lectura ejecutiva</h2>
+    <div class="reporte-exportacion__lectura">
+      ${esc(lectura)} ${cambioPct == null ? '' : `El total ${cambio >= 0 ? 'aumentó' : 'disminuyó'} ${pct(cambioPct)} respecto al periodo anterior.`}
+      ${alertas.length ? ` Se requiere validar: ${esc(alertas.join(', '))}.` : ' No se detectaron variaciones fuertes según los umbrales configurados.'}
+    </div>
+    <h2>Contexto relacionado</h2>
+    <table>
+      <thead><tr><th>Bloque</th><th>Indicador</th><th>Valor</th></tr></thead>
+      <tbody>
+        <tr><td>Energía</td><td>Entregas / retiros</td><td>${energia(energiaExport.entregas)} / ${energia(energiaExport.retiros)}</td></tr>
+        <tr><td>Energía</td><td>Variación entregas</td><td>${energia(energiaExport.variacion_entregas)}</td></tr>
+        <tr><td>Mercado</td><td>CM promedio</td><td>${costoMarginal(mercadoExport.promedio)}</td></tr>
+        <tr><td>Mercado</td><td>Mínimo / máximo</td><td>${costoMarginal(mercadoExport.minimo)} / ${costoMarginal(mercadoExport.maximo)}</td></tr>
+        <tr><td>Operación</td><td>Puntos / días con entregas / retiros</td><td>${operacionExport.puntos_entrega == null ? '—' : operacionExport.puntos_entrega} / ${operacionExport.dias_entregas == null ? '—' : operacionExport.dias_entregas} / ${operacionExport.dias_retiros == null ? '—' : operacionExport.dias_retiros}</td></tr>
+      </tbody>
+    </table>
+    <h2>Desglose y sustento por proceso</h2>
+    <table>
+      <thead><tr><th>Proceso</th><th>Liquidación</th><th>Δ vs referencia</th><th>Variación</th><th>Recálculos</th><th>Estado</th></tr></thead>
+      <tbody>${bloques.map(item => `<tr>
+        <td>${esc(item.proc.nombre)}</td>
+        <td>${item.monto == null ? 'Sin datos' : soles(item.monto)}</td>
+        <td>${item.delta == null ? '—' : soles(item.delta)}</td>
+        <td>${item.deltaPct == null ? '—' : pct(item.deltaPct)}</td>
+        <td>${item.revisiones} · ${soles(item.recalc)}</td>
+        <td>${item.actual ? (item.fuerte ? 'Revisar' : 'Estable') : 'Sin datos'}</td>
+      </tr>`).join('')}</tbody>
+    </table>
+    <h2>Base documental</h2>
+    <div class="reporte-exportacion__sustento">
+      <p><b>Periodo:</b> ${esc(mesLargo(estado.pub))}. Este reporte corresponde a la empresa y publicación seleccionadas en el portal.</p>
+      <p><b>Criterio de comparación:</b> R0 se compara con la última revisión conocida del mes anterior; R1 o mayor con su versión inmediata anterior.</p>
+      <p><b>Recálculos:</b> el efecto neto suma los deltas de las revisiones publicadas en el periodo. Las variaciones marcadas como “Revisar” superan los umbrales definidos para el análisis.</p>
+      <p><b>Trazabilidad:</b> resultado ${soles(total)} → ${esc(trazasExport.join(' · '))} → fuentes intermedias, evolución y revisiones del proceso.</p>
+      <p><b>Origen de datos:</b> dataset de revisiones mensuales de liquidaciones. Las revisiones intermedias reconstruidas se identifican en el detalle de la publicación; la última revisión disponible conserva la marca de dato real.</p>
+    </div>`;
+}
+
+function exportarJSONEmpresa(){
+  const bloques = D.procesos.map(proc => ({
+    id: proc.id,
+    nombre: proc.nombre,
+    publicaciones: contenido(proc.id, estado.pub),
+    datos_revision: ((D.datos[estado.empresa]||{})[proc.id]||[]),
+    valorizaciones: ((D.valorizaciones[estado.empresa]||{})[proc.id]||[]),
+  }));
+  const actual = bloques.flatMap(b => b.publicaciones).filter(item => item.rev === 0);
+  const total = actual.reduce((sum, item) => sum + item.monto, 0);
+  const recalc = bloques.flatMap(b => b.publicaciones)
+    .filter(item => item.rev > 0 && item.delta != null)
+    .reduce((sum, item) => sum + item.delta, 0);
+  const contextoEmpresa = ((D.contexto||{}).empresas||{})[estado.empresa] || {};
+  const contextoPeriodo = contextoEmpresa[String(estado.pub)] || {};
+  const trazabilidad = {
+    resultado: total,
+    procesos: bloques.map(b => ({id:b.id,nombre:b.nombre,monto:b.publicaciones.find(item=>item.rev===0)?.monto??null})),
+    fuentes: ['liquidaciones', 'reportes_intermedios', 'revisiones']
+  };
+  const salida = {
+    esquema: 'empresa_liquidaciones.v1',
+    generado_en: new Date().toISOString(),
+    empresa: estado.empresa,
+    publicacion: { pericodi: estado.pub, nombre: mesLargo(estado.pub) },
+    resumen: {
+      liquidacion_actual: total,
+      efecto_neto_rec_calculos: recalc,
+      procesos_con_datos: actual.length,
+      periodo_minimo_disponible: Math.min(...bloques.flatMap(b=>b.datos_revision.map(item=>item[0])).filter(Number.isFinite)),
+    },
+    contexto_relacionado: contextoPeriodo,
+    procesos: bloques,
+    trazabilidad,
+    criterios: {
+      r0: 'ultima revision conocida del mes anterior',
+      r1_o_mayor: 'version inmediata anterior',
+      montos: 'Soles',
+      revisiones_intermedias: 'reconstruidas hacia atras cuando no estaban en el dataset original'
+    }
+  };
+  const blob = new Blob([JSON.stringify(salida,null,2)], {type:'application/json;charset=utf-8'});
+  const enlace = document.createElement('a');
+  enlace.href = URL.createObjectURL(blob);
+  enlace.download = `empresa_${estado.empresa}_${estado.pub}.json`;
+  enlace.click();
+  setTimeout(() => URL.revokeObjectURL(enlace.href), 0);
+}
+
+/* =========================================================================
+   ARRANQUE
+   ========================================================================= */
+function arrancar(){
+  D.periodos.forEach(p => PER[p.pericodi] = p);
+  estado.empresa = D.empresas[0];
+  estado.pub = D.periodos[D.periodos.length-1].pericodi;
+  IDX = indexar(estado.empresa);
+
+  $('#selEmpresa').innerHTML = D.empresas.map(e=>`<option>${e}</option>`).join('');
+  $('#selPub').innerHTML = D.periodos.slice().reverse()
+    .map(p=>`<option value="${p.pericodi}">${mesLargo(p.pericodi)}</option>`).join('');
+  $('#selPub').value = estado.pub;
+
+  $('#selEmpresa').onchange = e => { estado.empresa=e.target.value; IDX=indexar(estado.empresa);
+                                     estado.abierta=null; render(); };
+  const actualizarEnlaceRadar = () => { $('#btnRadarEmpresas').href = `radar_empresas.html?pub=${estado.pub}`; };
+  $('#selPub').onchange     = e => { estado.pub=+e.target.value; estado.abierta=null; actualizarEnlaceRadar(); render(); };
+  $('#btnExportPdf').onclick = () => { prepararReporteExportacion(); window.print(); };
+  $('#btnExportarJsonEmpresa').onclick = exportarJSONEmpresa;
+  $('#btnTema').onclick = () => { const r=document.documentElement;
+    r.setAttribute('data-tema',
+      getComputedStyle(r).getPropertyValue('--plane').trim()==='#0d0d0d'?'claro':'oscuro'); };
+  actualizarEnlaceRadar();
+  render();
+}
+
+setTimeout(function(){ if(!D) $('#app').innerHTML =
+  `<div class="vacio"><b>Falta el archivo de datos.</b><br><br>
+   Este HTML necesita <code>maqueta_revisiones_datos.js</code> en la misma carpeta.<br>
+   Genéralo con <code>python scripts/generar_revisiones.py</code></div>`; }, 1500);
+</script>
+<script src="maqueta-resumen-empresa.datos.js"></script>
+</body>
+</html>

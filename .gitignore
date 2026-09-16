@@ -34,4 +34,3 @@ desktop.ini
 # El welcome kit (536 MB) es la fuente; data/raw/ es su copia de trabajo y
 # data/curated/ (si versionado) es lo que el backend consume.
 backend/data/raw/
-complemento/00_WELCOME KIT HACKACOES/
