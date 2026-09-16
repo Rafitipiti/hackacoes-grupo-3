@@ -137,7 +137,15 @@ function TablaConceptos({ titulo, filas, columna, conVariacion }) {
  * por impacto. Es lo que la vista ejecutiva NO muestra; lo que ya esta
  * arriba (total, variacion, trazabilidad, integridad) no se repite.
  */
-function DetalleProcesos({ empresa, periodo }) {
+function DetalleProcesos({ empresa, periodo, empresas }) {
+  // Algunos conceptos son contrapartes y llegan como codigo interno
+  // ("EMPRESA_061"): en pantalla va su razon social.
+  const nombreConcepto = (concepto) => {
+    if (!/^EMPRESA_\d+$/.test(String(concepto))) return concepto;
+    const ficha = empresas.find((e) => e.empresa_id === concepto);
+    return ficha ? nombreEmpresa(ficha) : concepto;
+  };
+
   const clave = `${empresa}-${periodo}`;
   const [estado, setEstado] = useState({ clave: null, explicacion: null, lvtea: null });
 
@@ -198,14 +206,14 @@ function DetalleProcesos({ empresa, periodo }) {
         <TablaConceptos
           titulo={`${etiquetaProceso("LVTP")} · detalle por concepto (${lvtp.cantidad_registros} registros)`}
           columna="Concepto"
-          filas={porImpacto(lvtp.detalle.map((d) => ({ etiqueta: d.concepto, grupo: d.valorizacion, monto: d.monto })), "monto").slice(0, 12)}
+          filas={porImpacto(lvtp.detalle.map((d) => ({ etiqueta: nombreConcepto(d.concepto), grupo: d.valorizacion, monto: d.monto })), "monto").slice(0, 12)}
         />
       )}
       {sst?.encontrado && (
         <TablaConceptos
           titulo={`${etiquetaProceso("SST-SCT")} · detalle por concepto (${sst.cantidad_registros} registros)`}
           columna="Concepto"
-          filas={porImpacto(sst.detalle.map((d) => ({ etiqueta: d.concepto, grupo: d.valorizacion, monto: d.monto })), "monto").slice(0, 12)}
+          filas={porImpacto(sst.detalle.map((d) => ({ etiqueta: nombreConcepto(d.concepto), grupo: d.valorizacion, monto: d.monto })), "monto").slice(0, 12)}
         />
       )}
     </div>
@@ -424,7 +432,7 @@ export function MiEmpresa({ irA }) {
             Valorización, mecanismo y concepto detrás de cada proceso. Los totales y la
             variación están arriba; aquí solo el detalle.
           </p>
-          <DetalleProcesos empresa={empresa} periodo={periodo} />
+          <DetalleProcesos empresa={empresa} periodo={periodo} empresas={empresas} />
         </Tarjeta>
       </div>
     </EstadoCarga>
