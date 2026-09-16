@@ -1,6 +1,8 @@
 # Presentación
 
-Aquí va el PPT de la exposición del Grupo 3 para la HACKACOES.
+`COES_Hub.html` es la presentación para directivos (15 láminas, HTML autónomo): abrir con doble clic, flechas para avanzar, **F** pantalla completa, **P** imprimir a PDF. Las capturas de `img/` son del portal con CELEPSA RENOVABLES S.R.L. elegida en Junio 2026.
+
+Aquí va también el PPT de la exposición del Grupo 3 para la HACKACOES, si se prepara uno.
 
 ## Convención de nombres
 

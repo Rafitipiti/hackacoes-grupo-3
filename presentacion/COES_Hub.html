@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>COES Hub · Presentación</title>
+<link rel="icon" href="img/coes-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+  :root {
+    --bg:#F1F5FA; --surface:#fff; --surface-2:#EDF2F8; --surface-3:#DFE8F3;
+    --ink:#0F1A2E; --ink-2:#47546B; --muted:#606A7D; --border:rgba(0,36,130,.14);
+    --accent:#005BA7; --navy:#002482; --pos:#2168bd; --neg:#c22f2f; --warn:#96600A; --good:#0a6e1c;
+    --grad:linear-gradient(90deg,#002482 0%,#005BA7 17%,#209DD3 32%,#6E73BC 49%,#944785 64%,#CB252A 79%,#EE8729 91%,#F5C354 100%);
+    --fuente:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(--fuente);font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased}
+  .deck{position:relative;height:100vh;overflow:hidden}
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;padding:48px 72px 64px;}
+  .slide.activa{display:flex;animation:entra .35s ease}
+  @keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .slide::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--grad)}
+  .kicker{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+  h1{font-size:44px;line-height:1.1;margin:0 0 14px;letter-spacing:-.02em;font-weight:800}
+  h2{font-size:34px;line-height:1.15;margin:0 0 18px;letter-spacing:-.02em;font-weight:700}
+  h3{font-size:18px;margin:0 0 6px;font-weight:600}
+  p{margin:0 0 10px}
+  .sub{font-size:20px;color:var(--ink-2);max-width:900px}
+  ul{margin:0;padding-left:20px}
+  li{margin:6px 0}
+  li::marker{color:var(--accent)}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;flex:1;min-height:0}
+  .cols-3{grid-template-columns:repeat(3,1fr)}
+  .cols-img{grid-template-columns:minmax(0,1.35fr) minmax(280px,.8fr)}
+  .tarjeta{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;box-shadow:0 1px 2px rgba(0,36,130,.06)}
+  .tarjeta.acento{border-left:4px solid var(--accent)}
+  .tarjeta.oscura{background:var(--navy);color:#fff;border-color:transparent}
+  .tarjeta.oscura .kicker{color:#F5C354}
+  .captura{width:100%;height:auto;border-radius:10px;border:1px solid var(--border);box-shadow:0 12px 32px rgba(0,36,130,.16);display:block;align-self:start}
+  .marca{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+  .marca img{height:56px;background:#fff;border-radius:10px;padding:6px 10px;border:1px solid var(--border)}
+  .marca strong{font-size:22px}
+  .marca span{display:block;font-size:12px;color:var(--muted)}
+  .grande{font-size:40px;font-weight:800;font-family:var(--mono);letter-spacing:-.02em;margin:4px 0}
+  .pos{color:var(--pos)} .neg{color:var(--neg)}
+  .pie{position:absolute;left:72px;right:72px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted)}
+  .pie .pagina{font-family:var(--mono)}
+  .progreso{position:fixed;left:0;bottom:0;height:4px;background:var(--accent);transition:width .25s ease;z-index:9}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--surface);border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+  th{text-align:left;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);padding:10px 14px;border-bottom:1px solid var(--border);background:var(--surface-2)}
+  td{padding:10px 14px;border-bottom:1px solid #E4EBF3;vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  td.num,th.num{text-align:right;font-family:var(--mono);white-space:nowrap}
+  .destacado td{background:#E8F1FB;font-weight:600}
+  .chip{display:inline-block;font-size:11.5px;font-weight:600;border-radius:999px;padding:2px 10px;background:var(--surface-3);color:var(--ink-2);margin-right:6px}
+  .chip.azul{background:#DCE8F7;color:var(--navy)}
+  .chip.verde{background:#DDF3E4;color:var(--good)}
+  .chip.ambar{background:#FBEFD4;color:var(--warn)}
+  .arqui{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:center;margin:18px 0}
+  .caja{background:var(--surface);border:1px solid var(--border);border-top:4px solid var(--accent);border-radius:12px;padding:16px 18px;min-height:150px}
+  .caja h3{font-size:16px}
+  .caja small{display:block;color:var(--muted);font-size:12.5px;margin-top:6px}
+  .flecha{font-size:28px;color:var(--muted)}
+  .lista-secciones{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 26px;font-size:15px}
+  .lista-secciones div{display:flex;gap:10px;align-items:flex-start}
+  .lista-secciones b{color:var(--accent);min-width:22px;font-family:var(--mono)}
+  code{font-family:var(--mono);font-size:.92em;background:var(--surface-2);padding:1px 6px;border-radius:5px}
+  .nota{font-size:13px;color:var(--muted)}
+  .ayuda{position:fixed;right:18px;top:14px;font-size:12px;color:var(--muted);background:rgba(255,255,255,.8);padding:4px 10px;border-radius:999px;border:1px solid var(--border)}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:12px 0 18px}
+  .kpi{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
+  .kpi .kicker{margin:0 0 2px}
+  .kpi .grande{font-size:30px}
+  @media (max-width:1000px){.slide{padding:32px 28px 60px}h1{font-size:34px}h2{font-size:26px}.cols,.cols-3,.cols-img{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.arqui{grid-template-columns:1fr}.flecha{display:none}}
+  @media print{.slide{display:flex !important;position:relative;height:100vh;page-break-after:always;animation:none}.progreso,.ayuda{display:none}}
+</style>
+</head>
+<body>
+<div class="ayuda">← → para avanzar · F para pantalla completa · P para imprimir</div>
+<div class="progreso" id="progreso"></div>
+<main class="deck" id="deck">
+
+<!-- 1 · Portada -->
+<section class="slide activa">
+  <div class="marca"><img src="img/coes-logo.png" alt="COES"><div><strong>COES Hub</strong><span>Sistema Eléctrico Interconectado Nacional</span></div></div>
+  <p class="kicker">HackaCOES 2026 · Grupo 3</p>
+  <h1>Las liquidaciones del SEIN,<br>en un solo lugar y con explicación.</h1>
+  <p class="sub">Un portal para que el COES y cada empresa del mercado vean qué salió en la publicación del mes, qué cambió respecto de la anterior, por qué cambió y cuánto saldrá la próxima — con trazabilidad hasta el soporte.</p>
+  <div class="kpis" style="margin-top:auto">
+    <div class="kpi"><p class="kicker">Empresas con identidad real</p><p class="grande">74</p><p class="nota">RUC y razón social del padrón</p></div>
+    <div class="kpi"><p class="kicker">Periodos</p><p class="grande">20</p><p class="nota">Enero 2025 – Agosto 2026</p></div>
+    <div class="kpi"><p class="kicker">Barras del SEIN</p><p class="grande">244</p><p class="nota">con costo marginal diario</p></div>
+    <div class="kpi"><p class="kicker">Secciones</p><p class="grande">10</p><p class="nota">+ asistente conversacional</p></div>
+  </div>
+  <div class="pie"><span>Lima, 16 de setiembre de 2026</span><span class="pagina"></span></div>
+</section>
+
+<!-- 2 · Problema -->
+<section class="slide">
+  <p class="kicker">El punto de partida</p>
+  <h2>Hoy la liquidación se publica; no se explica.</h2>
+  <div class="cols">
+    <div class="tarjeta acento">
+      <h3>Lo que vive una empresa cada mes</h3>
+      <ul>
+        <li>Recibe la liquidación del mes (R0) <b>y</b> recálculos de meses anteriores (R1, R2…) mezclados en una misma publicación.</li>
+        <li>Cada revisión <b>restata el mes completo</b>: para saber cuánto cambió hay que restar a mano contra la versión anterior.</li>
+        <li>Cuatro procesos con lógicas distintas — LVTEA, LVTP, LSCIO, SST-SCT — y decenas de contrapartes.</li>
+        <li>No sabe cuánto va a pagar o cobrar hasta que la liquidación sale.</li>
+      </ul>
+    </div>
+    <div class="tarjeta">
+      <h3>Lo que le cuesta al COES</h3>
+      <ul>
+        <li>Consultas repetitivas: "¿por qué subió mi LVTEA?", "¿a quién le pago?", "¿qué revisión está vigente?".</li>
+        <li>Trazabilidad débil entre el monto publicado y su soporte.</li>
+        <li>Información valiosa (costo marginal por barra, entregas, retiros) que no llega a quien decide.</li>
+        <li>Datos de contacto y cuentas bancarias de los agentes dispersos.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pie"><span>COES Hub</span><span class="pagina"></span></div>
+</section>
+
+<!-- 3 · Solución -->
+<section class="slide">
+  <p class="kicker">La propuesta</p>
+  <h2>COES Hub: una publicación, una empresa, todas las respuestas.</h2>
+  <div class="cols">
+    <div>
+      <p class="sub" style="font-size:17px">Se elige la <b>publicación</b> (calendario de meses) y la <b>empresa</b> (razón social o RUC) una sola vez, arriba a la derecha, y las diez secciones responden a esa selección.</p>
+      <div class="lista-secciones" style="margin-top:14px">
+        <div><b>01</b><span><strong>Panorama</strong> · el mes en un vistazo y las tarjetas de la publicación</span></div>
+        <div><b>02</b><span><strong>Mi empresa</strong> · qué cambió en mi liquidación y por qué</span></div>
+        <div><b>03</b><span><strong>Evolución histórica</strong> · 20 meses, total o por proceso</span></div>
+        <div><b>04</b><span><strong>Procesos</strong> · a quién pago y de quién cobro</span></div>
+        <div><b>05</b><span><strong>Comparador</strong> · varias empresas lado a lado</span></div>
+        <div><b>06</b><span><strong>Simulador</strong> · cuánto saldrá, con mis datos</span></div>
+        <div><b>07</b><span><strong>Red y precios</strong> · mapa del SEIN: precio y energía por barra</span></div>
+        <div><b>08</b><span><strong>Contactos</strong> · fichas y cuentas por empresa</span></div>
+        <div><b>09</b><span><strong>APIs y descargas</strong> · los mismos datos, por RUC</span></div>
+        <div><b>10</b><span><strong>Calidad y trazabilidad</strong> · reglas y límites del dato</span></div>
+      </div>
+    </div>
+    <div class="tarjeta oscura">
+      <p class="kicker">Principios de diseño</p>
+      <ul>
+        <li><b>Siempre comparado con algo.</b> Una R0 contra la última revisión conocida del mes anterior; un recálculo contra su versión previa.</li>
+        <li><b>Sin jerga.</b> LVTEA, no códigos internos; RUC, no identificadores técnicos.</li>
+        <li><b>Un signo, una lectura.</b> Positivo: la empresa cobra. Negativo: paga. Azul y rojo, en todo el portal.</li>
+        <li><b>Del resumen a la evidencia</b> en dos clics: indicador → componente → soporte.</li>
+        <li><b>Funciona en el teléfono</b> y en modo oscuro.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pie"><span>COES Hub</span><span class="pagina"></span></div>
+</section>
+
+<!-- 4 · Panorama -->
+<section class="slide">
+  <p class="kicker">Sección · Panorama</p>
+  <h2>La publicación de Junio 2026 para CELEPSA RENOVABLES S.R.L.</h2>
+  <div class="cols cols-img">
+    <img class="captura" src="img/01-panorama.jpg" alt="Panorama con la empresa Celepsa elegida">
+    <div>
+      <div class="tarjeta acento">
+        <ul>
+          <li>Cinco indicadores que cambian con la empresa: liquidación del mes, efecto de los recálculos, variación frente al mes anterior, relevancia y variaciones fuertes.</li>
+          <li>Debajo, <b>una tarjeta por cada liquidación o recálculo</b> que salió en la publicación, agrupadas por proceso, con su variación y la cadena R0–Rn.</li>
+          <li>Al pulsar una tarjeta: <b>"¿Qué provocó la variación?"</b>, componente por componente, ordenado por impacto en soles.</li>
+        </ul>
+      </div>
+      <p class="nota" style="margin-top:10px">Sin empresa elegida, el mismo panel cuenta el sector: lo que cobran las acreedoras, cuántas empresas liquidaron y cuántas merecen una mirada.</p>
+    </div>
+  </div>
+  <div class="pie"><span>COES Hub</span><span class="pagina"></span></div>
+</section>
+
+<!-- 5 · Mi empresa -->
+<section class="slide">
+  <p class="kicker">Sección · Mi empresa</p>
+  <h2>Qué cambió en mi liquidación y por qué.</h2>
+  <div class="cols cols-img">
+    <img class="captura" src="img/02-mi-empresa.jpg" alt="Mi empresa: Celepsa en Junio 2026">
+    <div class="tarjeta acento">
+      <ul>
+        <li>Liquidación del mes con su variación, sparkline de los últimos seis meses y sellos de integridad.</li>
+        <li><b>Qué la movió</b>: cada proceso frente al mes anterior, con barras antes/ahora.</li>
+        <li><b>Impulsores</b>: el mayor incremento y la mayor reducción, con su concepto y valorización.</li>
+        <li><b>Del resumen a la evidencia</b>: movimientos por concepto, trazabilidad hasta la fuente y reglas de validación ejecutadas.</li>
+      </ul>
+      <p class="nota">Ejemplo real de la pantalla: Celepsa bajó −8,0 % frente a Mayo; la causa principal es Energía Activa (−13,2 %), parcialmente compensada por Potencia (+5,2 %).</p>
+    </div>
+  </div>
+  <div class="pie"><span>COES Hub</span><span class="pagina"></span></div>
+</section>
+
+<!-- 6 · Evolución -->
+<section class="slide">
+  <p class="kicker">Sección · Evolución histórica</p>
+  <h2>Qué es normal para mi empresa, mes a mes.</h2>
+  <div class="cols cols-img">
+    <img class="captura" src="img/03-evolucion.jpg" alt="Evolución histórica de Celepsa">
+    <div class="tarjeta acento">
+      <ul>
+        <li>Veinte periodos con la liquidación total y, en el eje derecho, el <b>efecto neto de los recálculos</b> publicados después.</li>
+        <li>Selector de series: total, LVTEA, LVTP, LSCIO, SST-SCT, combinables.</li>
+        <li>Comparación por proceso del mes elegido contra el anterior.</li>
+        <li>Tabla completa y descarga CSV.</li>
+      </ul>
+      <p class="nota">El efecto neto se calcula como suma de ajustes entre revisiones consecutivas, nunca sumando montos restatados: evita contar el mes varias veces.</p>
+    </div>
+  </div>
+  <div class="pie"><span>COES Hub</span><span class="pagina"></span></div>
+</section>
+
+<!-- 7 · Procesos -->
+<section class="slide">
+  <p class="kicker">Sección · Procesos</p>
+  <h2>A quién le pago y de quién cobro, proceso por proceso.</h2>
+  <div class="cols cols-img">
+    <img class="captura" src="img/04-procesos.jpg" alt="Procesos: pagos y cobros de Celepsa">
+    <div class="tarjeta acento">
+      <ul>
+        <li>Cobra, paga y neto del mes; gráfico de barras divergentes por proceso.</li>
+        <li>Para cada proceso, las <b>contrapartes</b> con RUC, valorización, monto y porcentaje; las listas largas se pliegan a las seis mayores.</li>
+        <li>Meses disponibles a un clic y descarga CSV.</li>
+      </ul>
+      <p class="nota">Celepsa en Junio 2026: cobra S/ 17,9 M, paga S/ 7,9 M; el neto positivo viene sobre todo de Servicios Complementarios y Potencia.</p>
+    </div>
+  </div>
+  <div class="pie"><span>COES Hub</span><span class="pagina"></span></div>
+</section>
+
+<!-- 8 · Simulador -->
+<section class="slide">
+  <p class="kicker">Sección · Simulador</p>
+  <h2>Cuánto saldrá, antes de que salga.</h2>
+  <div class="cols cols-img">
+    <img class="captura" src="img/06-simulador.jpg" alt="Simulador con Celepsa">
+    <div class="tarjeta acento">
+      <ul>
+        <li><b>Energía activa</b>: la empresa pega sus entregas y retiros desde Excel (por mes o por día, una barra o varias) y se valorizan con el costo marginal publicado de cada barra y día.</li>
+        <li><b>Tus valores</b>: potencia, servicios complementarios y transmisión secundaria prellenados con lo realmente liquidado; se pueden cambiar.</li>
+        <li><b>Cálculo preliminar</b> por cuota histórica o por fórmula, con escenario ±50 %, comparado con lo liquidado.</li>
+        <li><b>Las fórmulas con tus números</b>: Σ CMg × (Entrega − Retiro), demanda × (precio + peaje), etc.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pie"><span>COES Hub</span><span class="pagina"></span></div>
+</section>
+
+<!-- 9 · Red y precios -->
+<section class="slide">
+  <p class="kicker">Sección · Red y precios</p>
+  <h2>El SEIN barra por barra: precio y energía.</h2>
+  <div class="cols cols-img">
+    <img class="captura" src="img/05-red-precios.jpg" alt="Red y precios: mapa del SEIN">
+    <div class="tarjeta acento">
+      <ul>
+        <li>Mapa del Perú con las 244 barras con costo marginal del mes; escala fija de color de morado (barato) a rojo (caro).</li>
+        <li>Capas <b>Todo en uno</b>, Costo marginal, Entregas y Retiros; con empresa elegida, la energía es solo la suya.</li>
+        <li>Ranking de barras con el costo marginal más alto (o con más energía).</li>
+        <li>Perfil diario de cualquier barra, comparando varios meses.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pie"><span>COES Hub</span><span class="pagina"></span></div>
+</section>
+
+<!-- 10 · Además -->
+<section class="slide">
+  <p class="kicker">Y además</p>
+  <h2>Lo que completa el portal.</h2>
+  <div class="cols cols-3">
+    <div class="tarjeta"><h3>Comparador de empresas</h3><p>Varias empresas lado a lado en el mismo mes: liquidación, revisión vigente y efecto de recálculos.</p></div>
+    <div class="tarjeta"><h3>Contactos</h3><p>Ficha por empresa: razón social, RUC, banco, cuenta, CCI, correos, teléfonos. Guardadas en una base de datos (Supabase) consolidada.</p></div>
+    <div class="tarjeta"><h3>APIs y descargas</h3><p>Todos los datos disponibles por servicio REST, identificando a la empresa por su <b>RUC</b>. Descarga CSV en cada pantalla.</p></div>
+    <div class="tarjeta"><h3>Asistente</h3><p>Responde preguntas sobre el mes, una empresa o un término ("¿Cuánto liquidó Celepsa?", "¿Qué es el monto restatado?") y lleva a la sección correcta.</p></div>
+    <div class="tarjeta"><h3>Calidad y trazabilidad</h3><p>Reglas de integridad que se ejecutan y, sin rodeos, qué datos son publicados y cuáles proyectados o simulados para la demostración.</p></div>
+    <div class="tarjeta"><h3>Accesible y móvil</h3><p>Contraste verificado, navegación por teclado, modo oscuro y diseño para teléfono.</p></div>
+  </div>
+  <div class="pie"><span>COES Hub</span><span class="pagina"></span></div>
+</section>
+
+<!-- 11 · Arquitectura -->
+<section class="slide">
+  <p class="kicker">Cómo está construido</p>
+  <h2>Tres piezas estándar, portables a cualquier nube.</h2>
+  <div class="arqui">
+    <div class="caja"><h3>Portal web</h3><p>React 19 + Vite. Estático, se sirve desde un CDN.</p><small>Hoy en <b>Vercel</b> · hackacoes-grupo-3.vercel.app</small></div>
+    <div class="flecha">→</div>
+    <div class="caja"><h3>API de liquidaciones</h3><p>Python · FastAPI. Publicación, revisiones, pagos y cobros, red, simulador.</p><small>Hoy en <b>Render</b> · coes-liquidaciones-api.onrender.com</small></div>
+    <div class="flecha">→</div>
+    <div class="caja"><h3>Datos</h3><p>Capa curada (parquet) generada desde los reportes del COES + Postgres para lo que se escribe.</p><small>Hoy en <b>Supabase</b> (contactos) · migración completa en hoja de ruta</small></div>
+  </div>
+  <div class="cols">
+    <div class="tarjeta"><h3>Calidad del código</h3><ul><li>102 pruebas automáticas en el backend, 42 en el frontend.</li><li>Especificación de diseño con 24 decisiones documentadas.</li><li>Cada push a <code>master</code> despliega solo.</li></ul></div>
+    <div class="tarjeta"><h3>Datos que usa</h3><ul><li>Liquidaciones por proceso y revisión, calendario de publicaciones.</li><li>Costo marginal diario por barra; entregas y retiros por punto y barra.</li><li>Padrón de empresas con RUC y razón social.</li></ul></div>
+  </div>
+  <div class="pie"><span>COES Hub</span><span class="pagina"></span></div>
+</section>
+
+<!-- 12 · Qué necesita COES -->
+<section class="slide">
+  <p class="kicker">Para ponerlo en producción</p>
+  <h2>Qué necesita el COES.</h2>
+  <div class="cols">
+    <div class="tarjeta acento">
+      <h3>De su lado</h3>
+      <ul>
+        <li><b>Los datos oficiales</b>: los mismos reportes que alimentan el prototipo, completos y sin anonimizar (liquidaciones por proceso y revisión, costos marginales, entregas y retiros, catálogos). Basta un acceso de lectura o una exportación mensual.</li>
+        <li><b>Un responsable de TI</b> que administre las cuentas de los servicios y el dominio (p. ej. <code>hub.coes.org.pe</code>).</li>
+        <li><b>Definir el acceso</b>: quién entra y qué ve. Se activa autenticación con correo corporativo o el SSO del COES; cada empresa ve solo lo suyo.</li>
+      </ul>
+    </div>
+    <div class="tarjeta">
+      <h3>Del lado del proyecto · 3 a 4 semanas</h3>
+      <ul>
+        <li>Migrar la capa de datos a Postgres y consultar por periodo.</li>
+        <li>Autenticación y permisos por empresa.</li>
+        <li>Carga automática cada vez que el COES publica.</li>
+        <li>Reemplazar lo proyectado o simulado por los datos oficiales.</li>
+      </ul>
+      <p class="nota">El código ya está desplegado y funcionando; el trabajo pendiente es conectarlo a los datos reales y al control de acceso.</p>
+    </div>
+  </div>
+  <div class="pie"><span>COES Hub</span><span class="pagina"></span></div>
+</section>
+
+<!-- 13 · Costos -->
+<section class="slide">
+  <p class="kicker">Servicios y costo mensual</p>
+  <h2>Tres escalones, la misma arquitectura.</h2>
+  <table>
+    <thead><tr><th>Pieza</th><th>Piloto</th><th>Producción institucional <span class="chip azul">recomendado año 1</span></th><th>Crítico / cumplimiento</th></tr></thead>
+    <tbody>
+      <tr><td><b>Portal web</b></td><td>Vercel Hobby · $0</td><td>Vercel Pro, 3 asientos · $60</td><td>Vercel Pro 5 asientos o Enterprise con SLA · $100+</td></tr>
+      <tr><td><b>API</b></td><td>Render Standard, 2 GB · $25</td><td>Render Pro Plus, 8 GB, 2 instancias · $175–350</td><td>Render Pro Max, 16 GB, 2 instancias + réplica de lectura · $225–450</td></tr>
+      <tr><td><b>Base de datos</b></td><td>Supabase Free · $0</td><td>Supabase Pro + cómputo Large · $135</td><td>Supabase Team (SOC 2, SSO, auditoría) + cómputo XL · $810</td></tr>
+      <tr><td><b>Respaldo y monitoreo</b></td><td>Incluido</td><td>PITR 7 días + Sentry · $126</td><td>PITR 28 días + staging separado · $200</td></tr>
+      <tr class="destacado"><td>Total aproximado</td><td class="num">$25 / mes</td><td class="num">$450–550 / mes</td><td class="num">$1.300–1.600 / mes</td></tr>
+    </tbody>
+  </table>
+  <p class="nota" style="margin-top:12px">Precios de lista en dólares a setiembre de 2026, por verificar en cada proveedor. Alternativa en nube institucional (Azure/AWS con red privada e identidad corporativa): $800–1.500/mes con el mismo código en contenedores. Lo que se compra al subir de escalón no es velocidad: es disponibilidad, respaldo punto en el tiempo, SSO, auditoría y soporte.</p>
+  <div class="pie"><span>COES Hub</span><span class="pagina"></span></div>
+</section>
+
+<!-- 14 · Hoja de ruta -->
+<section class="slide">
+  <p class="kicker">Hoja de ruta</p>
+  <h2>Del prototipo al canal oficial.</h2>
+  <div class="cols cols-3">
+    <div class="tarjeta acento"><span class="chip verde">Hoy</span><h3 style="margin-top:10px">Prototipo desplegado</h3><ul><li>10 secciones funcionando con datos del kit.</li><li>Identidad real de 74 empresas.</li><li>Contactos en base de datos.</li><li>Portal público y API documentada.</li></ul></div>
+    <div class="tarjeta"><span class="chip azul">Semanas 1–4</span><h3 style="margin-top:10px">Producción institucional</h3><ul><li>Datos oficiales en Postgres, carga mensual automática.</li><li>Autenticación y permisos por empresa.</li><li>Dominio del COES, alta disponibilidad, respaldo.</li><li>Capacitación al equipo de liquidaciones.</li></ul></div>
+    <div class="tarjeta"><span class="chip ambar">Después</span><h3 style="margin-top:10px">Canal oficial</h3><ul><li>Histórico completo y costo marginal a 15 minutos.</li><li>Notificaciones a las empresas al publicar.</li><li>SSO corporativo, auditoría y SLA.</li><li>Integración con los sistemas internos del COES.</li></ul></div>
+  </div>
+  <div class="pie"><span>COES Hub</span><span class="pagina"></span></div>
+</section>
+
+<!-- 15 · Cierre -->
+<section class="slide">
+  <div class="marca"><img src="img/coes-logo.png" alt="COES"><div><strong>COES Hub</strong><span>Sistema Eléctrico Interconectado Nacional</span></div></div>
+  <h1>Una publicación, una empresa,<br>todas las respuestas.</h1>
+  <p class="sub">Portal en línea: <b>hackacoes-grupo-3.vercel.app</b><br>API: <b>coes-liquidaciones-api.onrender.com/docs</b><br>Código: <b>github.com/Rafitipiti/hackacoes-grupo-3</b></p>
+  <div class="tarjeta oscura" style="margin-top:auto;max-width:720px">
+    <p class="kicker">En una frase</p>
+    <p style="font-size:19px;margin:0">Para operar, el COES necesita tres servicios en la nube que suman unos 500 dólares al mes, un responsable de TI y entregar los datos oficiales. El código ya está listo; conectarlo toma tres a cuatro semanas.</p>
+  </div>
+  <div class="pie"><span>HackaCOES 2026 · Grupo 3 · 16 de setiembre de 2026</span><span class="pagina"></span></div>
+</section>
+
+</main>
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  let i = Math.max(0, Math.min(slides.length - 1, parseInt(location.hash.slice(1), 10) - 1 || 0));
+  const progreso = document.getElementById('progreso');
+  function mostrar(n) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach((s, k) => s.classList.toggle('activa', k === i));
+    slides.forEach((s, k) => { const p = s.querySelector('.pagina'); if (p) p.textContent = `${k + 1} / ${slides.length}`; });
+    progreso.style.width = `${((i + 1) / slides.length) * 100}%`;
+    history.replaceState(null, '', `#${i + 1}`);
+  }
+  document.addEventListener('keydown', (e) => {
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); mostrar(i + 1); }
+    else if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); mostrar(i - 1); }
+    else if (e.key === 'Home') mostrar(0);
+    else if (e.key === 'End') mostrar(slides.length - 1);
+    else if (e.key.toLowerCase() === 'f') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+    else if (e.key.toLowerCase() === 'p') window.print();
+  });
+  document.getElementById('deck').addEventListener('click', (e) => {
+    if (e.target.closest('a, button')) return;
+    mostrar(e.clientX < window.innerWidth * 0.25 ? i - 1 : i + 1);
+  });
+  mostrar(i);
+</script>
+</body>
+</html>
