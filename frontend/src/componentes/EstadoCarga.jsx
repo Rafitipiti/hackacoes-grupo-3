@@ -6,7 +6,7 @@ export function EstadoCarga({ cargando, error, vacio, mensajeVacio, children }) 
   if (error) {
     return (
       <p className="estado estado-error">
-        No se pudo cargar: {error}
+        {error}
       </p>
     );
   }

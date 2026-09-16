@@ -2119,6 +2119,14 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                         )}
 
+                        {modoInicial !== null && (
+
+                            <p>
+                                Puedes cambiar de empresa o de periodo desde la barra lateral.
+                            </p>
+
+                        )}
+
                     </div>
 
                 )}

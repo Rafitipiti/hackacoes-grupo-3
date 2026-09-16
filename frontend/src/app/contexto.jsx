@@ -60,7 +60,7 @@ export function ProveedorSeleccion({ children }) {
         setError(
           e.response
             ? `el servicio respondio ${e.response.status}`
-            : e.message,
+            : "no se pudo contactar con el servicio de liquidaciones",
         );
       } finally {
         if (vigente) setCargando(false);

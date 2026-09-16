@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 import { clasificarVariacion } from "../lib/variaciones.js";
 
 const TITULOS = {
@@ -15,10 +17,17 @@ export function Variacion({ actual, anterior }) {
   const flecha =
     v.delta === null || v.delta === 0 ? "" : v.delta > 0 ? "▲" : "▼";
 
+  // title solo llega a quien usa raton: aria-describedby mas un span
+  // .solo-lectores hace la misma explicacion alcanzable por teclado y
+  // lector de pantalla. El title se conserva para quien pasa el cursor.
+  const idExplicacion = useId();
+  const explicacion = TITULOS[v.tipo];
+
   return (
     <span
       className={`variacion mag-${v.magnitud} tipo-${v.tipo}`}
-      title={TITULOS[v.tipo]}
+      title={explicacion}
+      aria-describedby={idExplicacion}
     >
       {flecha && <span aria-hidden="true">{flecha}</span>}
       <span className="cifra">{v.texto}</span>
@@ -27,6 +36,7 @@ export function Variacion({ actual, anterior }) {
           {v.magnitud === "fuerte" ? "Fuerte" : "Revisar"}
         </span>
       )}
+      <span id={idExplicacion} className="solo-lectores">{explicacion}</span>
     </span>
   );
 }

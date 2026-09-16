@@ -5,7 +5,13 @@
   color-scheme: light;
 
   --bg:#F1F5FA; --surface:#ffffff; --surface-2:#EDF2F8; --surface-3:#DFE8F3;
-  --ink:#0F1A2E; --ink-2:#47546B; --ink-muted:#6B7688;
+  --ink:#0F1A2E; --ink-2:#47546B;
+  /* --ink-muted original (#6B7688) da 4.59:1 sobre --surface (raspa el
+     minimo) y 4.20:1 sobre --bg, donde vive el texto de EstadoCarga
+     (.estado no esta dentro de una tarjeta). Se oscurece un poco: sigue
+     siendo un gris discreto, ahora 4.98:1 sobre --bg y 5.45:1 sobre
+     --surface. */
+  --ink-muted:#606A7D;
   --grid:#E4EBF3; --axis:#C3CEDC; --border:rgba(0,36,130,.14);
   --accent:#005BA7;
   --s1:#005BA7; --s2:#D4622E; --s3:#6A3FA0; --s4:#D99A00;

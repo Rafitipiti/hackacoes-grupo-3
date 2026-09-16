@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { EstadoCarga } from "../componentes/EstadoCarga.jsx";
+import { MarcaSintetico } from "../componentes/MarcaSintetico.jsx";
 import { Tarjeta } from "../componentes/Tarjeta.jsx";
 import { porcentaje, soles } from "../lib/formato.js";
 import { obtenerCalendario, obtenerCascada, obtenerImpacto } from "../api/revisiones.js";
@@ -46,6 +47,7 @@ function Impacto({ datos }) {
           <div className="riel">
             <span
               className="barra positiva"
+              aria-hidden="true"
               style={{ width: `${(Math.abs(datos.corriente) / escala) * 100}%` }}
             />
           </div>
@@ -57,6 +59,7 @@ function Impacto({ datos }) {
           <div className="riel">
             <span
               className={datos.arrastre < 0 ? "barra negativa" : "barra positiva"}
+              aria-hidden="true"
               style={{ width: `${(Math.abs(datos.arrastre) / escala) * 100}%` }}
             />
           </div>
@@ -75,11 +78,19 @@ function Impacto({ datos }) {
   );
 }
 
-function Calendario({ entradas }) {
+function Calendario({ entradas, periodos }) {
   const porProceso = entradas.reduce((acc, e) => {
     (acc[e.proceso] ??= []).push(e);
     return acc;
   }, {});
+
+  // La publicacion de un mes trae la R0 de ese mes mas recalculos de meses
+  // anteriores, y algunos de esos meses anteriores son sinteticos (2025).
+  // El aviso de la barra lateral habla del periodo seleccionado, no de cada
+  // fila: aqui se marca fila por fila con el origen real de cada periodo.
+  const sinteticos = new Set(
+    periodos.filter((p) => p.origen === "sintetico").map((p) => p.pericodi),
+  );
 
   return (
     <Tarjeta
@@ -95,21 +106,26 @@ function Calendario({ entradas }) {
         {Object.entries(porProceso).map(([proceso, filas]) => (
           <div key={proceso}>
             <h3>{proceso} · {NOMBRE_PROCESO[proceso] ?? ""}</h3>
-            <table className="tabla">
-              <thead>
-                <tr><th>Mes liquidado</th><th>Revision</th></tr>
-              </thead>
-              <tbody>
-                {filas
-                  .sort((a, b) => a.pericodi - b.pericodi)
-                  .map((f) => (
-                    <tr key={`${f.pericodi}-${f.revision}`}>
-                      <td>{f.perianiomes}</td>
-                      <td>{f.revision_nombre}</td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
+            <div className="tabla-scroll">
+              <table className="tabla">
+                <thead>
+                  <tr><th>Mes liquidado</th><th>Revision</th></tr>
+                </thead>
+                <tbody>
+                  {filas
+                    .sort((a, b) => a.pericodi - b.pericodi)
+                    .map((f) => (
+                      <tr key={`${f.pericodi}-${f.revision}`}>
+                        <td>
+                          {f.perianiomes}
+                          {sinteticos.has(f.pericodi) && <MarcaSintetico />}
+                        </td>
+                        <td>{f.revision_nombre}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         ))}
       </div>
@@ -131,28 +147,30 @@ function Cascada({ procesos }) {
       {Object.entries(procesos).map(([proceso, pasos]) => (
         <div key={proceso} className="cadena">
           <h3>{proceso} · {NOMBRE_PROCESO[proceso] ?? ""}</h3>
-          <table className="tabla">
-            <thead>
-              <tr>
-                <th>Revision</th>
-                <th className="num">Monto restatado</th>
-                <th className="num">Ajuste</th>
-                <th className="num">%</th>
-                <th>Publicada en</th>
-              </tr>
-            </thead>
-            <tbody>
-              {pasos.map((p) => (
-                <tr key={p.revision}>
-                  <td>{p.revision_nombre}</td>
-                  <td className="num">{soles(p.monto_total)}</td>
-                  <td className="num">{p.ajuste === null ? "—" : soles(p.ajuste)}</td>
-                  <td className="num">{p.ajuste_pct === null ? "—" : porcentaje(p.ajuste_pct)}</td>
-                  <td>{p.publicacion_pericodi}</td>
+          <div className="tabla-scroll">
+            <table className="tabla">
+              <thead>
+                <tr>
+                  <th>Revision</th>
+                  <th className="num">Monto restatado</th>
+                  <th className="num">Ajuste</th>
+                  <th className="num">%</th>
+                  <th>Publicada en</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {pasos.map((p) => (
+                  <tr key={p.revision}>
+                    <td>{p.revision_nombre}</td>
+                    <td className="num">{soles(p.monto_total)}</td>
+                    <td className="num">{p.ajuste === null ? "—" : soles(p.ajuste)}</td>
+                    <td className="num">{p.ajuste_pct === null ? "—" : porcentaje(p.ajuste_pct)}</td>
+                    <td>{p.publicacion_pericodi}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       ))}
     </Tarjeta>
@@ -160,13 +178,14 @@ function Cascada({ procesos }) {
 }
 
 export function CicloRevisiones() {
-  const { periodo, empresa } = useSeleccion();
+  const { periodo, empresa, periodos } = useSeleccion();
 
   const [impacto, setImpacto] = useState(null);
   const [calendario, setCalendario] = useState(null);
   const [cascada, setCascada] = useState(null);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
+  const [sinDatos, setSinDatos] = useState(false);
   const [errorCascada, setErrorCascada] = useState(null);
 
   useEffect(() => {
@@ -175,6 +194,7 @@ export function CicloRevisiones() {
     let vigente = true;
     setCargando(true);
     setError(null);
+    setSinDatos(false);
     setErrorCascada(null);
 
     async function cargar() {
@@ -202,7 +222,7 @@ export function CicloRevisiones() {
               setErrorCascada(
                 e.response?.status === 404
                   ? "Esta empresa no tiene revisiones registradas en este periodo."
-                  : e.message,
+                  : "No se pudo contactar con el servicio de liquidaciones.",
               );
             }
           }
@@ -211,7 +231,15 @@ export function CicloRevisiones() {
           setErrorCascada(null);
         }
       } catch (e) {
-        if (vigente) setError(e.response?.status === 404 ? "sin datos para este periodo" : e.message);
+        if (!vigente) return;
+        // Un periodo abierto (como el ultimo del calendario) todavia no
+        // tiene reportes intermedios: no es una falla del servicio, es un
+        // estado esperado que se explica, no se muestra como error tecnico.
+        if (e.response?.status === 404) {
+          setSinDatos(true);
+        } else {
+          setError("No se pudo contactar con el servicio de liquidaciones.");
+        }
       } finally {
         if (vigente) setCargando(false);
       }
@@ -223,10 +251,15 @@ export function CicloRevisiones() {
   }, [periodo, empresa]);
 
   return (
-    <EstadoCarga cargando={cargando} error={error} vacio={!impacto}>
+    <EstadoCarga
+      cargando={cargando}
+      error={error}
+      vacio={sinDatos || !impacto}
+      mensajeVacio="Este periodo aun no tiene revisiones publicadas. Los periodos abiertos publican su calendario y cascada al cerrar el mes: elige un periodo cerrado en la barra lateral para ver el ciclo completo."
+    >
       <div className="rejilla">
         {impacto && <Impacto datos={impacto} />}
-        {calendario && <Calendario entradas={calendario} />}
+        {calendario && <Calendario entradas={calendario} periodos={periodos} />}
 
         {cascada ? (
           <Cascada procesos={cascada} />

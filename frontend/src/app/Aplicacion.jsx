@@ -51,7 +51,15 @@ function Contenido({ seccion }) {
 export function Aplicacion() {
   const [seccion, setSeccion] = useState("panorama");
   const [tema, setTema] = useState(() => {
-    const guardado = localStorage.getItem("coes-tema");
+    // localStorage puede lanzar en navegacion privada de algunos
+    // navegadores. Esto corre en el inicializador del useState: sin
+    // try/catch, un lanzamiento aqui rompe el primer render de toda la app.
+    let guardado = null;
+    try {
+      guardado = localStorage.getItem("coes-tema");
+    } catch {
+      guardado = null;
+    }
     return TEMAS.includes(guardado) ? guardado : "auto";
   });
 
@@ -62,7 +70,12 @@ export function Aplicacion() {
       document.documentElement.setAttribute("data-tema", tema);
     }
 
-    localStorage.setItem("coes-tema", tema);
+    try {
+      localStorage.setItem("coes-tema", tema);
+    } catch {
+      // Mismo caso: si el almacenamiento no esta disponible, el tema sigue
+      // funcionando para esta sesion, solo no persiste entre recargas.
+    }
   }, [tema]);
 
   function alternarTema() {
