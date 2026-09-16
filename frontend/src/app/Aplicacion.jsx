@@ -17,6 +17,7 @@ import "../estilos/tokens.css";
 import "../estilos/base.css";
 import "./layout.css";
 import "../componentes/componentes.css";
+import "../componentes/asistente.css";
 import "../secciones/ciclo.css";
 import "../secciones/evolucion.css";
 import "../secciones/comparador.css";

@@ -1,5 +1,6 @@
 import { SeleccionGlobal } from "./SeleccionGlobal.jsx";
 import { SECCIONES } from "./secciones.js";
+import { Asistente } from "../componentes/Asistente.jsx";
 
 export function Layout({ seccionActiva, alCambiarSeccion, tema, alCambiarTema, children }) {
   const seccion = SECCIONES.find((s) => s.id === seccionActiva);
@@ -78,6 +79,8 @@ export function Layout({ seccionActiva, alCambiarSeccion, tema, alCambiarTema, c
 
         {children}
       </main>
+
+      <Asistente irA={alCambiarSeccion} />
     </div>
   );
 }

@@ -1,15 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Cell,
-  ReferenceLine,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
 
 import { obtenerRadar } from "../api/agente.js";
 import { obtenerComparativa } from "../api/empresa.js";
@@ -23,13 +12,7 @@ import { soles, solesCortos } from "../lib/formato.js";
 import { etiquetaProceso } from "../lib/procesos.js";
 import { capitalizar, claseNivel, sinEmoji } from "../lib/texto.js";
 
-const COLOR_POS = "var(--pos)";
-const COLOR_NEG = "var(--neg)";
 const FILAS_POR_PAGINA = 10;
-
-function acortar(texto, largo = 30) {
-  return texto.length > largo ? `${texto.slice(0, largo - 1)}…` : texto;
-}
 
 function Kpi({ etiqueta, valor, detalle, acento }) {
   return (
@@ -38,55 +21,6 @@ function Kpi({ etiqueta, valor, detalle, acento }) {
       <p className="kpi-valor cifra">{valor}</p>
       {detalle && <p className="nota">{detalle}</p>}
     </div>
-  );
-}
-
-function TooltipMovimiento({ active, payload }) {
-  if (!active || !payload?.length) return null;
-  const fila = payload[0].payload;
-  return (
-    <div className="tooltip-grafico">
-      <p className="tooltip-titulo">{fila.nombre}</p>
-      <p>Variación: <strong className="cifra">{soles(fila.variacion_absoluta)}</strong></p>
-      <p>Factor principal: <strong>{etiquetaProceso(fila.principal_factor)}</strong></p>
-    </div>
-  );
-}
-
-/** Quien movio el mes: las mayores subidas y bajadas en soles. */
-function QuienMovioElMes({ agentes, alAnalizar }) {
-  const filas = useMemo(() => {
-    const ordenados = [...agentes]
-      .filter((a) => Number.isFinite(a.variacion_absoluta))
-      .sort((a, b) => b.variacion_absoluta - a.variacion_absoluta);
-    const subidas = ordenados.slice(0, 5);
-    const bajadas = ordenados.slice(-5).reverse();
-    return [...subidas, ...bajadas.filter((b) => !subidas.includes(b))];
-  }, [agentes]);
-
-  if (!filas.length) return null;
-
-  return (
-    <ResponsiveContainer width="100%" height={Math.max(220, 34 * filas.length + 40)}>
-      <BarChart data={filas} layout="vertical" margin={{ top: 4, right: 24, bottom: 4, left: 8 }}>
-        <CartesianGrid stroke="var(--grid)" horizontal={false} />
-        <XAxis type="number" tickFormatter={solesCortos} tick={{ fill: "var(--ink-2)", fontSize: 11 }} axisLine={false} tickLine={false} />
-        <YAxis
-          type="category"
-          dataKey="agente_id"
-          width={210}
-          tickFormatter={(id) => acortar(filas.find((f) => f.agente_id === id)?.nombre ?? id)}
-          tick={{ fill: "var(--ink-2)", fontSize: 11 }}
-          axisLine={false}
-          tickLine={false}
-        />
-        <Tooltip content={<TooltipMovimiento />} cursor={{ fill: "var(--surface-2)" }} />
-        <ReferenceLine x={0} stroke="var(--ink-2)" />
-        <Bar dataKey="variacion_absoluta" radius={[0, 3, 3, 0]} isAnimationActive={false} onClick={(d) => alAnalizar(d.agente_id)} cursor="pointer">
-          {filas.map((f) => <Cell key={f.agente_id} fill={f.variacion_absoluta < 0 ? COLOR_NEG : COLOR_POS} />)}
-        </Bar>
-      </BarChart>
-    </ResponsiveContainer>
   );
 }
 
@@ -258,10 +192,6 @@ export function Panorama({ irA }) {
           <TablaRadar agentes={agentes} alAnalizar={analizar} />
         </Tarjeta>
 
-        <Tarjeta etiqueta="Quién movió el mes" titulo="Mayores subidas y bajadas frente al mes anterior">
-          <QuienMovioElMes agentes={agentes} alAnalizar={analizar} />
-          <p className="nota">Azul sube, rojo baja. Pulsa una barra para abrir el análisis de esa empresa.</p>
-        </Tarjeta>
 
       </div>
     </EstadoCarga>

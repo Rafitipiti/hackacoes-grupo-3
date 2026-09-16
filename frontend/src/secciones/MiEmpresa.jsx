@@ -3,6 +3,7 @@ import { Line, LineChart, ResponsiveContainer, Tooltip, YAxis } from "recharts";
 
 import { obtenerContexto, obtenerExplicacion, obtenerResumenAgente, obtenerTrazabilidad } from "../api/agente.js";
 import { obtenerDetallePublicacion } from "../api/publicacion.js";
+import { obtenerPadron } from "../api/empresa.js";
 import { useSeleccion } from "../app/contexto.jsx";
 import { EstadoCarga } from "../componentes/EstadoCarga.jsx";
 import { Tarjeta } from "../componentes/Tarjeta.jsx";
@@ -94,41 +95,69 @@ function Acordeon({ titulo, resumen, distintivo, abierto, children }) {
   );
 }
 
-function filaVariacion(actual, anterior) {
-  return <Variacion actual={actual} anterior={anterior} />;
-}
+const VISIBLES_POR_BLOQUE = 6;
 
-function TablaConceptos({ titulo, filas, columna, conVariacion }) {
+/**
+ * Un bloque compacto por proceso: cada renglon lleva su etiqueta, una barra
+ * proporcional al impacto y la cifra; lo que pasa de seis renglones queda
+ * plegado. Sin tablas largas ni columnas vacias.
+ */
+function BloqueProceso({ proceso, subtitulo, filas, conVariacion }) {
   if (!filas?.length) return null;
+
+  const peso = (f) => Math.abs(conVariacion ? (f.variacion ?? 0) : (f.monto ?? 0));
+  const escala = Math.max(...filas.map(peso), 1e-9);
+  const acento = COLOR_PROCESO[proceso] ?? "var(--serie-1)";
+  const visibles = filas.slice(0, VISIBLES_POR_BLOQUE);
+  const resto = filas.slice(VISIBLES_POR_BLOQUE);
+
+  const Renglon = ({ f }) => {
+    const valor = conVariacion ? f.variacion : f.monto;
+    const color = conVariacion ? (valor >= 0 ? "var(--pos)" : "var(--neg)") : acento;
+    return (
+      <li className="renglon-detalle">
+        <div className="renglon-texto">
+          <span className="renglon-etiqueta" title={f.etiqueta}>{f.etiqueta}</span>
+          {f.grupo && <span className="nota renglon-grupo">{f.grupo}</span>}
+        </div>
+        <span className="renglon-riel" aria-hidden="true">
+          <span className="renglon-barra" style={{ width: `${(peso(f) / escala) * 100}%`, background: color }} />
+        </span>
+        <span className="renglon-cifra cifra">
+          {conVariacion ? (
+            <>
+              <strong style={{ color: valor >= 0 ? "var(--pos-texto)" : "var(--neg-texto)" }}>{valor >= 0 ? "+" : "−"}{soles(Math.abs(valor))}</strong>
+              <span className="nota">{soles(f.anterior)} → {soles(f.actual)}</span>
+            </>
+          ) : (
+            <strong>{soles(f.monto)}</strong>
+          )}
+        </span>
+      </li>
+    );
+  };
+
   return (
-    <div className="detalle-proceso">
-      <h3>{titulo}</h3>
-      <div className="tabla-scroll">
-        <table className="tabla">
-          <thead>
-            <tr>
-              <th>{columna}</th>
-              {conVariacion && <th className="num">Anterior</th>}
-              <th className="num">{conVariacion ? "Actual" : "Monto"}</th>
-              {conVariacion && <th>Variación</th>}
-            </tr>
-          </thead>
-          <tbody>
-            {filas.map((f, i) => (
-              <tr key={`${f.etiqueta}-${i}`}>
-                <td>
-                  <strong>{f.etiqueta}</strong>
-                  {f.grupo && <span className="nota"> · {f.grupo}</span>}
-                </td>
-                {conVariacion && <td className="num">{soles(f.anterior)}</td>}
-                <td className="num">{soles(f.actual ?? f.monto)}</td>
-                {conVariacion && <td>{filaVariacion(f.actual, f.anterior)}</td>}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <article className="bloque-detalle" style={{ "--acento": acento }}>
+      <header>
+        <span className="distintivo distintivo-revision">{etiquetaProceso(proceso)}</span>
+        <div>
+          <strong>{NOMBRE_PROCESO[proceso]}</strong>
+          <p className="nota">{subtitulo} · {filas.length} {filas.length === 1 ? "renglón" : "renglones"}{conVariacion ? ", ordenados por variación" : ", ordenados por monto"}</p>
+        </div>
+      </header>
+      <ul className="renglones-detalle">
+        {visibles.map((f, i) => <Renglon key={`${f.etiqueta}-${i}`} f={f} />)}
+      </ul>
+      {resto.length > 0 && (
+        <details className="mas-renglones">
+          <summary>Ver {resto.length} más</summary>
+          <ul className="renglones-detalle">
+            {resto.map((f, i) => <Renglon key={`${f.etiqueta}-r${i}`} f={f} />)}
+          </ul>
+        </details>
+      )}
+    </article>
   );
 }
 
@@ -140,25 +169,26 @@ function TablaConceptos({ titulo, filas, columna, conVariacion }) {
 function DetalleProcesos({ empresa, periodo, empresas }) {
   // Algunos conceptos son contrapartes y llegan como codigo interno
   // ("EMPRESA_061"): en pantalla va su razon social.
-  const nombreConcepto = (concepto) => {
-    if (!/^EMPRESA_\d+$/.test(String(concepto))) return concepto;
-    const ficha = empresas.find((e) => e.empresa_id === concepto);
-    return ficha ? nombreEmpresa(ficha) : concepto;
-  };
-
   const clave = `${empresa}-${periodo}`;
-  const [estado, setEstado] = useState({ clave: null, explicacion: null, lvtea: null });
+  const [estado, setEstado] = useState({ clave: null, explicacion: null, lvtea: null, padron: [] });
 
   useEffect(() => {
     let vigente = true;
     Promise.all([
       obtenerExplicacion(empresa, periodo).catch(() => null),
       obtenerDetallePublicacion(periodo, "LVTA", periodo, 0, empresa).catch(() => null),
-    ]).then(([explicacion, lvtea]) => {
-      if (vigente) setEstado({ clave, explicacion, lvtea });
+      obtenerPadron().catch(() => []),
+    ]).then(([explicacion, lvtea, padron]) => {
+      if (vigente) setEstado({ clave, explicacion, lvtea, padron });
     });
     return () => { vigente = false; };
   }, [clave, empresa, periodo]);
+
+  const nombreConcepto = (concepto) => {
+    if (!/^EMPRESA_\d+$/.test(String(concepto))) return concepto;
+    const ficha = empresas.find((e) => e.empresa_id === concepto) ?? estado.padron.find((e) => e.empresa_id === concepto);
+    return ficha ? nombreEmpresa(ficha) : concepto;
+  };
 
   const listo = estado.clave === clave;
   const ex = listo ? estado.explicacion?.explicaciones ?? {} : {};
@@ -177,43 +207,38 @@ function DetalleProcesos({ empresa, periodo, empresas }) {
   if (!hayAlgo) return <p className="nota">Sin desglose disponible para esta empresa en el periodo.</p>;
 
   return (
-    <div className="detalle-procesos">
+    <div className="rejilla rejilla-2 bloques-detalle">
       {lvtea?.componentes?.length > 0 && (
-        <TablaConceptos
-          titulo={`${etiquetaProceso("LVTA")} · componentes de la liquidación`}
-          columna="Componente"
+        <BloqueProceso
+          proceso="LVTA"
+          subtitulo="Componentes frente al mes anterior"
           conVariacion
           filas={porImpacto(lvtea.componentes.map((c) => ({ etiqueta: c.componente, actual: c.actual, anterior: c.previo, variacion: c.delta })))}
         />
       )}
       {lscio?.encontrado && (
-        <>
-          <TablaConceptos
-            titulo={`${etiquetaProceso("LSCIO")} · mecanismos`}
-            columna="Mecanismo"
-            conVariacion
-            filas={porImpacto(lscio.mecanismos.map((m) => ({ etiqueta: m.mecanismo, actual: m.actual, anterior: m.anterior, variacion: m.variacion })))}
-          />
-          <TablaConceptos
-            titulo={`${etiquetaProceso("LSCIO")} · conceptos que más pesaron`}
-            columna="Concepto"
-            conVariacion
-            filas={porImpacto(lscio.principales_conceptos.map((c) => ({ etiqueta: c.concepto, grupo: c.mecanismo, actual: c.actual, anterior: c.anterior, variacion: c.variacion })))}
-          />
-        </>
+        <BloqueProceso
+          proceso="LSCIO"
+          subtitulo="Conceptos por mecanismo frente al mes anterior"
+          conVariacion
+          filas={porImpacto(
+            (lscio.principales_conceptos?.length ? lscio.principales_conceptos : lscio.mecanismos.map((m) => ({ ...m, concepto: m.mecanismo })))
+              .map((c) => ({ etiqueta: c.concepto, grupo: c.mecanismo, actual: c.actual, anterior: c.anterior, variacion: c.variacion })),
+          )}
+        />
       )}
       {lvtp?.encontrado && (
-        <TablaConceptos
-          titulo={`${etiquetaProceso("LVTP")} · detalle por concepto (${lvtp.cantidad_registros} registros)`}
-          columna="Concepto"
-          filas={porImpacto(lvtp.detalle.map((d) => ({ etiqueta: nombreConcepto(d.concepto), grupo: d.valorizacion, monto: d.monto })), "monto").slice(0, 12)}
+        <BloqueProceso
+          proceso="LVTP"
+          subtitulo="Conceptos del mes"
+          filas={porImpacto(lvtp.detalle.map((d) => ({ etiqueta: nombreConcepto(d.concepto), grupo: d.valorizacion, monto: d.monto })), "monto")}
         />
       )}
       {sst?.encontrado && (
-        <TablaConceptos
-          titulo={`${etiquetaProceso("SST-SCT")} · detalle por concepto (${sst.cantidad_registros} registros)`}
-          columna="Concepto"
-          filas={porImpacto(sst.detalle.map((d) => ({ etiqueta: nombreConcepto(d.concepto), grupo: d.valorizacion, monto: d.monto })), "monto").slice(0, 12)}
+        <BloqueProceso
+          proceso="SST-SCT"
+          subtitulo="Conceptos del mes"
+          filas={porImpacto(sst.detalle.map((d) => ({ etiqueta: nombreConcepto(d.concepto), grupo: d.valorizacion, monto: d.monto })), "monto")}
         />
       )}
     </div>

@@ -132,6 +132,41 @@
   .kpis-empresa { grid-template-columns: 1fr; }
 }
 
-/* Analisis detallado: un desglose plano por proceso, sin submodulos. */
-.detalle-procesos { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
-.detalle-proceso h3 { font-size: 13px; color: var(--ink-2); margin-bottom: 6px; }
+/* Analisis detallado: bloques compactos por proceso, en dos columnas. */
+.bloques-detalle { margin-top: 10px; align-items: start; }
+.bloque-detalle {
+  border: 1px solid var(--grid);
+  border-top: 3px solid var(--acento, var(--accent));
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: var(--surface);
+  min-width: 0;
+}
+.bloque-detalle header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+.bloque-detalle header strong { font-size: 13px; }
+.bloque-detalle header .nota { margin: 0; }
+.renglones-detalle { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.renglon-detalle {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(60px, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--grid);
+  font-size: 12px;
+}
+.renglon-detalle:last-child { border-bottom: 0; }
+.renglon-texto { display: flex; flex-direction: column; min-width: 0; }
+.renglon-etiqueta { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.renglon-grupo { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; }
+.renglon-riel { display: block; height: 8px; border-radius: 4px; background: var(--surface-3); overflow: hidden; }
+.renglon-barra { display: block; height: 100%; border-radius: 4px; }
+.renglon-cifra { display: flex; flex-direction: column; align-items: flex-end; text-align: right; white-space: nowrap; }
+.renglon-cifra .nota { margin: 0; font-size: 11px; }
+.mas-renglones { margin-top: 6px; }
+.mas-renglones summary { cursor: pointer; font-size: 12px; font-weight: 600; color: var(--accent); }
+.mas-renglones .renglones-detalle { margin-top: 6px; }
+@media (max-width: 720px) {
+  .renglon-detalle { grid-template-columns: minmax(0, 1fr) auto; }
+  .renglon-riel { display: none; }
+}
