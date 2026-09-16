@@ -11,17 +11,17 @@ import {
   YAxis,
 } from "recharts";
 
-import LegacyApp from "../LegacyApp.jsx";
 import { obtenerRadar } from "../api/agente.js";
 import { obtenerComparativa } from "../api/empresa.js";
 import { useSeleccion } from "../app/contexto.jsx";
 import { EstadoCarga } from "../componentes/EstadoCarga.jsx";
 import { Tarjeta } from "../componentes/Tarjeta.jsx";
 import { Variacion } from "../componentes/Variacion.jsx";
+import { PublicacionMensual } from "./PublicacionMensual.jsx";
 import { nombreEmpresa } from "../lib/empresa.js";
 import { soles, solesCortos } from "../lib/formato.js";
 import { etiquetaProceso } from "../lib/procesos.js";
-import { capitalizar, claseNivel, pesoNivel, sinEmoji } from "../lib/texto.js";
+import { capitalizar, claseNivel, sinEmoji } from "../lib/texto.js";
 
 const COLOR_POS = "var(--pos)";
 const COLOR_NEG = "var(--neg)";
@@ -87,38 +87,6 @@ function QuienMovioElMes({ agentes, alAnalizar }) {
         </Bar>
       </BarChart>
     </ResponsiveContainer>
-  );
-}
-
-function DistribucionNiveles({ agentes }) {
-  const conteo = useMemo(() => {
-    const m = new Map();
-    for (const a of agentes) {
-      const n = capitalizar(a.nivel || "Sin nivel");
-      m.set(n, (m.get(n) ?? 0) + 1);
-    }
-    return [...m.entries()].sort((a, b) => pesoNivel(a[0]) - pesoNivel(b[0]));
-  }, [agentes]);
-
-  const total = agentes.length || 1;
-
-  return (
-    <div className="distribucion-niveles">
-      <div className="barra-segmentada" aria-hidden="true">
-        {conteo.map(([nivel, n]) => (
-          <span key={nivel} className={`segmento ${claseNivel(nivel)}`} style={{ width: `${(n / total) * 100}%` }} title={`${nivel}: ${n}`} />
-        ))}
-      </div>
-      <ul className="leyenda-niveles">
-        {conteo.map(([nivel, n]) => (
-          <li key={nivel}>
-            <span className={`distintivo ${claseNivel(nivel)}`}>{nivel}</span>
-            <span className="cifra">{n}</span>
-            <span className="nota">{Math.round((n / total) * 100)}%</span>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }
 
@@ -208,7 +176,6 @@ export function Panorama({ irA }) {
   const { periodo, periodos, empresas, setEmpresa } = useSeleccion();
 
   const [estado, setEstado] = useState({ pericodi: null, radar: null, comparativa: null, error: null });
-  const [detallado, setDetallado] = useState(false);
 
   useEffect(() => {
     if (!periodo) return;
@@ -285,41 +252,17 @@ export function Panorama({ irA }) {
           </div>
         </section>
 
-        <div className="rejilla rejilla-2">
-          <Tarjeta etiqueta="Quién movió el mes" titulo="Mayores subidas y bajadas frente al mes anterior">
-            <QuienMovioElMes agentes={agentes} alAnalizar={analizar} />
-            <p className="nota">Azul sube, rojo baja. Pulsa una barra para abrir el análisis de esa empresa.</p>
-          </Tarjeta>
-          <Tarjeta etiqueta="Prioridad de revisión" titulo="Cómo se reparten las empresas por nivel">
-            <DistribucionNiveles agentes={agentes} />
-            <p className="nota">
-              El nivel combina el tamaño de la variación, su impacto en soles y el comportamiento
-              histórico de la empresa. Es una priorización automática, no un juicio sobre la empresa.
-            </p>
-          </Tarjeta>
-        </div>
+        <Tarjeta etiqueta="Quién movió el mes" titulo="Mayores subidas y bajadas frente al mes anterior">
+          <QuienMovioElMes agentes={agentes} alAnalizar={analizar} />
+          <p className="nota">Azul sube, rojo baja. Pulsa una barra para abrir el análisis de esa empresa.</p>
+        </Tarjeta>
+
+        <PublicacionMensual />
 
         <Tarjeta etiqueta="Radar de liquidaciones" titulo="Todas las empresas del mes, por relevancia">
           <TablaRadar agentes={agentes} alAnalizar={analizar} />
         </Tarjeta>
 
-        <Tarjeta etiqueta="Análisis completo" titulo={detallado ? "Panel de análisis" : "¿Necesitas el detalle técnico?"}
-          acciones={
-            <button type="button" className="boton-secundario" onClick={() => setDetallado((d) => !d)}>
-              {detallado ? "Ocultar panel" : "Abrir panel de análisis"}
-            </button>
-          }
-        >
-          {detallado ? (
-            <LegacyApp key={`analista-${periodo}`} modoInicial="analista" periodoInicial={periodo} />
-          ) : (
-            <p className="nota">
-              El panel de análisis conserva el radar completo con su puntaje, factores y el flujo
-              paso a paso para cada empresa. Está aquí para quien necesite ir al fondo; la vista de
-              arriba resume lo mismo.
-            </p>
-          )}
-        </Tarjeta>
       </div>
     </EstadoCarga>
   );

@@ -260,3 +260,33 @@ detallado" / "Abrir panel de análisis".
   cierre → contexto del mes), cada uno con su distintivo de estado.
 - Los emojis que trae el servicio en algunos estados se retiran al
   mostrar (`lib/texto.js`); el estado lo comunica el distintivo.
+
+
+## 11. Publicación mensual en Panorama (D16, 2026-09-16)
+
+Petición del usuario: quitar de Panorama "Cómo se reparten las empresas
+por nivel" y "¿Necesitas el detalle técnico?", y traer la vista de la
+maqueta `maqueta_publicacion_mensual.html` del kit.
+
+- **Tarjetas por proceso** (LVTEA, LVTP, LSCIO, SST-SCT): cada
+  liquidación (R0) o recálculo (Rn) que sale en la publicación del mes,
+  comparada siempre con su base — R0 contra la última revisión conocida
+  del mes anterior; Rn contra R(n−1) del mismo mes — con variación,
+  aviso de "variación fuerte" (≥ 25 % en R0, ≥ 10 % en recálculos) y la
+  cadena R0–Rmax. Resumen arriba: liquidación del mes en curso, efecto
+  neto de recálculos, alcance hacia atrás, variaciones fuertes.
+- **Detalle de una tarjeta**: monto de esta revisión, contra qué se
+  compara, variación; "¿Qué provocó la variación?" con los componentes
+  ordenados de mayor a menor impacto en soles (gráfico divergente +
+  tabla); historial de revisiones del mes con las futuras atenuadas.
+- **Componentes**: Potencia, LSCIO y SST-SCT usan sus valorizaciones por
+  revisión tal como llegan. Energía Activa llega en una sola fila, así
+  que se simulan tres componentes (Valorización de Entregas, Valorización
+  de Retiros, Ingreso Tarifario y Rentas por Congestión) con
+  `scripts/simular_componentes_lvtea.py` → `data/componentes_lvtea.csv`;
+  cuadran al centavo con el total en cada revisión.
+- **Agregación del sector**: la liquidación es suma cero entre empresas,
+  así que sin empresa elegida cada monto es lo que cobran las acreedoras
+  (suma de netos positivos). Con empresa elegida, su neto con signo.
+- Endpoints: `GET /publicacion/{pericodi}?empresa_id=` y
+  `GET /publicacion/{pericodi}/detalle/{proceso}/{pericodi}/{revision}`.

@@ -15,6 +15,12 @@ const CATALOGO = [
     ],
   },
   {
+    grupo: "Publicación mensual",
+    endpoints: [
+      { ruta: "/publicacion/{pericodi}", descripcion: "Liquidaciones (R0) y recálculos (R1, R2…) que salen en la publicación del mes, por proceso, cada uno comparado con su base. Con ?empresa_id= se acota a una empresa.", parametros: ["pericodi"] },
+    ],
+  },
+  {
     grupo: "Red y precios",
     endpoints: [
       { ruta: "/red/barras/{pericodi}", descripcion: "Barras con costo marginal en el mes, con ubicación estimada y promedio, mínimo y máximo del periodo.", parametros: ["pericodi"] },

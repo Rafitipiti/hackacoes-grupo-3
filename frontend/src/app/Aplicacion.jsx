@@ -24,6 +24,7 @@ import "../secciones/procesos.css";
 import "../secciones/red.css";
 import "../secciones/contactos.css";
 import "../secciones/ejecutivo.css";
+import "../secciones/publicacion.css";
 import "../secciones/apis.css";
 import "../App.css";
 
