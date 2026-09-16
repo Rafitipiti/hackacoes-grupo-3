@@ -2104,7 +2104,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                             {error}
                         </div>
 
-                        {modoActual === "agente" && (
+                        {modoInicial === null && modoActual === "agente" && (
 
                             <button
                                 className="error-back-button"
@@ -2321,19 +2321,21 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                             </div>
                             <div className="agent-toolbar">
-                                <button
-                                    onClick={() => {
-                                        setModoActual(modoInicial);
-                                        setSeccionAgente(seccionAgenteInicial);
-                                        setEmpresaAgente(null);
-                                        setPericodiAgente(null);
-                                        setResumenAgente(null);
-                                        setExplicacionAgente(null);
-                                        setContextoAgente(null);
-                                    }}
-                                >
-                                    Inicio
-                                </button>
+                                {modoInicial === null && (
+                                    <button
+                                        onClick={() => {
+                                            setModoActual(modoInicial);
+                                            setSeccionAgente(seccionAgenteInicial);
+                                            setEmpresaAgente(null);
+                                            setPericodiAgente(null);
+                                            setResumenAgente(null);
+                                            setExplicacionAgente(null);
+                                            setContextoAgente(null);
+                                        }}
+                                    >
+                                        Inicio
+                                    </button>
+                                )}
 
                                 <button onClick={cargarRadar}>
                                     Actualizar
@@ -4064,19 +4066,21 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                         </p>
                                     </div>
 
-                                    <button
-                                        onClick={() => {
-                                            setModoActual(modoInicial);
-                                            setSeccionAgente(seccionAgenteInicial);
-                                            setEmpresaAgente(null);
-                                            setPericodiAgente(null);
-                                            setResumenAgente(null);
-                                            setExplicacionAgente(null);
-                                            setContextoAgente(null);
-                                        }}
-                                    >
-                                        Inicio
-                                    </button>
+                                    {modoInicial === null && (
+                                        <button
+                                            onClick={() => {
+                                                setModoActual(modoInicial);
+                                                setSeccionAgente(seccionAgenteInicial);
+                                                setEmpresaAgente(null);
+                                                setPericodiAgente(null);
+                                                setResumenAgente(null);
+                                                setExplicacionAgente(null);
+                                                setContextoAgente(null);
+                                            }}
+                                        >
+                                            Inicio
+                                        </button>
+                                    )}
 
                                 </div>
 
