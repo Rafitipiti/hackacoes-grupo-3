@@ -14,8 +14,8 @@ const NOMBRE_PROCESO = {
 };
 
 function Impacto({ datos }) {
-  const total = Math.abs(datos.corriente) + Math.abs(datos.arrastre);
-  const pctArrastre = total === 0 ? 0 : Math.abs(datos.arrastre) / total;
+  const neto = datos.corriente + datos.arrastre;
+  const escala = Math.max(Math.abs(datos.corriente), Math.abs(datos.arrastre)) || 1;
 
   return (
     <Tarjeta
@@ -40,13 +40,36 @@ function Impacto({ datos }) {
         </div>
       </div>
 
-      <div className="barra-proporcion" aria-hidden="true">
-        <span style={{ width: `${(1 - pctArrastre) * 100}%` }} className="parte-corriente" />
-        <span style={{ width: `${pctArrastre * 100}%` }} className="parte-arrastre" />
+      <div className="barras-impacto">
+        <div className="fila-barra">
+          <span className="etiqueta-barra">Mes corriente</span>
+          <div className="riel">
+            <span
+              className="barra positiva"
+              style={{ width: `${(Math.abs(datos.corriente) / escala) * 100}%` }}
+            />
+          </div>
+          <span className="cifra valor-barra">{soles(datos.corriente)}</span>
+        </div>
+
+        <div className="fila-barra">
+          <span className="etiqueta-barra">Ajuste de meses anteriores</span>
+          <div className="riel">
+            <span
+              className={datos.arrastre < 0 ? "barra negativa" : "barra positiva"}
+              style={{ width: `${(Math.abs(datos.arrastre) / escala) * 100}%` }}
+            />
+          </div>
+          <span className="cifra valor-barra">{soles(datos.arrastre)}</span>
+        </div>
       </div>
+
       <p className="nota">
-        El {porcentaje(pctArrastre, 0)} del movimiento de esta publicacion
-        corresponde a recalculos de meses anteriores.
+        Neto de la publicacion:{" "}
+        <strong className="cifra">{soles(neto)}</strong>.{" "}
+        {datos.arrastre < 0
+          ? "Los recalculos de meses anteriores reducen lo que se publica este mes."
+          : "Los recalculos de meses anteriores aumentan lo que se publica este mes."}
       </p>
     </Tarjeta>
   );
@@ -144,6 +167,7 @@ export function CicloRevisiones() {
   const [cascada, setCascada] = useState(null);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
+  const [errorCascada, setErrorCascada] = useState(null);
 
   useEffect(() => {
     if (!periodo) return;
@@ -151,6 +175,7 @@ export function CicloRevisiones() {
     let vigente = true;
     setCargando(true);
     setError(null);
+    setErrorCascada(null);
 
     async function cargar() {
       try {
@@ -165,10 +190,25 @@ export function CicloRevisiones() {
         setCalendario(c.entradas);
 
         if (empresa) {
-          const casc = await obtenerCascada(empresa, periodo);
-          if (vigente) setCascada(casc.procesos);
+          try {
+            const casc = await obtenerCascada(empresa, periodo);
+            if (vigente) {
+              setCascada(casc.procesos);
+              setErrorCascada(null);
+            }
+          } catch (e) {
+            if (vigente) {
+              setCascada(null);
+              setErrorCascada(
+                e.response?.status === 404
+                  ? "Esta empresa no tiene revisiones registradas en este periodo."
+                  : e.message,
+              );
+            }
+          }
         } else {
           setCascada(null);
+          setErrorCascada(null);
         }
       } catch (e) {
         if (vigente) setError(e.response?.status === 404 ? "sin datos para este periodo" : e.message);
@@ -188,16 +228,16 @@ export function CicloRevisiones() {
         {impacto && <Impacto datos={impacto} />}
         {calendario && <Calendario entradas={calendario} />}
 
-        {cascada
-          ? <Cascada procesos={cascada} />
-          : (
-            <Tarjeta etiqueta="Cascada de revisiones" titulo="Elige una empresa">
-              <p className="nota">
-                Selecciona una empresa en la barra lateral para ver como
-                evoluciono su liquidacion revision por revision.
-              </p>
-            </Tarjeta>
-          )}
+        {cascada ? (
+          <Cascada procesos={cascada} />
+        ) : (
+          <Tarjeta etiqueta="Cascada de revisiones" titulo={empresa ? "Sin revisiones para esta empresa" : "Elige una empresa"}>
+            <p className="nota">
+              {errorCascada ??
+                "Selecciona una empresa en la barra lateral para ver como evoluciono su liquidacion revision por revision."}
+            </p>
+          </Tarjeta>
+        )}
       </div>
     </EstadoCarga>
   );
