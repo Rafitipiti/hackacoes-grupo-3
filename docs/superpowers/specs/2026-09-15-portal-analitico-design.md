@@ -31,6 +31,7 @@ portal.
 | D5 | Las empresas se muestran con razón social y RUC | Decisión del usuario, 2026-09-15 |
 | D6 | La procedencia del dato se documenta en "Calidad y trazabilidad", sin avisos en las pantallas principales | Petición explícita del usuario de no interrumpir la presentación, conservando el rastro donde corresponde |
 | D7 | Las carpetas `complemento*` se reducen a los archivos de diseño | 1,6 GB que son el mismo Welcome Kit triplicado, ya presente en `backend/data/raw/` |
+| D8 | El filtro de publicación (periodo) y empresa se ubica en la parte superior derecha de la pantalla, fuera de la barra lateral | Decisión del usuario, 2026-09-15. Es la selección que gobierna todas las secciones: debe verse en el mismo sitio en cada pantalla y sin desplazarse |
 
 ---
 
@@ -141,6 +142,7 @@ evidencia. El portal ya tiene los endpoints; falta la presentación progresiva.
 | C3 | "Estado del radar" y "Estado de validación" con tratamiento visual de distintivo, no de texto suelto | Panorama y Mi empresa |
 | C4 | Descarga a Excel en el detalle de "Analizar" | Reutilizar `lib/exportar.js`, añadiendo hoja de cálculo |
 | C5 | El selector de empresa respeta el periodo (D4) | `SeleccionGlobal.jsx` + `/empresas?pericodi=` |
+| C6 | El selector global (publicación y empresa) pasa de la barra lateral a una franja superior alineada a la derecha (D8). La barra lateral conserva navegación, marca y tema | `Layout.jsx`, `layout.css`. En pantalla angosta la franja se apila debajo de la cabecera de sección, sin ocultarse |
 
 ---
 
