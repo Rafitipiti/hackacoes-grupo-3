@@ -8,10 +8,10 @@ import { obtenerCalendario, obtenerCascada, obtenerImpacto } from "../api/revisi
 import { useSeleccion } from "../app/contexto.jsx";
 
 const NOMBRE_PROCESO = {
-  "LVTA": "Energia Activa",
+  "LVTA": "Energía Activa",
   "LVTP": "Potencia",
   "LSCIO": "Servicios Complementarios",
-  "SST-SCT": "Sistemas Secundarios de Transmision",
+  "SST-SCT": "Sistemas Secundarios de Transmisión",
 };
 
 function Impacto({ datos }) {
@@ -20,14 +20,14 @@ function Impacto({ datos }) {
 
   return (
     <Tarjeta
-      etiqueta="Que trae esta publicacion"
+      etiqueta="Qué trae esta publicación"
       titulo="Del mes corriente y de meses anteriores"
     >
       <div className="rejilla rejilla-2">
         <div className="bloque-impacto">
-          <p className="etiqueta">Liquidacion del mes</p>
+          <p className="etiqueta">Liquidación del mes</p>
           <p className="cifra grande">{soles(datos.corriente)}</p>
-          <p className="nota">Es la R0, la primera version de este mes.</p>
+          <p className="nota">Es la R0, la primera versión de este mes.</p>
         </div>
 
         <div className="bloque-impacto">
@@ -71,8 +71,8 @@ function Impacto({ datos }) {
         Neto de la publicacion:{" "}
         <strong className="cifra">{soles(neto)}</strong>.{" "}
         {datos.arrastre < 0
-          ? "Los recalculos de meses anteriores reducen lo que se publica este mes."
-          : "Los recalculos de meses anteriores aumentan lo que se publica este mes."}
+          ? "Los recálculos de meses anteriores reducen lo que se publica este mes."
+          : "Los recálculos de meses anteriores aumentan lo que se publica este mes."}
       </p>
     </Tarjeta>
   );
@@ -94,12 +94,12 @@ function Calendario({ entradas, periodos }) {
 
   return (
     <Tarjeta
-      etiqueta="Calendario de publicacion"
-      titulo="Que liquidaciones salen en este mes"
+      etiqueta="Calendario de publicación"
+      titulo="Qué liquidaciones salen en este mes"
     >
       <p className="nota">
-        COES no publica una liquidacion una sola vez: la publicacion de un mes
-        trae la R0 de ese mes mas recalculos de meses anteriores.
+        COES no publica una liquidación una sola vez: la publicación de un mes
+        trae la R0 de ese mes más recálculos de meses anteriores.
       </p>
 
       <div className="rejilla rejilla-2">
@@ -109,7 +109,7 @@ function Calendario({ entradas, periodos }) {
             <div className="tabla-scroll">
               <table className="tabla">
                 <thead>
-                  <tr><th>Mes liquidado</th><th>Revision</th></tr>
+                  <tr><th>Mes liquidado</th><th>Revisión</th></tr>
                 </thead>
                 <tbody>
                   {filas
@@ -137,11 +137,11 @@ function Cascada({ procesos }) {
   return (
     <Tarjeta
       etiqueta="Cascada de revisiones"
-      titulo="Como cambio el monto de este mes, revision por revision"
+      titulo="Cómo cambió el monto de este mes, revisión por revisión"
     >
       <p className="nota">
         Cada proceso tiene su propia cadena: un mes puede llegar a R3 en
-        Energia Activa y solo a R1 en Potencia. Por eso se muestran separados.
+        Energía Activa y solo a R1 en Potencia. Por eso se muestran separados.
       </p>
 
       {Object.entries(procesos).map(([proceso, pasos]) => (
@@ -151,7 +151,7 @@ function Cascada({ procesos }) {
             <table className="tabla">
               <thead>
                 <tr>
-                  <th>Revision</th>
+                  <th>Revisión</th>
                   <th className="num">Monto restatado</th>
                   <th className="num">Ajuste</th>
                   <th className="num">%</th>
@@ -258,7 +258,7 @@ export function CicloRevisiones() {
       cargando={cargando}
       error={error}
       vacio={sinDatos || !impacto}
-      mensajeVacio="Este periodo aun no tiene revisiones publicadas. Los periodos abiertos publican su calendario y cascada al cerrar el mes: elige un periodo cerrado en la barra lateral para ver el ciclo completo."
+      mensajeVacio="Este periodo aún no tiene revisiones publicadas. Los periodos abiertos publican su calendario y cascada al cerrar el mes: elige un periodo cerrado en la barra lateral para ver el ciclo completo."
     >
       <div className="rejilla">
         {impacto && <Impacto datos={impacto} />}
@@ -270,7 +270,7 @@ export function CicloRevisiones() {
           <Tarjeta etiqueta="Cascada de revisiones" titulo={empresa ? "Sin revisiones para esta empresa" : "Elige una empresa"}>
             <p className="nota">
               {errorCascada ??
-                "Selecciona una empresa en la barra lateral para ver como evoluciono su liquidacion revision por revision."}
+                "Selecciona una empresa en la barra lateral para ver como evoluciono su liquidación revisión por revisión."}
             </p>
           </Tarjeta>
         )}

@@ -15,7 +15,7 @@ export function Layout({ seccionActiva, alCambiarSeccion, tema, alCambiarTema, c
           <span className="marca-escudo" aria-hidden="true">⚡</span>
           <span className="marca-texto">
             <strong>Liquidaciones 360</strong>
-            <span>COES · Sistema Electrico Interconectado Nacional</span>
+            <span>COES · Sistema Eléctrico Interconectado Nacional</span>
           </span>
         </div>
 
@@ -45,7 +45,7 @@ export function Layout({ seccionActiva, alCambiarSeccion, tema, alCambiarTema, c
               {!s.disponible && (
                 <span className="tag-proximo">
                   Proximo
-                  <span className="solo-lectores"> — seccion no disponible todavia</span>
+                  <span className="solo-lectores"> — sección no disponible todavía</span>
                 </span>
               )}
             </button>

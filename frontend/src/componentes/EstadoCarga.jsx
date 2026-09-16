@@ -14,7 +14,7 @@ export function EstadoCarga({ cargando, error, vacio, mensajeVacio, children }) 
   if (vacio) {
     return (
       <p className="estado estado-vacio">
-        {mensajeVacio ?? "No hay datos para esta seleccion."}
+        {mensajeVacio ?? "No hay datos para esta selección."}
       </p>
     );
   }

@@ -51,3 +51,63 @@
 @media (max-width: 720px) {
   .riel-delta { display: none; }
 }
+
+/* Comparacion por proceso: un grafico por proceso, cada uno con su
+   escala, en una rejilla que se apila en angosto. */
+.leyenda-procesos { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 0 0 6px; font-size: 12px; color: var(--ink-2); }
+.leyenda-procesos .muestra { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+.leyenda-procesos .nota { margin: 0; }
+
+.rejilla-procesos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+.mini-proceso {
+  border: 1px solid var(--grid);
+  border-radius: 8px;
+  padding: 8px 8px 6px;
+  background: var(--surface);
+}
+.mini-proceso h3 { font-size: 13px; margin-bottom: 2px; }
+.mini-proceso .delta-mini { margin: 4px 0 0; font-size: 12px; color: var(--ink-2); text-align: right; }
+
+/* Comparacion por proceso: un grafico por proceso, cada uno con su
+   escala, en una rejilla que se apila en angosto. */
+.leyenda-procesos { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 0 0 6px; font-size: 12px; color: var(--ink-2); }
+.leyenda-procesos .muestra { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+.leyenda-procesos .nota { margin: 0; }
+
+.rejilla-procesos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+.mini-proceso {
+  border: 1px solid var(--grid);
+  border-radius: 8px;
+  padding: 8px 8px 6px;
+  background: var(--surface);
+}
+.mini-proceso h3 { font-size: 13px; margin-bottom: 2px; }
+.mini-proceso .delta-mini { margin: 4px 0 0; font-size: 12px; color: var(--ink-2); text-align: right; }
+
+/* Comparacion por proceso: un grafico por proceso, cada uno con su
+   escala, en una rejilla que se apila en angosto. */
+.leyenda-procesos { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 0 0 6px; font-size: 12px; color: var(--ink-2); }
+.leyenda-procesos .muestra { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+.leyenda-procesos .nota { margin: 0; }
+
+.rejilla-procesos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+.mini-proceso {
+  border: 1px solid var(--grid);
+  border-radius: 8px;
+  padding: 8px 8px 6px;
+  background: var(--surface);
+}
+.mini-proceso h3 { font-size: 13px; margin-bottom: 2px; }
+.mini-proceso .delta-mini { margin: 4px 0 0; font-size: 12px; color: var(--ink-2); text-align: right; }

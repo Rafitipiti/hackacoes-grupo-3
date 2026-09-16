@@ -3,9 +3,9 @@ import { useId } from "react";
 import { clasificarVariacion, describirVariacion } from "../lib/variaciones.js";
 
 const TITULOS = {
-  "normal": "Variacion respecto del periodo anterior",
-  "cambio-signo": "Cambio de posicion: la empresa paso de cobrar a pagar o al reves",
-  "fuera-de-rango": "Variacion demasiado grande para expresarla en porcentaje",
+  "normal": "Variación respecto del periodo anterior",
+  "cambio-signo": "Cambio de posición: la empresa pasó de cobrar a pagar o al revés",
+  "fuera-de-rango": "Variación demasiado grande para expresarla en porcentaje",
   "sin-dato": "Sin periodo base para comparar",
 };
 

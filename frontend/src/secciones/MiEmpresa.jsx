@@ -10,7 +10,7 @@ export function MiEmpresa() {
       <Tarjeta etiqueta="Modo agente" titulo="Elige una empresa">
         <p className="nota">
           Busca tu empresa en la barra lateral para ver que cambio en su
-          liquidacion, por que cambio, y si puede avanzar al cierre.
+          liquidación, por que cambio, y si puede avanzar al cierre.
         </p>
       </Tarjeta>
     );

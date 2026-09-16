@@ -4,29 +4,29 @@ import { useSeleccion } from "../app/contexto.jsx";
 const REGLAS = [
   {
     codigo: "REGLA-LVTA-001",
-    nombre: "Energia Activa",
-    que: "El resultado de Energia Activa debe cuadrar con el soporte de transferencias por empresa.",
+    nombre: "Energía Activa",
+    que: "El resultado de Energía Activa debe cuadrar con el soporte de transferencias por empresa.",
   },
   {
     codigo: "REGLA-LSCIO-001",
-    nombre: "Reconstruccion LSCIO",
+    nombre: "Reconstrucción LSCIO",
     que: "La suma del desglose por mecanismo debe igualar el total de transferencias LSCIO.",
   },
   {
     codigo: "REGLA-POTENCIA-001",
-    nombre: "Compensacion a transmisoras",
-    que: "La compensacion a transmisoras por ingreso tarifario debe cuadrar entre el resultado de Potencia y su desglose por valorizacion. No cubre las otras dos valorizaciones del proceso.",
+    nombre: "Compensación a transmisoras",
+    que: "La compensación a transmisoras por ingreso tarifario debe cuadrar entre el resultado de Potencia y su desglose por valorización. No cubre las otras dos valorizaciones del proceso.",
   },
 ];
 
 const LIMITES = [
   {
-    titulo: "La cadena de calculo no es reproducible desde estos datos",
+    titulo: "La cadena de cálculo no es reproducible desde estos datos",
     detalle:
-      "Se verifico sobre los datos originales: los retiros cubren 12 de 71 empresas, el costo marginal cubre 248 de 828 barras, y la Energia Activa viene como una sola fila sin desglosar. Los datasets son resultados de consultas a produccion, no insumos de un modelo recalculable. Las validaciones comprueban consistencia interna, no reconstruyen la formula regulatoria.",
+      "Se verifico sobre los datos originales: los retiros cubren 12 de 71 empresas, el costo marginal cubre 248 de 828 barras, y la Energía Activa viene como una sola fila sin desglosar. Los datasets son resultados de consultas a producción, no insumos de un modelo recalculable. Las validaciones comprueban consistencia interna, no reconstruyen la fórmula regulatoria.",
   },
   {
-    titulo: "Los meses de 2025 son sinteticos",
+    titulo: "Los meses de 2025 son sintéticos",
     detalle:
       "Fueron generados para dar profundidad interanual, calibrados sobre el comportamiento de los meses reales. Sirven para demostrar tendencias y estacionalidad; no para afirmar hechos sobre empresas concretas ni contrastar cifras publicadas. Cada mes sintetico se marca en pantalla.",
   },
@@ -38,12 +38,12 @@ const LIMITES = [
   {
     titulo: "LSCIO tiene meses sin carga",
     detalle:
-      "Es carga manual mes a mes del equipo de COES. Los meses vacios no son un error del dato: reflejan como es la operacion real.",
+      "Es carga manual mes a mes del equipo de COES. Los meses vacios no son un error del dato: reflejan como es la operación real.",
   },
   {
     titulo: "Un monto restatado no es un ajuste",
     detalle:
-      "Cada revision restata el mes completo, asi que su monto ya incluye todo lo publicado antes. Sumar los montos de varias revisiones del mismo mes seria doble contabilidad. Por eso el ajuste se calcula siempre como diferencia contra la revision anterior.",
+      "Cada revisión restata el mes completo, así que su monto ya incluye todo lo publicado antes. Sumar los montos de varias revisiones del mismo mes seria doble contabilidad. Por eso el ajuste se calcula siempre como diferencia contra la revisión anterior.",
   },
 ];
 
@@ -57,7 +57,7 @@ export function Calidad() {
         <table className="tabla">
           <tbody>
             <tr><td>Estado</td><td className="num">{p?.estado ?? "—"}</td></tr>
-            <tr><td>Revision vigente</td><td className="num">{p?.version_vigente ?? "—"}</td></tr>
+            <tr><td>Revisión vigente</td><td className="num">{p?.version_vigente ?? "—"}</td></tr>
             <tr><td>Origen del dato</td><td className="num">{p?.origen === "sintetico" ? "Sintetico" : "Real"}</td></tr>
           </tbody>
         </table>
@@ -68,12 +68,12 @@ export function Calidad() {
         titulo="Reglas de integridad que se ejecutan"
       >
         <p className="nota">
-          Se ejecutan por empresa y periodo en la seccion Mi empresa. Comprueban
-          que los numeros cuadren entre el resultado y su soporte.
+          Se ejecutan por empresa y periodo en la sección Mi empresa. Comprueban
+          que los números cuadren entre el resultado y su soporte.
         </p>
         <table className="tabla">
           <thead>
-            <tr><th>Codigo</th><th>Valida</th><th>Que comprueba</th></tr>
+            <tr><th>Código</th><th>Válida</th><th>Qué comprueba</th></tr>
           </thead>
           <tbody>
             {REGLAS.map((r) => (
@@ -89,10 +89,10 @@ export function Calidad() {
 
       <Tarjeta
         etiqueta="Honestidad del dato"
-        titulo="Que debes saber antes de usar estas cifras"
+        titulo="Qué debes saber antes de usar estas cifras"
       >
         <p className="nota">
-          Declarar los limites no debilita el analisis: lo hace defendible.
+          Declarar los límites no debilita el análisis: lo hace defendible.
         </p>
         {LIMITES.map((l) => (
           <details key={l.titulo} className="limite">

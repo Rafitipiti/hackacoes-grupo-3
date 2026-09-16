@@ -3,6 +3,7 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
+  Cell,
   ComposedChart,
   Legend,
   Line,
@@ -250,24 +251,80 @@ function TablaHistorico({ periodos, seleccionado }) {
   );
 }
 
-function TooltipProcesos({ active, payload, label }) {
+function TooltipProceso({ active, payload }) {
   if (!active || !payload?.length) return null;
 
   const fila = payload[0].payload;
 
   return (
     <div className="tooltip-grafico">
-      <p className="tooltip-titulo">{label} · {NOMBRE_PROCESO[label] ?? ""}</p>
-      <p>Anterior: <strong className="cifra">{soles(fila.anterior)}</strong></p>
-      <p>Actual: <strong className="cifra">{soles(fila.actual)}</strong></p>
-      <p>Delta: <strong className="cifra">{soles(fila.delta)}</strong></p>
+      <p className="tooltip-titulo">{fila.periodo}</p>
+      <p><strong className="cifra">{soles(fila.monto)}</strong></p>
     </div>
   );
 }
 
 /**
- * "Que proceso movio mi liquidacion?" Barras del periodo actual contra el
- * anterior, por proceso, y el delta de cada uno (spec 5.2).
+ * Un grafico por proceso, cada uno con su propia escala. En un eje comun
+ * SST-SCT (decenas de soles) desaparece junto a LVTA (millones): la barra
+ * mide menos de un pixel y parece que falta. Con escalas propias cada
+ * proceso muestra su "antes y después"; la magnitud relativa entre
+ * procesos la da la tabla, con el delta como barra proporcional.
+ */
+function MiniProceso({ fila, anterior, actual }) {
+  const datos = [
+    { periodo: anterior.perinombre, monto: fila.anterior, clave: "anterior" },
+    { periodo: actual.perinombre, monto: fila.actual, clave: "actual" },
+  ];
+
+  const sinMovimiento = fila.anterior === 0 && fila.actual === 0;
+
+  return (
+    <div className="mini-proceso">
+      <h3>
+        {fila.proceso}
+        <span className="nombre-proceso"> {NOMBRE_PROCESO[fila.proceso] ?? ""}</span>
+      </h3>
+      {sinMovimiento ? (
+        <p className="nota">Sin importes en ninguno de los dos meses.</p>
+      ) : (
+        <ResponsiveContainer width="100%" height={150}>
+          <BarChart data={datos} margin={{ top: 4, right: 8, bottom: 0, left: 0 }} barCategoryGap="30%">
+            <CartesianGrid stroke="var(--grid)" vertical={false} />
+            <XAxis
+              dataKey="periodo"
+              tickFormatter={etiquetaCorta}
+              tick={{ fill: "var(--ink-2)", fontSize: 11 }}
+              tickLine={false}
+              axisLine={{ stroke: "var(--axis)" }}
+            />
+            <YAxis
+              tickFormatter={solesCortos}
+              tick={{ fill: "var(--ink-2)", fontSize: 10 }}
+              axisLine={false}
+              tickLine={false}
+              width={64}
+            />
+            <Tooltip content={<TooltipProceso />} cursor={{ fill: "var(--surface-2)" }} />
+            <ReferenceLine y={0} stroke="var(--axis)" />
+            <Bar dataKey="monto" radius={[3, 3, 0, 0]} isAnimationActive={false}>
+              {datos.map((d) => (
+                <Cell key={d.clave} fill={d.clave === "actual" ? COLOR_TOTAL : COLOR_ANTERIOR} />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      )}
+      <p className="delta-mini cifra">
+        Δ {soles(fila.delta)}
+      </p>
+    </div>
+  );
+}
+
+/**
+ * "Que proceso movio mi liquidación?" El periodo actual contra el
+ * anterior, proceso por proceso, y el delta de cada uno (spec 5.2).
  */
 function ComparacionProcesos({ actual, anterior }) {
   const filas = useMemo(() => {
@@ -298,46 +355,17 @@ function ComparacionProcesos({ actual, anterior }) {
 
   return (
     <div className="comparacion-procesos">
-      <ResponsiveContainer width="100%" height={220}>
-        <BarChart data={filas} margin={{ top: 8, right: 12, bottom: 0, left: 4 }} barGap={4}>
-          <CartesianGrid stroke="var(--grid)" vertical={false} />
-          <XAxis
-            dataKey="proceso"
-            tick={{ fill: "var(--ink-2)", fontSize: 12 }}
-            tickLine={false}
-            axisLine={{ stroke: "var(--axis)" }}
-          />
-          <YAxis
-            tickFormatter={solesCortos}
-            tick={{ fill: "var(--ink-2)", fontSize: 11 }}
-            axisLine={false}
-            tickLine={false}
-            width={72}
-          />
-          <Tooltip content={<TooltipProcesos />} cursor={{ fill: "var(--surface-2)" }} />
-          <Legend
-            verticalAlign="top"
-            align="right"
-            iconType="square"
-            wrapperStyle={{ fontSize: 12, paddingBottom: 8 }}
-          />
-          <ReferenceLine y={0} stroke="var(--axis)" />
-          <Bar
-            dataKey="anterior"
-            name={anterior.perinombre}
-            fill={COLOR_ANTERIOR}
-            radius={[3, 3, 0, 0]}
-            isAnimationActive={false}
-          />
-          <Bar
-            dataKey="actual"
-            name={actual.perinombre}
-            fill={COLOR_TOTAL}
-            radius={[3, 3, 0, 0]}
-            isAnimationActive={false}
-          />
-        </BarChart>
-      </ResponsiveContainer>
+      <p className="leyenda-procesos">
+        <span className="muestra" style={{ background: COLOR_ANTERIOR }} aria-hidden="true" /> {anterior.perinombre}
+        <span className="muestra" style={{ background: COLOR_TOTAL }} aria-hidden="true" /> {actual.perinombre}
+        <span className="nota"> · cada proceso con su propia escala</span>
+      </p>
+
+      <div className="rejilla-procesos">
+        {filas.map((f) => (
+          <MiniProceso key={f.proceso} fila={f} anterior={anterior} actual={actual} />
+        ))}
+      </div>
 
       <div className="tabla-scroll">
         <table className="tabla">
@@ -386,7 +414,8 @@ function ComparacionProcesos({ actual, anterior }) {
       <p className="nota">
         El delta se colorea por dirección (azul sube, rojo baja), no por
         juicio: en liquidaciones subir es favorable o no según si la empresa
-        cobra o paga.
+        cobra o paga. La barra del delta es proporcional entre procesos; los
+        gráficos de arriba no lo son.
       </p>
     </div>
   );
