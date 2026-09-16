@@ -6,6 +6,7 @@ import { ProveedorSeleccion, useSeleccion } from "./contexto.jsx";
 import "../estilos/tokens.css";
 import "../estilos/base.css";
 import "./layout.css";
+import "../componentes/componentes.css";
 
 const TEMAS = ["auto", "claro", "oscuro"];
 

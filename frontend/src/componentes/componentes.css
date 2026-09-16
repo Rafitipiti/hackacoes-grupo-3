@@ -1,0 +1,39 @@
+.tarjeta-cabecera {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.variacion { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; }
+.variacion .sello {
+  font-size: 9px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+.variacion.mag-revisar { color: var(--warn-texto); }
+.variacion.mag-revisar .sello { background: color-mix(in srgb, var(--warn) 18%, transparent); }
+.variacion.mag-fuerte { color: var(--crit); }
+.variacion.mag-fuerte .sello { background: color-mix(in srgb, var(--crit) 18%, transparent); }
+.variacion.tipo-sin-dato { color: var(--ink-muted); }
+
+.estado { padding: 22px; text-align: center; color: var(--ink-muted); font-size: 13px; }
+.estado-error { color: var(--bad); }
+
+.marca-sintetico {
+  font-size: 9px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--warn-texto);
+  border: 1px dashed var(--warn);
+  border-radius: 4px;
+  padding: 1px 5px;
+  margin-left: 6px;
+}
+
+.rejilla { display: grid; gap: 14px; }
+.rejilla-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.rejilla-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
