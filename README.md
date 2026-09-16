@@ -148,7 +148,7 @@ La aplicación queda en `http://localhost:5173`.
 
 ## Despliegue
 
-- **Backend en Render**: configurar la variable de entorno `CORS_ORIGINS` con la URL del frontend en Vercel (por ejemplo `https://coes-2026.vercel.app`). Si se omite, el navegador bloquea las respuestas por CORS y el backend no deja rastro del problema en sus propios logs — el error solo aparece en la consola del navegador.
+- **Backend en Render**: crear el servicio como *Blueprint* apuntando al repo (el `render.yaml` está en la raíz y declara `rootDir: backend`). Configurar la variable de entorno `CORS_ORIGINS` con la URL del frontend en Vercel (por ejemplo `https://coes-2026.vercel.app`). Si se omite, el navegador bloquea las respuestas por CORS y el backend no deja rastro del problema en sus propios logs — el error solo aparece en la consola del navegador.
 - **Frontend en Vercel**: Root Directory `frontend/`, y variable de entorno `VITE_API_URL` con la URL pública del backend en Render (por ejemplo `https://coes-liquidaciones-api.onrender.com`).
 
 ## Pruebas
