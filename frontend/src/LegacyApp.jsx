@@ -224,7 +224,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                 periodosOrdenados
             );
 
-            if (periodosOrdenados.length > 0) {
+            if (periodoInicial === null && periodosOrdenados.length > 0) {
                 setFecha(
                     periodosOrdenados[0].pericodi
                 );
