@@ -109,12 +109,12 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
     const [busquedaEmpresa, setBusquedaEmpresa] = useState("");
     const [pericodiAgente, setPericodiAgente] = useState(null);
 
-    // Cuando el modo llega por prop, la pantalla de seleccion propia esta
-    // suprimida, asi que nadie llamaria a entrarModoAgente() para mover esta
-    // seccion de "SELECCION" a "A1", y el modo agente quedaria en blanco.
-    const [seccionAgente, setSeccionAgente] = useState(
-        modoInicial === "agente" ? "A1" : "SELECCION",
-    );
+    // Adonde vuelve el modo agente al resetearse: con un modo fijo por prop
+    // la pantalla de seleccion propia no existe, asi que "SELECCION" dejaria
+    // el contenedor vacio.
+    const seccionAgenteInicial = modoInicial === "agente" ? "A1" : "SELECCION";
+
+    const [seccionAgente, setSeccionAgente] = useState(seccionAgenteInicial);
     const [seccionAnalista, setSeccionAnalista] = useState("C1");
 
     const mostrarAsistente =
@@ -2324,7 +2324,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                 <button
                                     onClick={() => {
                                         setModoActual(modoInicial);
-                                        setSeccionAgente("SELECCION");
+                                        setSeccionAgente(seccionAgenteInicial);
                                         setEmpresaAgente(null);
                                         setPericodiAgente(null);
                                         setResumenAgente(null);
@@ -4067,7 +4067,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                     <button
                                         onClick={() => {
                                             setModoActual(modoInicial);
-                                            setSeccionAgente("SELECCION");
+                                            setSeccionAgente(seccionAgenteInicial);
                                             setEmpresaAgente(null);
                                             setPericodiAgente(null);
                                             setResumenAgente(null);
