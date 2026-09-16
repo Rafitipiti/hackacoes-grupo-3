@@ -1,0 +1,53 @@
+/* Evolucion historica y comparacion por proceso (spec portal-analitico,
+   5.1 y 5.2). Los graficos son Recharts; aqui solo va lo que los rodea. */
+
+.grafico-serie { margin-top: 4px; }
+
+.identidad-empresa { margin: -6px 0 10px; }
+
+/* Tooltip propio: el de Recharts trae fondo blanco fijo, que en modo
+   oscuro deja el texto ilegible. */
+.tooltip-grafico {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--sombra);
+  padding: 8px 10px;
+  font-size: 12px;
+  color: var(--ink);
+  max-width: 300px;
+}
+.tooltip-grafico p { margin: 2px 0; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.tooltip-grafico .tooltip-titulo { font-weight: 600; margin-bottom: 4px; }
+.tooltip-grafico .muestra { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+.tooltip-grafico .nota-tooltip { color: var(--ink-muted); }
+
+.detalle-tabla { margin-top: 12px; border-top: 1px solid var(--grid); padding-top: 8px; }
+.detalle-tabla summary { cursor: pointer; font-size: 13px; font-weight: 600; }
+.detalle-tabla .tabla-scroll { margin-top: 8px; }
+
+.tabla-historico .fila-seleccionada td {
+  background: var(--surface-2);
+  font-weight: 600;
+}
+
+.comparacion-procesos .tabla-scroll { margin-top: 10px; }
+.nombre-proceso { color: var(--ink-muted); font-size: 12px; }
+
+/* El delta lleva una barra proporcional al lado de la cifra: la direccion
+   se lee de un vistazo y la magnitud relativa entre procesos tambien. */
+.delta-con-barra { display: inline-flex; align-items: center; gap: 8px; justify-content: flex-end; }
+.riel-delta {
+  display: inline-block;
+  width: 70px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--surface-3);
+  overflow: hidden;
+  flex: none;
+}
+.barra-delta { display: block; height: 100%; border-radius: 4px; }
+
+@media (max-width: 720px) {
+  .riel-delta { display: none; }
+}

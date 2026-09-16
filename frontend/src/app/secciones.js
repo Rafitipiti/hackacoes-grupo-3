@@ -17,6 +17,13 @@ export const SECCIONES = [
     disponible: true,
   },
   {
+    id: "evolucion",
+    titulo: "Evolución histórica",
+    icono: "↗",
+    descripcion: "Qué es normal para mi empresa, mes a mes",
+    disponible: true,
+  },
+  {
     id: "revisiones",
     titulo: "Ciclo y revisiones",
     icono: "↻",

@@ -1,4 +1,4 @@
-import { soles } from "./formato.js";
+import { ESPACIO_DURO, soles } from "./formato.js";
 
 // Umbrales de magnitud. Marcan cuanto merece atencion una variacion,
 // no si es buena o mala: en liquidaciones subir es favorable o no segun
@@ -68,7 +68,7 @@ export function describirVariacion({ delta, pct, cambioSigno = false }) {
 
     return {
       tipo: "fuera-de-rango",
-      texto: `Δ ${signoDelta}S/ ${abreviar(Math.abs(delta))}`,
+      texto: `Δ ${signoDelta}S/${ESPACIO_DURO}${abreviar(Math.abs(delta))}`,
       delta,
       pct,
       magnitud: "fuerte",

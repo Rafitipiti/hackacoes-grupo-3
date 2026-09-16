@@ -4,11 +4,11 @@ import { numero, porcentaje, soles } from "./formato.js";
 
 describe("soles", () => {
   it("usa separador de miles y simbolo peruano", () => {
-    expect(soles(1282616.13)).toBe("S/ 1,282,616.13");
+    expect(soles(1282616.13)).toBe("S/ 1,282,616.13");
   });
 
   it("conserva el signo negativo", () => {
-    expect(soles(-4515658.58)).toBe("-S/ 4,515,658.58");
+    expect(soles(-4515658.58)).toBe("-S/ 4,515,658.58");
   });
 
   it("devuelve un guion cuando no hay dato", () => {

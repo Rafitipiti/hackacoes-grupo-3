@@ -4,6 +4,7 @@ import { Layout } from "./Layout.jsx";
 import { ProveedorSeleccion, useSeleccion } from "./contexto.jsx";
 import { Panorama } from "../secciones/Panorama.jsx";
 import { MiEmpresa } from "../secciones/MiEmpresa.jsx";
+import { EvolucionEmpresa } from "../secciones/EvolucionEmpresa.jsx";
 import { CicloRevisiones } from "../secciones/CicloRevisiones.jsx";
 import { ApisDescargas } from "../secciones/ApisDescargas.jsx";
 import { Calidad } from "../secciones/Calidad.jsx";
@@ -13,6 +14,7 @@ import "../estilos/base.css";
 import "./layout.css";
 import "../componentes/componentes.css";
 import "../secciones/ciclo.css";
+import "../secciones/evolucion.css";
 import "../secciones/apis.css";
 import "../App.css";
 
@@ -42,6 +44,7 @@ function Contenido({ seccion }) {
 
   if (seccion === "panorama") return <Panorama />;
   if (seccion === "mi-empresa") return <MiEmpresa />;
+  if (seccion === "evolucion") return <EvolucionEmpresa />;
   if (seccion === "revisiones") return <CicloRevisiones />;
   if (seccion === "calidad") return <Calidad />;
   if (seccion === "apis") return <ApisDescargas />;
