@@ -52,8 +52,6 @@ export function Layout({ seccionActiva, alCambiarSeccion, tema, alCambiarTema, c
           ))}
         </nav>
 
-        <SeleccionGlobal />
-
         <button
           type="button"
           className="boton-secundario alternar-tema"
@@ -67,9 +65,15 @@ export function Layout({ seccionActiva, alCambiarSeccion, tema, alCambiarTema, c
 
       {/* tabIndex -1 permite que el salto al contenido deje el foco aqui. */}
       <main className="contenido" id="contenido" tabIndex={-1}>
+        {/* La seleccion de publicacion y empresa gobierna todas las
+            secciones, asi que vive arriba a la derecha, en el mismo sitio
+            en cada pantalla (spec portal-analitico, D8). */}
         <header className="cabecera-seccion">
-          <p className="etiqueta">{seccion?.descripcion}</p>
-          <h1>{seccion?.titulo}</h1>
+          <div className="cabecera-titulo">
+            <p className="etiqueta">{seccion?.descripcion}</p>
+            <h1>{seccion?.titulo}</h1>
+          </div>
+          <SeleccionGlobal />
         </header>
 
         {children}

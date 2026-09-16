@@ -42,58 +42,63 @@ export function SeleccionGlobal() {
   }
 
   return (
-    <div className="seleccion-global">
-      <label className="etiqueta" htmlFor="sel-periodo">Periodo</label>
-      <select
-        id="sel-periodo"
-        value={periodo ?? ""}
-        onChange={(e) => setPeriodo(Number(e.target.value))}
-      >
-        {periodos.map((p) => (
-          <option key={p.pericodi} value={p.pericodi}>
-            {p.perinombre} · {p.estado}
-          </option>
-        ))}
-      </select>
+    <section className="seleccion-global" aria-label="Selección de publicación y empresa">
+      <div className="seleccion-controles">
+        <div className="campo">
+          <label className="etiqueta" htmlFor="sel-periodo">Publicación</label>
+          <select
+            id="sel-periodo"
+            value={periodo ?? ""}
+            onChange={(e) => setPeriodo(Number(e.target.value))}
+          >
+            {periodos.map((p) => (
+              <option key={p.pericodi} value={p.pericodi}>
+                {p.perinombre} · {p.estado}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      {periodoActual?.origen === "sintetico" && (
-        <p className="aviso-sintetico">
-          ⚠ Mes sintético. Generado para dar profundidad interanual; no son
-          cifras publicadas.
-        </p>
-      )}
+        <div className="campo campo-empresa">
+          <label className="etiqueta" htmlFor="sel-empresa">Empresa</label>
+          <input
+            id="sel-empresa"
+            list="lista-empresas"
+            placeholder="Razón social o RUC…"
+            value={busqueda}
+            onChange={(e) => alEscribir(e.target.value)}
+            aria-describedby="ayuda-empresa"
+          />
+          <datalist id="lista-empresas">
+            {empresasOrdenadas.map((e) => (
+              <option key={e.empresa_id} value={etiquetaEmpresa(e)} />
+            ))}
+          </datalist>
+        </div>
+      </div>
 
-      <label className="etiqueta" htmlFor="sel-empresa">Empresa</label>
-      <input
-        id="sel-empresa"
-        list="lista-empresas"
-        placeholder="Razón social o RUC…"
-        value={busqueda}
-        onChange={(e) => alEscribir(e.target.value)}
-        aria-describedby="ayuda-empresa"
-      />
-      <datalist id="lista-empresas">
-        {empresasOrdenadas.map((e) => (
-          <option key={e.empresa_id} value={etiquetaEmpresa(e)} />
-        ))}
-      </datalist>
+      <div className="seleccion-avisos">
+        {periodoActual?.origen === "sintetico" && (
+          <p className="aviso-sintetico">
+            ⚠ Mes sintético: generado para dar profundidad interanual, no son
+            cifras publicadas.
+          </p>
+        )}
 
-      <p id="ayuda-empresa" className="ayuda-empresa">
-        {cargandoEmpresas
-          ? "Buscando empresas con liquidación en este periodo…"
-          : `${empresas.length} empresas con liquidación en ${periodoActual?.perinombre ?? "este periodo"}`}
-      </p>
-
-      {empresaActual && (
-        <p className="empresa-elegida">
-          <strong>{nombreEmpresa(empresaActual)}</strong>
-          {empresaActual.ruc && <span className="ruc">RUC {empresaActual.ruc}</span>}
-        </p>
-      )}
-
-      {busqueda && !empresa && (
-        <p className="aviso-empresa">Sin coincidencia exacta</p>
-      )}
-    </div>
+        {empresaActual ? (
+          <p className="empresa-elegida">
+            <strong>{nombreEmpresa(empresaActual)}</strong>
+            {empresaActual.ruc && <span className="ruc">RUC {empresaActual.ruc}</span>}
+          </p>
+        ) : (
+          <p id="ayuda-empresa" className="ayuda-empresa">
+            {cargandoEmpresas
+              ? "Buscando empresas con liquidación en este periodo…"
+              : `${empresas.length} empresas con liquidación en ${periodoActual?.perinombre ?? "este periodo"}`}
+            {busqueda && !empresa && <span className="aviso-empresa"> · Sin coincidencia exacta</span>}
+          </p>
+        )}
+      </div>
+    </section>
   );
 }

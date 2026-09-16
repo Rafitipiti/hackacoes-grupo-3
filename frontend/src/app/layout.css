@@ -85,20 +85,42 @@
   padding: 1px 4px;
 }
 
-.seleccion-global { display: flex; flex-direction: column; gap: 6px; margin-top: auto; }
+/* Selector global (D8): arriba a la derecha, en la cabecera de cada
+   seccion. Dos controles en fila; los avisos (mes sintetico, empresa
+   elegida con su RUC) van debajo, alineados al mismo borde derecho. */
+.seleccion-global {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex: 0 1 560px;
+  min-width: 0;
+}
+.seleccion-controles { display: flex; gap: 10px; width: 100%; justify-content: flex-end; }
+.seleccion-global .campo { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.seleccion-global .campo-empresa { flex: 1 1 300px; }
 .seleccion-global select,
 .seleccion-global input {
   width: 100%;
   padding: 7px 9px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: var(--surface-2);
+  background: var(--surface);
   color: var(--ink);
   font-family: var(--fuente);
   font-size: 12px;
 }
+.seleccion-global select { min-width: 190px; }
 .seleccion-global input:focus,
 .seleccion-global select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.seleccion-avisos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 10px;
+  width: 100%;
+}
 
 .aviso-sintetico {
   margin: 0;
@@ -108,23 +130,25 @@
   border-radius: 6px;
   padding: 5px 7px;
 }
-.aviso-empresa { margin: 0; font-size: 11px; color: var(--ink-muted); }
-.ayuda-empresa { margin: 0; font-size: 11px; color: var(--ink-muted); }
+.aviso-empresa { font-size: 11px; color: var(--ink-muted); }
+.ayuda-empresa { margin: 0; font-size: 11px; color: var(--ink-muted); text-align: right; }
 
 /* La empresa elegida se muestra con razon social y RUC (spec D5). El RUC
    va en mono y en gris: identifica, no compite con el nombre. */
 .empresa-elegida {
   margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
   font-size: 12px;
   line-height: 1.3;
   color: var(--ink);
-  background: var(--surface-2);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-left: 3px solid var(--accent);
   border-radius: 6px;
-  padding: 6px 8px;
+  padding: 5px 8px;
 }
 .empresa-elegida .ruc {
   font-family: var(--fuente-mono);
@@ -135,12 +159,25 @@
 .alternar-tema { width: 100%; }
 
 .contenido { flex: 1; padding: 22px 26px; max-width: 1400px; }
-.cabecera-seccion { margin-bottom: 18px; }
+.cabecera-seccion {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px 24px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.cabecera-titulo { flex: 1 1 260px; min-width: 0; }
 
 @media (max-width: 860px) {
   .disposicion { flex-direction: column; }
   .barra-lateral { width: auto; flex: none; border-right: 0; border-bottom: 1px solid var(--border); }
   .contenido { padding: 16px; }
+  /* En angosto la franja se apila bajo el titulo; no se oculta. */
+  .seleccion-global { flex-basis: 100%; align-items: stretch; }
+  .seleccion-controles { flex-wrap: wrap; }
+  .seleccion-global .campo { flex: 1 1 100%; }
+  .seleccion-avisos, .ayuda-empresa { justify-content: flex-start; text-align: left; }
 }
 
 .estado { padding: 22px; text-align: center; color: var(--ink-muted); font-size: 13px; }
