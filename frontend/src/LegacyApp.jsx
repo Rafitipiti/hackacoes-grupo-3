@@ -109,7 +109,12 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
     const [busquedaEmpresa, setBusquedaEmpresa] = useState("");
     const [pericodiAgente, setPericodiAgente] = useState(null);
 
-    const [seccionAgente, setSeccionAgente] = useState("SELECCION");
+    // Cuando el modo llega por prop, la pantalla de seleccion propia esta
+    // suprimida, asi que nadie llamaria a entrarModoAgente() para mover esta
+    // seccion de "SELECCION" a "A1", y el modo agente quedaria en blanco.
+    const [seccionAgente, setSeccionAgente] = useState(
+        modoInicial === "agente" ? "A1" : "SELECCION",
+    );
     const [seccionAnalista, setSeccionAnalista] = useState("C1");
 
     const mostrarAsistente =
@@ -2106,7 +2111,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                                 onClick={() => {
                                     setError(null);
                                     setResumenAgente(null);
-                                    setModoActual(null);
+                                    setModoActual(modoInicial);
                                 }}
                             >
                                 ← Volver a seleccionar empresa
@@ -2318,7 +2323,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
                             <div className="agent-toolbar">
                                 <button
                                     onClick={() => {
-                                        setModoActual(null);
+                                        setModoActual(modoInicial);
                                         setSeccionAgente("SELECCION");
                                         setEmpresaAgente(null);
                                         setPericodiAgente(null);
@@ -4061,7 +4066,7 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
 
                                     <button
                                         onClick={() => {
-                                            setModoActual(null);
+                                            setModoActual(modoInicial);
                                             setSeccionAgente("SELECCION");
                                             setEmpresaAgente(null);
                                             setPericodiAgente(null);
