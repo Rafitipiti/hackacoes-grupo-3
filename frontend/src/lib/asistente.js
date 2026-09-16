@@ -13,7 +13,7 @@
 // "pos" | "neg" | "neutro" y solo colorea la cifra.
 
 import { obtenerRadar, obtenerResumenAgente } from "../api/agente.js";
-import { obtenerComparativa } from "../api/empresa.js";
+import { obtenerComparativa, obtenerPadron } from "../api/empresa.js";
 import { obtenerPublicacion } from "../api/publicacion.js";
 import { obtenerBarras } from "../api/red.js";
 import { nombreEmpresa } from "./empresa.js";
@@ -98,7 +98,7 @@ const GLOSARIO = [
     patrones: [/\b(que es|de que trata|para que sirve) (esta )?(pagina|portal|web|aplicacion)/, /\bque hace (esta pagina|el portal)/],
     titulo: "Liquidaciones 360",
     texto: "Consolida las liquidaciones del COES en un solo lugar: qué salió cada mes, qué cambió para cada empresa y por qué, con trazabilidad hasta el soporte. Elige publicación y empresa arriba a la derecha.",
-    sugerencias: ["!info"],
+    sugerencias: ["Info"],
   },
 ];
 
@@ -123,45 +123,91 @@ const NOMBRE_SECCION = {
   apis: "APIs y descargas", calidad: "Calidad y trazabilidad",
 };
 
-function buscarEmpresa(texto, ctx) {
+// Palabras que aparecen en muchas razones sociales y no distinguen nada.
+const GENERICAS = new Set([
+  "empresa", "electrica", "electricidad", "energia", "energias", "generacion", "generadora", "transmision",
+  "transmisora", "distribucion", "servicio", "servicios", "publico", "regional", "peru", "peruana", "sociedad",
+  "anonima", "minera", "industrial", "industrias", "compania", "consorcio", "concesionaria", "linea", "central",
+  "hidroelectrica", "termoelectrica", "solar", "eolica", "renovables", "inversiones", "grupo", "norte", "sur",
+  "este", "oeste", "nueva", "nuevo", "para", "sobre", "cuanto", "cual", "como", "quien", "esta", "este",
+]);
+
+let padronCache = null;
+async function padronCompleto() {
+  if (!padronCache) padronCache = await obtenerPadron().catch(() => []);
+  return padronCache;
+}
+
+function puntuar(texto, empresa) {
+  const palabras = normalizar(nombreEmpresa(empresa))
+    .replace(/[.,()]/g, " ")
+    .split(" ")
+    .filter((p) => p.length >= 4 && !GENERICAS.has(p) && !/^s\.?a/.test(p));
+  const aciertos = palabras.filter((p) => texto.includes(p));
+  if (!aciertos.length) return 0;
+  // Manda la palabra mas larga acertada; desempata cuantas acertaron.
+  return Math.max(...aciertos.map((p) => p.length)) * 10 + aciertos.length;
+}
+
+/**
+ * Empresa mencionada en la pregunta: por RUC (11 digitos) o por cualquier
+ * palabra distintiva de su razon social ("celepsa", "huanchor"). Busca
+ * primero entre las que liquidan en el mes y luego en el padron completo.
+ */
+async function buscarEmpresa(texto, ctx) {
   const t = normalizar(texto);
-  const ruc = t.match(/\b(20\d{9})\b/);
-  if (ruc) {
-    const porRuc = ctx.empresas.find((e) => e.ruc === ruc[1]);
-    if (porRuc) return porRuc;
-  }
-  // La mencion mas larga que aparezca en la pregunta gana.
-  let mejor = null;
-  for (const e of ctx.empresas) {
-    const nombre = normalizar(nombreEmpresa(e)).replace(/\b(s\.?a\.?a?\.?c?\.?|s\.?r\.?l\.?|s\.?a\.?)$/g, "").trim();
-    const palabras = nombre.split(" ").filter((p) => p.length > 3);
-    if (!palabras.length) continue;
-    const aciertos = palabras.filter((p) => t.includes(p)).length;
-    if (aciertos >= Math.min(2, palabras.length) && (!mejor || aciertos > mejor.aciertos)) {
-      mejor = { empresa: e, aciertos };
+  const ruc = t.match(/\b(20\d{9}|10\d{9})\b/);
+
+  const listas = [ctx.empresas, await padronCompleto()];
+  for (const lista of listas) {
+    if (ruc) {
+      const porRuc = lista.find((e) => e.ruc === ruc[1]);
+      if (porRuc) return porRuc;
     }
+    let mejor = null;
+    for (const e of lista) {
+      const puntos = puntuar(t, e);
+      if (puntos > 0 && (!mejor || puntos > mejor.puntos)) mejor = { empresa: e, puntos };
+    }
+    if (mejor) return mejor.empresa;
   }
-  return mejor?.empresa ?? null;
+  return null;
+}
+
+// Un nombre corto para armar ejemplos: la palabra mas distintiva.
+function nombreCorto(empresa) {
+  const palabras = nombreEmpresa(empresa).replace(/[.,()]/g, " ").split(" ").filter((p) => p.length >= 4 && !GENERICAS.has(normalizar(p)));
+  const elegida = palabras.sort((a, b) => b.length - a.length)[0] ?? nombreEmpresa(empresa);
+  return elegida.charAt(0) + elegida.slice(1).toLowerCase();
+}
+
+function ejemploEmpresa(ctx) {
+  const lista = ctx.empresas.length ? ctx.empresas : [];
+  const elegida = lista.find((e) => e.empresa_id === ctx.empresa) ?? lista[Math.floor(lista.length / 3)] ?? lista[0];
+  return elegida ? `¿Cuánto liquidó ${nombreCorto(elegida)}?` : "¿Cuánto liquidó mi empresa?";
 }
 
 // ---------------------------------------------------------------- !info
 
-export const INFO = {
-  titulo: "Qué puedo hacer",
-  texto: "Pregunta en tus palabras o pulsa una sugerencia. Trabajo con la publicación y la empresa elegidas arriba a la derecha.",
-  items: [
-    { etiqueta: "Quién subió o bajó más", valor: "¿Quién bajó más este mes?", nota: "Las mayores variaciones del mes frente al anterior." },
-    { etiqueta: "Cuánto liquidó una empresa", valor: "¿Cuánto liquidó Celepsa?", nota: "Total, variación y lo que más pesó. Acepta razón social o RUC." },
-    { etiqueta: "Qué proceso la movió", valor: "¿Qué proceso la movió?", nota: "Para la empresa elegida en la cabecera." },
-    { etiqueta: "Qué salió en la publicación", valor: "¿Qué salió en la publicación?", nota: "Liquidación del mes, recálculos y alcance." },
-    { etiqueta: "Alertas del mes", valor: "¿Cuántas alertas hay?", nota: "Empresas con relevancia alta y las primeras del radar." },
-    { etiqueta: "Costo marginal", valor: "¿Cuál es el costo marginal?", nota: "Promedio del sistema, barra más cara y más barata." },
-    { etiqueta: "Glosario", valor: "¿Qué es el monto restatado?", nota: "LVTEA, LVTP, LSCIO, SST-SCT, R1, publicación, CCI…" },
-    { etiqueta: "Ir a una sección", valor: "Llévame a Red y precios", nota: "También: “abre Procesos”, “muéstrame Contactos”." },
-  ],
-  sugerencias: ["¿Quién bajó más este mes?", "¿Qué salió en la publicación?", "¿Cuál es el costo marginal?"],
-  esInfo: true,
-};
+export function infoPara(ctx) {
+  const ejemplo = ejemploEmpresa(ctx);
+  return {
+    titulo: "Qué puedo hacer",
+    texto: "Pregunta en tus palabras o pulsa un ejemplo. Trabajo con la publicación y la empresa elegidas arriba a la derecha; escribe Info cuando quieras volver aquí.",
+    items: [
+      { etiqueta: "Quién subió o bajó más", valor: "¿Quién bajó más este mes?", nota: "Las mayores variaciones del mes frente al anterior." },
+      { etiqueta: "Cuánto liquidó una empresa", valor: ejemplo, nota: "Total, variación y lo que más pesó. Acepta razón social o RUC." },
+      { etiqueta: "Qué proceso la movió", valor: "¿Qué proceso la movió?", nota: "Para la empresa elegida en la cabecera." },
+      { etiqueta: "Qué salió en la publicación", valor: "¿Qué salió en la publicación?", nota: "Liquidación del mes, recálculos y alcance." },
+      { etiqueta: "Alertas del mes", valor: "¿Cuántas alertas hay?", nota: "Empresas con relevancia alta y las primeras del radar." },
+      { etiqueta: "Costo marginal", valor: "¿Cuál es el costo marginal?", nota: "Promedio del sistema, barra más cara y más barata." },
+      { etiqueta: "Glosario", valor: "¿Qué es el monto restatado?", nota: "LVTEA, LVTP, LSCIO, SST-SCT, R1, publicación, CCI…" },
+      { etiqueta: "Ir a una sección", valor: "Llévame a Red y precios", nota: "También: “abre Procesos”, “muéstrame Contactos”." },
+    ],
+    sugerencias: ["¿Quién bajó más este mes?", ejemplo, "¿Cuál es el costo marginal?"],
+    esInfo: true,
+  };
+}
 
 // ------------------------------------------------------------- intenciones
 
@@ -169,8 +215,8 @@ const INTENCIONES = [
   {
     nombre: "info",
     patrones: [/^!?(info|ayuda|help|comandos|opciones)\b/, /\b(que puedes hacer|que sabes hacer|como funcionas|como te uso)\b/, /^hola\b/, /^buen[oa]s/],
-    async responder() {
-      return INFO;
+    async responder(_t, ctx) {
+      return infoPara(ctx);
     },
   },
   {
@@ -249,9 +295,14 @@ const INTENCIONES = [
     nombre: "liquidacion-empresa",
     patrones: [/\b(cuanto|como) (liquido|salio|le fue|cobra|paga|cobro|pago)\b/, /\bliquidacion de\b/, /\bresultado de\b/, /\btotal de\b/],
     async responder(t, ctx) {
-      const empresa = buscarEmpresa(t, ctx) ?? (ctx.empresa ? ctx.empresas.find((e) => e.empresa_id === ctx.empresa) : null);
-      if (!empresa) return { titulo: "¿De qué empresa?", texto: "Escribe parte de su razón social o su RUC, o elígela en la cabecera." };
-      const r = await obtenerResumenAgente(empresa.empresa_id, ctx.periodo);
+      const empresa = (await buscarEmpresa(t, ctx)) ?? (ctx.empresa ? ctx.empresas.find((e) => e.empresa_id === ctx.empresa) : null);
+      if (!empresa) return { titulo: "¿De qué empresa?", texto: "Escribe parte de su razón social (por ejemplo “Celepsa”) o su RUC, o elígela en la cabecera." };
+      let r;
+      try {
+        r = await obtenerResumenAgente(empresa.empresa_id, ctx.periodo);
+      } catch {
+        return { titulo: nombreEmpresa(empresa), texto: `No tiene liquidación en ${ctx.periodoNombre}. Prueba con otra publicación en la cabecera.` };
+      }
       const v = r.variacion;
       const imp = r.impulsores?.principal_incremento ?? r.impulsores?.principal_reduccion;
       const items = [
@@ -378,7 +429,7 @@ export async function responder(pregunta, ctx) {
   }
 
   // Sin intencion clara: una empresa mencionada vale como pregunta por su liquidacion.
-  const empresa = buscarEmpresa(t, ctx);
+  const empresa = await buscarEmpresa(t, ctx);
   if (empresa) return INTENCIONES.find((i) => i.nombre === "liquidacion-empresa").responder(t, ctx);
 
   const seccion = SECCIONES.find((s) => s.claves.some((c) => t.includes(c)));
@@ -386,13 +437,13 @@ export async function responder(pregunta, ctx) {
 
   return {
     titulo: "No entendí la pregunta",
-    texto: "Escribe !info para ver lo que puedo hacer, o prueba una de estas:",
-    sugerencias: ["¿Quién bajó más este mes?", "¿Cuánto liquidó Celepsa?", "¿Cuál es el costo marginal?", "!info"],
+    texto: "Escribe Info para ver lo que puedo hacer, o prueba una de estas:",
+    sugerencias: ["¿Quién bajó más este mes?", ejemploEmpresa(ctx), "¿Cuál es el costo marginal?", "Info"],
   };
 }
 
 export const SUGERENCIAS_INICIALES = [
-  "!info",
+  "Info",
   "¿Quién subió más este mes?",
   "¿Qué salió en la publicación?",
   "¿Qué es LVTEA?",

@@ -45,7 +45,7 @@ function Respuesta({ r, alSugerir, mostrarSugerencias }) {
 /**
  * Asistente flotante: un boton abajo a la derecha que abre una
  * conversacion corta. Responde con reglas sobre los datos del portal
- * (ver lib/asistente.js); no llama a servicios externos. `!info` lista lo
+ * (ver lib/asistente.js); no llama a servicios externos. `Info` lista lo
  * que sabe hacer.
  */
 export function Asistente({ irA }) {
@@ -56,7 +56,7 @@ export function Asistente({ irA }) {
       de: "bot",
       r: {
         titulo: "Hola, soy el asistente del portal",
-        texto: "Pregúntame por el mes, una empresa o un término. Escribe !info para ver todo lo que puedo hacer.",
+        texto: "Pregúntame por el mes, una empresa o un término. Escribe Info para ver todo lo que puedo hacer.",
         sugerencias: SUGERENCIAS_INICIALES,
       },
     },
@@ -114,7 +114,7 @@ export function Asistente({ irA }) {
               <p className="etiqueta">Asistente</p>
               <strong>{ctx.periodoNombre}{ctx.empresaNombre ? ` · ${ctx.empresaNombre}` : ""}</strong>
             </div>
-            <button type="button" className="chip" onClick={() => enviar("!info")} title="Qué puedo hacer">!info</button>
+            <button type="button" className="chip" onClick={() => enviar("Info")} title="Qué puedo hacer">Info</button>
           </header>
 
           <div className="asistente-mensajes" role="log" aria-live="polite">
@@ -139,7 +139,7 @@ export function Asistente({ irA }) {
               type="text"
               value={texto}
               onChange={(e) => setTexto(e.target.value)}
-              placeholder="Escribe una pregunta o !info…"
+              placeholder="Escribe una pregunta o Info…"
               aria-label="Pregunta al asistente"
               autoComplete="off"
             />
