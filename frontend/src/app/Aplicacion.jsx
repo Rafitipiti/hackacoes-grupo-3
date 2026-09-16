@@ -23,6 +23,7 @@ import "../secciones/comparador.css";
 import "../secciones/procesos.css";
 import "../secciones/red.css";
 import "../secciones/contactos.css";
+import "../secciones/ejecutivo.css";
 import "../secciones/apis.css";
 import "../App.css";
 
@@ -50,8 +51,8 @@ function Contenido({ seccion, alCambiarSeccion }) {
     );
   }
 
-  if (seccion === "panorama") return <Panorama />;
-  if (seccion === "mi-empresa") return <MiEmpresa />;
+  if (seccion === "panorama") return <Panorama irA={alCambiarSeccion} />;
+  if (seccion === "mi-empresa") return <MiEmpresa irA={alCambiarSeccion} />;
   if (seccion === "evolucion") return <EvolucionEmpresa />;
   if (seccion === "comparador") return <Comparador irA={alCambiarSeccion} />;
   if (seccion === "procesos") return <Procesos />;

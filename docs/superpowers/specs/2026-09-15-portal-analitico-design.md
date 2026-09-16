@@ -235,3 +235,28 @@ Ficha editable por empresa. Persistencia en `backend/data/contactos.xlsx`
 
 **Aviso en la ficha:** el libro no está cifrado ni controlado por acceso;
 en la demo no deben cargarse cuentas bancarias reales.
+
+
+## 10. Vistas ejecutivas de Panorama y Mi empresa (D15, 2026-09-16)
+
+El usuario dio libertad para rehacer ambas secciones con un objetivo: que
+un directivo del COES las entienda en la primera pantalla, con enganche
+visual y sin marearse. Decisión: **no se reescribe el flujo legado
+(A1 → A7); se le pone delante una vista ejecutiva** construida sobre los
+mismos endpoints, y el flujo completo queda plegado bajo "Abrir análisis
+detallado" / "Abrir panel de análisis".
+
+- **Panorama**: franja de publicación (estado, revisión, comparado con) +
+  cinco indicadores (empresas liquidadas, monto liquidado, ajustes por
+  recálculo, variación típica como mediana, alertas relevantes); "Quién
+  movió el mes" (cinco mayores subidas y bajadas, clic lleva a Mi
+  empresa); reparto por nivel de prioridad (barra segmentada); radar
+  completo paginado y buscable con razón social y RUC.
+- **Mi empresa**: franja con razón social, RUC, revisión y distintivos de
+  integridad y cierre; liquidación del mes con variación y sparkline de
+  los últimos meses; "Qué la movió" (proceso por proceso, antes/ahora);
+  impulsores principales como callouts; acordeón §5.4 con cuatro pasos
+  (movimientos por concepto → trazabilidad por proceso → integridad y
+  cierre → contexto del mes), cada uno con su distintivo de estado.
+- Los emojis que trae el servicio en algunos estados se retiran al
+  mostrar (`lib/texto.js`); el estado lo comunica el distintivo.

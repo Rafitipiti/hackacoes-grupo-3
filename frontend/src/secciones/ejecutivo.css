@@ -1,0 +1,133 @@
+/* Vistas ejecutivas de Panorama y Mi empresa: una franja de contexto con
+   indicadores grandes, dos tarjetas de lectura rapida y el detalle
+   plegado. Lo que un directivo mira primero va arriba y en grande. */
+
+.hero-periodo {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(0, 3fr);
+  gap: 18px 28px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radio);
+  box-shadow: var(--shadow);
+  padding: 18px 22px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-periodo::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--grad);
+}
+.hero-periodo h2 { font-size: 24px; margin: 2px 0 6px; letter-spacing: -.02em; }
+.hero-periodo .nota { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+.kpis-empresa { grid-template-columns: minmax(220px, 1.2fr) minmax(220px, 1fr); }
+
+.kpi {
+  background: var(--surface-2);
+  border-radius: 8px;
+  padding: 12px 14px;
+  min-width: 0;
+}
+.kpi .etiqueta { margin: 0 0 4px; }
+.kpi-valor { font-size: 24px; font-weight: 700; margin: 0; line-height: 1.15; letter-spacing: -.01em; }
+.kpi-valor .nota { font-size: 12px; font-weight: 400; }
+.kpi .nota { margin: 4px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.kpi-acento { background: color-mix(in srgb, var(--accent) 12%, var(--surface-2)); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+.kpi-sparkline { display: flex; flex-direction: column; }
+.enlace {
+  align-self: flex-start;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font-family: var(--fuente);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 0;
+  cursor: pointer;
+}
+.enlace:hover { text-decoration: underline; }
+
+/* Distribucion por nivel: barra segmentada + leyenda con distintivos. */
+.barra-segmentada { display: flex; height: 14px; border-radius: 7px; overflow: hidden; background: var(--surface-3); }
+.barra-segmentada .segmento { display: block; height: 100%; background: var(--ink-muted); }
+.barra-segmentada .segmento.distintivo-critico { background: var(--crit); }
+.barra-segmentada .segmento.distintivo-aviso { background: var(--warn); }
+.barra-segmentada .segmento.distintivo-ok { background: var(--good); }
+.leyenda-niveles { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.leyenda-niveles li { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.leyenda-niveles .cifra { font-weight: 700; min-width: 28px; text-align: right; }
+
+.buscador {
+  flex: 1 1 220px;
+  max-width: 360px;
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font-family: var(--fuente);
+  font-size: 12px;
+}
+.tabla-radar { margin-top: 8px; }
+.tabla-radar .ruc { font-size: 11px; color: var(--ink-muted); }
+.paginacion { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 10px; }
+
+/* Mi empresa: procesos que movieron el mes. */
+.procesos-movieron { display: flex; flex-direction: column; gap: 12px; }
+.fila-proceso-mov .cabecera-fila { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.fila-proceso-mov .espaciador { flex: 1; }
+.pares-barras { display: flex; flex-direction: column; gap: 3px; margin: 5px 0 3px; }
+.pares-barras .riel { display: block; height: 8px; border-radius: 4px; background: var(--surface-3); overflow: hidden; }
+.pares-barras .barra { display: block; height: 100%; border-radius: 4px; }
+.pares-barras .barra.anterior { background: var(--ink-muted); opacity: .55; }
+.cifras-fila { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; }
+
+.callouts { display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px; }
+.callout { border-left: 3px solid var(--ink-muted); border-radius: 6px; background: var(--surface-2); padding: 10px 12px; }
+.callout-pos { border-left-color: var(--pos); }
+.callout-neg { border-left-color: var(--neg); }
+.callout .etiqueta { margin: 0 0 2px; }
+.callout-titulo { margin: 0; font-weight: 600; font-size: 13px; }
+.callout .nota { margin: 2px 0 0; }
+.callout-cifra { margin: 6px 0 0; font-size: 18px; font-weight: 700; }
+.callout-pos .callout-cifra { color: var(--pos-texto); }
+.callout-neg .callout-cifra { color: var(--neg-texto); }
+
+/* Acordeon del paso a paso. */
+.acordeon { border-top: 1px solid var(--grid); }
+.acordeon:first-of-type { border-top: 0; }
+.acordeon summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 12px 4px;
+  cursor: pointer;
+  list-style: none;
+}
+.acordeon summary::-webkit-details-marker { display: none; }
+.acordeon summary::before { content: "▸"; color: var(--ink-muted); font-size: 12px; transition: transform .15s ease; }
+.acordeon[open] summary::before { transform: rotate(90deg); }
+.acordeon-titulo { font-weight: 600; font-size: 14px; }
+.acordeon-resumen { margin: 0 0 0 auto; }
+.acordeon-cuerpo { padding: 0 4px 14px 22px; }
+.acordeon-cuerpo h3 { font-size: 13px; color: var(--ink-2); margin-bottom: 4px; }
+.lista-alertas { margin: 6px 0 0; padding-left: 18px; font-size: 13px; }
+
+.contexto { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.contexto-nota { grid-column: 1 / -1; }
+
+@media (max-width: 960px) {
+  .hero-periodo { grid-template-columns: 1fr; }
+  .kpis-empresa { grid-template-columns: 1fr; }
+}
