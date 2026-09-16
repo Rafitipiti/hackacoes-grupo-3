@@ -2209,6 +2209,23 @@ const [empresaAgente, setEmpresaAgente] = useState(empresaInicial);
 const [fecha, setFecha] = useState(periodoInicial ?? "");
 ```
 
+Y una cuarta, que es la que decide si el modo agente pinta algo:
+
+```jsx
+// Cuando el modo llega por prop, la pantalla de seleccion propia esta
+// suprimida (Step 4), asi que nadie llamaria a entrarModoAgente() para mover
+// esta seccion de "SELECCION" a "A1". Ningun bloque de render reconoce
+// "SELECCION", asi que el modo agente quedaria en blanco: carga los datos y
+// no los muestra.
+const [seccionAgente, setSeccionAgente] = useState(
+    modoInicial === "agente" ? "A1" : "SELECCION",
+);
+```
+
+> `seccionAnalista` no necesita este tratamiento porque su valor inicial,
+> `"C1"`, ya es una sección real. Esa asimetría es la razón de que Panorama
+> funcione y Mi empresa no, si se omite este paso.
+
 Después, agregar un efecto que mantenga la sincronía cuando el usuario cambia la selección global. Ponerlo junto a los demás `useEffect`, después del que carga los períodos:
 
 ```jsx
@@ -2237,6 +2254,21 @@ Localizar el bloque que empieza con la pregunta "¿Cómo quieres investigar?" y 
 ```
 
 No borres ese bloque: `LegacyApp` debe seguir funcionando por sí solo si alguien lo monta sin props.
+
+**Y los botones que anulan el modo.** Hay tres sitios que hacen
+`setModoActual(null)`: el botón "← Volver a seleccionar empresa" del banner de
+error, el "Inicio" de la barra del modo analista, y el "Inicio" de la sección
+A1. Con `modoInicial` fijo por prop, la pantalla de selección propia no
+reaparece —correcto— pero los bloques de modo dejan de coincidir y la pantalla
+queda **muerta, sin salida**. En los tres, reemplazar:
+
+```jsx
+setModoActual(null);     // antes
+setModoActual(modoInicial); // despues
+```
+
+Con `modoInicial` en `null` el comportamiento es idéntico al de hoy. Con un
+modo fijo, el botón vuelve al estado inicial en vez de vaciar la pantalla.
 
 - [ ] **Step 5: Acotar los selectores globales de `App.css`**
 
