@@ -52,7 +52,7 @@ export function clasificarVariacion(actual, anterior) {
   if (Math.sign(actual) !== Math.sign(anterior) && actual !== 0) {
     return {
       tipo: "cambio-signo",
-      texto: `↔ ${soles(delta, 0).replace(/\.00$/, "")}`,
+      texto: `↔ ${soles(delta, 0)}`,
       delta,
       pct,
       magnitud: magnitudDe(pct),
@@ -60,9 +60,11 @@ export function clasificarVariacion(actual, anterior) {
   }
 
   if (Math.abs(pct) > LIMITE_PORCENTAJE) {
+    const signoDelta = delta < 0 ? "-" : "";
+
     return {
       tipo: "fuera-de-rango",
-      texto: `Δ S/ ${abreviar(delta)}`,
+      texto: `Δ ${signoDelta}S/ ${abreviar(Math.abs(delta))}`,
       delta,
       pct,
       magnitud: "fuerte",

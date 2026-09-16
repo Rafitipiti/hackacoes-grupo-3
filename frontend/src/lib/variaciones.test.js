@@ -43,4 +43,29 @@ describe("clasificarVariacion", () => {
   it("la magnitud no depende del signo: bajar 60% tambien es fuerte", () => {
     expect(clasificarVariacion(40, 100).magnitud).toBe("fuerte");
   });
+
+  it("el signo del delta va antes del simbolo de moneda", () => {
+    // Es el formato que usa soles() en todo el modulo: -S/ 50 k, no S/ -50 k.
+    const v = clasificarVariacion(-50000, -10);
+
+    expect(v.tipo).toBe("fuera-de-rango");
+    expect(v.texto).toContain("-S/");
+    expect(v.texto).not.toContain("S/ -");
+  });
+
+  it("el limite de 999% deja el borde del lado del porcentaje", () => {
+    // Justo en el limite todavia informa; un paso mas alla, no.
+    expect(clasificarVariacion(1099, 100).tipo).toBe("normal");
+    expect(clasificarVariacion(1099.01, 100).tipo).toBe("fuera-de-rango");
+  });
+
+  it("dos periodos negativos comparan como cualquier otro par", () => {
+    // Una cuenta que paga menos que antes. El sistema reporta la direccion
+    // numerica y no opina sobre si eso es bueno: eso depende de si la
+    // empresa cobra o paga, y solo el usuario lo sabe.
+    const v = clasificarVariacion(-50, -100);
+
+    expect(v.tipo).toBe("normal");
+    expect(v.texto).toBe("+50.0%");
+  });
 });
