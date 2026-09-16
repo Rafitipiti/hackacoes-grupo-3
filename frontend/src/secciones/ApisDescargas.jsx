@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import { API_URL, cliente } from "../api/cliente.js";
-import { EstadoCarga } from "../componentes/EstadoCarga.jsx";
 import { Tarjeta } from "../componentes/Tarjeta.jsx";
 import { aCSV, descargar } from "../lib/exportar.js";
 import { useSeleccion } from "../app/contexto.jsx";
@@ -117,6 +116,14 @@ function FichaEndpoint({ endpoint, contexto }) {
 
       <p className="url-resuelta cifra">{API_URL}{rutaResuelta}</p>
 
+      {endpoint.parametros.includes("empresa_id") && (
+        <p className="nota">
+          La ruta lleva el identificador tecnico porque es lo que la API
+          espera. Corresponde a{" "}
+          <strong>{contexto.alias ?? "la empresa de ejemplo"}</strong>.
+        </p>
+      )}
+
       <div className="acciones-endpoint">
         <button type="button" className="boton" onClick={probar} disabled={cargando}>
           {cargando ? "Consultando…" : "Probar"}
@@ -177,7 +184,7 @@ export function ApisDescargas() {
               <FichaEndpoint
                 key={e.ruta}
                 endpoint={e}
-                contexto={{ empresa, periodo }}
+                contexto={{ empresa, periodo, alias }}
               />
             ))}
           </div>
