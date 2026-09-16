@@ -11,6 +11,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from scripts.identidad_empresa import asignar_identidad
+
 BASE_DIR = Path(__file__).resolve().parents[1]
 RAW = BASE_DIR / "data" / "raw"
 CURATED = BASE_DIR / "data" / "curated"
@@ -70,13 +72,20 @@ def _generar_alias(cantidad: int) -> list[str]:
     return combinaciones[:cantidad]
 
 
-def construir_dim_empresa() -> pd.DataFrame:
+def construir_dim_empresa(con_liquidacion: set[str]) -> pd.DataFrame:
+    """Padron del kit con alias de fantasia e identidad real adjudicada.
+
+    El alias se conserva para los 57 codigos sin liquidacion, que no
+    reciben identidad y, por la regla D4 del spec, tampoco aparecen en el
+    selector de empresa. La regla de adjudicacion vive en
+    scripts/identidad_empresa.py, que la documenta y sus consecuencias.
+    """
     empresas = pd.DataFrame(leer_json("_catalogos_comunes/empresas.json"))
     empresas = empresas.sort_values("empresa_id").reset_index(drop=True)
 
     empresas["alias"] = _generar_alias(len(empresas))
 
-    return empresas[["empresa_id", "alias"]]
+    return asignar_identidad(empresas[["empresa_id", "alias"]], con_liquidacion)
 
 
 def construir_dim_periodo() -> pd.DataFrame:
@@ -385,13 +394,18 @@ def escribir(tabla: pd.DataFrame, nombre: str) -> None:
 
 
 def main() -> None:
+    # La evolucion se construye primero: dim_empresa necesita saber que
+    # codigos llevan alguna liquidacion para adjudicarles identidad.
+    evolucion = construir_fact_evolucion()
+    con_liquidacion = set(evolucion["empresa_deudora"].unique())
+
     print("Construyendo dimensiones...")
-    escribir(construir_dim_empresa(), "dim_empresa")
+    escribir(construir_dim_empresa(con_liquidacion), "dim_empresa")
     escribir(construir_dim_periodo(), "dim_periodo")
     escribir(construir_dim_barra(), "dim_barra")
 
     print("Construyendo hechos de liquidacion...")
-    escribir(construir_fact_evolucion(), "fact_evolucion")
+    escribir(evolucion, "fact_evolucion")
     escribir(construir_fact_bilateral(), "fact_bilateral")
     escribir(construir_fact_desglose(), "fact_desglose")
 

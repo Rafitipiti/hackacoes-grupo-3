@@ -1,14 +1,52 @@
+import pandas as pd
 from fastapi import APIRouter, HTTPException
 
 from app.data.loader import cargar_datos_coes
 from app.services.agent_service import AgentService
 from app.services.integrity_service import IntegrityService
+from app.services.revision_service import RevisionService
 
 router = APIRouter(tags=["empresa"])
 
 datos_coes = cargar_datos_coes()
 agent_service = AgentService()
 integrity_service = IntegrityService(datos_coes)
+revision_service = RevisionService(datos_coes)
+
+
+@router.get("/empresa/historico/{empresa_id}")
+def historico_empresa(empresa_id: str):
+    """La serie de los 20 periodos: total, procesos y recalculos.
+
+    Alimenta la evolucion historica y la comparacion por proceso. Las dos
+    vistas leen del mismo sitio para que la barra de un mes y el punto de
+    ese mes en la linea no puedan discrepar.
+    """
+    serie = revision_service.serie_historica(empresa_id)
+
+    if not serie:
+        raise HTTPException(
+            status_code=404,
+            detail=f"No hay liquidaciones registradas para {empresa_id}.",
+        )
+
+    empresas = datos_coes["empresas"]
+    ficha = empresas[empresas["empresa_id"] == empresa_id]
+
+    identidad = {"alias": None, "ruc": None, "razon_social": None}
+
+    if not ficha.empty:
+        fila = ficha.iloc[0]
+        identidad = {
+            campo: (None if pd.isna(fila[campo]) else fila[campo])
+            for campo in identidad
+        }
+
+    return {
+        "empresa_id": empresa_id,
+        **identidad,
+        "periodos": serie,
+    }
 
 
 @router.get(

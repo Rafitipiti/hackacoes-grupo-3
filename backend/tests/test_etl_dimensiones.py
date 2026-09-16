@@ -6,6 +6,7 @@ from scripts.preparar_datos import (
     construir_dim_empresa,
     construir_dim_periodo,
     construir_dim_barra,
+    construir_fact_evolucion,
 )
 
 pytestmark = pytest.mark.skipif(
@@ -18,23 +19,57 @@ pytestmark = pytest.mark.skipif(
 
 
 @pytest.fixture(scope="module")
-def dim_empresa():
-    return construir_dim_empresa()
+def con_liquidacion():
+    evolucion = construir_fact_evolucion()
+
+    return set(evolucion["empresa_deudora"].unique())
+
+
+@pytest.fixture(scope="module")
+def dim_empresa(con_liquidacion):
+    return construir_dim_empresa(con_liquidacion)
 
 
 def test_dim_empresa_tiene_una_fila_por_empresa(dim_empresa):
     assert len(dim_empresa) == 131
-    assert list(dim_empresa.columns) == ["empresa_id", "alias"]
+    assert list(dim_empresa.columns) == [
+        "empresa_id",
+        "alias",
+        "ruc",
+        "razon_social",
+    ]
 
 
 def test_los_alias_son_unicos(dim_empresa):
     assert dim_empresa["alias"].nunique() == len(dim_empresa)
 
 
-def test_el_alias_es_estable_entre_ejecuciones():
-    primera = construir_dim_empresa()
-    segunda = construir_dim_empresa()
+def test_el_alias_es_estable_entre_ejecuciones(con_liquidacion):
+    primera = construir_dim_empresa(con_liquidacion)
+    segunda = construir_dim_empresa(con_liquidacion)
     pd.testing.assert_frame_equal(primera, segunda)
+
+
+def test_solo_las_empresas_con_liquidacion_reciben_identidad(
+    dim_empresa, con_liquidacion
+):
+    """Adjudicar identidad a un codigo sin datos crea una empresa fantasma.
+
+    El selector no la ofrece (D4), pero el padron completo sigue saliendo
+    por /empresas sin filtro: un nombre real ahi, sin ninguna cifra
+    detras, es una atribucion sin respaldo.
+    """
+    identificadas = set(
+        dim_empresa.loc[dim_empresa["ruc"].notna(), "empresa_id"]
+    )
+
+    assert identificadas == con_liquidacion
+
+
+def test_ningun_ruc_se_asigna_a_dos_codigos(dim_empresa):
+    rucs = dim_empresa["ruc"].dropna()
+
+    assert rucs.nunique() == len(rucs)
 
 
 def test_el_alias_no_contiene_ruc_ni_el_id_tecnico(dim_empresa):

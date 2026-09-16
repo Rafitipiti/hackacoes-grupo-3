@@ -1,3 +1,4 @@
+import pandas as pd
 from fastapi import APIRouter, Query
 
 from app.data.loader import cargar_datos_coes
@@ -39,5 +40,18 @@ def obtener_empresas(
         empresas = empresas[empresas["empresa_id"].isin(con_datos)]
 
     return {
-        "empresas": empresas.to_dict(orient="records")
+        "empresas": _sin_nulos_de_pandas(empresas)
     }
+
+
+def _sin_nulos_de_pandas(tabla: pd.DataFrame) -> list[dict]:
+    """Convierte los NA de pandas en None.
+
+    Los 57 codigos sin liquidacion no tienen ruc ni razon social. Un NaN
+    de pandas se serializa como el literal `NaN`, que no es JSON valido y
+    que `JSON.parse` del navegador rechaza: la respuesta entera se cae por
+    las empresas que nadie iba a mirar.
+    """
+    return tabla.astype(object).where(pd.notna(tabla), None).to_dict(
+        orient="records"
+    )

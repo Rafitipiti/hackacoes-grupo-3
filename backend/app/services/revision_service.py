@@ -17,6 +17,8 @@ class RevisionService:
     def __init__(self, datos: dict[str, pd.DataFrame]):
         self.totales = datos["revisiones_totales"]
         self.calendario = datos["calendario"]
+        self.evolucion = datos["evolucion_liquidaciones"]
+        self.periodos = datos["periodos"]
 
     def calendario_de_publicacion(
         self, publicacion_pericodi: int
@@ -128,4 +130,109 @@ class RevisionService:
             "corriente": float(del_mes["monto_total"].sum()),
             "arrastre": float(arrastradas["ajuste"].sum()),
             "periodos_arrastrados": int(arrastradas["pericodi"].nunique()),
+        }
+
+    def serie_historica(self, empresa_id: str) -> list[dict]:
+        """Los 20 periodos de una empresa: total, procesos y recalculos.
+
+        Dos series distintas y dos fuentes distintas, a proposito:
+
+        - 'liquidacion_total' y 'procesos' salen de la evolucion mensual,
+          que es la misma fuente que alimenta "Mi empresa". Si aqui se
+          usara el monto restatado de las revisiones, el mismo mes
+          mostraria dos totales distintos en dos pantallas del portal.
+        - 'efecto_neto_recalculos' sale de las revisiones, porque la
+          evolucion no las distingue.
+
+        El efecto neto es la suma de los AJUSTES entre revisiones
+        consecutivas, no de los montos restatados: cada revision restata
+        el mes completo, asi que sumar montos contaria varias veces lo
+        mismo. Es la regla que ya aplica impacto_de_publicacion.
+        """
+        movimientos = self.evolucion[
+            self.evolucion["empresa_deudora"] == empresa_id
+        ]
+
+        if movimientos.empty:
+            return []
+
+        totales = (
+            movimientos.groupby("pericodi")["monto"].sum().to_dict()
+        )
+
+        por_proceso = (
+            movimientos.groupby(["pericodi", "proceso"])["monto"]
+            .sum()
+            .unstack(fill_value=0.0)
+        )
+
+        ajustes = self._ajustes_por_periodo(empresa_id)
+
+        serie = []
+
+        for fila in self.periodos.sort_values("pericodi").to_dict(
+            orient="records"
+        ):
+            pericodi = int(fila["pericodi"])
+
+            if pericodi not in totales:
+                continue
+
+            procesos = (
+                por_proceso.loc[pericodi].to_dict()
+                if pericodi in por_proceso.index
+                else {}
+            )
+
+            serie.append({
+                "pericodi": pericodi,
+                "perinombre": fila["perinombre"],
+                "perianiomes": fila["perianiomes"],
+                "origen": fila["origen"],
+                "estado": fila["estado"],
+                "liquidacion_total": float(totales[pericodi]),
+                "efecto_neto_recalculos": ajustes["neto"].get(pericodi, 0.0),
+                "revisiones": ajustes["revisiones"].get(pericodi, 0),
+                "procesos": {
+                    proceso: float(monto)
+                    for proceso, monto in procesos.items()
+                },
+            })
+
+        return serie
+
+    def _ajustes_por_periodo(self, empresa_id: str) -> dict:
+        """Efecto neto de los recalculos de cada mes, y cuantos hubo."""
+        filas = self.totales[self.totales["emprcodi"] == empresa_id]
+
+        if filas.empty:
+            return {"neto": {}, "revisiones": {}}
+
+        filas = filas.sort_values(["proceso", "pericodi", "revision"]).copy()
+
+        # La revision anterior es la del mismo proceso y el mismo mes: la
+        # cadena R0..R4 es propia de cada proceso (ver cascada).
+        filas["monto_anterior"] = (
+            filas.groupby(["proceso", "pericodi"])["monto_total"].shift()
+        )
+        filas["ajuste"] = filas["monto_total"] - filas["monto_anterior"]
+
+        neto = filas.groupby("pericodi")["ajuste"].sum()
+
+        # R0 no es un recalculo: es la publicacion original del mes.
+        recalculos = (
+            filas[filas["revision"] > 0]
+            .groupby("pericodi")["revision"]
+            .max()
+        )
+
+        return {
+            "neto": {
+                int(pericodi): float(valor)
+                for pericodi, valor in neto.items()
+            },
+            "revisiones": {
+                int(pericodi): int(valor)
+                for pericodi, valor in recalculos.items()
+            },
         }
