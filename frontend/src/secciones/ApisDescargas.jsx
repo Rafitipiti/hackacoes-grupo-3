@@ -4,13 +4,14 @@ import { API_URL, cliente } from "../api/cliente.js";
 import { Tarjeta } from "../componentes/Tarjeta.jsx";
 import { aCSV, descargar } from "../lib/exportar.js";
 import { useSeleccion } from "../app/contexto.jsx";
+import { nombreEmpresa } from "../lib/empresa.js";
 
 const CATALOGO = [
   {
     grupo: "Catalogos",
     endpoints: [
       { ruta: "/periodos", descripcion: "Los 20 periodos disponibles, con su estado y revision vigente.", parametros: [] },
-      { ruta: "/empresas", descripcion: "Las 131 empresas con su alias visible.", parametros: [] },
+      { ruta: "/empresas", descripcion: "El padrón: código técnico, alias, RUC y razón social. Con ?pericodi= devuelve solo las que liquidan en ese periodo, que es lo que usa el selector de la barra lateral.", parametros: [] },
     ],
   },
   {
@@ -30,6 +31,7 @@ const CATALOGO = [
   {
     grupo: "Analisis por empresa",
     endpoints: [
+      { ruta: "/empresa/historico/{empresa_id}", descripcion: "Los 20 periodos de la empresa: liquidación total, desglose por proceso y efecto neto de los recálculos. Alimenta la evolución histórica y la comparación por proceso.", parametros: ["empresa_id"] },
       { ruta: "/agente/resumen/{empresa_id}/{pericodi}", descripcion: "Resultado del periodo, variacion y principales movimientos.", parametros: ["empresa_id", "pericodi"] },
       { ruta: "/agente/cambios/{empresa_id}/{pericodi}", descripcion: "Que cambio respecto del periodo anterior, por proceso.", parametros: ["empresa_id", "pericodi"] },
       { ruta: "/agente/causas/{empresa_id}/{pericodi}", descripcion: "Descomposicion de la variacion en sus causas.", parametros: ["empresa_id", "pericodi"] },
@@ -182,7 +184,8 @@ function FichaEndpoint({ endpoint, contexto }) {
 export function ApisDescargas() {
   const { periodo, empresa, empresas } = useSeleccion();
 
-  const alias = empresas.find((e) => e.empresa_id === empresa)?.alias;
+  const ficha = empresas.find((e) => e.empresa_id === empresa);
+  const alias = ficha ? nombreEmpresa(ficha) : undefined;
 
   return (
     <div className="rejilla">

@@ -31,9 +31,9 @@ const LIMITES = [
       "Fueron generados para dar profundidad interanual, calibrados sobre el comportamiento de los meses reales. Sirven para demostrar tendencias y estacionalidad; no para afirmar hechos sobre empresas concretas ni contrastar cifras publicadas. Cada mes sintetico se marca en pantalla.",
   },
   {
-    titulo: "Las empresas estan anonimizadas",
+    titulo: "Los nombres de empresa son reales; sus cifras no",
     detalle:
-      "El identificador real fue reemplazado por uno ficticio, estable entre todos los datasets. El nombre que ves es un alias generado, no la razon social. Si una empresa aparece en dos vistas distintas, es la misma entidad — pero no es posible saber cual.",
+      "El welcome kit llega anonimizado: cada empresa es un codigo tecnico (EMPRESA_001) sin RUC ni razon social, y no existe ninguna clave que lo cruce con una empresa real. Para la presentacion, a los 74 codigos con liquidacion se les ADJUDICO una identidad tomada del padron real del COES: los codigos ordenados por clave, las empresas reales ordenadas por RUC, emparejados por posicion. Es una asignacion determinista, no una recuperacion de identidad. Consecuencia: los montos, variaciones y alertas que ves bajo un nombre real son simulados y esa empresa no tuvo esos resultados. Esta seccion es el unico lugar del portal que lo dice; las demas pantallas van limpias a proposito.",
   },
   {
     titulo: "LSCIO tiene meses sin carga",

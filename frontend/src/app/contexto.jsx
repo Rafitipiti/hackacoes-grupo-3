@@ -17,10 +17,13 @@ export function useSeleccion() {
 
 export function ProveedorSeleccion({ children }) {
   const [periodos, setPeriodos] = useState([]);
-  const [empresas, setEmpresas] = useState([]);
+  // La lista de empresas recuerda de que periodo es. "Cargando" se deduce
+  // comparando ese periodo con el elegido, en vez de llevar una bandera
+  // aparte que habria que encender a mano al inicio de cada efecto.
+  const [padron, setPadron] = useState({ pericodi: null, lista: [] });
   const [periodo, setPeriodo] = useState(null);
   const [empresa, setEmpresa] = useState(null);
-  const [cargando, setCargando] = useState(true);
+  const [cargandoPeriodos, setCargandoPeriodos] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -29,21 +32,17 @@ export function ProveedorSeleccion({ children }) {
 
     async function cargar() {
       try {
-        const [respPeriodos, respEmpresas] = await Promise.all([
-          axios.get(`${API_URL}/periodos`),
-          axios.get(`${API_URL}/empresas`),
-        ]);
+        const respuesta = await axios.get(`${API_URL}/periodos`);
 
         if (!vigente) return;
 
-        const listaPeriodos = respPeriodos.data.periodos;
+        const listaPeriodos = respuesta.data.periodos;
 
         if (!listaPeriodos || listaPeriodos.length === 0) {
-          throw new Error("El servicio no devolvio ningun periodo.");
+          throw new Error("El servicio no devolvió ningún periodo.");
         }
 
         setPeriodos(listaPeriodos);
-        setEmpresas(respEmpresas.data.empresas ?? []);
 
         // Arranca en el ultimo periodo CERRADO, no en el mas reciente.
         // Los periodos abiertos no tienen reportes intermedios cargados,
@@ -57,13 +56,9 @@ export function ProveedorSeleccion({ children }) {
       } catch (e) {
         if (!vigente) return;
 
-        setError(
-          e.response
-            ? `el servicio respondio ${e.response.status}`
-            : "no se pudo contactar con el servicio de liquidaciones",
-        );
+        setError(describirError(e));
       } finally {
-        if (vigente) setCargando(false);
+        if (vigente) setCargandoPeriodos(false);
       }
     }
 
@@ -72,9 +67,62 @@ export function ProveedorSeleccion({ children }) {
     return () => { vigente = false; };
   }, []);
 
+  // El selector solo ofrece empresas con liquidacion en el periodo elegido
+  // (spec portal-analitico, D4): 57 de los 131 codigos no tienen ninguna,
+  // y muchos otros no la tienen en TODOS los meses. Por eso la lista se
+  // vuelve a pedir cada vez que cambia el periodo.
+  useEffect(() => {
+    if (periodo === null) return;
+
+    let vigente = true;
+
+    async function cargar() {
+      try {
+        const respuesta = await axios.get(`${API_URL}/empresas`, {
+          params: { pericodi: periodo },
+        });
+
+        if (!vigente) return;
+
+        const lista = respuesta.data.empresas ?? [];
+        setPadron({ pericodi: periodo, lista });
+
+        // Si la empresa elegida no liquida en el nuevo periodo, la
+        // seleccion se suelta: mantenerla llevaria a una pantalla vacia.
+        setEmpresa((actual) =>
+          actual && !lista.some((e) => e.empresa_id === actual) ? null : actual,
+        );
+      } catch (e) {
+        if (!vigente) return;
+
+        setError(describirError(e));
+      }
+    }
+
+    cargar();
+
+    return () => { vigente = false; };
+  }, [periodo]);
+
+  const empresas = padron.lista;
+  const cargandoEmpresas = periodo !== null && padron.pericodi !== periodo;
+  // La primera impresion espera a las dos listas; despues, un cambio de
+  // periodo solo marca el selector como ocupado, sin vaciar la pantalla.
+  const cargando = cargandoPeriodos || (cargandoEmpresas && padron.pericodi === null);
+
   const valor = useMemo(
-    () => ({ periodo, setPeriodo, empresa, setEmpresa, periodos, empresas, cargando, error }),
-    [periodo, empresa, periodos, empresas, cargando, error],
+    () => ({
+      periodo,
+      setPeriodo,
+      empresa,
+      setEmpresa,
+      periodos,
+      empresas,
+      cargando,
+      cargandoEmpresas,
+      error,
+    }),
+    [periodo, empresa, periodos, empresas, cargando, cargandoEmpresas, error],
   );
 
   return (
@@ -82,4 +130,10 @@ export function ProveedorSeleccion({ children }) {
       {children}
     </SeleccionContext.Provider>
   );
+}
+
+function describirError(e) {
+  return e.response
+    ? `el servicio respondió ${e.response.status}`
+    : "no se pudo contactar con el servicio de liquidaciones";
 }

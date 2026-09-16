@@ -3,6 +3,7 @@ import axios from "axios";
 import "./App.css";
 
 import { Variacion } from "./componentes/Variacion.jsx";
+import { nombreEmpresa } from "./lib/empresa.js";
 
 import {
     BarChart,
@@ -264,12 +265,13 @@ function LegacyApp({ modoInicial = null, empresaInicial = null, periodoInicial =
         }
     }
 
+    // Razon social cuando la hay (spec portal-analitico, D5); alias si no.
     function aliasDeEmpresa(empresaId) {
-        return (
-            empresas.find(
-                (empresa) => empresa.empresa_id === empresaId
-            )?.alias ?? empresaId
+        const empresa = empresas.find(
+            (empresa) => empresa.empresa_id === empresaId
         );
+
+        return empresa ? nombreEmpresa(empresa) : empresaId;
     }
 
     async function cargarRadar() {

@@ -109,6 +109,28 @@
   padding: 5px 7px;
 }
 .aviso-empresa { margin: 0; font-size: 11px; color: var(--ink-muted); }
+.ayuda-empresa { margin: 0; font-size: 11px; color: var(--ink-muted); }
+
+/* La empresa elegida se muestra con razon social y RUC (spec D5). El RUC
+   va en mono y en gris: identifica, no compite con el nombre. */
+.empresa-elegida {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--ink);
+  background: var(--surface-2);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+.empresa-elegida .ruc {
+  font-family: var(--fuente-mono);
+  font-size: 11px;
+  color: var(--ink-muted);
+}
 
 .alternar-tema { width: 100%; }
 

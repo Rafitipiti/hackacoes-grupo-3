@@ -1,5 +1,15 @@
 /* Identidad HackaCOES 2026. Tomado de
-   complemento/dashboard_liquidaciones_coes.html sin modificar los valores. */
+   docs/referencia-diseno/dashboard-liquidaciones-original.html sin
+   modificar los valores.
+
+   Las maquetas de resumen y comparador (spec portal-analitico, D1)
+   aportan dos cosas: una paleta de series para graficos y el par
+   positivo/negativo. Se incorporan aqui como --serie-N y --pos/--neg.
+   Lo que NO se adopta son sus superficies: son un neutro calido
+   (#fcfcfb sobre #0d0d0d) que sustituiria la identidad azul del COES.
+   Los nombres de la maqueta que solo cambiaban de etiqueta se resuelven
+   abajo como alias, para poder escribir CSS nuevo con el vocabulario
+   del spec sin duplicar valores. */
 
 :root {
   color-scheme: light;
@@ -24,12 +34,37 @@
      fondo claro. Sirve para rellenos y marcas, donde el minimo es 3:1;
      para texto se usa esta variante, que da 6.44:1. */
   --good-texto:#0a6e1c;
+  /* Series de grafico. Las maquetas usan #eb6834, #1baf7a y #eda100 en
+     modo claro: sobre #F1F5FA dan 2,92:1, 2,57:1 y 1,98:1, por debajo
+     del 3:1 que pide un elemento no textual. Se oscurecen conservando
+     el tono (3,55:1, 3,97:1 y 3,48:1). En oscuro los originales ya
+     pasan y se usan sin tocar. */
+  --serie-1:#2a78d6; --serie-2:#d95926; --serie-3:#118a61; --serie-4:#b37600;
+  /* D2: azul para lo positivo, no verde. Las flechas y los rellenos
+     indican direccion; el juicio de valor no lo pone el color. */
+  --pos:#2a78d6; --neg:#d03b3b;
+  /* Mismo caso que --warn-texto: como relleno bastan 3:1, pero como
+     texto hacen falta 4,5:1. Estas variantes dan 5,07:1 y 5,13:1. */
+  --pos-texto:#2168bd; --neg-texto:#c22f2f;
   --seq1:#DCE8F7; --seq2:#BBD3EE; --seq3:#93B8E2; --seq4:#5F94D0;
   --seq5:#2E6DB8; --seq6:#114F97; --seq7:#002482;
   --shadow:0 1px 2px rgba(0,36,130,.06);
   --grad:linear-gradient(90deg,#002482 0%,#005BA7 17%,#209DD3 32%,#6E73BC 49%,#944785 64%,#CB252A 79%,#EE8729 91%,#F5C354 100%);
   --ok:#0C7C3E; --bad:#C0392B;
   --sobre-accent:#ffffff;
+
+  /* Alias del vocabulario de las maquetas sobre los tokens ya
+     existentes. No se repiten por modo: var() se resuelve al usarse, de
+     modo que un alias sigue al valor que tenga su origen en el modo
+     activo. */
+  --surface-1: var(--surface);
+  --plane: var(--bg);
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-2);
+  --text-muted: var(--ink-muted);
+  --warning: var(--warn);
+  --critical: var(--crit);
+  --sombra: var(--shadow);
 
   --radio:10px;
   --fuente:"Poppins", system-ui, -apple-system, sans-serif;
@@ -49,6 +84,9 @@
     --warn:#F5C354; --crit:#E8736A; --good:#3BC46F;
     --warn-texto:#F5C354;
     --good-texto:#3BC46F;
+    --serie-1:#3987e5; --serie-2:#d95926; --serie-3:#199e70; --serie-4:#c98500;
+    --pos:#3987e5; --neg:#e66767;
+    --pos-texto:#3987e5; --neg-texto:#e66767;
     --seq1:#002482; --seq2:#114F97; --seq3:#2E6DB8; --seq4:#5F94D0;
     --seq5:#93B8E2; --seq6:#BBD3EE; --seq7:#DCE8F7;
     --shadow:none;
@@ -70,6 +108,9 @@
   --warn:#F5C354; --crit:#E8736A; --good:#3BC46F;
   --warn-texto:#F5C354;
   --good-texto:#3BC46F;
+  --serie-1:#3987e5; --serie-2:#d95926; --serie-3:#199e70; --serie-4:#c98500;
+  --pos:#3987e5; --neg:#e66767;
+  --pos-texto:#3987e5; --neg-texto:#e66767;
   --seq1:#002482; --seq2:#114F97; --seq3:#2E6DB8; --seq4:#5F94D0;
   --seq5:#93B8E2; --seq6:#BBD3EE; --seq7:#DCE8F7;
   --shadow:none;
