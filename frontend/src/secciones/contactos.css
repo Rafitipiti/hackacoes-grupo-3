@@ -1,4 +1,6 @@
-/* Contactos: fichas por empresa guardadas en Excel (spec 9.3). */
+/* Contactos: fichas por empresa (spec 9.3; almacen Supabase o Excel, seccion 12). */
+
+.aviso-almacen { margin: 0 0 12px; padding: 7px 10px; border-radius: 6px; background: var(--surface-2); }
 
 .lista-contactos li { padding: 0; }
 .lista-contactos .fila-empresa {

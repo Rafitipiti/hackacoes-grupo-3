@@ -96,7 +96,7 @@ const GLOSARIO = [
   },
   {
     patrones: [/\b(que es|de que trata|para que sirve) (esta )?(pagina|portal|web|aplicacion)/, /\bque hace (esta pagina|el portal)/],
-    titulo: "Liquidaciones 360",
+    titulo: "COES Hub",
     texto: "Consolida las liquidaciones del COES en un solo lugar: qué salió cada mes, qué cambió para cada empresa y por qué, con trazabilidad hasta el soporte. Elige publicación y empresa arriba a la derecha.",
     sugerencias: ["Info"],
   },
@@ -110,8 +110,8 @@ const SECCIONES = [
   { id: "evolucion", claves: ["evolucion", "historico", "historia"], texto: "La serie de 20 meses de la empresa, total o por proceso." },
   { id: "procesos", claves: ["procesos", "pagos", "cobros"], texto: "Cuánto paga y cuánto cobra la empresa en cada proceso, y a quién." },
   { id: "comparador", claves: ["comparador", "comparar empresas"], texto: "Varias empresas lado a lado en el mismo mes." },
-  { id: "revisiones", claves: ["revisiones", "ciclo"], texto: "Cómo evoluciona una liquidación entre publicaciones." },
-  { id: "red", claves: ["red", "precios", "mapa", "costo marginal", "barras"], texto: "Mapa de barras y costo marginal por periodo." },
+  { id: "simulador", claves: ["simulador", "simular", "calculo preliminar", "estimar", "formula", "formulas"], texto: "Estima la liquidación del mes con tu energía, tus valores o la participación histórica, y muestra las fórmulas con tus números." },
+  { id: "red", claves: ["red", "precios", "mapa", "costo marginal", "barras", "entregas", "retiros"], texto: "Mapa del SEIN por capas: costo marginal, entregas y retiros por barra, con ranking y perfil diario." },
   { id: "contactos", claves: ["contactos", "ficha", "cuentas"], texto: "Ficha de contacto y cuentas por empresa." },
   { id: "apis", claves: ["api", "apis", "descargas", "descargar", "exportar"], texto: "Consulta y exporta los datos." },
   { id: "calidad", claves: ["calidad", "trazabilidad", "limites"], texto: "Reglas de integridad y límites del dato." },
@@ -119,7 +119,7 @@ const SECCIONES = [
 
 const NOMBRE_SECCION = {
   panorama: "Panorama", "mi-empresa": "Mi empresa", evolucion: "Evolución histórica", procesos: "Procesos",
-  comparador: "Comparador", revisiones: "Ciclo y revisiones", red: "Red y precios", contactos: "Contactos",
+  comparador: "Comparador", simulador: "Simulador", red: "Red y precios", contactos: "Contactos",
   apis: "APIs y descargas", calidad: "Calidad y trazabilidad",
 };
 

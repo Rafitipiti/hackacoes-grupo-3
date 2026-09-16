@@ -9,7 +9,7 @@ import { Comparador } from "../secciones/Comparador.jsx";
 import { Procesos } from "../secciones/Procesos.jsx";
 import { RedPrecios } from "../secciones/RedPrecios.jsx";
 import { Contactos } from "../secciones/Contactos.jsx";
-import { CicloRevisiones } from "../secciones/CicloRevisiones.jsx";
+import { Simulador } from "../secciones/Simulador.jsx";
 import { ApisDescargas } from "../secciones/ApisDescargas.jsx";
 import { Calidad } from "../secciones/Calidad.jsx";
 
@@ -18,7 +18,6 @@ import "../estilos/base.css";
 import "./layout.css";
 import "../componentes/componentes.css";
 import "../componentes/asistente.css";
-import "../secciones/ciclo.css";
 import "../secciones/evolucion.css";
 import "../secciones/comparador.css";
 import "../secciones/procesos.css";
@@ -27,7 +26,7 @@ import "../secciones/contactos.css";
 import "../secciones/ejecutivo.css";
 import "../secciones/publicacion.css";
 import "../secciones/apis.css";
-import "../App.css";
+import "../secciones/simulador.css";
 
 const TEMAS = ["auto", "claro", "oscuro"];
 
@@ -60,7 +59,7 @@ function Contenido({ seccion, alCambiarSeccion }) {
   if (seccion === "procesos") return <Procesos />;
   if (seccion === "red") return <RedPrecios />;
   if (seccion === "contactos") return <Contactos />;
-  if (seccion === "revisiones") return <CicloRevisiones />;
+  if (seccion === "simulador") return <Simulador />;
   if (seccion === "calidad") return <Calidad />;
   if (seccion === "apis") return <ApisDescargas />;
   return null;

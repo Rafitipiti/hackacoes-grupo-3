@@ -41,6 +41,16 @@ const LIMITES = [
       "Las transferencias entre empresas (quién le paga a quién, por proceso y valorización) llegan publicadas para julio 2026 y proyectadas para 2025. Para enero–junio y agosto 2026 no había detalle: se proyectó tomando julio 2026 como plantilla de estructura y escalando los pagos de cada empresa por su propia actividad mensual, con una variación determinista pequeña. Los totales por empresa siguen siendo los de la evolución mensual; lo proyectado es el reparto entre contrapartes. La proyección está en data/cruce_bilateral_proyectado.csv.",
   },
   {
+    titulo: "El simulador es un cálculo preliminar, no una liquidación",
+    detalle:
+      "La energía pegada se valoriza con el costo marginal promedio diario publicado de cada barra; la valorización oficial usa intervalos de 15 minutos. La vía por cuota aplica la participación histórica de la empresa al volumen del sistema; la vía por fórmula aplica la regla de cada proceso a los valores escritos. La demanda coincidente de potencia no se publica en MW: se despeja del monto liquidado con precios de referencia (S/ 25 y S/ 6 por kW-mes). La energía registrada por empresa es una muestra del total del sistema, así que la fórmula de energía activa con esa energía queda por debajo de lo liquidado; con la energía real de la empresa el resultado sí es el suyo.",
+  },
+  {
+    titulo: "Las entregas y retiros del mapa son los registrados por barra",
+    detalle:
+      "Una entrega se atribuye a la empresa dueña del punto de entrega y a la barra de ese punto; un retiro, al generador que lo respalda y a su barra. Solo se dibujan las barras con costo marginal publicado; la energía que cae en barras sin precio se declara aparte en la propia pantalla.",
+  },
+  {
     titulo: "LSCIO tiene meses sin carga",
     detalle:
       "Es carga manual mes a mes del equipo de COES. Los meses vacios no son un error del dato: reflejan como es la operación real.",

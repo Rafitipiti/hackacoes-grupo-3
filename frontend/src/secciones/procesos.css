@@ -40,3 +40,7 @@
 .chip.activo { border-color: var(--accent); font-weight: 600; }
 .chip .muestra { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
 .chip:disabled { opacity: .45; cursor: not-allowed; }
+
+/* Contrapartes plegadas: la fila que resume lo que no se muestra. */
+.fila-plegada td { background: var(--surface-2); font-size: 12px; }
+.fila-plegada .enlace { padding: 0; }

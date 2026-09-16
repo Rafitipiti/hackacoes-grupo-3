@@ -3,10 +3,19 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.routers import catalogos, contactos, empresa, panorama, publicacion, red, revisiones
+from app.routers import (
+    catalogos,
+    contactos,
+    empresa,
+    panorama,
+    publicacion,
+    red,
+    revisiones,
+    simulador,
+)
 
 app = FastAPI(
-    title="COES Liquidaciones 360",
+    title="COES Hub",
     description=(
         "API para consulta, analisis y trazabilidad "
         "de liquidaciones del mercado electrico peruano."
@@ -49,12 +58,13 @@ app.include_router(revisiones.router)
 app.include_router(red.router)
 app.include_router(contactos.router)
 app.include_router(publicacion.router)
+app.include_router(simulador.router)
 
 
 @app.get("/")
 def raiz():
     return {
-        "servicio": "COES Liquidaciones 360",
+        "servicio": "COES Hub",
         "version": app.version,
         "documentacion": "/docs",
     }

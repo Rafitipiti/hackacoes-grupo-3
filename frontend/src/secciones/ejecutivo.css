@@ -27,7 +27,8 @@
 
 .kpis {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  min-width: 0;
+  grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
   gap: 10px;
 }
 .kpis-empresa { grid-template-columns: minmax(220px, 1.2fr) minmax(220px, 1fr); }
@@ -128,8 +129,10 @@
 .contexto-nota { grid-column: 1 / -1; }
 
 @media (max-width: 960px) {
-  .hero-periodo { grid-template-columns: 1fr; }
-  .kpis-empresa { grid-template-columns: 1fr; }
+  /* minmax(0, 1fr) y no 1fr: el minimo de `1fr` es el contenido, y la
+     rejilla de indicadores empujaba la tarjeta mas alla del telefono. */
+  .hero-periodo { grid-template-columns: minmax(0, 1fr); }
+  .kpis-empresa { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Analisis detallado: bloques compactos por proceso, en dos columnas. */

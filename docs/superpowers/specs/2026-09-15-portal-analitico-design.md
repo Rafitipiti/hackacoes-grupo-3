@@ -290,3 +290,48 @@ maqueta `maqueta_publicacion_mensual.html` del kit.
   (suma de netos positivos). Con empresa elegida, su neto con signo.
 - Endpoints: `GET /publicacion/{pericodi}?empresa_id=` y
   `GET /publicacion/{pericodi}/detalle/{proceso}/{pericodi}/{revision}`.
+
+## 12. Segunda tanda de mejoras (D17–D24, 2026-09-16, tarde)
+
+Peticiones del usuario al retomar la sesión, todas implementadas.
+
+- **D17 · Simulador reemplaza a "Ciclo y revisiones".** La sección sigue
+  la dinámica de la maqueta: elegir granularidad (mensual/diaria) y
+  detalle (una barra/varias), pegar entregas y retiros desde Excel, ver
+  "Tus valores" (potencia, LSCIO, SST-SCT prellenados con lo liquidado),
+  el "Cálculo preliminar" (simulado vs liquidado, por cuota histórica o
+  por fórmula, con escenario ±%) y "Las fórmulas, con tus números". La
+  valorización de energía la hace el servidor con el CMg publicado de
+  cada barra y día (`POST /simulador/valorizar`); la base de la empresa
+  sale de `GET /simulador/base/{ruc}/{pericodi}`. Signo del portal:
+  positivo cobra. Los endpoints `/revisiones/*` se conservan en la API.
+- **D18 · Red y precios por capas.** Todo en uno (color = CMg,
+  semicírculo izquierdo = entregas, derecho = retiros), Costo marginal,
+  Entregas y Retiros. Ranking "Barras con el costo marginal más alto"
+  (o con más entregas/retiros) y perfil diario de la barra por magnitud,
+  manteniendo el filtrado por mes. La energía por barra sale de
+  `entregas` (vía `puntos_entrega`) y `retiros` (por generador), en
+  `app/services/energia.py`; `/red/barras/{pericodi}?empresa_id=` y
+  `/red/energia/{barrcodi}/{pericodi}`.
+- **D19 · Panorama consolidado.** Una sola franja de indicadores
+  alimentada por `/publicacion` (que ya respeta la empresa) más el radar
+  para número de empresas, alertas y variación frente al mes anterior.
+  Con empresa elegida los indicadores son de esa empresa y su fila queda
+  resaltada en el radar. Desaparece el segundo bloque de KPIs.
+- **D20 · Responsive.** La barra lateral pasa a franja superior con botón
+  de menú por debajo de 860 px; el selector se apila; rejillas y tablas
+  colapsan a una columna o se desplazan dentro de su contenedor.
+- **D21 · Contactos en Supabase.** `ContactosSupabase` (PostgREST con la
+  clave de servicio) sustituye al Excel cuando existen `SUPABASE_URL` y
+  `SUPABASE_SERVICE_KEY`; sin ellas cae al Excel local. Esquema en
+  `supabase/contactos.sql`; migración con
+  `scripts/migrar_contactos_supabase.py`. El resto de datos simulados
+  siguen en `data/` (son insumos de lectura, no se escriben).
+- **D22 · Procesos plegado.** Las contrapartes de cada proceso muestran
+  las seis mayores y una fila "Ver las N restantes" con su suma.
+- **D23 · Calendario de publicación.** El selector de publicación es un
+  calendario de meses por año (sin el estado Cerrado/Abierto); solo se
+  pulsan los meses con publicación.
+- **D24 · Marca COES Hub.** El portal se llama COES Hub y la barra lleva
+  el logo del COES sobre fondo claro fijo (su azul marino no se lee en
+  modo oscuro). El legado `LegacyApp.jsx`/`App.css` se elimina.

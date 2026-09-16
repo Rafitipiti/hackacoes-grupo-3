@@ -1,16 +1,44 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { obtenerDetallePublicacion, obtenerPublicacion } from "../api/publicacion.js";
-import { useSeleccion } from "../app/contexto.jsx";
 import { EstadoCarga } from "../componentes/EstadoCarga.jsx";
 import { Tarjeta } from "../componentes/Tarjeta.jsx";
 import { Variacion } from "../componentes/Variacion.jsx";
-import { nombreEmpresa } from "../lib/empresa.js";
 import { porcentaje, soles, solesCortos } from "../lib/formato.js";
 import { COLOR_PROCESO, NOMBRE_PROCESO, etiquetaProceso } from "../lib/procesos.js";
 
 const COLOR_POS = "var(--pos)";
 const COLOR_NEG = "var(--neg)";
+
+/**
+ * Lo que salio en la publicacion de un mes, para el sector o para una
+ * empresa. Panorama lo usa para su franja de indicadores y para las
+ * tarjetas por proceso, asi que las dos cosas cuentan lo mismo.
+ */
+export function usePublicacion(periodo, empresa) {
+  const clave = periodo ? `${periodo}-${empresa ?? ""}` : null;
+  const [estado, setEstado] = useState({ clave: null, datos: null, error: null });
+
+  useEffect(() => {
+    if (!clave) return;
+    let vigente = true;
+    obtenerPublicacion(periodo, empresa)
+      .then((d) => { if (vigente) setEstado({ clave, datos: d, error: null }); })
+      .catch((e) => {
+        if (!vigente) return;
+        setEstado({
+          clave, datos: null,
+          error: e.response?.status === 404
+            ? "Esta publicación no contiene liquidaciones para la selección actual."
+            : "No se pudo contactar con el servicio de liquidaciones.",
+        });
+      });
+    return () => { vigente = false; };
+  }, [clave, periodo, empresa]);
+
+  const cargando = Boolean(clave) && estado.clave !== clave;
+  return { clave, cargando, datos: cargando ? null : estado.datos, error: cargando ? null : estado.error };
+}
 
 /** Una tarjeta de la publicacion: una liquidacion (R0) o un recalculo (Rn). */
 function TarjetaLiquidacion({ item, alAbrir }) {
@@ -87,7 +115,7 @@ function GraficoImpacto({ componentes }) {
   );
 }
 
-function DetalleTarjeta({ publicacion, item, empresaId, alVolver }) {
+export function DetalleTarjeta({ publicacion, item, empresaId, alVolver }) {
   const [estado, setEstado] = useState({ clave: null, datos: null, error: null });
   const clave = `${publicacion}-${item.proceso}-${item.pericodi}-${item.revision}-${empresaId ?? ""}`;
 
@@ -208,107 +236,32 @@ function DetalleTarjeta({ publicacion, item, empresaId, alVolver }) {
   );
 }
 
-export function PublicacionMensual() {
-  const { periodo, empresa, empresas } = useSeleccion();
-
-  const clave = periodo ? `${periodo}-${empresa ?? ""}` : null;
-  const [estado, setEstado] = useState({ clave: null, datos: null, error: null });
-  const [abierta, setAbierta] = useState(null);
-
-  useEffect(() => {
-    if (!clave) return;
-    let vigente = true;
-    obtenerPublicacion(periodo, empresa)
-      .then((d) => { if (vigente) setEstado({ clave, datos: d, error: null }); })
-      .catch((e) => {
-        if (!vigente) return;
-        setEstado({
-          clave, datos: null,
-          error: e.response?.status === 404
-            ? "Esta publicación no contiene liquidaciones para la selección actual."
-            : "No se pudo contactar con el servicio de liquidaciones.",
-        });
-      });
-    return () => { vigente = false; };
-  }, [clave, periodo, empresa]);
-
-  // Al cambiar de publicacion o de empresa, la tarjeta abierta ya no aplica.
-  const [claveVista, setClaveVista] = useState(clave);
-  if (clave !== claveVista) {
-    setClaveVista(clave);
-    setAbierta(null);
-  }
-
-  const cargando = Boolean(clave) && estado.clave !== clave;
-  const d = cargando ? null : estado.datos;
-  const error = cargando ? null : estado.error;
-
-  const ficha = empresas.find((e) => e.empresa_id === empresa);
-  const alcance = useMemo(() => (empresa && ficha ? nombreEmpresa(ficha) : "todo el sector"), [empresa, ficha]);
-
-  if (abierta) {
-    return <DetalleTarjeta publicacion={periodo} item={abierta} empresaId={empresa} alVolver={() => setAbierta(null)} />;
-  }
-
+/** Las tarjetas por proceso de una publicacion ya cargada. */
+export function BloquesPublicacion({ datos, alAbrir }) {
   return (
-    <EstadoCarga cargando={cargando} error={error} vacio={!d}>
-      <div className="rejilla publicacion">
-        <Tarjeta etiqueta={`Publicación mensual · ${d?.publicacion_nombre ?? ""}`} titulo={`Qué salió en esta publicación para ${alcance}`}>
-          <p className="nota">
-            Cada mes el COES publica la liquidación del mes (R0) y recálculos de meses anteriores (R1, R2…).
-            La R0 se compara con la última revisión conocida del mes anterior; un recálculo, con su versión inmediata anterior.
-            Pulsa una tarjeta para ver qué provocó la variación.
-            {d?.alcance === "sector"
-              ? " Sin empresa elegida, cada monto es lo que cobran las empresas acreedoras: el volumen que mueve esa liquidación."
-              : " Con una empresa elegida, cada monto es su neto: positivo si cobra, negativo si paga."}
-          </p>
-          <div className="kpis kpis-publicacion">
-            <div className="kpi kpi-acento">
-              <p className="etiqueta">Liquidación del mes en curso</p>
-              <p className="kpi-valor cifra">{solesCortos(d?.resumen.liquidacion_mes_curso)}</p>
-              <p className="nota">Suma de las R0 de los cuatro procesos</p>
+    <>
+      {datos.procesos.map((bloque) => (
+        <section key={bloque.proceso} className="bloque-proceso" style={{ "--acento": COLOR_PROCESO[bloque.proceso] }}>
+          <header className="bloque-proceso-cab">
+            <h3>
+              <span className="distintivo distintivo-revision">{etiquetaProceso(bloque.proceso)}</span>
+              {NOMBRE_PROCESO[bloque.proceso]}
+            </h3>
+            <span className="nota">
+              {bloque.items.filter((i) => i.revision === 0).length} liquidación del mes · {bloque.items.filter((i) => i.revision > 0).length} recálculos
+            </span>
+          </header>
+          {bloque.items.length ? (
+            <div className="cuadrantes">
+              {bloque.items.map((item) => (
+                <TarjetaLiquidacion key={`${item.pericodi}-${item.revision}`} item={item} alAbrir={alAbrir} />
+              ))}
             </div>
-            <div className="kpi">
-              <p className="etiqueta">Efecto neto de recálculos</p>
-              <p className="kpi-valor cifra">{solesCortos(d?.resumen.efecto_neto_recalculos)}</p>
-              <p className="nota">{d?.resumen.recalculos} recálculos de meses anteriores</p>
-            </div>
-            <div className="kpi">
-              <p className="etiqueta">Alcance hacia atrás</p>
-              <p className="kpi-valor cifra">{d?.resumen.alcance_meses} <span className="nota">meses</span></p>
-              <p className="nota">Hasta dónde llegan los recálculos</p>
-            </div>
-            <div className="kpi">
-              <p className="etiqueta">Variaciones fuertes</p>
-              <p className="kpi-valor cifra">{d?.resumen.variaciones_fuertes}</p>
-              <p className="nota">Tarjetas que merecen una mirada</p>
-            </div>
-          </div>
-        </Tarjeta>
-
-        {d?.procesos.map((bloque) => (
-          <section key={bloque.proceso} className="bloque-proceso" style={{ "--acento": COLOR_PROCESO[bloque.proceso] }}>
-            <header className="bloque-proceso-cab">
-              <h3>
-                <span className="distintivo distintivo-revision">{etiquetaProceso(bloque.proceso)}</span>
-                {NOMBRE_PROCESO[bloque.proceso]}
-              </h3>
-              <span className="nota">
-                {bloque.items.filter((i) => i.revision === 0).length} liquidación del mes · {bloque.items.filter((i) => i.revision > 0).length} recálculos
-              </span>
-            </header>
-            {bloque.items.length ? (
-              <div className="cuadrantes">
-                {bloque.items.map((item) => (
-                  <TarjetaLiquidacion key={`${item.pericodi}-${item.revision}`} item={item} alAbrir={setAbierta} />
-                ))}
-              </div>
-            ) : (
-              <p className="nota">Este proceso no publicó nada este mes para la selección actual.</p>
-            )}
-          </section>
-        ))}
-      </div>
-    </EstadoCarga>
+          ) : (
+            <p className="nota">Este proceso no publicó nada este mes para la selección actual.</p>
+          )}
+        </section>
+      ))}
+    </>
   );
 }

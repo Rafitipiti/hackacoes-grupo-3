@@ -58,7 +58,7 @@ function Formulario({ empresa, ficha, catalogos, alGuardar, alEliminar, ocupado 
     setMensaje(null);
     try {
       await alGuardar(valores);
-      setMensaje({ tipo: "ok", texto: "Ficha guardada en el libro de contactos." });
+      setMensaje({ tipo: "ok", texto: "Ficha guardada." });
     } catch (err) {
       setMensaje({ tipo: "error", texto: err.response?.data?.detail ?? "No se pudo guardar la ficha." });
     }
@@ -184,10 +184,17 @@ export function Contactos() {
         </Tarjeta>
 
         <Tarjeta etiqueta="Ficha de contacto" titulo={elegida ? nombreEmpresa(elegida) : "Elige una empresa"}>
-          <p className="aviso-demo">
-            El libro de contactos es un Excel sin cifrado ni control de acceso,
-            pensado para la demostración. No cargues cuentas bancarias reales.
-          </p>
+          {libro?.almacen === "supabase" ? (
+            <p className="nota aviso-almacen">
+              Las fichas se guardan en la base de datos del portal (Supabase), consolidadas para todas las empresas.
+              Es una demostración: no cargues cuentas bancarias reales.
+            </p>
+          ) : (
+            <p className="aviso-demo">
+              Las fichas se están guardando en un archivo local sin cifrado ni control de acceso,
+              pensado para la demostración. No cargues cuentas bancarias reales.
+            </p>
+          )}
           {elegida ? (
             <Formulario
               empresa={elegida}

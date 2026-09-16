@@ -23,14 +23,22 @@ const CATALOGO = [
   {
     grupo: "Red y precios",
     endpoints: [
-      { ruta: "/red/barras/{pericodi}", descripcion: "Barras con costo marginal en el mes, con ubicación estimada y promedio, mínimo y máximo del periodo.", parametros: ["pericodi"] },
+      { ruta: "/red/barras/{pericodi}", descripcion: "Barras con costo marginal en el mes, con ubicación estimada, promedio, mínimo y máximo del periodo y la energía entregada y retirada en cada una. Con ?empresa_id= (RUC) la energía es solo la de esa empresa.", parametros: ["pericodi"] },
       { ruta: "/red/cmg/1/{pericodi}", descripcion: "Curva diaria del costo marginal de una barra (aquí la barra 1, TALARA 220) en el periodo, y los periodos con dato.", parametros: ["pericodi"] },
+      { ruta: "/red/energia/1/{pericodi}", descripcion: "Entregas y retiros por día de una barra (aquí la barra 1) en el periodo, en MWh. Con ?empresa_id= (RUC) se acota a una empresa.", parametros: ["pericodi"] },
+    ],
+  },
+  {
+    grupo: "Simulador",
+    endpoints: [
+      { ruta: "/simulador/base/{ruc}/{pericodi}", descripcion: "Punto de partida del simulador para una empresa: energía por barra, montos liquidados por proceso, mecanismos que los componen, participación histórica y volumen del sistema.", parametros: ["ruc", "pericodi"] },
+      { ruta: "/simulador/barras/{pericodi}", descripcion: "Barras con costo marginal publicado en el mes, con su promedio, para elegir la barra a valorizar.", parametros: ["pericodi"] },
     ],
   },
   {
     grupo: "Contactos",
     endpoints: [
-      { ruta: "/contactos", descripcion: "Todas las fichas de contacto guardadas en el libro Excel, con los catálogos de moneda y tipo de cuenta.", parametros: [] },
+      { ruta: "/contactos", descripcion: "Todas las fichas de contacto guardadas, con los catálogos de moneda y tipo de cuenta y el almacén activo (base de datos o Excel local).", parametros: [] },
     ],
   },
   {

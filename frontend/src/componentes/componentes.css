@@ -1,5 +1,6 @@
 .tarjeta-cabecera {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
@@ -30,8 +31,10 @@
 .tabla-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
 .rejilla { display: grid; gap: 14px; }
-.rejilla-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-.rejilla-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+/* Un hijo de rejilla nunca fuerza a la rejilla a crecer mas que la pantalla. */
+.rejilla > * { min-width: 0; }
+.rejilla-2, .rejilla-3 { grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); }
+.rejilla-3 { grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); }
 
 .limite { border-top: 1px solid var(--grid); padding: 9px 0; }
 .limite summary { cursor: pointer; font-weight: 600; font-size: 13px; }

@@ -125,11 +125,22 @@ function DiagramaPagosCobros({ procesos }) {
   );
 }
 
+// Con una empresa elegida las contrapartes de un proceso pueden ser
+// decenas; se muestran las mas grandes y el resto queda plegado
+// (peticion del usuario, 2026-09-16).
+const FILAS_VISIBLES = 6;
+
 function Contrapartes({ titulo, filas, color }) {
+  const [abierto, setAbierto] = useState(false);
+
   if (!filas.length) return <p className="nota">Sin {titulo.toLowerCase()} en este proceso.</p>;
 
   const total = filas.reduce((s, f) => s + f.monto, 0);
   const escala = Math.max(...filas.map((f) => f.monto), 1);
+  const ordenadas = [...filas].sort((a, b) => b.monto - a.monto);
+  const ocultas = Math.max(0, ordenadas.length - FILAS_VISIBLES);
+  const visibles = abierto ? ordenadas : ordenadas.slice(0, FILAS_VISIBLES);
+  const restante = ocultas ? ordenadas.slice(FILAS_VISIBLES).reduce((s, f) => s + f.monto, 0) : 0;
 
   return (
     <div className="tabla-scroll">
@@ -144,7 +155,7 @@ function Contrapartes({ titulo, filas, color }) {
           </tr>
         </thead>
         <tbody>
-          {filas.map((f, i) => (
+          {visibles.map((f, i) => (
             <tr key={`${f.empresa_id}-${f.valorizacion}-${i}`}>
               <td>
                 <strong>{nombreEmpresa(f)}</strong>
@@ -162,6 +173,26 @@ function Contrapartes({ titulo, filas, color }) {
               <td className="num">{total ? `${((f.monto / total) * 100).toFixed(1)}%` : "—"}</td>
             </tr>
           ))}
+          {ocultas > 0 && !abierto && (
+            <tr className="fila-plegada">
+              <td colSpan={2}>
+                <button type="button" className="enlace" onClick={() => setAbierto(true)} aria-expanded={false}>
+                  Ver las {ocultas} restantes
+                </button>
+              </td>
+              <td className="num">{soles(restante)}</td>
+              <td className="num">{total ? `${((restante / total) * 100).toFixed(1)}%` : "—"}</td>
+            </tr>
+          )}
+          {ocultas > 0 && abierto && (
+            <tr className="fila-plegada">
+              <td colSpan={4}>
+                <button type="button" className="enlace" onClick={() => setAbierto(false)} aria-expanded={true}>
+                  Mostrar solo las {FILAS_VISIBLES} mayores
+                </button>
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

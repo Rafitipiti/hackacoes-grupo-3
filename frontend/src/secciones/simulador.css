@@ -1,0 +1,111 @@
+/* Simulador (spec, seccion 12): energia pegada, valores de la empresa,
+   calculo preliminar y las formulas con sus numeros. */
+
+.hero-simulador { grid-template-columns: minmax(240px, 1.2fr) minmax(0, 2fr); }
+.hero-simulador h2 .nota { font-size: 14px; font-weight: 400; }
+
+.controles-sim { display: flex; flex-wrap: wrap; gap: 12px 22px; align-items: flex-end; margin: 10px 0 12px; }
+.controles-hero { margin: 0; justify-content: flex-end; }
+.control-sim { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.control-sim .nota { margin: 0; }
+.control-barra { flex: 1 1 260px; }
+.control-barra select {
+  width: 100%;
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font-family: var(--fuente);
+  font-size: 13px;
+}
+.control-escenario { flex: 1 1 220px; max-width: 320px; }
+.escenario { display: flex; align-items: center; gap: 10px; }
+.escenario input[type="range"] { flex: 1; accent-color: var(--accent); }
+.escenario strong { min-width: 44px; text-align: right; }
+
+/* Segmento: dos o tres opciones excluyentes, una pulsada. */
+.segmento { display: inline-flex; flex-wrap: wrap; max-width: 100%; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--surface-2); }
+.segmento button {
+  border: 0;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: var(--fuente);
+  font-size: 12px;
+  padding: 7px 12px;
+  cursor: pointer;
+  flex: 1 1 auto;
+  white-space: nowrap;
+}
+.segmento button + button { border-left: 1px solid var(--border); }
+.segmento button.activo { background: var(--accent); color: var(--sobre-accent); font-weight: 600; }
+
+.campo-sim { display: flex; flex-direction: column; gap: 4px; min-width: 0; font-size: 12px; }
+.campo-sim > span { font-weight: 600; color: var(--ink-2); }
+.campo-sim input, .campo-sim textarea {
+  width: 100%;
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: 13px;
+}
+.campo-sim input { font-family: var(--fuente-mono); }
+.campo-sim textarea { resize: vertical; line-height: 1.5; font-size: 12.5px; }
+.campo-sim i { font-style: normal; font-size: 11px; color: var(--ink-muted); }
+.campo-pegar { margin-top: 4px; }
+
+.acciones-sim { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 12px 0 4px; }
+.kpis-sim { margin: 14px 0 12px; }
+.fila-total td { font-weight: 700; border-top: 2px solid var(--border); }
+.lista-ignoradas { margin-top: 10px; }
+.lista-ignoradas ul { margin: 4px 0 0; padding-left: 18px; }
+.mensaje-ok { color: var(--good-texto); }
+
+.rejilla-campos { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px 14px; margin-bottom: 14px; }
+.titulo-proceso {
+  margin: 14px 0 8px;
+  padding-left: 10px;
+  border-left: 3px solid var(--acento, var(--ink-muted));
+  font-size: 13px;
+  color: var(--ink);
+}
+.titulo-proceso:first-of-type { margin-top: 10px; }
+
+.par-sim { align-items: start; }
+
+.bloque-formula {
+  border: 1px solid var(--grid);
+  border-top: 3px solid var(--acento, var(--accent));
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: var(--surface-2);
+  min-width: 0;
+}
+.bloque-formula header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; }
+.bloque-formula header .nota { margin: 0; }
+.formula {
+  display: block;
+  font-family: var(--fuente-mono);
+  font-size: 12.5px;
+  line-height: 1.5;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: var(--surface);
+  border: 1px solid var(--grid);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.formula.sustitucion { margin-top: 6px; color: var(--ink-2); }
+.resultado-formula { margin: 8px 0 0; font-size: 13px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px; }
+.resultado-formula .nota { margin: 0; }
+.formula-inline { font-family: var(--fuente-mono); font-size: 12px; }
+
+@media (max-width: 960px) {
+  .hero-simulador { grid-template-columns: 1fr; }
+  .controles-hero { justify-content: flex-start; }
+}
+
+/* Cifras largas (S/ 2,334,075.50) no caben a 24px en tres columnas. */
+.kpis-sim .kpi-valor { font-size: 20px; overflow-wrap: anywhere; }

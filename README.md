@@ -89,7 +89,7 @@ COES_2026/
 └── COES.txt                 notas de instalación del entorno
 ```
 
-Secciones del portal, en el orden del menú: Panorama, Mi empresa, Evolución histórica, Procesos (pagos y cobros), Comparador de empresas, Ciclo y revisiones, Red y precios (mapa de barras y costo marginal), Contactos, APIs y descargas y Calidad y trazabilidad. El selector de publicación y empresa vive en la cabecera, arriba a la derecha, y gobierna todas ellas. El diseño y sus decisiones están en `docs/superpowers/specs/`.
+Secciones de COES Hub, en el orden del menú: Panorama, Mi empresa, Evolución histórica, Procesos (pagos y cobros), Comparador de empresas, Simulador (cálculo preliminar con tu energía y tus valores), Red y precios (mapa del SEIN por capas: costo marginal, entregas y retiros), Contactos (fichas en Supabase), APIs y descargas y Calidad y trazabilidad. El selector de publicación y empresa vive en la cabecera, arriba a la derecha, y gobierna todas ellas. El diseño y sus decisiones están en `docs/superpowers/specs/`.
 
 `frontend/src/LegacyApp.jsx` tiene cerca de 7.900 líneas en una sola función. No es un descuido: ahí vive el análisis causal (flujo A1→A7) que ya funciona, y reescribirlo no era parte del alcance de la reconstrucción del frontend. Se conserva tal cual y se monta dentro de las secciones `Panorama` y `Mi empresa` (`secciones/Panorama.jsx`, `secciones/MiEmpresa.jsx`), que le pasan el periodo y la empresa seleccionados por props.
 

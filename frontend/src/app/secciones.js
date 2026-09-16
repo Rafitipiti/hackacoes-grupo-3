@@ -39,17 +39,17 @@ export const SECCIONES = [
     disponible: true,
   },
   {
-    id: "revisiones",
-    titulo: "Ciclo y revisiones",
-    icono: "↻",
-    descripcion: "Cómo evoluciona una liquidación entre publicaciones",
+    id: "simulador",
+    titulo: "Simulador",
+    icono: "∑",
+    descripcion: "Estima la liquidación del mes con tus datos",
     disponible: true,
   },
   {
     id: "red",
     titulo: "Red y precios",
     icono: "◈",
-    descripcion: "Mapa de barras del SEIN y costo marginal por periodo",
+    descripcion: "Mapa del SEIN: costo marginal, entregas y retiros por barra",
     disponible: true,
   },
   {

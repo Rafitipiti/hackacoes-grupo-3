@@ -1,4 +1,4 @@
-/* Red y precios: mapa de barras y perfil de costo marginal (spec 9.2). */
+/* Red y precios: mapa por capas, ranking y perfil (spec 9.2 y seccion 12). */
 
 .mapa-y-tabla {
   display: grid;
@@ -7,6 +7,7 @@
   align-items: start;
   margin-top: 8px;
 }
+.lado-mapa { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 
 .mapa-peru { width: 100%; height: auto; display: block; }
 .mapa-peru .pais {
@@ -15,17 +16,33 @@
   stroke-width: 1.2;
   stroke-linejoin: round;
 }
+.mapa-peru .barra-marca { cursor: pointer; }
+.mapa-peru .barra-marca:focus-visible { outline: none; }
+.mapa-peru .barra-marca:focus-visible .barra-punto,
+.mapa-peru .barra-marca:focus-visible .barra-energia,
+.mapa-peru .barra-marca:hover .barra-punto,
+.mapa-peru .barra-marca:hover .barra-energia { stroke: var(--ink); stroke-width: 1.4; }
+.mapa-peru .blanco-clic { fill: transparent; stroke: none; }
+.mapa-peru .anillo-activa { fill: none; stroke: var(--ink); stroke-width: 1.6; opacity: .85; }
+
 .mapa-peru .barra-punto {
   fill: var(--serie-1); /* lo pisa el color de la escala, en linea */
   fill-opacity: .9;
   stroke: var(--surface);
   stroke-width: .8;
-  cursor: pointer;
   transition: r .12s ease;
 }
-.mapa-peru .barra-punto:hover, .mapa-peru .barra-punto:focus-visible { fill-opacity: 1; outline: none; stroke: var(--ink); }
 .mapa-peru .barra-punto.nominal { fill: transparent !important; stroke-width: 1.6; }
-.mapa-peru .barra-punto.activa { fill-opacity: 1; stroke: var(--ink); stroke-width: 2; }
+
+.mapa-peru .barra-energia { fill-opacity: .55; stroke-width: 1; }
+.mapa-peru .barra-energia.ent { fill: var(--serie-1); stroke: var(--serie-1); }
+.mapa-peru .barra-energia.ret { fill: var(--serie-3); stroke: var(--serie-3); }
+.mapa-peru .barra-vacia { fill: var(--axis); fill-opacity: .6; }
+
+/* Capa combinada: color = costo marginal, mitades = energia. */
+.mitad { fill-opacity: .62; stroke-width: .9; }
+.mitad-ent { stroke: var(--serie-1); }
+.mitad-ret { stroke: var(--serie-3); }
 
 /* Leyenda de la escala fija de costo marginal, bajo el mapa. */
 .leyenda-cmg {
@@ -42,6 +59,38 @@
 .leyenda-cmg .muestra { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 1px solid var(--border); }
 .muestra-cmg { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
 
+.leyenda-energia { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: 8px; font-size: 11px; color: var(--ink-2); }
+.leyenda-energia .bola { display: inline-block; border-radius: 50%; opacity: .6; }
+.leyenda-energia .nota { margin: 0; }
+
+/* Ranking: la pregunta que se hace mirando el mapa, contestada como lista. */
+.ranking h3 { font-size: 13px; margin-bottom: 6px; }
+.ranking h3 .nota { font-weight: 400; }
+.lista-ranking { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; counter-reset: puesto; }
+.lista-ranking li { counter-increment: puesto; }
+.fila-ranking {
+  display: grid;
+  grid-template-columns: minmax(120px, 1.3fr) minmax(80px, 2fr) auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 3px 6px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--fuente);
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+.fila-ranking:hover { background: var(--surface-2); }
+.nombre-ranking::before { content: counter(puesto) ". "; color: var(--ink-muted); }
+.nombre-ranking .nota { margin: 0; }
+.riel-ranking { display: block; height: 8px; border-radius: 4px; background: var(--surface-3); overflow: hidden; }
+.riel-ranking span { display: block; height: 100%; border-radius: 4px; }
+.valor-ranking { font-weight: 600; white-space: nowrap; }
+
 .tabla-barras input[type="search"] {
   flex: 1 1 160px;
   padding: 6px 9px;
@@ -52,14 +101,19 @@
   font-family: var(--fuente);
   font-size: 12px;
 }
-.lista-barras { max-height: 540px; overflow-y: auto; margin-top: 8px; }
+.lista-barras { max-height: 420px; overflow-y: auto; margin-top: 8px; }
 .lista-barras .fila-elegible { cursor: pointer; }
 .lista-barras .fila-seleccionada td { background: var(--surface-2); font-weight: 600; }
 
 .cabecera-perfil { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.acciones-perfil { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .perfil-cmg .chips { margin: 10px 0 8px; }
 
 @media (max-width: 960px) {
   .mapa-y-tabla { grid-template-columns: 1fr; }
   .lista-barras { max-height: 300px; }
+}
+@media (max-width: 600px) {
+  .fila-ranking { grid-template-columns: minmax(0, 1fr) auto; }
+  .riel-ranking { display: none; }
 }

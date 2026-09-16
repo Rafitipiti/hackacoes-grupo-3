@@ -2,15 +2,11 @@ from fastapi import APIRouter, HTTPException
 from app.data.identificadores import a_empresa_id
 from pydantic import BaseModel, Field
 
-from app.services.contactos_service import (
-    MONEDAS,
-    TIPOS_CUENTA,
-    ContactosService,
-)
+from app.services.contactos_service import MONEDAS, TIPOS_CUENTA, crear_servicio
 
 router = APIRouter(prefix="/contactos", tags=["contactos"])
 
-_servicio = ContactosService()
+_servicio = crear_servicio()
 
 
 class Ficha(BaseModel):
@@ -29,6 +25,7 @@ class Ficha(BaseModel):
 @router.get("")
 def listar():
     return {
+        "almacen": _servicio.almacen,
         "monedas": MONEDAS,
         "tipos_cuenta": TIPOS_CUENTA,
         "fichas": _servicio.listar(),

@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 
 import { useSeleccion } from "./contexto.jsx";
+import { SelectorPeriodo, nombreMes } from "./SelectorPeriodo.jsx";
 import { etiquetaEmpresa, nombreEmpresa, ordenarEmpresas } from "../lib/empresa.js";
 
 export function SeleccionGlobal() {
@@ -46,17 +47,7 @@ export function SeleccionGlobal() {
       <div className="seleccion-controles">
         <div className="campo">
           <label className="etiqueta" htmlFor="sel-periodo">Publicación</label>
-          <select
-            id="sel-periodo"
-            value={periodo ?? ""}
-            onChange={(e) => setPeriodo(Number(e.target.value))}
-          >
-            {periodos.map((p) => (
-              <option key={p.pericodi} value={p.pericodi}>
-                {p.perinombre} · {p.estado}
-              </option>
-            ))}
-          </select>
+          <SelectorPeriodo id="sel-periodo" periodos={periodos} valor={periodo} alCambiar={setPeriodo} />
         </div>
 
         <div className="campo campo-empresa">
@@ -82,12 +73,13 @@ export function SeleccionGlobal() {
           <p className="empresa-elegida">
             <strong>{nombreEmpresa(empresaActual)}</strong>
             {empresaActual.ruc && <span className="ruc">RUC {empresaActual.ruc}</span>}
+            <button type="button" className="quitar-empresa" onClick={() => setEmpresa(null)} aria-label="Quitar la empresa elegida">×</button>
           </p>
         ) : (
           <p id="ayuda-empresa" className="ayuda-empresa">
             {cargandoEmpresas
               ? "Buscando empresas con liquidación en este periodo…"
-              : `${empresas.length} empresas con liquidación en ${periodoActual?.perinombre ?? "este periodo"}`}
+              : `${empresas.length} empresas con liquidación en ${nombreMes(periodoActual)}`}
             {busqueda && !empresa && <span className="aviso-empresa"> · Sin coincidencia exacta</span>}
           </p>
         )}
