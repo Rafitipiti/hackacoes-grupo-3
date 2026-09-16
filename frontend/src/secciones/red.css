@@ -16,16 +16,31 @@
   stroke-linejoin: round;
 }
 .mapa-peru .barra-punto {
-  fill: var(--serie-1);
-  fill-opacity: .75;
+  fill: var(--serie-1); /* lo pisa el color de la escala, en linea */
+  fill-opacity: .9;
   stroke: var(--surface);
   stroke-width: .8;
   cursor: pointer;
   transition: r .12s ease;
 }
 .mapa-peru .barra-punto:hover, .mapa-peru .barra-punto:focus-visible { fill-opacity: 1; outline: none; stroke: var(--ink); }
-.mapa-peru .barra-punto.nominal { fill: transparent; stroke: var(--serie-2); stroke-width: 1.2; }
-.mapa-peru .barra-punto.activa { fill: var(--serie-2); fill-opacity: 1; stroke: var(--ink); stroke-width: 1.5; }
+.mapa-peru .barra-punto.nominal { fill: transparent !important; stroke-width: 1.6; }
+.mapa-peru .barra-punto.activa { fill-opacity: 1; stroke: var(--ink); stroke-width: 2; }
+
+/* Leyenda de la escala fija de costo marginal, bajo el mapa. */
+.leyenda-cmg {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 11px;
+  color: var(--ink-2);
+}
+.leyenda-cmg li { display: inline-flex; align-items: center; gap: 5px; }
+.leyenda-cmg .muestra { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 1px solid var(--border); }
+.muestra-cmg { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
 
 .tabla-barras input[type="search"] {
   flex: 1 1 160px;

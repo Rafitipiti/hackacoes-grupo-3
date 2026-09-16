@@ -28,39 +28,67 @@ const PALETA = [
   "var(--s3)", "var(--seq6)", "var(--crit)", "var(--ink-2)",
 ];
 
+// Escala de color del costo marginal, en S/ por MWh (peticion del usuario,
+// 2026-09-16). Es una escala fija y semantica -- morado barato, rojo caro --
+// asi que no sigue al tema: el mismo tramo se pinta igual en claro y oscuro.
+const ESCALA_CMG = [
+  { hasta: 20, color: "#7b3fbf", etiqueta: "0 – 20" },
+  { hasta: 30, color: "#0e6b3a", etiqueta: "20 – 30" },
+  { hasta: 50, color: "#1baf5a", etiqueta: "30 – 50" },
+  { hasta: 100, color: "#7fd069", etiqueta: "50 – 100" },
+  { hasta: 150, color: "#3ec6c0", etiqueta: "100 – 150" },
+  { hasta: 250, color: "#f2c84b", etiqueta: "150 – 250" },
+  { hasta: 400, color: "#f4b183", etiqueta: "250 – 400" },
+  { hasta: 500, color: "#f07f1f", etiqueta: "400 – 500" },
+  { hasta: Infinity, color: "#d02b2b", etiqueta: "más de 500" },
+];
+
+function colorCmg(promedio) {
+  const soles = promedio * 1000;
+  return (ESCALA_CMG.find((t) => soles < t.hasta) ?? ESCALA_CMG[ESCALA_CMG.length - 1]).color;
+}
+
+function LeyendaCmg() {
+  return (
+    <ul className="leyenda-cmg" aria-label="Escala de color del costo marginal, en soles por MWh">
+      {ESCALA_CMG.map((t) => (
+        <li key={t.etiqueta}>
+          <span className="muestra" style={{ background: t.color }} aria-hidden="true" />
+          {t.etiqueta}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function cmg(valor) {
   return valor === null || valor === undefined ? "—" : `${numero(valor * 1000, 2)} S/ por MWh`;
 }
 
 function MapaBarras({ barras, seleccionada, alElegir }) {
-  const [minimo, maximo] = useMemo(() => {
-    const valores = barras.map((b) => b.cmg_promedio);
-    return [Math.min(...valores), Math.max(...valores)];
-  }, [barras]);
-
-  // Radio por costo marginal: la barra mas cara del mes, la mas grande.
-  function radio(b) {
-    if (maximo === minimo) return 4;
-    return 3 + 6 * ((b.cmg_promedio - minimo) / (maximo - minimo));
-  }
+  // El color codifica el precio (ESCALA_CMG); el tamano es uniforme para
+  // que no compita con el.
+  const radio = 4.5;
 
   return (
     <svg
       className="mapa-peru"
       viewBox={`0 0 ${ANCHO_MAPA} ${ALTO_MAPA}`}
       role="img"
-      aria-label={`Mapa del Perú con ${barras.length} barras del SEIN; el tamaño del punto sigue al costo marginal del mes.`}
+      aria-label={`Mapa del Perú con ${barras.length} barras del SEIN; el color del punto sigue al costo marginal del mes.`}
     >
       <path d={trazoPeru(ANCHO_MAPA, ALTO_MAPA)} className="pais" />
       {barras.map((b) => {
         const { x, y } = proyectar(b.lat, b.lon, ANCHO_MAPA, ALTO_MAPA);
         const activa = b.barrcodi === seleccionada;
+        const color = colorCmg(b.cmg_promedio);
         return (
           <circle
             key={b.barrcodi}
             cx={x}
             cy={y}
-            r={activa ? radio(b) + 3 : radio(b)}
+            r={activa ? radio + 3 : radio}
+            style={b.ubicacion_estimada ? { fill: color } : { stroke: color }}
             className={`barra-punto${activa ? " activa" : ""}${b.ubicacion_estimada ? "" : " nominal"}`}
             onClick={() => alElegir(b.barrcodi)}
             tabIndex={0}
@@ -303,7 +331,10 @@ function TablaBarras({ barras, seleccionada, alElegir }) {
               >
                 <td>{b.barrnombre}{!b.ubicacion_estimada && <span className="nota" title="Ubicación nominal en el mapa"> ◌</span>}</td>
                 <td className="num">{b.barrtension ?? "—"}</td>
-                <td className="num">{numero(b.cmg_promedio * 1000, 2)}</td>
+                <td className="num">
+                  <span className="muestra-cmg" style={{ background: colorCmg(b.cmg_promedio) }} aria-hidden="true" />
+                  {numero(b.cmg_promedio * 1000, 2)}
+                </td>
                 <td className="num">{numero(b.cmg_minimo * 1000, 1)} · {numero(b.cmg_maximo * 1000, 1)}</td>
               </tr>
             ))}
@@ -359,15 +390,18 @@ export function RedPrecios() {
       <div className="rejilla red-precios">
         <Tarjeta etiqueta={`Mapa del SEIN · ${periodoActual?.perinombre ?? ""}`} titulo="Barras y costo marginal">
           <p className="nota">
-            {datos?.total} barras con costo marginal en el mes; el tamaño del
-            punto sigue al promedio. Promedio del sistema:{" "}
+            {datos?.total} barras con costo marginal en el mes; el color del
+            punto sigue al promedio (S/ por MWh). Promedio del sistema:{" "}
             <strong className="cifra">{cmg(promedioSistema)}</strong>.
             {datos && datos.con_ubicacion < datos.total && (
               <> {datos.total - datos.con_ubicacion} barras sin localidad reconocida se dibujan en posición nominal (punto hueco).</>
             )}
           </p>
           <div className="mapa-y-tabla">
-            <MapaBarras barras={barras} seleccionada={seleccionada} alElegir={setSeleccionada} />
+            <div>
+              <MapaBarras barras={barras} seleccionada={seleccionada} alElegir={setSeleccionada} />
+              <LeyendaCmg />
+            </div>
             <TablaBarras barras={barras} seleccionada={seleccionada} alElegir={setSeleccionada} />
           </div>
         </Tarjeta>
